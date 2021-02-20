@@ -107,7 +107,6 @@ class Render:
                         if game['gameStatus'] == 3: #finished game
                             graphics.DrawText(canvas, self.font, 21, 8, graphics.Color(100, 100, 100), str(awayscore))
                             graphics.DrawText(canvas, self.font, 21, 18, graphics.Color(255, 255, 255), str(homescore)) #bright winner's score
-                            graphics.DrawText(canvas, self.font, 1, 28, graphics.Color(255, 0, 0), game['gameStatusText']) #red '"final" text
                     else:
                         if (awayscore - homescore) <= 15: #close game
                             graphics.DrawText(canvas, self.font, 1, 28, graphics.Color(255, 255, 255), game['gameStatusText']) #bright quarter and time remaining
@@ -116,9 +115,12 @@ class Render:
                             graphics.DrawText(canvas, self.font, 21, 8, graphics.Color(255, 255, 255), str(awayscore)) #bright winner's score
                             graphics.DrawText(canvas, self.font, 21, 18, graphics.Color(100, 100, 100), str(homescore)) 
                             graphics.DrawText(canvas, self.font, 1, 28, graphics.Color(255, 0, 0), game['gameStatusText']) #red '"final" text
-                else:
-                    graphics.DrawText(canvas, self.font, 1, 27, graphics.Color(100, 100, 100), game['gameStatusText'])
-            else:
+                else: #not a close game
+                    if game['gameStatus'] == 3: #finished game
+                        graphics.DrawText(canvas, self.font, 1, 28, graphics.Color(255, 0, 0), game['gameStatusText']) #red '"final" text
+                    else:
+                        graphics.DrawText(canvas, self.font, 1, 27, graphics.Color(100, 100, 100), game['gameStatusText'])
+            else: #upcoming game
                 awayrecord = str(game['awayTeam']['wins']) + '-' + str(game['awayTeam']['losses'])
                 homerecord = str(game['homeTeam']['wins']) + '-' + str(game['homeTeam']['losses'])
                 graphics.DrawText(canvas, self.font2, 21, 7, graphics.Color(100, 100, 100), awayrecord) #away team record
