@@ -15,7 +15,7 @@ class Render:
         self.options.drop_privileges = False
         
         
-        self.path = '/home/pi/NBA-scoreboard/'
+        self.path = '/home/pi/My-NBA-scoreboard/'
         
         self.font = graphics.Font()
         self.font.LoadFont("/home/pi/rpi-rgb-led-matrix/fonts/6x12.bdf")
