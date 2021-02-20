@@ -89,8 +89,8 @@ class Render:
             #graphics.DrawText(canvas, self.font2, 64 - len(str(spread))*4, 18, graphics.Color(0, 0, 200), spread)
             #graphics.DrawText(canvas, self.font, 1, 18, graphics.Color(self.team_colors[hometeam][1][0], self.team_colors[hometeam][1][1], self.team_colors[hometeam][1][2]), hometeam)
             #graphics.DrawText(canvas, self.font, 1, 8, graphics.Color(self.team_colors[awayteam][1][0], self.team_colors[awayteam][1][1], self.team_colors[awayteam][1][2]), awayteam)
-            image = Image.open("lal.png")
-            image1 = Image.open("mil.png")
+            image = Image.open("gsw.png")
+            image1 = Image.open("phi.png")
             image.thumbnail((16,40))
             image1.thumbnail((16,40))
 
