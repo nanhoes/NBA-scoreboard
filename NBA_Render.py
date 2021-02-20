@@ -97,7 +97,7 @@ class Render:
                 awayscore = game['awayTeam']['score']
                 graphics.DrawText(canvas, self.font, 21, 8, graphics.Color(255, 255, 255), str(awayscore))
                 graphics.DrawText(canvas, self.font, 21, 18, graphics.Color(255, 255, 255), str(homescore))
-                graphics.DrawText(canvas, self.font, 1, 27, graphics.Color(100, 100, 100), game['gameStatusText'])
+               # graphics.DrawText(canvas, self.font, 1, 27, graphics.Color(100, 100, 100), game['gameStatusText'])
                 timeremaining = game['gameStatusText']
                 if timeremaining[1] >= '4' and (timeremaining[3] == '0' and timeremaining[4] <= '3'): #Q4 or OT < 4min remaining
                     if homescore > awayscore:
@@ -121,6 +121,8 @@ class Render:
                 homerecord = str(game['homeTeam']['wins']) + '-' + str(game['homeTeam']['losses'])
                 graphics.DrawText(canvas, self.font2, 21, 7, graphics.Color(100, 100, 100), awayrecord) #away team record
                 graphics.DrawText(canvas, self.font2, 21, 17, graphics.Color(100, 100, 100), homerecord) #home team record
+                graphics.DrawText(canvas, self.font, 1, 27, graphics.Color(100, 100, 100), game['gameStatusText'])
+
                 if game['gameStatusText'] != 'PPD': #upcoming game
                     graphics.DrawText(canvas, self.font, 1, 27, graphics.Color(100, 100, 100), game['gameStatusText'][0:len(game['gameStatusText']) - 3])
                 if game['gameStatusText'] == 'PPD': #postponed game
