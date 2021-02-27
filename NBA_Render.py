@@ -113,9 +113,12 @@ class Render:
                 graphics.DrawText(canvas, self.font, 1, 28, graphics.Color(255, 0, 0), game['gameStatusText']) #red '"final" text
                 if homescore > awayscore:
                     graphics.DrawText(canvas, self.font, 21, 18, graphics.Color(255, 255, 255), str(homescore)) #bright home winner score
+                    graphics.DrawText(canvas, self.font, 21, 8, graphics.Color(100, 100, 100), str(awayscore)) #bright away winner score
+
                 else:
                     graphics.DrawText(canvas, self.font, 21, 8, graphics.Color(255, 255, 255), str(awayscore)) #bright away winner score
-                    
+                    graphics.DrawText(canvas, self.font, 21, 18, graphics.Color(100, 100, 100), str(homescore)) #bright home winner score
+
             if game['gameStatus'] == 1: #upcoming game
                 awayrecord = str(game['awayTeam']['wins']) + '-' + str(game['awayTeam']['losses'])
                 homerecord = str(game['homeTeam']['wins']) + '-' + str(game['homeTeam']['losses'])
