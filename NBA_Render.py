@@ -91,10 +91,9 @@ class Render:
             graphics.DrawText(canvas, self.font, 1, 8, graphics.Color(self.team_colors[awayteam][1][0], self.team_colors[awayteam][1][1], self.team_colors[awayteam][1][2]), awayteam)
          
             
-            
+            homescore = game['homeTeam']['score']
+            awayscore = game['awayTeam']['score']
             if game['gameStatus'] == 2: #game is live
-                homescore = game['homeTeam']['score']
-                awayscore = game['awayTeam']['score']
                 graphics.DrawText(canvas, self.font, 21, 8, graphics.Color(255, 255, 255), str(awayscore)) #bright score
                 graphics.DrawText(canvas, self.font, 21, 18, graphics.Color(255, 255, 255), str(homescore)) #bright score
                 timeremaining = game['gameStatusText']
