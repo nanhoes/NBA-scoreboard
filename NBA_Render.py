@@ -178,7 +178,6 @@ class Render:
                             time.sleep(2)
                             break
                     time.sleep(0.01)
-                    canvas = matrix.SwapOnVSync(canvas)
  
 
 
