@@ -77,15 +77,15 @@ class Render:
                 #print('No spreads for this game.')
                 spread = ''
                 over_under = ''
-            try:
-                if game['gameStatus'] != 2:
-                    spread = spreads_data[gamelink]['spread']
-                    over_under = spreads_data[gamelink]['over_under']
+            #try:
+             #   if game['gameStatus'] != 2:
+              #      spread = spreads_data[gamelink]['spread']
+               #     over_under = spreads_data[gamelink]['over_under']
                     
-            except KeyError:
+            #except KeyError:
                 #print('No spreads for this game.')
-                spread = ''
-                over_under = ''
+             #   spread = ''
+              #  over_under = ''
                             
             for line in range(0,32):
                 graphics.DrawLine(canvas, 0, line, 64, line, graphics.Color(0, 0, 0))
