@@ -208,7 +208,7 @@ class Render:
             time.sleep(5)
             
 if __name__=='__main__':
-    while True:
+   # while True:
         Render().Render_Games()
         
 #/basketball/nba/new-orleans-pelicans-los-angeles-clippers-20210113
