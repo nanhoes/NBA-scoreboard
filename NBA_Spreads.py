@@ -67,7 +67,7 @@ class NBA_Spreads:
         for game in response[0]['events']:
             
             if game['type'] != 'GAMEEVENT' or game['live'] != True:
-                #print('Not a game.')
+                print('Not a game.')
                 continue
             
             gamelink = game['link'][0:len(game['link'])-4]
