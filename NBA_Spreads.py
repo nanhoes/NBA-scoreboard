@@ -58,7 +58,7 @@ class NBA_Spreads:
             data[gamelink]['hometeam'] = game['displayGroups'][0]['markets'][1]['outcomes'][1]['description']
             data[gamelink]['awayteam'] = game['displayGroups'][0]['markets'][1]['outcomes'][0]['description']
             data[gamelink]['spread'] = game['displayGroups'][0]['markets'][1]['outcomes'][1]['price']['handicap']
-            data[gamelink]['over_under'] = game['displayGroups'][0]['markets'][2]['outcomes'][0]['price']['handicap']
+            data[gamelink]['over_under'] = game['displayGroups'][0]['markets'][2]['outcomes'][0]['price']['handicap'][0]
         
         with open(self.path, 'w') as file:
             json.dump(data, file)
