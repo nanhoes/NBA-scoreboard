@@ -167,9 +167,9 @@ class Render:
                 pos = offscreen_canvas.width
                 while True:         
                     canvas.Clear()
-                    len = graphics.DrawText(canvas, self.font2, pos, 31, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]), homestatline)
+                    len1 = graphics.DrawText(canvas, self.font2, pos, 31, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]), homestatline)
                     pos -= 1
-                    if (pos + len < 0):
+                    if (pos + len1 < 0):
                         pos = canvas.width
                     
                     time.sleep(0.04)
