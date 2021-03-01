@@ -157,25 +157,24 @@ class Render:
                     return All_words2[n-1]
                 awayleaderlastname = findawaylastname(awayleadername,2) 
                 awaystatline = awayleadername[0] + '.' + str(awayleaderlastname) + ' ' + str(awayleaderpoints) + '-' + str(awayleaderrebounds) + '-' + str(awayleaderassists)
-#                graphics.DrawText(canvas, self.font2, 1, 31, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]), $
-     
+
              
                    
 
 
 
-                pos = canvas.width
-                while True:         
-                    for x in range(0, canvas.width):
-                        for y in range(20, canvas.height):
-                            canvas.SetPixel(x, y, 0, 0, 0)
-                    len1 = graphics.DrawText(canvas, self.font2, pos, 31, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]), homestatline)
-                    pos -= 1
-                    if (pos + len1 < 0):
-                        pos = canvas.width
+#                pos = canvas.width
+ #               while True:         
+  #                  for x in range(0, canvas.width):
+   #                     for y in range(20, canvas.height):
+    #                        canvas.SetPixel(x, y, 0, 0, 0)
+     #               len1 = graphics.DrawText(canvas, self.font2, pos, 31, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]), homestatline)
+      #              pos -= 1
+       #             if (pos + len1 < 0):
+        #                pos = canvas.width
                     
-                    time.sleep(0.04)
-                    canvas = matrix.SwapOnVSync(canvas)
+         #           time.sleep(0.04)
+          #          canvas = matrix.SwapOnVSync(canvas)
 
             
             
@@ -187,7 +186,7 @@ class Render:
             time.sleep(5)
             
 if __name__=='__main__':
-   # while True:
+    while True:
         Render().Render_Games()
         
 #/basketball/nba/new-orleans-pelicans-los-angeles-clippers-20210113
