@@ -178,9 +178,9 @@ class Render:
                         if pos == -(len1-63) or len1 <= 63:                 
                             time.sleep(2)
                             break
+                    time.sleep(0.01)
                     for line in range(20,32):
                         graphics.DrawLine(canvas, 0, line, 63, line, graphics.Color(0, 0, 0))
-                    time.sleep(0.01)
                     canvas = matrix.SwapOnVSync(canvas)
 
 
