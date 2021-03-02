@@ -177,22 +177,20 @@ class Render:
           #          canvas = matrix.SwapOnVSync(canvas)
 
             
-            
-            
-            
-            
-            
-            canvas = matrix.SwapOnVSync(canvas)
-            time.sleep(4)
+        def Render_Time(self, printer=False):
+            matrix = RGBMatrix(options=self.options)
+            canvas = matrix.CreateFrameCanvas()
             now = dt.datetime.now()
-            current_time = now.strftime("%H:%M:%S")
+            current_time = now.strftime("%-I:%M")
             graphics.DrawText(canvas, self.font, 21, 18, graphics.Color(255, 255, 255), current_time) #bright home winner score
             canvas = matrix.SwapOnVSync(canvas)
-            canvas.Clear()
             time.sleep(4)
             
 if __name__=='__main__':
     while True:
-        Render().Render_Games()
+        if current_time[3] == '9':
+            Render().Render_Time()
+        else:
+            Render().Render_Games()
         
 #/basketball/nba/new-orleans-pelicans-los-angeles-clippers-20210113
