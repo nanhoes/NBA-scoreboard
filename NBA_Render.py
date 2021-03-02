@@ -182,7 +182,7 @@ class Render:
             
             
             
-            canvas = matrix.SwapOnVSync(canvas)
+   #         canvas = matrix.SwapOnVSync(canvas)
             
             now = dt.datetime.now()
             current_time = now.strftime("%H:%M:%S")
