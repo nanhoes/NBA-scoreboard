@@ -183,7 +183,7 @@ class Render:
             
             
    #         canvas = matrix.SwapOnVSync(canvas)
-            
+            canvas.Clear()
             now = dt.datetime.now()
             current_time = now.strftime("%H:%M:%S")
             graphics.DrawText(canvas, self.font, 21, 18, graphics.Color(255, 255, 255), current_time) #bright home winner score
