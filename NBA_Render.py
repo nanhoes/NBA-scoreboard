@@ -16,9 +16,11 @@ class Render:
         self.options.drop_privileges = False
         
         now = dt.datetime.now()
-        current_time = now.strftime("%-I:%M") 
-        if current_time[3] == '6':
+        current_time = now.strftime("%H:%M") 
+        if current_time[0] == '1' and (current_time[1] >= '1' and current_time[1] <= '7'):
             self.options.brightness = 10
+        else:
+            self.options.brightness = 100
         
         self.path = '/home/pi/My-NBA-scoreboard/'
         
