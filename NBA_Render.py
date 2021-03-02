@@ -17,7 +17,7 @@ class Render:
         
         now = dt.datetime.now()
         current_time = now.strftime("%-I:%M") 
-        if current_time[3] == '5':
+        if current_time[3] == '6':
             self.options.brightness = 10
         
         self.path = '/home/pi/My-NBA-scoreboard/'
@@ -186,3 +186,5 @@ class Render:
 if __name__=='__main__':
     while True:
         Render().Render_Games()
+        
+        
