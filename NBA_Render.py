@@ -139,7 +139,7 @@ class Render:
                 if game['gameStatusText'] == 'PPD': #postponed game
                     graphics.DrawText(canvas, self.font, 1, 28, graphics.Color(100, 100, 100), 'Postponed')
             
-          
+            time.sleep(2)
             
             if game['gameStatus'] != 1 and game['period'] !=1:
                 homeleadername = game['gameLeaders']['homeLeaders']['name']
