@@ -185,7 +185,7 @@ class Render:
             canvas = matrix.SwapOnVSync(canvas)
             
             datetime_object = dt.datetime.now()
-            graphics.DrawText(canvas, self.font, 21, 18, graphics.Color(255, 255, 255), datetime_object)) #bright home winner score
+            graphics.DrawText(canvas, self.font, 21, 18, graphics.Color(255, 255, 255), datetime_object) #bright home winner score
             canvas = matrix.SwapOnVSync(canvas)
 
             time.sleep(4)
