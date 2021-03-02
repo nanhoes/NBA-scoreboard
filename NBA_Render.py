@@ -15,6 +15,10 @@ class Render:
         self.options.cols = 64
         self.options.drop_privileges = False
         
+        now = dt.datetime.now()
+        current_time = now.strftime("%-I:%M") 
+        if current_time[3] == '5':
+            self.options.brightness = 10
         
         self.path = '/home/pi/My-NBA-scoreboard/'
         
