@@ -189,10 +189,13 @@ class Render:
             canvas = matrix.SwapOnVSync(canvas)
             time.sleep(4)
             
+
 if __name__=='__main__':
+    now = dt.datetime.now()
+    current_time = now.strftime("%-I:%M")
     while True:
         Render().Render_Games()
-        if current_time[3] == '6':
+        if current_time[3] == '0':
             break
         
 #/basketball/nba/new-orleans-pelicans-los-angeles-clippers-20210113
