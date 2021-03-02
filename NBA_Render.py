@@ -188,7 +188,7 @@ class Render:
             current_time = now.strftime("%H:%M:%S")
             graphics.DrawText(canvas, self.font, 21, 18, graphics.Color(255, 255, 255), current_time) #bright home winner score
             canvas = matrix.SwapOnVSync(canvas)
-
+            canvas.Clear()
             time.sleep(4)
             
 if __name__=='__main__':
