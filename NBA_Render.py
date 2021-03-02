@@ -188,7 +188,8 @@ class Render:
             
 if __name__=='__main__':
     while True:
-        if current_time[3] == '9':
+        current_time = now.strftime("%-I:%M")
+        if current_time[3] == '1':
             Render().Render_Time()
         else:
             Render().Render_Games()
