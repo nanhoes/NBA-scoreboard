@@ -183,6 +183,10 @@ class Render:
             
             
             canvas = matrix.SwapOnVSync(canvas)
+            
+            graphics.DrawText(canvas, self.font, 21, 18, graphics.Color(255, 255, 255), datetime.datetime.now()) #bright home winner score
+            canvas = matrix.SwapOnVSync(canvas)
+
             time.sleep(4)
             
 if __name__=='__main__':
