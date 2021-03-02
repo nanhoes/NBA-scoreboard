@@ -195,7 +195,7 @@ if __name__=='__main__':
     current_time = now.strftime("%-I:%M")
     while True:
         Render().Render_Games()
-        if current_time[3] == '0':
+        if current_time[3] == '2':
             break
         
 #/basketball/nba/new-orleans-pelicans-los-angeles-clippers-20210113
