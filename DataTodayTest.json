@@ -1,0 +1,109 @@
+[
+      {
+        "gameId": "0022000536",
+        "gameCode": "20210302/MEMWAS",
+        "gameStatus": 1,
+        "gameStatusText": "7:00 pm ET",
+        "period": 0,
+        "gameClock": "",
+        "gameTimeUTC": "2021-03-03T00:00:00Z",
+        "gameEt": "2021-03-02T19:00:00Z",
+        "regulationPeriods": 4,
+        "seriesGameNumber": "",
+        "seriesText": "",
+        "homeTeam": {
+          "teamId": 1610612764,
+          "teamName": "Wizards",
+          "teamCity": "Washington",
+          "teamTricode": "WAS",
+          "wins": 13,
+          "losses": 19,
+          "score": 0,
+          "inBonus": null,
+          "timeoutsRemaining": 0,
+          "periods": [
+            {
+              "period": 1,
+              "periodType": "REGULAR",
+              "score": 0
+            },
+            {
+              "period": 2,
+              "periodType": "REGULAR",
+              "score": 0
+            },
+            {
+              "period": 3,
+              "periodType": "REGULAR",
+              "score": 0
+            },
+            {
+              "period": 4,
+              "periodType": "REGULAR",
+              "score": 0
+            }
+          ]
+        },
+        "awayTeam": {
+          "teamId": 1610612763,
+          "teamName": "Grizzlies",
+          "teamCity": "Memphis",
+          "teamTricode": "MEM",
+          "wins": 15,
+          "losses": 15,
+          "score": 0,
+          "inBonus": null,
+          "timeoutsRemaining": 0,
+          "periods": [
+            {
+              "period": 1,
+              "periodType": "REGULAR",
+              "score": 0
+            },
+            {
+              "period": 2,
+              "periodType": "REGULAR",
+              "score": 0
+            },
+            {
+              "period": 3,
+              "periodType": "REGULAR",
+              "score": 0
+            },
+            {
+              "period": 4,
+              "periodType": "REGULAR",
+              "score": 0
+            }
+          ]
+        },
+        "gameLeaders": {
+          "homeLeaders": {
+            "personId": 0,
+            "name": "Juliano Rosario",
+            "jerseyNum": "",
+            "position": "",
+            "teamTricode": "WAS",
+            "playerSlug": null,
+            "points": 50,
+            "rebounds": 15,
+            "assists": 5
+          },
+          "awayLeaders": {
+            "personId": 0,
+            "name": "",
+            "jerseyNum": "",
+            "position": "",
+            "teamTricode": "MEM",
+            "playerSlug": null,
+            "points": 0,
+            "rebounds": 0,
+            "assists": 0
+          }
+        },
+        "pbOdds": {
+          "team": null,
+          "odds": 0.0,
+          "suspended": 1
+        }
+      }]
