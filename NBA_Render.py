@@ -171,7 +171,7 @@ class Render:
 
                 pos = canvas.width
                 while True:         
-                    print(homestatlime)
+                    print(homestatline)
                     for x in range(0, canvas.width):
                         for y in range(20, canvas.height):
                             canvas.SetPixel(x, y, 0, 0, 0)
