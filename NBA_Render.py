@@ -186,7 +186,7 @@ class Render:
             time.sleep(4)
 
 if __name__=='__main__':
-    while True:
+   # while True:
         Render().Render_Games()
         
         
