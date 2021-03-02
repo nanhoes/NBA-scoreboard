@@ -175,6 +175,9 @@ class Render:
                     
          #           time.sleep(0.04)
           #          canvas = matrix.SwapOnVSync(canvas)
+            
+            canvas = matrix.SwapOnVSync(canvas)
+            time.sleep(4)
 
             
         def Render_Time(self, printer=False):
