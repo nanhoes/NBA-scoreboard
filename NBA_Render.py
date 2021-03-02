@@ -38,7 +38,7 @@ class Render:
             for day in os.listdir(self.path):
                 if day=='.DS_Store':
                     continue
-                if day == 'DataToday.json':
+                if day == 'DataTodayTest.json':
                     with open(self.path + day) as file:
                         game_data = json.load(file)
                 
@@ -169,18 +169,18 @@ class Render:
 
 
 
-#                pos = canvas.width
- #               while True:         
-  #                  for x in range(0, canvas.width):
-   #                     for y in range(20, canvas.height):
-    #                        canvas.SetPixel(x, y, 0, 0, 0)
-     #               len1 = graphics.DrawText(canvas, self.font2, pos, 31, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]), homestatline)
-      #              pos -= 1
-       #             if (pos + len1 < 0):
-        #                pos = canvas.width
+                pos = canvas.width
+                while True:         
+                    for x in range(0, canvas.width):
+                        for y in range(20, canvas.height):
+                            canvas.SetPixel(x, y, 0, 0, 0)
+                    len1 = graphics.DrawText(canvas, self.font2, pos, 31, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]), homestatline)
+                    pos -= 1
+                    if (pos + len1 < 0):
+                        pos = canvas.width
+                   
+                    time.sleep(0.04)
                     
-         #           time.sleep(0.04)
-          #          canvas = matrix.SwapOnVSync(canvas)
             
             canvas = matrix.SwapOnVSync(canvas)
             time.sleep(4)
