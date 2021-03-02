@@ -190,12 +190,13 @@ class Render:
             time.sleep(4)
             
 if __name__=='__main__':
-    while True:
-        now = dt.datetime.now()
-        current_time = now.strftime("%-I:%M")
-        if current_time[3] == '4':
+    now = dt.datetime.now()
+    current_time = now.strftime("%-I:%M")
+    if current_time[3] == '4':
+        while True:
             Render().Render_Time()
-        else:
+    else:
+        while True:
             Render().Render_Games()
         
 #/basketball/nba/new-orleans-pelicans-los-angeles-clippers-20210113
