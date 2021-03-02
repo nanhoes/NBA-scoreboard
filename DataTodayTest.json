@@ -2,9 +2,9 @@
       {
         "gameId": "0022000536",
         "gameCode": "20210302/MEMWAS",
-        "gameStatus": 1,
+        "gameStatus": 2,
         "gameStatusText": "7:00 pm ET",
-        "period": 0,
+        "period": 2,
         "gameClock": "",
         "gameTimeUTC": "2021-03-03T00:00:00Z",
         "gameEt": "2021-03-02T19:00:00Z",
