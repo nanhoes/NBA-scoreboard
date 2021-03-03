@@ -167,7 +167,7 @@ class Render:
 
 
 
-                pos = canvas.width
+                pos = 0
                 while True:         
                     print(homestatline)
                     for x in range(0, canvas.width):
