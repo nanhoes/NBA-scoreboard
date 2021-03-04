@@ -103,7 +103,7 @@ class Render:
                 graphics.DrawText(canvas, self.font, 21, 8, graphics.Color(255, 255, 255), str(awayscore)) #bright score
                 graphics.DrawText(canvas, self.font, 21, 18, graphics.Color(255, 255, 255), str(homescore)) #bright score
                 timeremaining = game['gameStatusText']
-                if (timeremaining[1] >= '4' and (timeremaining[3] == '0' and timeremaining[4] <= '3')) or timeremaining[1] > '4': #Q4 or OT < 4min remaining
+                if (timeremaining[1] >= '4' and (timeremaining[3] == '0' and timeremaining[4] <= '3')) or (timeremaining[1] > '4' and timeremaining[0] == 'Q'): #Q4 or OT < 4min remaining
                     if homescore > awayscore:
                         if (homescore - awayscore) <= 15: #close game
                             graphics.DrawText(canvas, self.font, 1, 28, graphics.Color(255, 255, 255), game['gameStatusText']) #bright quarter and time remaining
