@@ -1,11 +1,10 @@
 #!/usr/bin/env python
-import time
-import sys
 from rgbmatrix import graphics, RGBMatrix, RGBMatrixOptions
 import os
 import json
 import datetime as dt
-from rgbmatrix import RGBMatrix, RGBMatrixOptions
+import time
+import sys
 from PIL import Image
 
 
