@@ -74,7 +74,7 @@ class Render:
             matrix.SetImage(image1.convert('RGB'),93,0)
                     
             for line in range(0,64):
-                graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
+                graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(255, 0, 0))
         
             canvas = matrix.SwapOnVSync(canvas)
         
