@@ -164,7 +164,14 @@ class Render:
                 awayleaderlastname = findawaylastname(awayleadername,2) 
                 awaystatline = awayleadername[0] + '.' + str(awayleaderlastname) + ' ' + str(awayleaderpoints) + '-' + str(awayleaderrebounds) + '-' + str(awayleaderassists)
 
-             
+        image = Image.open("/home/pi/My-NBA-scoreboard/lal.png")
+        image1 = Image.open("/home/pi/My-NBA-scoreboard/bkn.png")
+
+        # Make image fit our screen.
+        image.thumbnail((30, matrix.height))
+        matrix.SetImage(image.convert('RGB'),5,0)
+        image1.thumbnail((30, matrix.height))
+        matrix.SetImage(image1.convert('RGB'),93,0)
                    
 
 
