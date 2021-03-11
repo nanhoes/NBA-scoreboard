@@ -62,10 +62,8 @@ class Render:
 
                   
         for game in game_data:
-           # canvas = matrix.SwapOnVSync(canvas)
             for line in range(32,64):
                 graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(255, 0, 0))
-            canvas = matrix.SwapOnVSync(canvas)
 
             image = Image.open("/home/pi/My-NBA-scoreboard/lal.png")
             image1 = Image.open("/home/pi/My-NBA-scoreboard/bkn.png")
@@ -77,6 +75,7 @@ class Render:
             matrix.SetImage(image1.convert('RGB'),93,0)
                     
             canvas = matrix.SwapOnVSync(canvas)
+            
         
             hometeam = game['homeTeam']['teamTricode']
             awayteam = game['awayTeam']['teamTricode']
@@ -103,8 +102,8 @@ class Render:
                 spread = ''
                 over_under = ''
                                     
-            #for line in range(0,64):
-             #   graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
+            for line in range(0,64):
+                graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
             
             for line in range(20,38):
                 graphics.DrawLine(canvas, 0, line, 36, line, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]))
