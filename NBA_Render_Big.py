@@ -62,7 +62,7 @@ class Render:
 
                   
         for game in game_data:
-            canvas = matrix.SwapOnVSync(canvas)
+           # canvas = matrix.SwapOnVSync(canvas)
             for line in range(32,64):
                 graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
             
