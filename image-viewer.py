@@ -38,9 +38,9 @@ matrix.SetImage(image1.convert('RGB'),93,0)
 
 offscreen_canvas = matrix.SwapOnVSync(offscreen_canvas)
 
-graphics.DrawText(canvas, font2, 0, 0, graphics.Color(255, 255, 255), "LAL")
+graphics.DrawText(offscreen_canvas, font2, 0, 0, graphics.Color(255, 255, 255), "LAL")
 for line in range(20,38):
-    graphics.DrawLine(canvas, 0, line, 36, line, graphics.Color(255,0,0))    
+    graphics.DrawLine(offscreen_canvas, 0, line, 36, line, graphics.Color(255,0,0))    
 offscreen_canvas = matrix.SwapOnVSync(offscreen_canvas)
    
 try:
