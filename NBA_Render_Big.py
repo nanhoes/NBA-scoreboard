@@ -194,13 +194,12 @@ class Render:
                   #  time.sleep(0.04)
                     
 
-            canvas = matrix.SwapOnVSync(canvas)
+            canvas = matrix.SwapOnVSync(canvas)            
+            time.sleep(4)
             for line in range(0,64):
                 graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
+
             
-
-            time.sleep(4)
-
 if __name__=='__main__':
     while True:
         Render().Render_Games()
