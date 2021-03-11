@@ -21,7 +21,7 @@ matrix = RGBMatrix(options = options)
 
 # Make image fit our screen.
 image.thumbnail((40, matrix.height))
-matrix.SetImage(image.convert('RGB'),5,35)
+matrix.SetImage(image.convert('RGB'),5,0)
 
 try:
     print("Press CTRL-C to stop.")
