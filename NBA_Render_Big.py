@@ -65,10 +65,10 @@ class Render:
         for game in game_data:
                         
             # Make image fit our screen.
-            image.thumbnail((30, matrix.height))
-            matrix.SetImage(image.convert('RGB'),5,0)
-            image1.thumbnail((30, matrix.height))
-            matrix.SetImage(image1.convert('RGB'),93,0)
+          #  image.thumbnail((30, matrix.height))
+           # matrix.SetImage(image.convert('RGB'),5,0)
+            #image1.thumbnail((30, matrix.height))
+            #matrix.SetImage(image1.convert('RGB'),93,0)
                     
             canvas = matrix.SwapOnVSync(canvas)
             
