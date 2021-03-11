@@ -35,8 +35,8 @@ matrix = RGBMatrix(options = options)
 #image1.thumbnail((30, matrix.height))
 #matrix.SetImage(image1.convert('RGB'),93,0)
 
-offscreen_canvas = matrix.CreateFrameCanvas()
-graphics.DrawText(offscreen_canvas, font, 0, 0, graphics.Color(255, 255, 255), "LAL")
+canvas = matrix.CreateFrameCanvas()
+graphics.DrawText(canvas, font, 0, 0, graphics.Color(255, 255, 255), "LAL")
 #offscreen_canvas = matrix.SwapOnVSync(offscreen_canvas)
 
    
