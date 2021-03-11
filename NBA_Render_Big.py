@@ -93,8 +93,8 @@ class Render:
                 graphics.DrawLine(canvas, 0, line, 36, line, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]))
             for line in range(0,18):
                 graphics.DrawLine(canvas, 0, line, 36, line, graphics.Color(self.team_colors[awayteam][0][0], self.team_colors[awayteam][0][1], self.team_colors[awayteam][0][2]))
-            graphics.DrawText(canvas, self.font2, 128 - len(str(over_under))*4, 14, graphics.Color(0, 0, 200), over_under)
-            graphics.DrawText(canvas, self.font2, 128 - len(str(spread))*4, 34, graphics.Color(0, 0, 200), spread)
+            graphics.DrawText(canvas, self.font2, 128 - len(str(over_under))*8, 14, graphics.Color(0, 0, 200), over_under)
+            graphics.DrawText(canvas, self.font2, 128 - len(str(spread))*8, 34, graphics.Color(0, 0, 200), spread)
             graphics.DrawText(canvas, self.font, 1, 36, graphics.Color(self.team_colors[hometeam][1][0], self.team_colors[hometeam][1][1], self.team_colors[hometeam][1][2]), hometeam)
             graphics.DrawText(canvas, self.font, 1, 16, graphics.Color(self.team_colors[awayteam][1][0], self.team_colors[awayteam][1][1], self.team_colors[awayteam][1][2]), awayteam)
          
