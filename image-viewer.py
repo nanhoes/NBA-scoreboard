@@ -22,7 +22,7 @@ matrix = RGBMatrix(options = options)
 # Make image fit our screen.
 image.thumbnail((40, matrix.height))
 (left, upper, right, lower) = (20, 20, 100, 100)
-im_crop = im.crop((left, upper, right, lower))
+image.crop((left, upper, right, lower))
 matrix.SetImage(image.convert('RGB'))
 
 try:
