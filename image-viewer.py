@@ -28,7 +28,6 @@ team_colors = {'ATL': [[225, 58, 62], [100, 100, 100]], 'BOS': [[0, 131, 72], [1
 
 matrix = RGBMatrix(options = options)
 
-offscreen_canvas = matrix.CreateFrameCanvas()
 
 # Make image fit our screen.
 image.thumbnail((30, matrix.height))
@@ -36,7 +35,7 @@ matrix.SetImage(image.convert('RGB'),5,0)
 image1.thumbnail((30, matrix.height))
 matrix.SetImage(image1.convert('RGB'),93,0)
 
-
+offscreen_canvas = matrix.CreateFrameCanvas()
 graphics.DrawText(offscreen_canvas, font, 100, 100, graphics.Color(255, 0, 255), 'LAL')
 offscreen_canvas = matrix.SwapOnVSync(offscreen_canvas)
 
