@@ -30,10 +30,10 @@ matrix = RGBMatrix(options = options)
 
 
 # Make image fit our screen.
-image.thumbnail((30, matrix.height))
-matrix.SetImage(image.convert('RGB'),5,0)
-image1.thumbnail((30, matrix.height))
-matrix.SetImage(image1.convert('RGB'),93,0)
+#image.thumbnail((30, matrix.height))
+#matrix.SetImage(image.convert('RGB'),5,0)
+#image1.thumbnail((30, matrix.height))
+#matrix.SetImage(image1.convert('RGB'),93,0)
 
 offscreen_canvas = matrix.CreateFrameCanvas()
 graphics.DrawText(offscreen_canvas, font, 100, 100, graphics.Color(255, 0, 255), 'LAL')
