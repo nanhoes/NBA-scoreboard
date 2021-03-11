@@ -34,7 +34,7 @@ image.thumbnail((30, matrix.height))
 matrix.SetImage(image.convert('RGB'),5,0, True)
 
 
-matrix.graphics.DrawText(canvas, font, 100, 100, graphics.Color(255, 0, 255), 'LAL')
+matrix.graphics.DrawText(matrix.matrix, font, 100, 100, graphics.Color(255, 0, 255), 'LAL')
    
 
 try:
