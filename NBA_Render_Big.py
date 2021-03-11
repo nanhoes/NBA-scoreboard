@@ -70,11 +70,11 @@ class Render:
             graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
      
         # Make image fit our screen.
-   #     image.thumbnail((30, matrix.height))
-    #    matrix.SetImage(image.convert('RGB'),5,0)
-     #   image1.thumbnail((30, matrix.height))
-      #  matrix.SetImage(image1.convert('RGB'),93,0)
-       # canvas = matrix.SwapOnVSync(canvas)
+        image.thumbnail((30, matrix.height))
+        matrix.SetImage(image.convert('RGB'),5,0)
+        image1.thumbnail((30, matrix.height))
+        matrix.SetImage(image1.convert('RGB'),93,0)
+        canvas = matrix.SwapOnVSync(canvas)
 
       
         for game in game_data:
@@ -103,8 +103,8 @@ class Render:
                 spread = ''
                 over_under = ''
                                     
-            for line in range(0,64):
-                graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
+           # for line in range(0,64):
+            #    graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
             
             for line in range(20,38):
                 graphics.DrawLine(canvas, 0, line, 36, line, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]))
