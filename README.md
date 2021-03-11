@@ -12,6 +12,7 @@
       cd My-NBA-scoreboard
       sudo chmod +x install.sh
       sudo ./install.sh
+      sudo apt-get install python3-bs4
 ### bderr Crontab
       @reboot sleep 20; sudo python3 /home/pi/NBA-scoreboard/NBA_Data.py
 
