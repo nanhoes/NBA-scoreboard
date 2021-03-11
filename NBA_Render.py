@@ -14,7 +14,7 @@ class Render:
         self.options.rows = 32
         self.options.cols = 64
         self.options.drop_privileges = False
-        self.options.chain = 2
+        self.options.chain_length = 2
         self.options.parallel = 2
         
         now = dt.datetime.now()
