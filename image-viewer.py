@@ -31,7 +31,7 @@ canvas = matrix.CreateFrameCanvas()
 
 # Make image fit our screen.
 image.thumbnail((30, matrix.height))
-matrix.SetImage(image.convert('RGB'),5,0, false)
+matrix.SetImage(image.convert('RGB'),5,0, False)
 
 
 graphics.DrawText(canvas, font, 100, 100, graphics.Color(255, 0, 255), 'LAL')
