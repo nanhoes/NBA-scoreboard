@@ -4,7 +4,7 @@ import sys
 
 from rgbmatrix import RGBMatrix, RGBMatrixOptions
 from PIL import Image
-from PIL import ImageChops
+
 
 
 image = Image.open("/home/pi/My-NBA-scoreboard/lal.png")
@@ -21,7 +21,8 @@ matrix = RGBMatrix(options = options)
 
 # Make image fit our screen.
 image.thumbnail((40, matrix.height))
-ImageChops.offset(image,15,32)
+(left, upper, right, lower) = (20, 20, 100, 100)
+im_crop = im.crop((left, upper, right, lower))
 matrix.SetImage(image.convert('RGB'))
 
 try:
