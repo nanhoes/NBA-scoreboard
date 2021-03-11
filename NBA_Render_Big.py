@@ -40,7 +40,7 @@ class Render:
             for day in os.listdir(self.path):
                 if day=='.DS_Store':
                     continue
-                if day == 'DataTodayTest.json':
+                if day == 'DataToday.json':
                     with open(self.path + day) as file:
                         game_data = json.load(file)
                 
@@ -63,7 +63,9 @@ class Render:
                   
         for game in game_data:
             canvas = matrix.SwapOnVSync(canvas)
-            canvas.Clear()
+            for line in range(32,64):
+                graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
+            
             image = Image.open("/home/pi/My-NBA-scoreboard/lal.png")
             image1 = Image.open("/home/pi/My-NBA-scoreboard/bkn.png")
                         
