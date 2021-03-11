@@ -20,7 +20,7 @@ options.disable_hardware_pulsing = True
 matrix = RGBMatrix(options = options)
 
 # Make image fit our screen.
-image.thumbnail((40, matrix.height))
+image.thumbnail((30, matrix.height))
 matrix.SetImage(image.convert('RGB'),5,0)
 
 try:
