@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from rgbmatrix import, RGBMatrix, RGBMatrixOptions
+from rgbmatrix import RGBMatrix, RGBMatrixOptions
 import os
 import json
 import datetime as dt
