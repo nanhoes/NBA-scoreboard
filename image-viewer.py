@@ -19,7 +19,7 @@ matrix = RGBMatrix(options = options)
 
 # Make image fit our screen.
 image.thumbnail((30, matrix.height))
-image.offset(5,32)
+ImageChops.offset(5,32)
 matrix.SetImage(image.convert('RGB'))
 
 try:
