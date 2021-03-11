@@ -73,9 +73,8 @@ class Render:
             image1.thumbnail((30, matrix.height))
             matrix.SetImage(image1.convert('RGB'),93,0)
                     
-            for line in range(0,64):
-                graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(255, 0, 0))
-        
+            canvas.Clear() 
+
             canvas = matrix.SwapOnVSync(canvas)
         
             hometeam = game['homeTeam']['teamTricode']
