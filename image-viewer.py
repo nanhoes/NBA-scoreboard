@@ -5,7 +5,7 @@ import json
 import datetime as dt
 import time
 import sys
-from PIL import Image
+from PIL import Image, ImageFont, ImageDraw  
 
 
 
