@@ -68,7 +68,8 @@ class Render:
         
         for line in range(0,64):
             graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
-     
+        canvas = matrix.SwapOnVSync(canvas)
+
         # Make image fit our screen.
         image.thumbnail((30, matrix.height))
         matrix.SetImage(image.convert('RGB'),5,0)
