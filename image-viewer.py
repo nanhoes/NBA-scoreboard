@@ -9,8 +9,8 @@ from PIL import Image
 
 
 
-#image = Image.open("/home/pi/My-NBA-scoreboard/lal.png")
-#image1 = Image.open("/home/pi/My-NBA-scoreboard/bkn.png")
+image = Image.open("/home/pi/My-NBA-scoreboard/lal.png")
+image1 = Image.open("/home/pi/My-NBA-scoreboard/bkn.png")
 
 # Configuration for the matrix
 options = RGBMatrixOptions()
@@ -30,18 +30,16 @@ matrix = RGBMatrix(options = options)
 
 
 # Make image fit our screen.
-#image.thumbnail((30, matrix.height))
-#matrix.SetImage(image.convert('RGB'),5,0)
-#image1.thumbnail((30, matrix.height))
-#matrix.SetImage(image1.convert('RGB'),93,0)
+image.thumbnail((30, matrix.height))
+matrix.SetImage(image.convert('RGB'),5,0)
+image1.thumbnail((30, matrix.height))
+matrix.SetImage(image1.convert('RGB'),93,0)
 
-canvas = matrix.CreateFrameCanvas()
-canvas.Clear()                                    
 #graphics.DrawText(canvas, font2, 0, 0, graphics.Color(255, 255, 255), "LAL")
-for line in range(20,38):
-    graphics.DrawLine(canvas, 0, line, 36, line, graphics.Color(255,0,0))    
+#for line in range(20,38):
+ #   graphics.DrawLine(canvas, 0, line, 36, line, graphics.Color(255,0,0))    
 #offscreen_canvas = matrix.SwapOnVSync(offscreen_canvas)
-
+draw.text((5,5),'LAL', font = font, align = "left")
    
 try:
     print("Press CTRL-C to stop.")
