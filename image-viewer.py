@@ -37,7 +37,7 @@ matrix = RGBMatrix(options = options)
 
 offscreen_canvas = matrix.CreateFrameCanvas()
 graphics.DrawText(offscreen_canvas, font, 100, 100, graphics.Color(255, 0, 255), 'LAL')
-offscreen_canvas = matrix.SwapOnVSync(offscreen_canvas)
+#offscreen_canvas = matrix.SwapOnVSync(offscreen_canvas)
 
    
 try:
