@@ -4,6 +4,8 @@ import sys
 
 from rgbmatrix import RGBMatrix, RGBMatrixOptions
 from PIL import Image
+from PIL import ImageChops
+
 
 image = Image.open("/home/pi/My-NBA-scoreboard/lal.png")
 
