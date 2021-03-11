@@ -34,9 +34,6 @@ class Render:
             
     def Render_Games(self, printer=False):
         matrix = RGBMatrix(options=self.options)
-        
-        canvas = matrix.CreateFrameCanvas()
-
         date_range = []
         disp_live_odds = False
         try:
@@ -60,6 +57,9 @@ class Render:
         except:
             print('Error loading spreads data.')
             spreads_data = {}
+            
+        canvas = matrix.CreateFrameCanvas()
+
                   
         for game in game_data:
             canvas = matrix.SwapOnVSync(canvas)
