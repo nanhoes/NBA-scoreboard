@@ -16,6 +16,7 @@ class Render:
         self.options.drop_privileges = False
         self.options.chain_length = 2
         self.options.parallel = 2
+        self.options.disable_hardware_pulsing = true
         
         now = dt.datetime.now()
         current_time = now.strftime("%H:%M") 
