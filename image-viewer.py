@@ -11,6 +11,8 @@ from PIL import Image, ImageFont, ImageDraw
 
 image = Image.open("/home/pi/My-NBA-scoreboard/lal.png")
 image1 = Image.open("/home/pi/My-NBA-scoreboard/bkn.png")
+draw = ImageDraw.Draw(image)  
+
 
 # Configuration for the matrix
 options = RGBMatrixOptions()
