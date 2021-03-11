@@ -59,11 +59,10 @@ class Render:
             spreads_data = {}
             
         canvas = matrix.CreateFrameCanvas()
-
+        image = Image.open("/home/pi/My-NBA-scoreboard/lal.png")
+        image1 = Image.open("/home/pi/My-NBA-scoreboard/bkn.png")
                   
         for game in game_data:
-            image = Image.open("/home/pi/My-NBA-scoreboard/lal.png")
-            image1 = Image.open("/home/pi/My-NBA-scoreboard/bkn.png")
                         
             # Make image fit our screen.
             image.thumbnail((30, matrix.height))
