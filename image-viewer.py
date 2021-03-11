@@ -40,6 +40,7 @@ for line in range(0,18):
     
     
 canvas = matrix.SwapOnVSync(canvas)
+matrix.SetImage(image.convert('RGB'),5,0)
 
 
 try:
