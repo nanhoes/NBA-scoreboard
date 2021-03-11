@@ -63,7 +63,7 @@ class Render:
                   
         for game in game_data:
             for line in range(0,64):
-                graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
+                graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(255, 0, 0))
             image = Image.open("/home/pi/My-NBA-scoreboard/lal.png")
             image1 = Image.open("/home/pi/My-NBA-scoreboard/bkn.png")
                         
@@ -194,7 +194,7 @@ class Render:
                   #  time.sleep(0.04)
                     
 
-            #canvas = matrix.SwapOnVSync(canvas)            
+            canvas = matrix.SwapOnVSync(canvas)            
             time.sleep(4)
             
 if __name__=='__main__':
