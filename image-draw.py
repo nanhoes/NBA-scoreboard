@@ -46,4 +46,4 @@ for n in range(-32, 33):  # Start off top-left, move off bottom-right
     matrix.SetImage(image, n, n)
     time.sleep(0.05)
 
-#matrix.Clear()
+matrix.Clear()
