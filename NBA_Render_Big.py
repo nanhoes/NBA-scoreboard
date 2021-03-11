@@ -34,6 +34,9 @@ class Render:
             
     def Render_Games(self, printer=False):
         matrix = RGBMatrix(options=self.options)
+        
+        canvas = matrix.CreateFrameCanvas()
+
         date_range = []
         disp_live_odds = False
         try:
@@ -59,6 +62,8 @@ class Render:
             spreads_data = {}
                   
         for game in game_data:
+            for line in range(0,64):
+            graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
             image = Image.open("/home/pi/My-NBA-scoreboard/lal.png")
             image1 = Image.open("/home/pi/My-NBA-scoreboard/bkn.png")
                         
@@ -67,9 +72,6 @@ class Render:
             matrix.SetImage(image.convert('RGB'),5,0)
             image1.thumbnail((30, matrix.height))
             matrix.SetImage(image1.convert('RGB'),93,0)
-
-            canvas = matrix.CreateFrameCanvas()
-
         
             canvas = matrix.SwapOnVSync(canvas)
 
