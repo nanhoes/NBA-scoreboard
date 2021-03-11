@@ -20,7 +20,7 @@ class Render:
         now = dt.datetime.now()
         current_time = now.strftime("%H:%M") 
         if current_time[0] == '0' and (current_time[1] >= '1' and current_time[1] <= '7'):
-            self.options.brightness = 10
+            self.options.brightness = 100
         else:
             self.options.brightness = 100
         
@@ -63,7 +63,7 @@ class Render:
                   
         for game in game_data:
             for line in range(0,64):
-                graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(255, 0, 0))
+                graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
             image = Image.open("/home/pi/My-NBA-scoreboard/lal.png")
             image1 = Image.open("/home/pi/My-NBA-scoreboard/bkn.png")
                         
@@ -76,7 +76,7 @@ class Render:
             canvas = matrix.SwapOnVSync(canvas)
             
             for line in range(0,64):
-                graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(255, 0, 0))
+                graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
             
             hometeam = game['homeTeam']['teamTricode']
             awayteam = game['awayTeam']['teamTricode']
