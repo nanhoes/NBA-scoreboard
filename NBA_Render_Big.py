@@ -99,9 +99,6 @@ class Render:
                 spread = ''
                 over_under = ''
                                     
-            for line in range(0,64):
-                graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
-            
             for line in range(20,38):
                 graphics.DrawLine(canvas, 0, line, 36, line, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]))
             for line in range(0,18):
@@ -195,6 +192,9 @@ class Render:
 
             canvas = matrix.SwapOnVSync(canvas)            
             time.sleep(4)
+            for line in range(0,64):
+                graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
+            
             
 if __name__=='__main__':
     while True:
