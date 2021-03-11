@@ -37,7 +37,7 @@ matrix.SetImage(image1.convert('RGB'),93,0)
 
 offscreen_canvas = matrix.CreateFrameCanvas()
 graphics.DrawText(offscreen_canvas, font, 100, 100, graphics.Color(255, 0, 255), 'LAL')
-canvas = matrix.SwapOnVSync(offscreen_canvas)
+
    
 try:
     print("Press CTRL-C to stop.")
