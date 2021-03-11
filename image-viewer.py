@@ -18,9 +18,10 @@ options.disable_hardware_pulsing = True
 matrix = RGBMatrix(options = options)
 
 # Make image fit our screen.
-image.thumbnail((30, matrix.height))
+#image.thumbnail((30, matrix.height))
 
-matrix.SetImage(image.convert('RGB'))
+#matrix.SetImage(image.convert('RGB'))
+matrix.SetImage(image)
 
 try:
     print("Press CTRL-C to stop.")
