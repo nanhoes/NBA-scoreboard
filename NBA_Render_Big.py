@@ -200,7 +200,6 @@ class Render:
                     
 
             canvas = matrix.SwapOnVSync(canvas)
-            canvas = matrix.SwapOnVSync(canvas)
 
             time.sleep(4)
 
