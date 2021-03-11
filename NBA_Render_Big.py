@@ -61,17 +61,15 @@ class Render:
         for game in game_data:
             image = Image.open("/home/pi/My-NBA-scoreboard/lal.png")
             image1 = Image.open("/home/pi/My-NBA-scoreboard/bkn.png")
-            
-            canvas = matrix.CreateFrameCanvas()
-            
-            for line in range(0,64):
-                graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
-                
+                        
             # Make image fit our screen.
             image.thumbnail((30, matrix.height))
             matrix.SetImage(image.convert('RGB'),5,0)
             image1.thumbnail((30, matrix.height))
             matrix.SetImage(image1.convert('RGB'),93,0)
+
+            canvas = matrix.CreateFrameCanvas()
+
         
             canvas = matrix.SwapOnVSync(canvas)
 
