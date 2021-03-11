@@ -10,6 +10,7 @@ from PIL import Image
 
 
 image = Image.open("/home/pi/My-NBA-scoreboard/lal.png")
+image1 = Image.open("/home/pi/My-NBA-scoreboard/gsw.png")
 
 # Configuration for the matrix
 options = RGBMatrixOptions()
@@ -32,6 +33,9 @@ canvas = matrix.CreateFrameCanvas()
 # Make image fit our screen.
 image.thumbnail((30, matrix.height))
 matrix.SetImage(image.convert('RGB'),5,0, True)
+image1.thumbnail((30, matrix.height))
+matrix.SetImage(image1.convert('RGB'),123,0, True)
+
 
 
 graphics.DrawText(canvas, font, 100, 100, graphics.Color(255, 0, 255), 'LAL')
