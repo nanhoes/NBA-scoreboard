@@ -35,9 +35,7 @@ matrix.SetImage(image.convert('RGB'),5,0, False)
 
 
 graphics.DrawText(canvas, font, 100, 100, graphics.Color(255, 0, 255), 'LAL')
-    
-canvas = matrix.SwapOnVSync(canvas)
-
+   
 
 try:
     print("Press CTRL-C to stop.")
