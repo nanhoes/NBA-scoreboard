@@ -65,7 +65,8 @@ class Render:
            # canvas = matrix.SwapOnVSync(canvas)
             for line in range(32,64):
                 graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(255, 0, 0))
-            
+            canvas = matrix.SwapOnVSync(canvas)
+
             image = Image.open("/home/pi/My-NBA-scoreboard/lal.png")
             image1 = Image.open("/home/pi/My-NBA-scoreboard/bkn.png")
                         
