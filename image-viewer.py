@@ -36,7 +36,8 @@ matrix.SetImage(image.convert('RGB'),5,0)
 
 
 graphics.DrawText(canvas, font, 100, 100, graphics.Color(255, 0, 255), 'LAL')
-
+for line in range(0,18):
+    graphics.DrawLine(canvas, 0, line, 36, line, graphics.Color(255, 0, 255))
 
 try:
     print("Press CTRL-C to stop.")
