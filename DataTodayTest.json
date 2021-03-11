@@ -207,4 +207,10 @@
             "rebounds": 5,
             "assists": 10
           }
-        }]
+        },
+        "pbOdds": {
+          "team": null,
+          "odds": 0.0,
+          "suspended": 1
+        }
+      }]
