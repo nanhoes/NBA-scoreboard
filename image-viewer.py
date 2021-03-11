@@ -32,9 +32,9 @@ canvas = matrix.CreateFrameCanvas()
 
 # Make image fit our screen.
 image.thumbnail((30, matrix.height))
-matrix.SetImage(image.convert('RGB'),5,0, True)
+matrix.SetImage(image.convert('RGB'),5,0)
 image1.thumbnail((30, matrix.height))
-matrix.SetImage(image1.convert('RGB'),100,0, True)
+matrix.SetImage(image1.convert('RGB'),100,0)
 
 
 
