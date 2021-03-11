@@ -17,6 +17,11 @@ class Render:
         self.options.parallel = 2
         self.options.disable_hardware_pulsing = True
         
+           
+        image = Image.open("/home/pi/My-NBA-scoreboard/lal.png")
+        image1 = Image.open("/home/pi/My-NBA-scoreboard/bkn.png")
+
+        
         now = dt.datetime.now()
         current_time = now.strftime("%H:%M") 
         if current_time[0] == '0' and (current_time[1] >= '1' and current_time[1] <= '7'):
@@ -59,10 +64,7 @@ class Render:
             spreads_data = {}
         
         canvas = matrix.CreateFrameCanvas()
-        
-        image = Image.open("/home/pi/My-NBA-scoreboard/lal.png")
-        image1 = Image.open("/home/pi/My-NBA-scoreboard/bkn.png")
-
+     
         # Make image fit our screen.
         image.thumbnail((30, matrix.height))
         matrix.SetImage(image.convert('RGB'),5,0)
