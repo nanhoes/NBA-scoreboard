@@ -5,7 +5,7 @@ import sys
 from rgbmatrix import RGBMatrix, RGBMatrixOptions
 from PIL import Image
 
-image = Image.open("/My-NBA-scoreboard/lal.png")
+image = Image.open("/home/pi/My-NBA-scoreboard/lal.png")
 
 # Configuration for the matrix
 options = RGBMatrixOptions()
