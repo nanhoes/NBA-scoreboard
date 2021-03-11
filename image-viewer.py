@@ -27,7 +27,7 @@ font2.LoadFont("/home/pi/rpi-rgb-led-matrix/fonts/8x13.bdf")
 team_colors = {'ATL': [[225, 58, 62], [100, 100, 100]], 'BOS': [[0, 131, 72], [187, 151, 83]], 'BKN': [[100, 100, 100], [0, 0, 0]], 'CHA': [[29, 17, 96], [0, 140, 168]], 'CHI': [[206, 17, 65], [0, 0, 0]], 'CLE': [[134, 0, 56], [253, 187, 48]], 'DAL': [[0, 125, 197], [196, 206, 211]], 'DEN': [[77, 144, 205], [253, 185, 39]], 'DET': [[237, 23, 76], [0, 107, 182]], 'GSW': [[253, 185, 39], [0, 107, 182]], 'HOU': [[206, 17, 65], [196, 206, 211]], 'LAL': [[253, 185, 39], [85, 37, 130]], 'MEM': [[15, 88, 108], [190, 212, 233]], 'MIA': [[152, 0, 46], [0, 0, 0]], 'MIL': [[0, 71, 27], [240, 235, 210]], 'MIN': [[0, 80, 131], [0, 169, 79]], 'NOP': [[0, 43, 92], [227, 24, 55]], 'NYK': [[0, 107, 182], [245, 132, 38]], 'OKC': [[0, 125, 195], [240, 81, 51]], 'ORL': [[0, 125, 197], [0, 0, 0]], 'PHI': [[237, 23, 76], [0, 107, 182]], 'PHX': [[229, 96, 32], [29, 17, 96]], 'POR': [[224, 58, 62], [186, 195, 201]], 'SAC': [[114, 76, 159], [142, 144, 144]], 'SAS': [[186, 195, 201], [0, 0, 0]], 'TOR': [[206, 17, 65], [0, 0, 0]], 'UTA': [[0, 43, 92], [249, 160, 27]], 'WAS': [[0, 43, 92], [227, 24, 55]], 'IND': [[255, 198, 51], [0, 39, 93]], 'LAC': [[237, 23, 76], [0, 107, 182]]}
 
 matrix = RGBMatrix(options = options)
-offscreen_canvas = matrix.CreateFrameCanvas()
+canvas = matrix.CreateFrameCanvas()
 
 
 # Make image fit our screen.
@@ -36,13 +36,12 @@ matrix.SetImage(image.convert('RGB'),5,0)
 image1.thumbnail((30, matrix.height))
 matrix.SetImage(image1.convert('RGB'),93,0)
 
-offscreen_canvas = matrix.SwapOnVSync(offscreen_canvas)
+canvas = matrix.SwapOnVSync(canvas)
 
-graphics.DrawText(offscreen_canvas, font2, 100, 100, graphics.Color(255, 255, 255), 'LAL')
-offscreen_canvas = matrix.SwapOnVSync(offscreen_canvas)
+graphics.DrawText(canvas, font2, 100, 100, graphics.Color(255, 255, 255), 'LAL')
 for line in range(20,38):
-    graphics.DrawLine(offscreen_canvas, 0, line, 36, line, graphics.Color(255,0,0))    
-offscreen_canvas = matrix.SwapOnVSync(offscreen_canvas)
+    graphics.DrawLine(canvas, 0, line, 36, line, graphics.Color(255,0,0))    
+canvas = matrix.SwapOnVSync(canvas)
    
 try:
     print("Press CTRL-C to stop.")
