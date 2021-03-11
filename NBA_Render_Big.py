@@ -191,7 +191,7 @@ class Render:
         image1.thumbnail((30, matrix.height))
         matrix.SetImage(image1.convert('RGB'),93,0)
         
-        canvas.clear()
+        canvas.Clear()
         
         time.sleep(4)
 
