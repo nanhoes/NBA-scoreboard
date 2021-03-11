@@ -9,8 +9,8 @@ from PIL import Image
 
 
 
-image = Image.open("/home/pi/My-NBA-scoreboard/lal.png")
-image1 = Image.open("/home/pi/My-NBA-scoreboard/bkn.png")
+#image = Image.open("/home/pi/My-NBA-scoreboard/lal.png")
+#image1 = Image.open("/home/pi/My-NBA-scoreboard/bkn.png")
 
 # Configuration for the matrix
 options = RGBMatrixOptions()
