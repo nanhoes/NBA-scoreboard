@@ -76,6 +76,7 @@ class Render:
         image1.thumbnail((30, matrix.height))
         matrix.SetImage(image1.convert('RGB'),93,0)
         
+        canvas = matrix.SwapOnVSync(canvas)
 
       
         for game in game_data:
