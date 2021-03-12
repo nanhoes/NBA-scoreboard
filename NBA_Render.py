@@ -187,7 +187,7 @@ class Render:
                         if pos == -(len1-63) or len1 <= 63:                 
                             time.sleep(2)
                             break
-                    time.sleep(0.01)
+                    time.sleep(0.1)
                     canvas = matrix.SwapOnVSync(canvas)
 
                     
