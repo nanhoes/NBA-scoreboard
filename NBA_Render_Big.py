@@ -73,7 +73,7 @@ class Render:
             #image1.thumbnail((30, matrix.height))
             #matrix.SetImage(image1.convert('RGB'),93,0)
                     
-            canvas = matrix.SwapOnVSync(canvas)
+           # canvas = matrix.SwapOnVSync(canvas)
             
         
             hometeam = game['homeTeam']['teamTricode']
@@ -194,7 +194,7 @@ class Render:
 
             canvas = matrix.SwapOnVSync(canvas)            
             time.sleep(4)
-            canvas = matrix.SwapOnVSync(canvas)            
+            #canvas = matrix.SwapOnVSync(canvas)            
            
             
             
