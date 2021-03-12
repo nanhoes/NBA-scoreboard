@@ -178,7 +178,7 @@ class Render:
                     pos -= 1
                     if (pos + len1 < 0):
                         pos = canvas.width
-                    canvas = matrix.SwapOnVSync(canvas)
+                    #canvas = matrix.SwapOnVSync(canvas)
                     time.sleep(0.04)
                     
             
