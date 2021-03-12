@@ -63,6 +63,9 @@ class Render:
         image1 = Image.open("/home/pi/My-NBA-scoreboard/bkn.png")
                   
         for game in game_data:
+            for line in range(0,64):
+                graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
+
                         
             # Make image fit our screen.
           #  image.thumbnail((30, matrix.height))
