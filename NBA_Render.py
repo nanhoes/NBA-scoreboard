@@ -169,17 +169,27 @@ class Render:
 
 
                 pos = 0
-                while True:         
-                    print(homestatline)
-                    for x in range(0, canvas.width):
-                        for y in range(20, canvas.height):
-                            canvas.SetPixel(x, y, 0, 0, 0)
-                    len1 = graphics.DrawText(canvas, self.font2, pos, 31, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]), homestatline)
-                    pos -= 1
-                    if (pos + len1 < 0):
-                        pos = canvas.width
-                    #canvas = matrix.SwapOnVSync(canvas)
-                    time.sleep(0.04)
+                timeout = time.time() + 2
+                while True:
+                    for line in range(20,32):
+                        graphics.DrawLine(canvas, 0, line, 63, line, graphics.Color(0, 0, 0))
+                    len1 = graphics.DrawText(canvas, self.font2, pos, 31, graphics.Color(self.team_colors[awayteam][0][0], self.team_colors[awayteam][0][1], self.team_colors[awayteam][0][1]), awaystatline)
+  #                  len2 = graphics.DrawText(canvas, self.font2, pos, 31, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]), homestatline)
+                    #if time.time() > timeout:
+                    if time.time() > timeout:
+                        pos -= 1
+                        if (pos + len1 < 0):
+                            pos = canvas.width
+#                    if (pos + len2 < 0):
+ #                       pos = canvas.width
+
+                    #if time.time() > timeout:
+                        if pos == -(len1-63) or len1 <= 63:                 
+                            time.sleep(2)
+                            break
+                    time.sleep(0.01)
+                    canvas = matrix.SwapOnVSync(canvas)
+
                     
             
             canvas = matrix.SwapOnVSync(canvas)
