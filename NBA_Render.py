@@ -165,6 +165,7 @@ class Render:
              
                    
 
+                canvas = matrix.SwapOnVSync(canvas)
 
 
                 pos = 0
