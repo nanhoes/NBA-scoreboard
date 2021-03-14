@@ -59,11 +59,9 @@ class Render:
         canvas = matrix.CreateFrameCanvas()
         
         for game in game_data:
-            print(game)
             hometeam = game['homeTeam']['teamTricode']
             awayteam = game['awayTeam']['teamTricode']
-            print(awayteam)            
-            
+                        
             home = (game['homeTeam']['teamCity'] + '-' + game['homeTeam']['teamName']).replace(' ', '-').lower()
             away = (game['awayTeam']['teamCity'] + '-' + game['awayTeam']['teamName']).replace(' ', '-').lower()
             if home == 'la-clippers':
@@ -72,8 +70,7 @@ class Render:
                 away = 'l-a-clippers'
             
             gamelink = r'/basketball/nba/{0}-{1}-{2}'.format(away, home, game['gameCode'][0:game['gameCode'].find(r'/')])
-            print(gamelink)
-
+            
             try:
                 if disp_live_odds == True and game['gameStatus'] == 2:
                     spread = spreads_data_live[gamelink]['spread']
@@ -86,7 +83,7 @@ class Render:
                 #print('No spreads for this game.')
                 spread = ''
                 over_under = ''
-            print(spread)
+            
             for line in range(0,32):
                 graphics.DrawLine(canvas, 0, line, 64, line, graphics.Color(0, 0, 0))
             
