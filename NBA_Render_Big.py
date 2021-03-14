@@ -20,7 +20,7 @@ class Render:
         now = dt.datetime.now()
         current_time = now.strftime("%H:%M") 
         if current_time[0] == '0' and (current_time[1] >= '1' and current_time[1] <= '7'):
-            self.options.brightness = 100
+            self.options.brightness = 10
         else:
             self.options.brightness = 100
         
@@ -82,9 +82,9 @@ class Render:
             home = (game['homeTeam']['teamCity'] + '-' + game['homeTeam']['teamName']).replace(' ', '-').lower()
             away = (game['awayTeam']['teamCity'] + '-' + game['awayTeam']['teamName']).replace(' ', '-').lower()
             if home == 'la-clippers':
-                home = 'los-angeles-clippers'
+                home = 'l-a-clippers'
             if away == 'la-clippers':
-                away = 'los-angeles-clippers'
+                away = 'l-a-clippers'
             
             gamelink = r'/basketball/nba/{0}-{1}-{2}'.format(away, home, game['gameCode'][0:game['gameCode'].find(r'/')])
             print(gamelink)
