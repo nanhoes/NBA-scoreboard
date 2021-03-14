@@ -194,7 +194,7 @@ class Render:
                     
             
             canvas = matrix.SwapOnVSync(canvas)
-            time.sleep(4)
+            time.sleep(1)
 
 if __name__=='__main__':
     while True:
