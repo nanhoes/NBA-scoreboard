@@ -29,12 +29,6 @@ class NBA_Spreads:
                 data[gamelink]['awayteam'] = game['displayGroups'][0]['markets'][1]['outcomes'][0]['description']
                 data[gamelink]['spread'] = game['displayGroups'][0]['markets'][1]['outcomes'][1]['price']['handicap']
                 data[gamelink]['over_under'] = game['displayGroups'][0]['markets'][2]['outcomes'][0]['price']['handicap']
-                if data[gamelink]['hometeam'] == 'L.A. Clippers':
-                    data[gamelink]['hometeam'] = 'LA Clippers'
-                if data[gamelink]['awayteam'] == 'L.A. Clippers':
-                    data[gamelink]['awayteam'] = 'LA Clippers'
-                print(data[gamelink]['awayteam'])
-                print(data[gamelink]['spread'])
             except:
                 print(data[gamelink]['awayteam'])
                 print('Error gathering live data')            
