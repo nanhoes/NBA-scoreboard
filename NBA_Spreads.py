@@ -33,6 +33,7 @@ class NBA_Spreads:
                     data[gamelink]['hometeam'] = 'LA Clippers'
                 if data[gamelink]['awayteam'] == 'L.A. Clippers':
                     data[gamelink]['awayteam'] = 'LA Clippers'
+                print(data[gamelink]['awayteam'])
             except:
                 print(data[gamelink]['awayteam'])
                 print('Error gathering live data')            
