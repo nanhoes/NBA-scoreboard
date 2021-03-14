@@ -10,7 +10,7 @@ class Render:
     def __init__(self):
         self.options = RGBMatrixOptions()
         self.options.hardware_mapping = 'adafruit-hat'
-        self.options.gpio_slowdown = 1
+        self.options.gpio_slowdown = 2
         self.options.rows = 32
         self.options.cols = 64
         self.options.drop_privileges = False
@@ -18,7 +18,7 @@ class Render:
         now = dt.datetime.now()
         current_time = now.strftime("%H:%M") 
         if current_time[0] == '0' and (current_time[1] >= '1' and current_time[1] <= '7'):
-            self.options.brightness = 100
+            self.options.brightness = 10
         else:
             self.options.brightness = 100
         
