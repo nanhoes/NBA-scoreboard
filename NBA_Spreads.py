@@ -30,7 +30,6 @@ class NBA_Spreads:
                 data[gamelink]['spread'] = game['displayGroups'][0]['markets'][1]['outcomes'][1]['price']['handicap']
                 data[gamelink]['over_under'] = game['displayGroups'][0]['markets'][2]['outcomes'][0]['price']['handicap']
             except:
-                print(data[gamelink]['awayteam'])
                 print('Error gathering live data')            
         with open(self.path, 'w') as file:
             json.dump(data, file)
@@ -65,7 +64,7 @@ class NBA_Spreads:
                 data[gamelink]['over_under'] = game['displayGroups'][0]['markets'][2]['outcomes'][0]['price']['handicap']
             except:
                 print('Error gathering live data')
-                print(data[gamelink]['awayteam'])
+                
         with open(self.path, 'w') as file:
             json.dump(data, file)
         
