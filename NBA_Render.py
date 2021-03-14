@@ -18,7 +18,7 @@ class Render:
         now = dt.datetime.now()
         current_time = now.strftime("%H:%M") 
         if current_time[0] == '0' and (current_time[1] >= '1' and current_time[1] <= '7'):
-            self.options.brightness = 10
+            self.options.brightness = 100
         else:
             self.options.brightness = 100
         
