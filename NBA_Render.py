@@ -55,7 +55,8 @@ class Render:
         except:
             print('Error loading spreads data.')
             spreads_data = {}
-        
+        print(game_data)
+        print(spreads_data)
         canvas = matrix.CreateFrameCanvas()
         
         for game in game_data:
@@ -79,9 +80,7 @@ class Render:
                 else:
                     spread = spreads_data[gamelink]['spread']
                     over_under = spreads_data[gamelink]['over_under']
-                    print(awayteam)
-                    print(hometeam)
-                    print(spread)
+                   
             except KeyError:
                 #print('No spreads for this game.')
                 spread = ''
