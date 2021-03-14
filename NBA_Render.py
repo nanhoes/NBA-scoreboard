@@ -67,9 +67,9 @@ class Render:
             home = (game['homeTeam']['teamCity'] + '-' + game['homeTeam']['teamName']).replace(' ', '-').lower()
             away = (game['awayTeam']['teamCity'] + '-' + game['awayTeam']['teamName']).replace(' ', '-').lower()
             if home == 'la-clippers':
-                home = 'LA-clippers'
+                home = 'l-a-clippers'
             if away == 'la-clippers':
-                away = 'LA-clippers'
+                away = 'l-a-clippers'
             
             gamelink = r'/basketball/nba/{0}-{1}-{2}'.format(away, home, game['gameCode'][0:game['gameCode'].find(r'/')])
             print(gamelink)
