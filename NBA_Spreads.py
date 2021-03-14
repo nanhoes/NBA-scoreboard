@@ -34,6 +34,7 @@ class NBA_Spreads:
                 if data[gamelink]['awayteam'] == 'L.A. Clippers':
                     data[gamelink]['awayteam'] = 'LA Clippers'
             except:
+                print(data[gamelink]['awayteam'])
                 print('Error gathering live data')            
         with open(self.path, 'w') as file:
             json.dump(data, file)
