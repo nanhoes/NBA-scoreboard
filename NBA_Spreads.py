@@ -5,7 +5,7 @@ import datetime as dt
 
 class NBA_Spreads:
     def __init__(self):
-        self.path = '/home/pi/My-NBA-scoreboard/NBASpreads.json'
+        self.path = '/home/pi/My-NBA-scoreboard/NBASpreadsTest.json'
         self.path_live = '/home/pi/My-NBA-scoreboard/NBASpreadsLive.json'
         
     def Spreads_New_Day(self):
