@@ -120,7 +120,7 @@ class Render:
                     graphics.DrawText(canvas, self.font, 1, 28, graphics.Color(100, 100, 100), game['gameStatusText'])
                 
             if game['gameStatus'] == 3: #finished game
-                graphics.DrawText(canvas, self.font, 1, 28, graphics.Color(100, 100, 100), game['gameStatusText'].upper()) # final text
+                graphics.DrawText(canvas, self.font, 1, 28, graphics.Color(100, 100, 100), game['gameStatusText']) # final text
                 if homescore > awayscore:
                     graphics.DrawText(canvas, self.font, 21, 18, graphics.Color(255, 255, 255), str(homescore)) #bright home winner score
                     graphics.DrawText(canvas, self.font, 21, 8, graphics.Color(100, 100, 100), str(awayscore)) #bright away winner score
@@ -135,9 +135,9 @@ class Render:
                 graphics.DrawText(canvas, self.font2, 21, 7, graphics.Color(100, 100, 100), awayrecord) #away team record
                 graphics.DrawText(canvas, self.font2, 21, 17, graphics.Color(100, 100, 100), homerecord) #home team record
                 if game['gameStatusText'] != 'PPD': #upcoming game
-                    graphics.DrawText(canvas, self.font, 1, 28, graphics.Color(100, 100, 100), game['gameStatusText'][0:game['gameStatusText'].find('ET')].upper() + 'ET')
+                    graphics.DrawText(canvas, self.font, 1, 28, graphics.Color(100, 100, 100), game['gameStatusText'][0:game['gameStatusText'].find('ET')] + 'ET')
                 if game['gameStatusText'] == 'PPD': #postponed game
-                    graphics.DrawText(canvas, self.font, 1, 28, graphics.Color(100, 100, 100), 'POSTPONED')
+                    graphics.DrawText(canvas, self.font, 1, 28, graphics.Color(100, 100, 100), 'Postponed')
                       
             if game['gameStatus'] != 1 and game['period'] !=1:
                 homeleadername = game['gameLeaders']['homeLeaders']['name']
