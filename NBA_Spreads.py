@@ -74,8 +74,8 @@ class NBA_Spreads:
             if game['type'] != 'GAMEEVENT' or game['live'] != True:
                 #print('Not a game.')
                 
-                print(game['type'])
-                print(game['live'])
+                #print(game['type'])
+                #print(game['live'])
                       
                 continue
             
