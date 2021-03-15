@@ -9,7 +9,7 @@ from PIL import Image
 class Render:
     def __init__(self):
         self.options = RGBMatrixOptions()
-        self.options.gpio_slowdown = 4
+        self.options.gpio_slowdown = 1
         self.options.rows = 32
         self.options.cols = 64
         self.options.drop_privileges = False
