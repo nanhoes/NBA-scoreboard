@@ -135,7 +135,7 @@ class Render:
                 graphics.DrawText(canvas, self.font2, 21, 7, graphics.Color(100, 100, 100), awayrecord) #away team record
                 graphics.DrawText(canvas, self.font2, 21, 17, graphics.Color(100, 100, 100), homerecord) #home team record
                 if game['gameStatusText'] != 'PPD': #upcoming game
-                    graphics.DrawText(canvas, self.font, 1, 28, graphics.Color(100, 100, 100), game['gameStatusText'][0:game['gameStatusText'].find('ET')].upper() + 'ET')
+                    graphics.DrawText(canvas, self.font, 1, 28, graphics.Color(100, 100, 100), game['gameStatusText'][0:game['gameStatusText'].find('ET')].upper() + 'et'.upper())
                 if game['gameStatusText'] == 'PPD': #postponed game
                     graphics.DrawText(canvas, self.font, 1, 28, graphics.Color(100, 100, 100), 'POSTPONED')
                       
