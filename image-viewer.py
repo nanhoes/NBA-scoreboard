@@ -8,9 +8,13 @@ import sys
 from PIL import Image
 
 
-image = Image.open("/home/pi/My-NBA-scoreboard/giphy-2.gif")
 #image1 = Image.open("/home/pi/My-NBA-scoreboard/bkn.png")
+if len(sys.argv) < 2:
+    sys.exit("Require an image argument")
+else:
+    image_file = sys.argv[1]
 
+image = Image.open(image_file)
 
 # Configuration for the matrix
 options = RGBMatrixOptions()
