@@ -199,7 +199,7 @@ class Render:
             
             
 if __name__=='__main__':
-    while True:
+    #while True:
         Render().Render_Games()
         
         
