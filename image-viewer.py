@@ -8,7 +8,7 @@ import sys
 from PIL import Image
 
 
-image = Image.open("/home/pi/My-NBA-scoreboard/giphy.gif")
+image = Image.open("/home/pi/My-NBA-scoreboard/giphy-2.gif")
 #image1 = Image.open("/home/pi/My-NBA-scoreboard/bkn.png")
 
 
