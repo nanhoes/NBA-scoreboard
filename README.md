@@ -6,14 +6,14 @@
 4. Open Berrylan app connect to 'BT WLAN setup' and connect to 2.4 GHz wifi.
 5. SSH into pi, boot on network connection, change region, dtparam=audio=off in /boot/config.txt.
 ### Installation
-      sudo apt-get update
-      sudo apt-get install git python-pip
-      git clone https://github.com/nanhoes/My-NBA-scoreboard
-      cd My-NBA-scoreboard
-      sudo chmod +x install.sh
-      sudo ./install.sh
-      sudo apt-get install python3-bs4
-      sudo make install-python PYTHON=$(which python3)
+      sudo apt-get update &&
+      sudo apt-get install git python-pip &&
+      git clone https://github.com/nanhoes/My-NBA-scoreboard &&
+      cd My-NBA-scoreboard &&
+      sudo chmod +x install.sh &&
+      sudo ./install.sh &&
+      sudo apt-get install python3-bs4 &&
+      sudo make install-python PYTHON=$(which python3) &&
 ### bderr Crontab
       @reboot sleep 20; sudo python3 /home/pi/NBA-scoreboard/NBA_Data.py
 
