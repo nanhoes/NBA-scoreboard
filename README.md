@@ -12,18 +12,6 @@
       cd My-NBA-scoreboard &&
       sudo chmod +x install.sh &&
       sudo ./install.sh
-### bderr Crontab
-      @reboot sleep 20; sudo python3 /home/pi/NBA-scoreboard/NBA_Data.py
-
-      @reboot sleep 20; sudo python3 /home/pi/NBA-scoreboard/NBA_Render.py
-
-      @reboot sleep 20; sudo python3 /home/pi/NBA-scoreboard/NBA_Spreads.py
-
-      0 11 * * * sudo python3 /home/pi/NBA-scoreboard/Spreads_New_Day.py
-
-      0 5 * * * sudo python3 /home/pi/NBA-scoreboard/NBA_Data.py
-
-      */30 * * * * sudo python3 /home/pi/NBA-scoreboard/NBA_Spreads.py
 ### My Crontab
       @reboot sudo python3 /home/pi/My-NBA-scoreboard/NBA_Data.py
 
