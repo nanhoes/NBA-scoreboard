@@ -13,7 +13,7 @@
       sudo chmod +x install.sh &&
       sudo ./install.sh &&
       sudo apt-get install python3-bs4 &&
-      sudo make install-python PYTHON=$(which python3) &&
+      sudo make install-python PYTHON=$(which python3)
 ### bderr Crontab
       @reboot sleep 20; sudo python3 /home/pi/NBA-scoreboard/NBA_Data.py
 
