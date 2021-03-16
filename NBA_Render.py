@@ -14,7 +14,6 @@ class Render:
         self.options.rows = 32
         self.options.cols = 64
         self.options.drop_privileges = False
-        self.options.led_rgb_sequence = 'RBG'
                 
         now = dt.datetime.now()
         current_time = now.strftime("%H:%M") 
