@@ -80,7 +80,7 @@ class Render:
                 if disp_live_odds == True and game['gameStatus'] == 2:
                     spread = spreads_data_live[gamelink]['spread']
                     over_under = spreads_data_live[gamelink]['over_under']
-                else:
+                if game['gameStatus'] == 1:
                     spread = spreads_data[gamelink]['spread']
                     over_under = spreads_data[gamelink]['over_under']
                    
