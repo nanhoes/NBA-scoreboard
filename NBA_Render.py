@@ -73,6 +73,7 @@ class Render:
                 away = 'l-a-clippers'
             
             gamelink = r'/basketball/nba/{0}-{1}-{2}'.format(away, home, game['gameCode'][0:game['gameCode'].find(r'/')])
+            print(gamelink)
             
             try:
                 if disp_live_odds == True and game['gameStatus'] == 2:
