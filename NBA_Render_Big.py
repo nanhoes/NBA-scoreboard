@@ -21,7 +21,7 @@ class Render:
         current_time = now.strftime("%H:%M") 
         if current_time[0] == '0' and (current_time[1] >= '1' and current_time[1] <= '7'):
             self.options.brightness = 5
-        else:
+        if current_time[1] > '7' or current_time[0] >= 1:
             self.options.brightness = 100
         
         self.path = '/home/pi/My-NBA-scoreboard/'
