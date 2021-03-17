@@ -16,12 +16,15 @@ class Render:
         self.options.chain_length = 2
         self.options.parallel = 2
         self.options.disable_hardware_pulsing = True
-                   
+        matrix = RGBMatrix(options=self.options)
+
         now = dt.datetime.now()
         current_time = now.strftime("%H:%M") 
         if current_time[0] == '0' and (current_time[1] >= '1' and current_time[1] <= '7'):
+            matrix.Clear()
             os.system("sudo /home/pi/My-NBA-scoreboard/rpi-rgb-led-matrix/examples-api-use/demo -D 7 --led-rows=32 --led-cols=64 --led-parallel=2 --led-pwm-bits=9 --led-slowdown-gpio=2 --led-chain=2 --led-no-hardware-pulse")
         if current_time[1] > '7' or current_time[0] >= 1:
+            matrix.Clear()
             self.options.brightness = 100
         
         self.path = '/home/pi/My-NBA-scoreboard/'
@@ -35,7 +38,7 @@ class Render:
         self.team_colors = {'ATL': [[225, 58, 62], [100, 100, 100]], 'BOS': [[0, 131, 72], [187, 151, 83]], 'BKN': [[100, 100, 100], [0, 0, 0]], 'CHA': [[29, 17, 96], [0, 140, 168]], 'CHI': [[206, 17, 65], [0, 0, 0]], 'CLE': [[134, 0, 56], [253, 187, 48]], 'DAL': [[0, 125, 197], [196, 206, 211]], 'DEN': [[77, 144, 205], [253, 185, 39]], 'DET': [[237, 23, 76], [0, 107, 182]], 'GSW': [[253, 185, 39], [0, 107, 182]], 'HOU': [[206, 17, 65], [196, 206, 211]], 'LAL': [[253, 185, 39], [85, 37, 130]], 'MEM': [[15, 88, 108], [190, 212, 233]], 'MIA': [[152, 0, 46], [0, 0, 0]], 'MIL': [[0, 71, 27], [240, 235, 210]], 'MIN': [[0, 80, 131], [0, 169, 79]], 'NOP': [[0, 43, 92], [227, 24, 55]], 'NYK': [[0, 107, 182], [245, 132, 38]], 'OKC': [[0, 125, 195], [240, 81, 51]], 'ORL': [[0, 125, 197], [0, 0, 0]], 'PHI': [[237, 23, 76], [0, 107, 182]], 'PHX': [[229, 96, 32], [29, 17, 96]], 'POR': [[224, 58, 62], [186, 195, 201]], 'SAC': [[114, 76, 159], [200, 200, 200]], 'SAS': [[186, 195, 201], [0, 0, 0]], 'TOR': [[206, 17, 65], [0, 0, 0]], 'UTA': [[0, 43, 92], [249, 160, 27]], 'WAS': [[0, 43, 92], [227, 24, 55]], 'IND': [[255, 198, 51], [0, 39, 93]], 'LAC': [[237, 23, 76], [0, 107, 182]]}
             
     def Render_Games(self, printer=False):
-        matrix = RGBMatrix(options=self.options)
+        #matrix = RGBMatrix(options=self.options)
         date_range = []
         disp_live_odds = True
         try:
