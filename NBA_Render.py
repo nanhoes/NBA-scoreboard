@@ -61,9 +61,6 @@ class Render:
         canvas = matrix.CreateFrameCanvas()
         
         for game in game_data:
-            for line in range(0,32):
-                graphics.DrawLine(canvas, 0, line, 64, line, graphics.Color(0, 0, 0))
-
             hometeam = game['homeTeam']['teamTricode']
             awayteam = game['awayTeam']['teamTricode']
                         
@@ -89,6 +86,9 @@ class Render:
                 #print('No spreads for this game.')
                 spread = ''
                 over_under = ''
+            
+            for line in range(0,32):
+                graphics.DrawLine(canvas, 0, line, 64, line, graphics.Color(0, 0, 0))
             
             for line in range(0,32):
                 graphics.DrawLine(canvas, 0, line, 64, line, graphics.Color(0, 0, 0))
