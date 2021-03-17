@@ -65,10 +65,7 @@ class Render:
         image1 = Image.open("/home/pi/My-NBA-scoreboard/bkn.png")
                   
         for game in game_data:
-            for line in range(0,64):
-                graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
-
-                        
+                                    
             # Make image fit our screen.
           #  image.thumbnail((30, matrix.height))
            # matrix.SetImage(image.convert('RGB'),5,0)
@@ -102,6 +99,9 @@ class Render:
                 #print('No spreads for this game.')
                 spread = ''
                 over_under = ''
+                
+            for line in range(0,64):	
+                graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
                                     
             for line in range(20,38):
                 graphics.DrawLine(canvas, 0, line, 38, line, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]))
