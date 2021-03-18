@@ -216,7 +216,7 @@ if __name__=='__main__':
     now = dt.datetime.now()
     current_time = now.strftime("%H:%M") 
     while True:
-        if current_time[0] == '0' and (current_time[1] == '1' and current_time[1] <= '7'):
+        if current_time[0] == '0' and (current_time[1] >= '1' and current_time[1] <= '7'):
             break
         else:
             Render().Render_Games()
