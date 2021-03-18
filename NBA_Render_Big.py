@@ -216,7 +216,7 @@ if __name__=='__main__':
     now = dt.datetime.now()
     current_time = now.strftime("%H:%M") 
     while True:
-        if current_time[0] == '0' and (current_time[1] >= '1' and current_time[1] <= '3'):
+        if current_time[0] == '0' and (current_time[1] >= '1' and current_time[1] <= '7'):
             os.system('sudo /home/pi/My-NBA-scoreboard/rpi-rgb-led-matrix/examples-api-use/demo -D 7 --led-rows=32 --led-cols=64 --led-parallel=2 --led-pwm-bits=9 --led-slowdown-gpio=2 --led-chain=2 --led-no-hardware-pulse')
         else:
             Render().Render_Games()
