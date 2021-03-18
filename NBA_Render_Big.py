@@ -137,8 +137,10 @@ class Render:
                 else: #not a close game or not under 4min
                     if game['gameStatusText'][0] == 'Q':
                         graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(100, 100, 100), game['gameStatusText'][0:1])
-                        graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(255, 215, 0), game['gameStatusText'][3:])
-                
+                        graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(255, 215, 0), '   ' + game['gameStatusText'][3:])
+                    else:
+                        graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(100, 100, 100), game['gameStatusText'])
+                        
             if game['gameStatus'] == 3: #finished game
                 graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(100, 100, 100), game['gameStatusText'].upper()) #red '"final" text
                 if homescore > awayscore:
