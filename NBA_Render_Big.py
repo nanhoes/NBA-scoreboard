@@ -104,14 +104,14 @@ class Render:
                 graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
                                     
             for line in range(20,38):
-                graphics.DrawLine(canvas, 0, line, 38, line, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]))
+                graphics.DrawLine(canvas, 0, line, 79, line, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]))
             for line in range(0,18):
-                graphics.DrawLine(canvas, 0, line, 38, line, graphics.Color(self.team_colors[awayteam][0][0], self.team_colors[awayteam][0][1], self.team_colors[awayteam][0][2]))
+                graphics.DrawLine(canvas, 0, line, 79, line, graphics.Color(self.team_colors[awayteam][0][0], self.team_colors[awayteam][0][1], self.team_colors[awayteam][0][2]))
             
-            for line in range(20,38):
-                graphics.DrawLine(canvas, 39, line, 80, line, graphics.Color(255, 255, 255))
-            for line in range(0,18):
-                graphics.DrawLine(canvas, 39, line, 80, line, graphics.Color(255, 255, 255))
+            #for line in range(20,38):
+             #   graphics.DrawLine(canvas, 39, line, 80, line, graphics.Color(255, 255, 255))
+            #for line in range(0,18):
+             #   graphics.DrawLine(canvas, 39, line, 80, line, graphics.Color(255, 255, 255))
                 
             graphics.DrawText(canvas, self.font2, 127 - len(str(over_under))*8, 14, graphics.Color(0, 0, 200), over_under)
             graphics.DrawText(canvas, self.font2, 127 - len(str(spread))*8, 34, graphics.Color(0, 0, 200), spread)
