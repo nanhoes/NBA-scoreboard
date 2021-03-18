@@ -135,7 +135,9 @@ class Render:
                         else:
                             graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(100, 100, 100), game['gameStatusText'])
                 else: #not a close game or not under 4min
-                    graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(255, 255, 0), game['gameStatusText'])
+                    if game['gameStatusText'][0] == 'Q':
+                        graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(100, 100, 100), game['gameStatusText'][0:1])
+                        graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(255, 215, 0), game['gameStatusText'][3:])
                 
             if game['gameStatus'] == 3: #finished game
                 graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(100, 100, 100), game['gameStatusText'].upper()) #red '"final" text
