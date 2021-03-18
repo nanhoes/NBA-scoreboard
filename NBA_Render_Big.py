@@ -20,7 +20,7 @@ class Render:
         now = dt.datetime.now()
         current_time = now.strftime("%H:%M") 
         if current_time[0] == '0' and (current_time[1] >= '1' and current_time[1] <= '7'):
-            self.options.brightness = 5
+            self.options.brightness = 100
         if current_time[1] > '7' or current_time[0] >= '1':
             self.options.brightness = 100
         
@@ -215,5 +215,5 @@ class Render:
 if __name__=='__main__':
     while True:
         Render().Render_Games()
-        
-        
+
+
