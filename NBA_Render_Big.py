@@ -135,7 +135,7 @@ class Render:
                         else:
                             graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(100, 100, 100), game['gameStatusText'])
                 else: #not a close game or not under 4min
-                    if game['gameStatusText'][0:2] == 'Q4'
+                    if game['gameStatusText'][0:2] == 'Q4':
                         quarter = '4th Qtr'
                     graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(255, 255, 255), quarter + ' ' + game['gameStatusText'][4:])
                         
