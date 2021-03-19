@@ -199,7 +199,7 @@ class Render:
                     
             
             canvas = matrix.SwapOnVSync(canvas)
-            time.sleep(4)
+            time.sleep(5)
 
 if __name__=='__main__':
     now = dt.datetime.now()
