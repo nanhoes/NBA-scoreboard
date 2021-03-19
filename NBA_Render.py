@@ -90,11 +90,11 @@ class Render:
                 graphics.DrawLine(canvas, 0, line, 18, line, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]))
             for line in range(0,9):
                 graphics.DrawLine(canvas, 0, line, 18, line, graphics.Color(self.team_colors[awayteam][0][0], self.team_colors[awayteam][0][1], self.team_colors[awayteam][0][2]))
-            
-            for line in range(10,19):
-                graphics.DrawLine(canvas, 19, line, 39, line, graphics.Color(200, 200, 200))
-            for line in range(0,9):
-                graphics.DrawLine(canvas, 19, line, 39, line, graphics.Color(200, 200, 200))
+            if game['gameStatus'] != 1: #finished game
+                for line in range(10,19):
+                    graphics.DrawLine(canvas, 19, line, 39, line, graphics.Color(250, 250, 250))
+                for line in range(0,9):
+                    graphics.DrawLine(canvas, 19, line, 39, line, graphics.Color(250, 250, 250))
 
             
             graphics.DrawText(canvas, self.font2, 64 - len(str(over_under))*4, 7, graphics.Color(0, 0, 255), over_under)
@@ -106,8 +106,8 @@ class Render:
             homescore = game['homeTeam']['score']
             awayscore = game['awayTeam']['score']
             if game['gameStatus'] == 2: #game is live
-                graphics.DrawText(canvas, self.font, 21, 8, graphics.Color(255, 255, 255), str(awayscore)) #bright score
-                graphics.DrawText(canvas, self.font, 21, 18, graphics.Color(255, 255, 255), str(homescore)) #bright score
+                graphics.DrawText(canvas, self.font, 21, 8, graphics.Color(0, 0, 0), str(awayscore))
+                graphics.DrawText(canvas, self.font, 21, 18, graphics.Color(0, 0, 0), str(homescore))
                 timeremaining = game['gameStatusText']
                 if timeremaining[0] == 'Q' and (timeremaining[1] >= '4' and (timeremaining[3] == '0' and timeremaining[4] <= '4')): #Q4 or OT < 5min remaining
                     if homescore > awayscore:
@@ -123,12 +123,12 @@ class Render:
                         else:
                             graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(100, 100, 100), game['gameStatusText'])
                 else: #not a close game or not under 4min
-                    graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(100, 100, 100), game['gameStatusText'])
+                    graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(200, 200, 200), game['gameStatusText'])
                 
             if game['gameStatus'] == 3: #finished game
-                graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(150, 150, 150), game['gameStatusText'].upper())
-                graphics.DrawText(canvas, self.font, 21, 18, graphics.Color(0, 0, 0), str(homescore)) #bright home winner score
-                graphics.DrawText(canvas, self.font, 21, 8, graphics.Color(0, 0, 0), str(awayscore)) #bright away winner score
+                graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(200, 200, 200), game['gameStatusText'].upper())
+                graphics.DrawText(canvas, self.font, 21, 18, graphics.Color(0, 0, 0), str(homescore)
+                graphics.DrawText(canvas, self.font, 21, 8, graphics.Color(0, 0, 0), str(awayscore))
                 #if homescore > awayscore:
         #            graphics.DrawText(canvas, self.font, 21, 18, graphics.Color(255, 255, 255), str(homescore)) #bright home winner score
          #           graphics.DrawText(canvas, self.font, 21, 8, graphics.Color(100, 100, 100), str(awayscore)) #bright away winner score
@@ -140,12 +140,12 @@ class Render:
             if game['gameStatus'] == 1: #upcoming game
                 awayrecord = str(game['awayTeam']['wins']) + '-' + str(game['awayTeam']['losses'])
                 homerecord = str(game['homeTeam']['wins']) + '-' + str(game['homeTeam']['losses'])
-                graphics.DrawText(canvas, self.font2, 21, 7, graphics.Color(100, 100, 100), awayrecord) #away team record
-                graphics.DrawText(canvas, self.font2, 21, 17, graphics.Color(100, 100, 100), homerecord) #home team record
+                graphics.DrawText(canvas, self.font2, 21, 7, graphics.Color(200, 200, 200), awayrecord) #away team record
+                graphics.DrawText(canvas, self.font2, 21, 17, graphics.Color(200, 200, 200), homerecord) #home team record
                 if game['gameStatusText'] != 'PPD': #upcoming game
-                    graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(100, 100, 100), game['gameStatusText'][0:game['gameStatusText'].find('ET')].upper() + 'et'.upper())
+                    graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(200, 200, 200), game['gameStatusText'][0:game['gameStatusText'].find('ET')].upper() + 'et'.upper())
                 if game['gameStatusText'] == 'PPD': #postponed game
-                    graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(100, 100, 100), 'POSTPONED')
+                    graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(200, 200, 200), 'POSTPONED')
                       
             if game['gameStatus'] != 1 and game['period'] !=1:
                 homeleadername = game['gameLeaders']['homeLeaders']['name']
