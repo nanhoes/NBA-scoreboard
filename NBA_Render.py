@@ -206,7 +206,7 @@ if __name__=='__main__':
     current_time = now.strftime("%H:%M") 
     while True:
         if current_time[0] == '0' and (current_time[1] >= '1' and current_time[1] <= '7'):
-            os.system('sudo /home/pi/My-NBA-scoreboard/rpi-rgb-led-matrix/examples-api-use/demo --led-rows=32 --led-cols=64 --led-pwm-bits=9 --led-slowdown-gpio=2 --led-gpio-mapping=adafruit-hat -D 7')
+            os.system('sudo /home/pi/My-NBA-scoreboard/rpi-rgb-led-matrix/examples-api-use/clock -f ../fonts/texgyre-27.bdf --led-rows=32 --led-cols=64 --led-pwm-bits=9 --led-slowdown-gpio=2 --led-gpio-mapping=adafruit-hat -d "%-I:%M" -x -1 -y -1 -C 255,0,0')
         else:
             Render().Render_Games()
         
