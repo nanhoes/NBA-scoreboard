@@ -138,7 +138,7 @@ class Render:
                     #if game['gameStatusText'][0:2] == 'Q2':
                      #   quarter = '2nd'
                       #  graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(255, 255, 255), quarter + ' ' + game['gameStatusText'][4:])
-                    graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(255, 255, 255), game['gameStatusText'])
+                    graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(200, 200, 200), game['gameStatusText'])
 
                         
             if game['gameStatus'] == 3: #finished game
@@ -157,12 +157,12 @@ class Render:
             if game['gameStatus'] == 1: #upcoming game
                 awayrecord = str(game['awayTeam']['wins']) + '-' + str(game['awayTeam']['losses'])
                 homerecord = str(game['homeTeam']['wins']) + '-' + str(game['homeTeam']['losses'])
-                graphics.DrawText(canvas, self.font2, 41, 14, graphics.Color(100, 100, 100), awayrecord) #away team record
-                graphics.DrawText(canvas, self.font2, 41, 34, graphics.Color(100, 100, 100), homerecord) #home team record
+                graphics.DrawText(canvas, self.font2, 41, 14, graphics.Color(200, 200, 200), awayrecord) #away team record
+                graphics.DrawText(canvas, self.font2, 41, 34, graphics.Color(200, 200, 200), homerecord) #home team record
                 if game['gameStatusText'] != 'PPD': #upcoming game
-                    graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(100, 100, 100), game['gameStatusText'][0:game['gameStatusText'].find('ET')].upper() + 'ET')
+                    graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(200, 200, 200), game['gameStatusText'][0:game['gameStatusText'].find('ET')].upper() + 'ET')
                 if game['gameStatusText'] == 'PPD': #postponed game
-                    graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(100, 100, 100), 'POSTPONED')
+                    graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(200, 200, 200), 'POSTPONED')
                       
             if game['gameStatus'] != 1 and game['period'] !=1:
                 homeleadername = game['gameLeaders']['homeLeaders']['name']
