@@ -118,9 +118,9 @@ class Render:
             
             if game['gameStatus'] != 1:
                 for line in range(20,38):
-                    graphics.DrawLine(canvas, 39, line, 80, line, graphics.Color(250, 250, 250))
+                    graphics.DrawLine(canvas, 39, line, 79, line, graphics.Color(250, 250, 250))
                 for line in range(0,18):
-                    graphics.DrawLine(canvas, 39, line, 80, line, graphics.Color(250, 250, 250))
+                    graphics.DrawLine(canvas, 39, line, 79, line, graphics.Color(250, 250, 250))
                 
             graphics.DrawText(canvas, self.font2, 127 - len(str(over_under))*8, 14, graphics.Color(0, 0, 255), over_under)
             graphics.DrawText(canvas, self.font2, 127 - len(str(spread))*8, 34, graphics.Color(0, 0, 255), spread)
@@ -153,7 +153,7 @@ class Render:
                     #if game['gameStatusText'][0:2] == 'Q2':
                      #   quarter = '2nd'
                       #  graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(255, 255, 255), quarter + ' ' + game['gameStatusText'][4:])
-                    graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(200, 200, 200), game['gameStatusText'])
+                    graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(79, 158, 92), game['gameStatusText'])
 
                         
             if game['gameStatus'] == 3: #finished game
