@@ -156,9 +156,9 @@ class Render:
                     if timeremaining[0] == 'Q':
                         graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(186, 212, 191), game['gameStatusText'][0:2])
                         if timeremaining[3] == '0':
-                            graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(186, 212, 191), ' -  ' + game['gameStatusText'][3:])
+                            graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(186, 212, 191), '      ' + game['gameStatusText'][4:])
                         else:
-                            graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(186, 212, 191), '  -' + game['gameStatusText'][2:])
+                            graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(186, 212, 191), '     ' + game['gameStatusText'][3:])
 
 
                         
