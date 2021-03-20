@@ -153,7 +153,13 @@ class Render:
                     #if game['gameStatusText'][0:2] == 'Q2':
                      #   quarter = '2nd'
                       #  graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(255, 255, 255), quarter + ' ' + game['gameStatusText'][4:])
-                    graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(186, 212, 191), game['gameStatusText'])
+                    if timeremaining[0] == 'Q':
+                        graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(186, 212, 191), game['gameStatusText'][0:2])
+                        if timeremaining[3] == '0':
+                            graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(186, 212, 191), '   ' + game['gameStatusText'][3:])
+                        else:
+                            graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(186, 212, 191), '  ' + game['gameStatusText'][2:])
+
 
                         
             if game['gameStatus'] == 3: #finished game
