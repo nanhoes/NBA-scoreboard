@@ -105,6 +105,7 @@ class Render:
             
             homescore = game['homeTeam']['score']
             awayscore = game['awayTeam']['score']
+            timeremaining = game['gameStatusText']
             if game['gameStatus'] == 2: #game is live
                 graphics.DrawText(canvas, self.font, 35 - len(str(awayscore))*5, 8, graphics.Color(0, 0, 0), str(awayscore)) 
                 graphics.DrawText(canvas, self.font, 35 - len(str(homescore))*5, 18, graphics.Color(0, 0, 0), str(homescore))
