@@ -106,8 +106,8 @@ class Render:
             homescore = game['homeTeam']['score']
             awayscore = game['awayTeam']['score']
             if game['gameStatus'] == 2: #game is live
-                graphics.DrawText(canvas, self.font, 54 - len(str(awayscore))*5, 16, graphics.Color(0, 0, 0), str(awayscore)) 
-                graphics.DrawText(canvas, self.font, 54 - len(str(homescore))*5, 36, graphics.Color(0, 0, 0), str(homescore))
+                graphics.DrawText(canvas, self.font, 35 - len(str(awayscore))*5, 16, graphics.Color(0, 0, 0), str(awayscore)) 
+                graphics.DrawText(canvas, self.font, 35 - len(str(homescore))*5, 36, graphics.Color(0, 0, 0), str(homescore))
                 if timeremaining[0] == 'Q' and (timeremaining[1] >= '4' and (timeremaining[3] == '0' and timeremaining[4] <= '4')): #Q4 or OT < 5min remaining
                     if homescore > awayscore:
                         if (homescore - awayscore) <= 15: #close game
@@ -126,8 +126,8 @@ class Render:
                 
             if game['gameStatus'] == 3: #finished game
                 graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(200, 200, 200), game['gameStatusText'].upper())
-                graphics.DrawText(canvas, self.font, 54 - len(str(awayscore))*5, 16, graphics.Color(0, 0, 0), str(awayscore)) 
-                graphics.DrawText(canvas, self.font, 54 - len(str(homescore))*5, 36, graphics.Color(0, 0, 0), str(homescore))
+                graphics.DrawText(canvas, self.font, 35 - len(str(awayscore))*5, 16, graphics.Color(0, 0, 0), str(awayscore)) 
+                graphics.DrawText(canvas, self.font, 35 - len(str(homescore))*5, 36, graphics.Color(0, 0, 0), str(homescore))
                 #if homescore > awayscore:
         #            graphics.DrawText(canvas, self.font, 21, 18, graphics.Color(255, 255, 255), str(homescore)) #bright home winner score
          #           graphics.DrawText(canvas, self.font, 21, 8, graphics.Color(100, 100, 100), str(awayscore)) #bright away winner score
