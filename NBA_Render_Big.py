@@ -163,8 +163,8 @@ class Render:
                         
             if game['gameStatus'] == 3: #finished game
                 graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(200, 200, 200), game['gameStatusText'].upper())
-                graphics.DrawText(canvas, self.font, 42, 36, graphics.Color(0, 0, 0), str(homescore)) #bright home winner score
-                graphics.DrawText(canvas, self.font, 42, 16, graphics.Color(0, 0, 0), str(awayscore)) #bright away winner score
+                graphics.DrawText(canvas, self.font, 81 - len(str(awayscore))*11, 16, graphics.Color(0, 0, 0), str(awayscore)) 
+                graphics.DrawText(canvas, self.font, 81 - len(str(homescore))*11, 36, graphics.Color(0, 0, 0), str(homescore)) 
 
                 #if homescore > awayscore:
                  #   graphics.DrawText(canvas, self.font, 42, 36, graphics.Color(255, 255, 255), str(homescore)) #bright home winner score
