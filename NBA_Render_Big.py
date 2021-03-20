@@ -136,8 +136,8 @@ class Render:
                 if timeremaining[0] == 'Q' and timeremaining[3] == '0':
                     timeremaining = game['gameStatusText'][:3] + game['gameStatusText'][4:]
             if game['gameStatus'] == 2: #game is live
-                graphics.DrawText(canvas, self.font, 78 - len(str(awayscore))*9, 16, graphics.Color(0, 0, 0), str(awayscore)) 
-                graphics.DrawText(canvas, self.font, 78 - len(str(homescore))*9, 36, graphics.Color(0, 0, 0), str(homescore)) 
+                graphics.DrawText(canvas, self.font, 78 - len(str(awayscore))*11, 16, graphics.Color(0, 0, 0), str(awayscore)) 
+                graphics.DrawText(canvas, self.font, 78 - len(str(homescore))*11, 36, graphics.Color(0, 0, 0), str(homescore)) 
                 if timeremaining[0] == 'Q' and (timeremaining[1] >= '4' and (len(timeremaining) == 6 or (len(timeremaining) == 7 and timeremaining[3] <= '4'))): #Q4 or OT < 5min remaining
                     if homescore > awayscore:
                         if (homescore - awayscore) <= 15: #close game
