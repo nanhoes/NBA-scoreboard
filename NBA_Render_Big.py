@@ -166,13 +166,11 @@ class Render:
                 graphics.DrawText(canvas, self.font, 74 - len(str(awayscore))*11, 16, graphics.Color(0, 0, 0), str(awayscore)) 
                 graphics.DrawText(canvas, self.font, 74 - len(str(homescore))*11, 36, graphics.Color(0, 0, 0), str(homescore)) 
 
-                #if homescore > awayscore:
-                 #   graphics.DrawText(canvas, self.font, 42, 36, graphics.Color(255, 255, 255), str(homescore)) #bright home winner score
-                  #  graphics.DrawText(canvas, self.font, 42, 16, graphics.Color(100, 100, 100), str(awayscore)) #bright away winner score
+                if homescore > awayscore:
+                    graphics.DrawText(canvas, self.font2, 8, 79, graphics.Color(250, 250, 250), '◄')
+                else:
+                    graphics.DrawText(canvas, self.font2, 18, 79, graphics.Color(250, 250, 250), '◄')
 
-#                else:
-  #                  graphics.DrawText(canvas, self.font, 42, 16, graphics.Color(255, 255, 255), str(awayscore)) #bright away winner score
-    #                graphics.DrawText(canvas, self.font, 42, 36, graphics.Color(100, 100, 100), str(homescore)) #bright home winner score
 
             if game['gameStatus'] == 1: #upcoming game
                 awayrecord = str(game['awayTeam']['wins']) + '-' + str(game['awayTeam']['losses'])
