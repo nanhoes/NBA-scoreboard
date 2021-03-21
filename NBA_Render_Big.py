@@ -174,7 +174,7 @@ class Render:
   
                 else:
                     for line in range(1,17):
-                        graphics.DrawLine(canvas, 80, line, 80, line, graphics.Color(255, 255, 255))
+                        graphics.DrawLine(canvas, 79, line, 79, line, graphics.Color(255, 255, 255))
 
  
 
