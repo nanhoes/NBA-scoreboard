@@ -167,9 +167,9 @@ class Render:
                 graphics.DrawText(canvas, self.font, 74 - len(str(homescore))*11, 36, graphics.Color(0, 0, 0), str(homescore)) 
 
                 if homescore > awayscore:
-                    graphics.DrawText(canvas, self.font2, 79, 8, graphics.Color(250, 250, 250), 'X')
+                    graphics.DrawText(canvas, self.font2, 79, 8, graphics.Color(250, 250, 250), '◄')
                 else:
-                    graphics.DrawText(canvas, self.font2, 79, 18, graphics.Color(250, 250, 250), 'X')
+                    graphics.DrawText(canvas, self.font2, 79, 18, graphics.Color(250, 250, 250), '◄')
 
 
             if game['gameStatus'] == 1: #upcoming game
