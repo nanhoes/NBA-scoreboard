@@ -167,10 +167,10 @@ class Render:
                 graphics.DrawText(canvas, self.font, 74 - len(str(homescore))*11, 36, graphics.Color(0, 0, 0), str(homescore)) 
 
                 if homescore > awayscore:
-                    graphics.DrawGlyph(self, canvas, 78, 34, graphics.Color(255, 255, 255), '◄')
-                    #graphics.DrawText(canvas, self.font2, 78, 34, graphics.Color(255, 255, 255), '◄')
+                    #graphics.DrawGlyph(self, canvas, 78, 34, graphics.Color(255, 255, 255), '◄')
+                    graphics.DrawText(canvas, self.font2, 78, 34, graphics.Color(255, 255, 255), '◀︎')
                 else:
-                    graphics.DrawText(canvas, self.font2, 78, 14, graphics.Color(255, 255, 255), 'x')
+                    graphics.DrawText(canvas, self.font2, 78, 14, graphics.Color(255, 255, 255), '・')
 
  
 
