@@ -170,7 +170,7 @@ class Render:
                     #graphics.DrawGlyph(self, canvas, 78, 34, graphics.Color(255, 255, 255), '◄')
                     #graphics.DrawText(canvas, self.font, 78, 34, graphics.Color(255, 255, 255), '|')
                     for line in range(20,38):
-                        graphics.DrawLine(canvas, 79, line, 80, line, graphics.Color(255, 255, 255))
+                        graphics.DrawLine(canvas, 79, line, 80, line, graphics.Color(0, 0, 255))
   
                 else:
                     graphics.DrawText(canvas, self.font3, 78, 14, graphics.Color(255, 255, 255), '|')
