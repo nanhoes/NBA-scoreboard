@@ -118,9 +118,9 @@ class Render:
             
             if game['gameStatus'] != 1:
                 for line in range(20,38):
-                    graphics.DrawLine(canvas, 39, line, 77, line, graphics.Color(250, 250, 250))
+                    graphics.DrawLine(canvas, 39, line, 77, line, graphics.Color(255, 255, 255))
                 for line in range(0,18):
-                    graphics.DrawLine(canvas, 39, line, 77, line, graphics.Color(250, 250, 250))
+                    graphics.DrawLine(canvas, 39, line, 77, line, graphics.Color(255, 255, 255))
                 
             graphics.DrawText(canvas, self.font2, 127 - len(str(over_under))*8, 14, graphics.Color(0, 0, 255), over_under)
             graphics.DrawText(canvas, self.font2, 127 - len(str(spread))*8, 34, graphics.Color(0, 0, 255), spread)
@@ -167,10 +167,12 @@ class Render:
                 graphics.DrawText(canvas, self.font, 74 - len(str(homescore))*11, 36, graphics.Color(0, 0, 0), str(homescore)) 
 
                 if homescore > awayscore:
-                    graphics.DrawText(canvas, self.font2, 79, 4, graphics.Color(250, 250, 250), '<')
+                    for line in range(20,38):
+                        graphics.DrawLine(canvas, 78, line, 79, line, graphics.Color(255, 255, 255))
                 else:
-                    graphics.DrawText(canvas, self.font2, 79, 14, graphics.Color(250, 250, 250), '<')
-
+                    for line in range(0,18):
+                        graphics.DrawLine(canvas, 78, line, 79, line, graphics.Color(255, 255, 255))
+ 
 
             if game['gameStatus'] == 1: #upcoming game
                 awayrecord = str(game['awayTeam']['wins']) + '-' + str(game['awayTeam']['losses'])
