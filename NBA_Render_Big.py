@@ -226,11 +226,11 @@ class Render:
                 #canvas.Clear()
                 len1 = graphics.DrawText(canvas, self.font2, pos, 62, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]), awaystatline.upper())
                # len2 = graphics.DrawText(canvas, self.font2, pos, 50, graphics.Color(self.team_colors[awayteam][0][0], self.team_colors[awayteam][0][1], self.team_colors[awayteam][0][2]), awaystatline.upper())
-                time.sleep(1)
-                if (len1 - canvas.width) > 0:
-                    pos -= 1
-                    if (pos + len1 < 0):
-                        pos = canvas.width
+               ## time.sleep(1)
+               ## if (len1 - canvas.width) > 0:
+                 ##   pos -= 1
+                   ## if (pos + len1 < 0):
+                     ##   pos = canvas.width
 
                    ##if pos == -1*(len1 - canvas.width):
                         #time.sleep(1)
@@ -242,7 +242,8 @@ class Render:
                      #           break
                     ##time.sleep(0.01)
 
-                    canvas = matrix.SwapOnVSync(canvas)            
+
+                    ##canvas = matrix.SwapOnVSync(canvas)            
 
                    # time.sleep(0.005)
                 ##else:
@@ -250,6 +251,12 @@ class Render:
                   ##  break
                     ##canvas = matrix.SwapOnVSync(canvas)            
 
+                pos -= 1
+                if (pos + len < 0):
+                    pos = canvas.width
+
+                time.sleep(0.05)
+      
 
 
             canvas = matrix.SwapOnVSync(canvas)            
