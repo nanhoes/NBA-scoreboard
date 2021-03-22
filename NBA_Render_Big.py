@@ -80,7 +80,7 @@ class Render:
          #   pos = 63
           #  pos1 = 54
          
-            while True:         
+    #        while True:         
 
 
                 # Make image fit our screen.
