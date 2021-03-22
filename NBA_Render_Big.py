@@ -170,11 +170,11 @@ class Render:
                     #graphics.DrawGlyph(self, canvas, 78, 34, graphics.Color(255, 255, 255), '◄')
                     #graphics.DrawText(canvas, self.font, 78, 34, graphics.Color(255, 255, 255), '|')
                     for line in range(21,37):
-                        graphics.DrawLine(canvas, 80, line, 80, line, graphics.Color(255, 255, 255))
+                        graphics.DrawLine(canvas, 80, line, 80, line, graphics.Color(100, 100, 100))
   
                 else:
                     for line in range(1,17):
-                        graphics.DrawLine(canvas, 80, line, 80, line, graphics.Color(255, 255, 255))
+                        graphics.DrawLine(canvas, 80, line, 80, line, graphics.Color(100, 100, 100))
 
  
 
@@ -210,7 +210,8 @@ class Render:
                     return All_words2[n-1]
                 awayleaderlastname = findawaylastname(awayleadername,2) 
                 awaystatline = awayleadername[0] + '.' + str(awayleaderlastname) + ' ' + str(awayleaderpoints) + '-' + str(awayleaderrebounds) + '-' + str(awayleaderassists)
-
+            canvas = matrix.SwapOnVSync(canvas)            
+            graphics.DrawText(canvas, self.font2, 0, 31, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]), homestatline)
         
 
               #  pos = 0
