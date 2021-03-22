@@ -76,6 +76,7 @@ class Render:
                   
         for game in game_data:
             pos = 63
+            pos1 = 54
             while True:         
 
 
