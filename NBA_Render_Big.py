@@ -224,7 +224,7 @@ class Render:
                     for y in range(39, canvas.height):
                         canvas.SetPixel(x, y, 0, 0, 0)
                 #canvas.Clear()
-                len1 = graphics.DrawText(canvas, self.font2, pos, 62, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]), homestatline)
+                len1 = graphics.DrawText(canvas, self.font2, pos, 62, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]), homestatline.upper())
                 pos -= 1
                 print(str((len1 - canvas.width)) + ' = ' + str(pos))
                 if pos == (len1 - canvas.width) or len1 == 128:
