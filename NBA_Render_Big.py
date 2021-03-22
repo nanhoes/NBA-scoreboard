@@ -73,7 +73,7 @@ class Render:
         image1 = Image.open("/home/pi/My-NBA-scoreboard/bkn.png")
                   
         for game in game_data:
-            pos = 0
+            pos = 2
             while True:         
 
 
