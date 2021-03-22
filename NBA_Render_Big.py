@@ -75,7 +75,7 @@ class Render:
         image1 = Image.open("/home/pi/My-NBA-scoreboard/bkn.png")
                   
         for game in game_data:
-            pos = 5
+            pos = 63
             while True:         
 
 
@@ -225,8 +225,9 @@ class Render:
                 for x in range(0, canvas.width):
                     for y in range(56, canvas.height):
                         canvas.SetPixel(x, y, 255, 255, 255)
+                len1 = graphics.DrawText(canvas, self.font4, 2, pos, graphics.Color(0, 0, 0), awayteam + ': ' + awaystatline.upper() + '  ' + hometeam + ': ' + homestatline.upper())
 
-                len1 = graphics.DrawText(canvas, self.font4, pos, 63, graphics.Color(0, 0, 0), awayteam + ': ' + awaystatline.upper() + '  ' + hometeam + ': ' + homestatline.upper())
+                #len1 = graphics.DrawText(canvas, self.font4, pos, 63, graphics.Color(0, 0, 0), awayteam + ': ' + awaystatline.upper() + '  ' + hometeam + ': ' + homestatline.upper())
                # len2 = graphics.DrawText(canvas, self.font2, pos, 50, graphics.Color(self.team_colors[awayteam][0][0], self.team_colors[awayteam][0][1], self.team_colors[awayteam][0][2]), awaystatline.upper())
                 #time.sleep(1)
                 if (len1 - canvas.width) > 0:
