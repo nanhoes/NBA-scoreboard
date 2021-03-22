@@ -229,7 +229,6 @@ class Render:
                 len1 = graphics.DrawText(canvas, self.font4, 2, pos, graphics.Color(0, 0, 0), awayteam + ': ' + awaystatline.upper())
                 #graphics.DrawLine(canvas, 0, 54, 127, pos1, graphics.Color(255, 255, 255))
                 len2 = graphics.DrawText(canvas, self.font4, 2, pos + 10, graphics.Color(0, 0, 0), hometeam + ': ' + homestatline.upper())
-                time.sleep(2)
                 pos += 1
                 pos1 -= 1 
                 if pos == 73:
