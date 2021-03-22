@@ -217,7 +217,7 @@ class Render:
                 pos = 0
                 while True:         
                     for x in range(0, canvas.width):
-                        for y in range(25, canvas.height):
+                        for y in range(50, canvas.height):
                             canvas.SetPixel(x, y, 0, 0, 0)
                     len1 = graphics.DrawText(canvas, self.font2, pos, 62, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]), homestatline)
                     pos -= 1
@@ -230,7 +230,7 @@ class Render:
                         break
                     canvas = matrix.SwapOnVSync(canvas)            
 
-                    time.sleep(0.04)
+                    time.sleep(0.02)
                     
 
             canvas = matrix.SwapOnVSync(canvas)            
