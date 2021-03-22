@@ -221,9 +221,12 @@ class Render:
                       #      canvas.SetPixel(x, y, 0, 0, 0)
                     len1 = graphics.DrawText(canvas, self.font2, pos, 31, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]), homestatline)
                     pos -= 1
-                    if (pos + len1 < 0):
-                        pos = canvas.width
-                        break
+                    #if (pos + len1 < 0):
+                     #   pos = canvas.width
+                      #  break
+                    for line in range(58,64):	
+                        graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
+
                     
                     time.sleep(0.04)
                     
