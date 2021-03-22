@@ -232,7 +232,7 @@ class Render:
    
                     if pos == (-1*(len1 - canvas.width) - 2):
                         time.sleep(3)
-                        pass
+                        break
                               #  break
                             #for line in range(58,64):	
                              #   graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
@@ -246,7 +246,7 @@ class Render:
                    # time.sleep(0.005)
                 else:
                     time.sleep(3)
-                    pass
+                    break
                 canvas = matrix.SwapOnVSync(canvas)            
 
 
