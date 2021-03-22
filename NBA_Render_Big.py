@@ -228,10 +228,6 @@ class Render:
                # len2 = graphics.DrawText(canvas, self.font2, pos, 50, graphics.Color(self.team_colors[awayteam][0][0], self.team_colors[awayteam][0][1], self.team_colors[awayteam][0][2]), awaystatline.upper())
                 #time.sleep(1)
                 if (len1 - canvas.width) > 0:
-                    print('HEY')
-
-                    pos -= 1
-   
                     if pos == (-1*(len1 - canvas.width) - 2):
                         time.sleep(3)
                         break
@@ -246,8 +242,8 @@ class Render:
                         #canvas = matrix.SwapOnVSync(canvas)            
 
                    # time.sleep(0.005)
+                    pos -= 1
                 else:
-                    print('HEY')
                     time.sleep(3)
                     break
                 canvas = matrix.SwapOnVSync(canvas)            
