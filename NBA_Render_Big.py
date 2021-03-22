@@ -223,6 +223,7 @@ class Render:
                     pos -= 1
                     if (pos + len1 < 0):
                         pos = canvas.width
+                        break
                     
                     time.sleep(0.04)
                     
