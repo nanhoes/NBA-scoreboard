@@ -229,16 +229,18 @@ class Render:
                 time.sleep(1)
                 if (len1 - canvas.width) > 0:
                     pos -= 1
-                    print(str((len1 - canvas.width)) + ' = ' + str(pos))
-                    if pos == -1*(len1 - canvas.width):
+                    if (pos + len1 < 0):
+                        pos = canvas.width
+
+                   ##if pos == -1*(len1 - canvas.width):
                         #time.sleep(1)
-                        break
+                    ##    break
                               #  break
                             #for line in range(58,64):	
                              #   graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
                     #if pos == -100:
                      #           break
-                    time.sleep(0.0001)
+                    time.sleep(0.01)
 
                     canvas = matrix.SwapOnVSync(canvas)            
 
