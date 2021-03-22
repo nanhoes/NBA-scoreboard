@@ -231,7 +231,7 @@ class Render:
                     pos -= 1
    
                     if pos == -1*(len1 - canvas.width):
-                        #time.sleep(1)
+                        time.sleep(0.01)
                         break
                               #  break
                             #for line in range(58,64):	
