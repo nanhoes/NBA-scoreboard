@@ -235,7 +235,7 @@ class Render:
                          #   graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
                 #if pos == -100:
                  #           break
-                time.sleep(0.01)
+                time.sleep(0.001)
 
                 canvas = matrix.SwapOnVSync(canvas)            
 
