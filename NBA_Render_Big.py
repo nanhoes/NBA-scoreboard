@@ -73,7 +73,9 @@ class Render:
         image1 = Image.open("/home/pi/My-NBA-scoreboard/bkn.png")
                   
         for game in game_data:
-            pos = 0
+            pos = canvas.width
+
+            #pos = 0
             while True:         
 
 
@@ -220,18 +222,19 @@ class Render:
               #      pos = 0
              #       while True:         
             #            graphics.DrawText(canvas, self.font2, 41, 14, graphics.Color(200, 200, 200), 'HELLO') #away team record
-                for x in range(0, canvas.width):
-                    for y in range(39, canvas.height):
-                        canvas.SetPixel(x, y, 0, 0, 0)
+               # for x in range(0, canvas.width):
+                #    for y in range(39, canvas.height):
+                 #       canvas.SetPixel(x, y, 0, 0, 0)
+                canvas.Clear()
                 len1 = graphics.DrawText(canvas, self.font2, pos, 62, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]), homestatline)
                 pos -= 1
-                        #if (pos + len1 < 0):
-                         #   pos = canvas.width
+                if (pos + len1 < 0):
+                   pos = canvas.width
                           #  break
                         #for line in range(58,64):	
                          #   graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
-                if pos == -100:
-                            break
+                #if pos == -100:
+                 #           break
                 time.sleep(0.01)
 
                 canvas = matrix.SwapOnVSync(canvas)            
