@@ -226,7 +226,7 @@ class Render:
                     for y in range(39, canvas.height):
                         canvas.SetPixel(x, y, 0, 0, 0)
                 #canvas.Clear()
-                len1 = graphics.DrawText(canvas, self.font4, pos, 62, graphics.Color(255, 255, 255), awaystatline.upper() + homestatline.upper())
+                len1 = graphics.DrawText(canvas, self.font4, pos, 62, graphics.Color(255, 255, 255), awaystatline.upper() + ' ' + homestatline.upper())
                # len2 = graphics.DrawText(canvas, self.font2, pos, 50, graphics.Color(self.team_colors[awayteam][0][0], self.team_colors[awayteam][0][1], self.team_colors[awayteam][0][2]), awaystatline.upper())
                 #time.sleep(1)
                 if (len1 - canvas.width) > 0:
