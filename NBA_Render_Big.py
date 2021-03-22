@@ -231,7 +231,7 @@ class Render:
                 len2 = graphics.DrawText(canvas, self.font4, 2, pos + 10, graphics.Color(0, 0, 0), hometeam + ': ' + homestatline.upper())
                 pos += 1
                 pos1 -= 1 
-                if pos == 70:
+                if pos == 73:
                     time.sleep(2)
                     break
                 if pos1 == 63:
