@@ -226,7 +226,7 @@ class Render:
                       #  break
                     for line in range(58,64):	
                         graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
-                    if pos == -5:
+                    if pos == -100:
                         break
                     canvas = matrix.SwapOnVSync(canvas)            
 
