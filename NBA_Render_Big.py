@@ -77,6 +77,8 @@ class Render:
         for game in game_data:
             pos = 63
             pos1 = 54
+            len1 = graphics.DrawText(canvas, self.font4, 2, pos, graphics.Color(0, 0, 0), 'HELALSMFAKFNLADFLK')
+
             while True:         
 
 
