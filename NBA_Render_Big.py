@@ -225,7 +225,7 @@ class Render:
                 for x in range(0, canvas.width):
                     for y in range(56, canvas.height):
                         canvas.SetPixel(x, y, 0, 0, 0)
-                for line in range(55,55):   
+                for line in range(55,56):   
                     graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(255, 255, 255)) #red line at bottom of screen
 
                 #canvas.Clear()
