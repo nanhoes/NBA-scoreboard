@@ -167,7 +167,7 @@ class Render:
 
 
                 if game['gameStatus'] == 3: #finished game
-                    graphics.DrawText(canvas, self.font3, 2, 51, graphics.Color(200, 200, 200), game['gameStatusText'].upper()) #56
+                    graphics.DrawText(canvas, self.font3, 2, 53, graphics.Color(200, 200, 200), game['gameStatusText'].upper()) #56
                     graphics.DrawText(canvas, self.font, 74 - len(str(awayscore))*11, 16, graphics.Color(0, 0, 0), str(awayscore)) 
                     graphics.DrawText(canvas, self.font, 74 - len(str(homescore))*11, 36, graphics.Color(0, 0, 0), str(homescore)) 
 
@@ -223,10 +223,10 @@ class Render:
              #       while True:         
             #            graphics.DrawText(canvas, self.font2, 41, 14, graphics.Color(200, 200, 200), 'HELLO') #away team record
                 for x in range(0, canvas.width):
-                    for y in range(54, canvas.height):
+                    for y in range(56, canvas.height):
                         canvas.SetPixel(x, y, 255, 255, 255)
                 #canvas.Clear()
-                len1 = graphics.DrawText(canvas, self.font4, pos, 62, graphics.Color(0, 0, 0), awaystatline.upper() + ' ' + homestatline.upper())
+                len1 = graphics.DrawText(canvas, self.font4, pos, 63, graphics.Color(0, 0, 0), awaystatline.upper() + ' ' + homestatline.upper())
                # len2 = graphics.DrawText(canvas, self.font2, pos, 50, graphics.Color(self.team_colors[awayteam][0][0], self.team_colors[awayteam][0][1], self.team_colors[awayteam][0][2]), awaystatline.upper())
                 #time.sleep(1)
                 if (len1 - canvas.width) > 0:
