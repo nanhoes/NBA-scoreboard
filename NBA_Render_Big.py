@@ -255,7 +255,7 @@ class Render:
                 if (pos + len1 < 0):
                     pos = canvas.width
 
-                time.sleep(0.05)
+                time.sleep(0.01)
                 canvas = matrix.SwapOnVSync(canvas)            
 
 
