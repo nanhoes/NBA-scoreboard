@@ -222,10 +222,10 @@ class Render:
               #      pos = 0
              #       while True:         
             #            graphics.DrawText(canvas, self.font2, 41, 14, graphics.Color(200, 200, 200), 'HELLO') #away team record
-               # for x in range(0, canvas.width):
-                #    for y in range(39, canvas.height):
-                 #       canvas.SetPixel(x, y, 0, 0, 0)
-                canvas.Clear()
+                for x in range(0, canvas.width):
+                    for y in range(39, canvas.height):
+                        canvas.SetPixel(x, y, 0, 0, 0)
+                #canvas.Clear()
                 len1 = graphics.DrawText(canvas, self.font2, pos, 62, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]), homestatline)
                 pos -= 1
                 if (pos + len1 < 0):
@@ -235,7 +235,7 @@ class Render:
                          #   graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
                 #if pos == -100:
                  #           break
-                time.sleep(0.000001)
+                time.sleep(0.05)
 
                 canvas = matrix.SwapOnVSync(canvas)            
 
