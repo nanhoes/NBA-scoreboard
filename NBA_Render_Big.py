@@ -225,21 +225,24 @@ class Render:
                         canvas.SetPixel(x, y, 0, 0, 0)
                 #canvas.Clear()
                 len1 = graphics.DrawText(canvas, self.font2, pos, 62, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]), homestatline.upper())
-                len2 = graphics.DrawText(canvas, self.font2, pos, 50, graphics.Color(self.team_colors[awayteam][0][0], self.team_colors[awayteam][0][1], self.team_colors[awayteam][0][2]), awaystatline.upper())
-                pos -= 1
-                print(str((len1 - canvas.width)) + ' = ' + str(pos))
-                if pos == (len1 - canvas.width) or len1 == 128:
-                   break
-                          #  break
-                        #for line in range(58,64):	
-                         #   graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
-                #if pos == -100:
-                 #           break
-                time.sleep(0.0001)
+               # len2 = graphics.DrawText(canvas, self.font2, pos, 50, graphics.Color(self.team_colors[awayteam][0][0], self.team_colors[awayteam][0][1], self.team_colors[awayteam][0][2]), awaystatline.upper())
+                time.sleep(1)
+                if (len1 - canvas.width) > 0
+                    pos -= 1
+                    print(str((len1 - canvas.width)) + ' = ' + str(pos))
+                    if pos == -1*(len1 - canvas.width):
+                        time.sleep(1)
+                        break
+                              #  break
+                            #for line in range(58,64):	
+                             #   graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
+                    #if pos == -100:
+                     #           break
+                    time.sleep(0.0001)
 
-                canvas = matrix.SwapOnVSync(canvas)            
+                    canvas = matrix.SwapOnVSync(canvas)            
 
-               # time.sleep(0.005)
+                   # time.sleep(0.005)
 
 
             canvas = matrix.SwapOnVSync(canvas)            
