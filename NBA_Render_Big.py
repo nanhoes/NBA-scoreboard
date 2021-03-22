@@ -232,7 +232,7 @@ class Render:
                         canvas.SetPixel(x, y, 255, 255, 255)
                 len2 = graphics.DrawText(canvas, self.font4, 2, pos + 10, graphics.Color(0, 0, 0), hometeam + ': ' + homestatline.upper())
                 pos -= 1
-                if pos == 63
+                if pos == 63:
                     time.sleep(2)
                     break
 
