@@ -231,7 +231,7 @@ class Render:
                     pos -= 1
                     print(str((len1 - canvas.width)) + ' = ' + str(pos))
                     if pos == -1*(len1 - canvas.width):
-                        time.sleep(1)
+                        #time.sleep(1)
                         break
                               #  break
                             #for line in range(58,64):	
