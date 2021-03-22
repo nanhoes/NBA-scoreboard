@@ -219,7 +219,7 @@ class Render:
                     #for x in range(0, canvas.width):
                      #   for y in range(25, canvas.height):
                       #      canvas.SetPixel(x, y, 0, 0, 0)
-                    len1 = graphics.DrawText(canvas, self.font2, pos, 31, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]), homestatline)
+                    len1 = graphics.DrawText(canvas, self.font2, pos, 62, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]), homestatline)
                     pos -= 1
                     #if (pos + len1 < 0):
                      #   pos = canvas.width
