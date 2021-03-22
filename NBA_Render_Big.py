@@ -216,7 +216,7 @@ class Render:
 
                 pos = 0
                 while True:         
-                    graphics.DrawText(canvas, self.font2, 41, 14, graphics.Color(200, 200, 200), awayrecord) #away team record
+                    graphics.DrawText(canvas, self.font2, 41, 14, graphics.Color(200, 200, 200), 'HELLO') #away team record
                     for x in range(0, canvas.width):
                         for y in range(50, canvas.height):
                             canvas.SetPixel(x, y, 0, 0, 0)
