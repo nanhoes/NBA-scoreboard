@@ -227,7 +227,7 @@ class Render:
                 len1 = graphics.DrawText(canvas, self.font2, pos, 62, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]), homestatline.upper())
                # len2 = graphics.DrawText(canvas, self.font2, pos, 50, graphics.Color(self.team_colors[awayteam][0][0], self.team_colors[awayteam][0][1], self.team_colors[awayteam][0][2]), awaystatline.upper())
                 time.sleep(1)
-                if (len1 - canvas.width) > 0
+                if (len1 - canvas.width) > 0:
                     pos -= 1
                     print(str((len1 - canvas.width)) + ' = ' + str(pos))
                     if pos == -1*(len1 - canvas.width):
