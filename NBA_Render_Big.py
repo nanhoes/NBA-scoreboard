@@ -167,7 +167,7 @@ class Render:
 
 
                 if game['gameStatus'] == 3: #finished game
-                    graphics.DrawText(canvas, self.font3, 2, 51, graphics.Color(200, 200, 200), game['gameStatusText'].upper()) #56
+                    graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(200, 200, 200), game['gameStatusText'].upper()) #56
                     graphics.DrawText(canvas, self.font, 74 - len(str(awayscore))*11, 16, graphics.Color(0, 0, 0), str(awayscore)) 
                     graphics.DrawText(canvas, self.font, 74 - len(str(homescore))*11, 36, graphics.Color(0, 0, 0), str(homescore)) 
 
