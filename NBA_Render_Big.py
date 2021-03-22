@@ -78,7 +78,7 @@ class Render:
             pos = 63
             pos1 = 54
             len1 = graphics.DrawText(canvas, self.font4, 2, pos, graphics.Color(0, 0, 0), 'HELALSMFAKFNLADFLK')
-
+            time.sleep(2)
             while True:         
 
 
