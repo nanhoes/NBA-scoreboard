@@ -244,7 +244,7 @@ class Render:
 
                    # time.sleep(0.005)
                 else:
-                    time.sleep(5)
+                    #time.sleep(5)
                     break
                     canvas = matrix.SwapOnVSync(canvas)            
 
