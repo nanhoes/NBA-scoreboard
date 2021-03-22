@@ -226,10 +226,14 @@ class Render:
                     for y in range(56, canvas.height):
                         canvas.SetPixel(x, y, 255, 255, 255)
                 len1 = graphics.DrawText(canvas, self.font4, 2, 63, graphics.Color(0, 0, 0), awayteam + ': ' + awaystatline.upper())
+                graphics.DrawLine(canvas, 0, 54, 127, pos1, graphics.Color(255, 255, 255))
                 len2 = graphics.DrawText(canvas, self.font4, 2, pos + 10, graphics.Color(0, 0, 0), hometeam + ': ' + homestatline.upper())
                 pos -= 1
+                pos1 -= 1 
                 if pos == 63:
                     time.sleep(2)
+                    break
+                if pos1 == 63:
                     break
 
         ##    len1 = graphics.DrawText(canvas, self.font4, pos, 63, graphics.Color(0, 0, 0), awayteam + ': ' + awaystatline.upper() + '  ' + hometeam + ': ' + homestatline.upper())
