@@ -230,8 +230,8 @@ class Render:
                 if (len1 - canvas.width) > 0:
                     pos -= 1
    
-                    if pos == -1*(len1 - canvas.width):
-                        time.sleep(5)
+                    if pos == (-1*(len1 - canvas.width) - 2):
+                        time.sleep(3)
                         break
                               #  break
                             #for line in range(58,64):	
@@ -245,7 +245,7 @@ class Render:
 
                    # time.sleep(0.005)
                 else:
-                    time.sleep(5)
+                    time.sleep(3)
                     break
                 canvas = matrix.SwapOnVSync(canvas)            
 
