@@ -231,7 +231,6 @@ class Render:
                     pos -= 1
    
                     if pos == -1*(len1 - canvas.width):
-                        time.sleep(0.01)
                         break
                               #  break
                             #for line in range(58,64):	
@@ -241,7 +240,7 @@ class Render:
                     #time.sleep(0.01)
 
 
-                        canvas = matrix.SwapOnVSync(canvas)            
+                        #canvas = matrix.SwapOnVSync(canvas)            
 
                    # time.sleep(0.005)
                 else:
