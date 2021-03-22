@@ -216,6 +216,7 @@ class Render:
 
                 pos = 0
                 while True:         
+                    graphics.DrawText(canvas, self.font2, 41, 14, graphics.Color(200, 200, 200), awayrecord) #away team record
                     for x in range(0, canvas.width):
                         for y in range(50, canvas.height):
                             canvas.SetPixel(x, y, 0, 0, 0)
@@ -228,7 +229,7 @@ class Render:
                      #   graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
                     if pos == -100:
                         break
-                    #canvas = matrix.SwapOnVSync(canvas)            
+                    canvas = matrix.SwapOnVSync(canvas)            
 
                     time.sleep(0.02)
                     
