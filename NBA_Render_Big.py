@@ -121,21 +121,24 @@ class Render:
                     if timeremaining[0] == 'Q' and (timeremaining[1] >= '4' and (len(timeremaining) == 6 or (len(timeremaining) == 7 and timeremaining[3] <= '4'))): #Q4 or OT < 5min remaining
                         if homescore > awayscore:
                             if (homescore - awayscore) <= 15: #close game
-                                graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(255, 255, 255), timeremaining) #bright quarter and time remaining
+                                graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(255, 255, 255), timeremaining) #bright quarter and time remaining
                                 for line in range(62,64):   
                                     graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(255, 0, 0)) #red line at bottom of screen
                             else:
-                                graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(200, 200, 200), timeremaining)
+                                graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(200, 200, 200), timeremaining)
                         else:
                             if (awayscore - homescore) <= 15: #close game
-                                graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(255, 255, 255), timeremaining) #bright quarter and time remaining
+                                graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(255, 255, 255), timeremaining) #bright quarter and time remaining
                                 for line in range(62,64):   
                                     graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(255, 0, 0)) #red line at bottom of screen
                             else:
-                                graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(200, 200, 200), timeremaining)
-                    else: #not a close game or not under 4min
-                        graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(186, 212, 191), timeremaining)
+                                graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(200, 200, 200), timeremaining)
+                    else and timeremaining[1] != '1': #not a close game or not under 4min
+                        graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(200, 200, 200), timeremaining)
+                    if timeremaining[1] = '1':
+                        graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(200, 200, 200), timeremaining)
 
+                   
 
                 if game['gameStatus'] == 3: #GAME IS FINISHED
                     graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(200, 200, 200), game['gameStatusText'].upper()) #56
