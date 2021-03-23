@@ -76,10 +76,10 @@ class Render:
         image1 = Image.open("/home/pi/My-NBA-scoreboard/bkn.png")
                   
         for game in game_data:
-        ####    pos = 63
+            pos = 63
           #  pos1 = 54
 
-           #### while True:         
+            while True:         
              ####   print('now')
 
                 # Make image fit our screen.
@@ -91,177 +91,177 @@ class Render:
                # canvas = matrix.SwapOnVSync(canvas)
 
 
-            hometeam = game['homeTeam']['teamTricode']
-            awayteam = game['awayTeam']['teamTricode']
+                hometeam = game['homeTeam']['teamTricode']
+                awayteam = game['awayTeam']['teamTricode']
 
-            home = (game['homeTeam']['teamCity'] + '-' + game['homeTeam']['teamName']).replace(' ', '-').lower()
-            away = (game['awayTeam']['teamCity'] + '-' + game['awayTeam']['teamName']).replace(' ', '-').lower()
-            if home == 'la-clippers':
-                home = 'l-a-clippers'
-            if away == 'la-clippers':
-                away = 'l-a-clippers'
+                home = (game['homeTeam']['teamCity'] + '-' + game['homeTeam']['teamName']).replace(' ', '-').lower()
+                away = (game['awayTeam']['teamCity'] + '-' + game['awayTeam']['teamName']).replace(' ', '-').lower()
+                if home == 'la-clippers':
+                    home = 'l-a-clippers'
+                if away == 'la-clippers':
+                    away = 'l-a-clippers'
 
-            gamelink = r'/basketball/nba/{0}-{1}-{2}'.format(away, home, game['gameCode'][0:game['gameCode'].find(r'/')])
-            print(gamelink)
+                gamelink = r'/basketball/nba/{0}-{1}-{2}'.format(away, home, game['gameCode'][0:game['gameCode'].find(r'/')])
+                print(gamelink)
 
-            try:
-                if disp_live_odds == True and game['gameStatus'] == 2:
-                    spread = spreads_data_live[gamelink]['spread']
-                    over_under = spreads_data_live[gamelink]['over_under']
-                else:       
-                    spread = spreads_data[gamelink]['spread']
-                    over_under = spreads_data[gamelink]['over_under']
-            except KeyError:
-                #print('No spreads for this game.')
-                spread = ''
-                over_under = ''
+                try:
+                    if disp_live_odds == True and game['gameStatus'] == 2:
+                        spread = spreads_data_live[gamelink]['spread']
+                        over_under = spreads_data_live[gamelink]['over_under']
+                    else:       
+                        spread = spreads_data[gamelink]['spread']
+                        over_under = spreads_data[gamelink]['over_under']
+                except KeyError:
+                    #print('No spreads for this game.')
+                    spread = ''
+                    over_under = ''
 
-            for line in range(0,64):	
-                graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
+                for line in range(0,64):	
+                    graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
 
-            for line in range(20,38):
-                graphics.DrawLine(canvas, 0, line, 38, line, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]))
-            for line in range(0,18):
-                graphics.DrawLine(canvas, 0, line, 38, line, graphics.Color(self.team_colors[awayteam][0][0], self.team_colors[awayteam][0][1], self.team_colors[awayteam][0][2]))
-
-            if game['gameStatus'] != 1:
                 for line in range(20,38):
-                    graphics.DrawLine(canvas, 39, line, 77, line, graphics.Color(255, 255, 255))
+                    graphics.DrawLine(canvas, 0, line, 38, line, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]))
                 for line in range(0,18):
-                    graphics.DrawLine(canvas, 39, line, 77, line, graphics.Color(255, 255, 255))
+                    graphics.DrawLine(canvas, 0, line, 38, line, graphics.Color(self.team_colors[awayteam][0][0], self.team_colors[awayteam][0][1], self.team_colors[awayteam][0][2]))
 
-            graphics.DrawText(canvas, self.font2, 127 - len(str(over_under))*8, 14, graphics.Color(0, 0, 255), over_under)
-            graphics.DrawText(canvas, self.font2, 127 - len(str(spread))*8, 34, graphics.Color(0, 0, 255), spread)
-            graphics.DrawText(canvas, self.font, 2, 36, graphics.Color(self.team_colors[hometeam][1][0], self.team_colors[hometeam][1][1], self.team_colors[hometeam][1][2]), hometeam)
-            graphics.DrawText(canvas, self.font, 2, 16, graphics.Color(self.team_colors[awayteam][1][0], self.team_colors[awayteam][1][1], self.team_colors[awayteam][1][2]), awayteam)
+                if game['gameStatus'] != 1:
+                    for line in range(20,38):
+                        graphics.DrawLine(canvas, 39, line, 77, line, graphics.Color(255, 255, 255))
+                    for line in range(0,18):
+                        graphics.DrawLine(canvas, 39, line, 77, line, graphics.Color(255, 255, 255))
+
+                graphics.DrawText(canvas, self.font2, 127 - len(str(over_under))*8, 14, graphics.Color(0, 0, 255), over_under)
+                graphics.DrawText(canvas, self.font2, 127 - len(str(spread))*8, 34, graphics.Color(0, 0, 255), spread)
+                graphics.DrawText(canvas, self.font, 2, 36, graphics.Color(self.team_colors[hometeam][1][0], self.team_colors[hometeam][1][1], self.team_colors[hometeam][1][2]), hometeam)
+                graphics.DrawText(canvas, self.font, 2, 16, graphics.Color(self.team_colors[awayteam][1][0], self.team_colors[awayteam][1][1], self.team_colors[awayteam][1][2]), awayteam)
 
 
-            homescore = game['homeTeam']['score']
-            awayscore = game['awayTeam']['score']
-            timeremaining = game['gameStatusText']
-            if timeremaining[0] == 'Q' and timeremaining[3] == '0':
-                timeremaining = game['gameStatusText'][:3] + game['gameStatusText'][4:]
-            if timeremaining[0] == 'Q' and timeremaining[3] == '0' and timeremaining[4] == ':':
-                timeremaining = game['gameStatusText'][:3] + game['gameStatusText'][5:]
-            if game['gameStatus'] == 2: #game is live
-                graphics.DrawText(canvas, self.font, 74 - len(str(awayscore))*11, 16, graphics.Color(0, 0, 0), str(awayscore)) 
-                graphics.DrawText(canvas, self.font, 74 - len(str(homescore))*11, 36, graphics.Color(0, 0, 0), str(homescore)) 
-                if timeremaining[0] == 'Q' and (timeremaining[1] >= '4' and (len(timeremaining) == 6 or (len(timeremaining) == 7 and timeremaining[3] <= '4'))): #Q4 or OT < 5min remaining
+                homescore = game['homeTeam']['score']
+                awayscore = game['awayTeam']['score']
+                timeremaining = game['gameStatusText']
+                if timeremaining[0] == 'Q' and timeremaining[3] == '0':
+                    timeremaining = game['gameStatusText'][:3] + game['gameStatusText'][4:]
+                if timeremaining[0] == 'Q' and timeremaining[3] == '0' and timeremaining[4] == ':':
+                    timeremaining = game['gameStatusText'][:3] + game['gameStatusText'][5:]
+                if game['gameStatus'] == 2: #game is live
+                    graphics.DrawText(canvas, self.font, 74 - len(str(awayscore))*11, 16, graphics.Color(0, 0, 0), str(awayscore)) 
+                    graphics.DrawText(canvas, self.font, 74 - len(str(homescore))*11, 36, graphics.Color(0, 0, 0), str(homescore)) 
+                    if timeremaining[0] == 'Q' and (timeremaining[1] >= '4' and (len(timeremaining) == 6 or (len(timeremaining) == 7 and timeremaining[3] <= '4'))): #Q4 or OT < 5min remaining
+                        if homescore > awayscore:
+                            if (homescore - awayscore) <= 15: #close game
+                                graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(255, 255, 255), timeremaining) #bright quarter and time remaining
+                                for line in range(62,64):   
+                                    graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(255, 0, 0)) #red line at bottom of screen
+                            else:
+                                graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(200, 200, 200), timeremaining)
+                        else:
+                            if (awayscore - homescore) <= 15: #close game
+                                graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(255, 255, 255), timeremaining) #bright quarter and time remaining
+                                for line in range(62,64):   
+                                    graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(255, 0, 0)) #red line at bottom of screen
+                            else:
+                                graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(200, 200, 200), timeremaining)
+                    else: #not a close game or not under 4min
+                        #if game['gameStatusText'][0:2] == 'Q2':
+                         #   quarter = '2nd'
+                          #  graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(255, 255, 255), quarter + ' ' + game['gameStatusText'][4:])
+                        graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(186, 212, 191), timeremaining)
+
+
+
+                if game['gameStatus'] == 3: #finished game
+                    graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(200, 200, 200), game['gameStatusText'].upper()) #56
+                    graphics.DrawText(canvas, self.font, 74 - len(str(awayscore))*11, 16, graphics.Color(0, 0, 0), str(awayscore)) 
+                    graphics.DrawText(canvas, self.font, 74 - len(str(homescore))*11, 36, graphics.Color(0, 0, 0), str(homescore)) 
+
                     if homescore > awayscore:
-                        if (homescore - awayscore) <= 15: #close game
-                            graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(255, 255, 255), timeremaining) #bright quarter and time remaining
-                            for line in range(62,64):   
-                                graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(255, 0, 0)) #red line at bottom of screen
-                        else:
-                            graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(200, 200, 200), timeremaining)
+                        #graphics.DrawGlyph(self, canvas, 78, 34, graphics.Color(255, 255, 255), '◄')
+                        #graphics.DrawText(canvas, self.font, 78, 34, graphics.Color(255, 255, 255), '|')
+                        for line in range(21,37):
+                            graphics.DrawLine(canvas, 80, line, 81, line, graphics.Color(100, 100, 100))
+
                     else:
-                        if (awayscore - homescore) <= 15: #close game
-                            graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(255, 255, 255), timeremaining) #bright quarter and time remaining
-                            for line in range(62,64):   
-                                graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(255, 0, 0)) #red line at bottom of screen
-                        else:
-                            graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(200, 200, 200), timeremaining)
-                else: #not a close game or not under 4min
-                    #if game['gameStatusText'][0:2] == 'Q2':
-                     #   quarter = '2nd'
-                      #  graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(255, 255, 255), quarter + ' ' + game['gameStatusText'][4:])
-                    graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(186, 212, 191), timeremaining)
+                        for line in range(1,17):
+                            graphics.DrawLine(canvas, 80, line, 81, line, graphics.Color(100, 100, 100))
 
 
 
-            if game['gameStatus'] == 3: #finished game
-                graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(200, 200, 200), game['gameStatusText'].upper()) #56
-                graphics.DrawText(canvas, self.font, 74 - len(str(awayscore))*11, 16, graphics.Color(0, 0, 0), str(awayscore)) 
-                graphics.DrawText(canvas, self.font, 74 - len(str(homescore))*11, 36, graphics.Color(0, 0, 0), str(homescore)) 
+                if game['gameStatus'] == 1: #upcoming game
+                    awayrecord = str(game['awayTeam']['wins']) + '-' + str(game['awayTeam']['losses'])
+                    homerecord = str(game['homeTeam']['wins']) + '-' + str(game['homeTeam']['losses'])
+                    graphics.DrawText(canvas, self.font2, 41, 14, graphics.Color(200, 200, 200), awayrecord) #away team record
+                    graphics.DrawText(canvas, self.font2, 41, 34, graphics.Color(200, 200, 200), homerecord) #home team record
+                    if game['gameStatusText'] != 'PPD': #upcoming game
+                        graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(200, 200, 200), game['gameStatusText'][0:game['gameStatusText'].find('ET')].upper() + 'ET')
+                    if game['gameStatusText'] == 'PPD': #postponed game
+                        graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(200, 200, 200), 'POSTPONED')
 
-                if homescore > awayscore:
-                    #graphics.DrawGlyph(self, canvas, 78, 34, graphics.Color(255, 255, 255), '◄')
-                    #graphics.DrawText(canvas, self.font, 78, 34, graphics.Color(255, 255, 255), '|')
-                    for line in range(21,37):
-                        graphics.DrawLine(canvas, 80, line, 81, line, graphics.Color(100, 100, 100))
+                if game['gameStatus'] != 1 and game['period'] !=1:
+                    homeleadername = game['gameLeaders']['homeLeaders']['name']
+                    homeleaderpoints = game['gameLeaders']['homeLeaders']['points']
+                    homeleaderrebounds = game['gameLeaders']['homeLeaders']['rebounds']
+                    homeleaderassists = game['gameLeaders']['homeLeaders']['assists']
+                    def findhomelastname(homeleadername,n):
+                        #Using ' ' as a separator, All_words is a list of all the words in the String
+                        All_words=homeleadername.split(" ")
+                        return All_words[n-1]
+                    homeleaderlastname = findhomelastname(homeleadername,2)
+                    homestatline = homeleadername[0] + '.'+ str(homeleaderlastname) + ' ' + str(homeleaderpoints) + '-' + str(homeleaderrebounds) + '-' + str(homeleaderassists)
 
-                else:
-                    for line in range(1,17):
-                        graphics.DrawLine(canvas, 80, line, 81, line, graphics.Color(100, 100, 100))
-
-
-
-            if game['gameStatus'] == 1: #upcoming game
-                awayrecord = str(game['awayTeam']['wins']) + '-' + str(game['awayTeam']['losses'])
-                homerecord = str(game['homeTeam']['wins']) + '-' + str(game['homeTeam']['losses'])
-                graphics.DrawText(canvas, self.font2, 41, 14, graphics.Color(200, 200, 200), awayrecord) #away team record
-                graphics.DrawText(canvas, self.font2, 41, 34, graphics.Color(200, 200, 200), homerecord) #home team record
-                if game['gameStatusText'] != 'PPD': #upcoming game
-                    graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(200, 200, 200), game['gameStatusText'][0:game['gameStatusText'].find('ET')].upper() + 'ET')
-                if game['gameStatusText'] == 'PPD': #postponed game
-                    graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(200, 200, 200), 'POSTPONED')
-
-            if game['gameStatus'] != 1 and game['period'] !=1:
-                homeleadername = game['gameLeaders']['homeLeaders']['name']
-                homeleaderpoints = game['gameLeaders']['homeLeaders']['points']
-                homeleaderrebounds = game['gameLeaders']['homeLeaders']['rebounds']
-                homeleaderassists = game['gameLeaders']['homeLeaders']['assists']
-                def findhomelastname(homeleadername,n):
-                    #Using ' ' as a separator, All_words is a list of all the words in the String
-                    All_words=homeleadername.split(" ")
-                    return All_words[n-1]
-                homeleaderlastname = findhomelastname(homeleadername,2)
-                homestatline = homeleadername[0] + '.'+ str(homeleaderlastname) + ' ' + str(homeleaderpoints) + '-' + str(homeleaderrebounds) + '-' + str(homeleaderassists)
-
-                awayleadername = game['gameLeaders']['awayLeaders']['name']
-                awayleaderpoints = game['gameLeaders']['awayLeaders']['points']
-                awayleaderrebounds = game['gameLeaders']['awayLeaders']['rebounds']
-                awayleaderassists = game['gameLeaders']['awayLeaders']['assists']
-                def findawaylastname(awayleadername,n):
-                    #Using ' ' as a separator, All_words is a list of all the words in the String
-                    All_words2=awayleadername.split(" ")
-                    return All_words2[n-1]
-                awayleaderlastname = findawaylastname(awayleadername,2) 
-                awaystatline = awayleadername[0] + '.' + str(awayleaderlastname) + ' ' + str(awayleaderpoints) + '-' + str(awayleaderrebounds) + '-' + str(awayleaderassists)
-                #canvas = matrix.SwapOnVSync(canvas)            
-                #graphics.DrawText(canvas, self.font2, 0, 62, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]), homestatline.upper())
+                    awayleadername = game['gameLeaders']['awayLeaders']['name']
+                    awayleaderpoints = game['gameLeaders']['awayLeaders']['points']
+                    awayleaderrebounds = game['gameLeaders']['awayLeaders']['rebounds']
+                    awayleaderassists = game['gameLeaders']['awayLeaders']['assists']
+                    def findawaylastname(awayleadername,n):
+                        #Using ' ' as a separator, All_words is a list of all the words in the String
+                        All_words2=awayleadername.split(" ")
+                        return All_words2[n-1]
+                    awayleaderlastname = findawaylastname(awayleadername,2) 
+                    awaystatline = awayleadername[0] + '.' + str(awayleaderlastname) + ' ' + str(awayleaderpoints) + '-' + str(awayleaderrebounds) + '-' + str(awayleaderassists)
+                    #canvas = matrix.SwapOnVSync(canvas)            
+                    #graphics.DrawText(canvas, self.font2, 0, 62, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]), homestatline.upper())
 
 
-              #      pos = 0
-             #       while True:         
-            #            graphics.DrawText(canvas, self.font2, 41, 14, graphics.Color(200, 200, 200), 'HELLO') #away team record
-    ###                for x in range(0, canvas.width):
-    ###                  for y in range(56, canvas.height):
-    ###                    canvas.SetPixel(x, y, 255, 255, 255)
-     # ##          len1 = graphics.DrawText(canvas, self.font4, 2, pos, graphics.Color(0, 0, 0), awayteam + ': ' + awaystatline.upper())
-                #graphics.DrawLine(canvas, 0, 54, 127, pos1, graphics.Color(255, 255, 255))
-      #  ##        len2 = graphics.DrawText(canvas, self.font4, 2, pos + 10, graphics.Color(0, 0, 0), hometeam + ': ' + homestatline.upper())
-       #   ##      pos += 1
-        #    ##    pos1 -= 1 
-         #     ##  if pos == 73:
-          #      ##    time.sleep(2)
-           #       ##  break
-            #  ##  if pos1 == 63:
-             #   ##    break
+                    #pos = 0
+                 #       while True:         
+                #            graphics.DrawText(canvas, self.font2, 41, 14, graphics.Color(200, 200, 200), 'HELLO') #away team record
+        ###                for x in range(0, canvas.width):
+        ###                  for y in range(56, canvas.height):
+        ###                    canvas.SetPixel(x, y, 255, 255, 255)
+         # ##          len1 = graphics.DrawText(canvas, self.font4, 2, pos, graphics.Color(0, 0, 0), awayteam + ': ' + awaystatline.upper())
+                    #graphics.DrawLine(canvas, 0, 54, 127, pos1, graphics.Color(255, 255, 255))
+          #  ##        len2 = graphics.DrawText(canvas, self.font4, 2, pos + 10, graphics.Color(0, 0, 0), hometeam + ': ' + homestatline.upper())
+           #   ##      pos += 1
+            #    ##    pos1 -= 1 
+             #     ##  if pos == 73:
+              #      ##    time.sleep(2)
+               #       ##  break
+                #  ##  if pos1 == 63:
+                 #   ##    break
 
-                ####len1 = graphics.DrawText(canvas, self.font4, pos, 63, graphics.Color(0, 0, 0), awayteam + ': ' + awaystatline.upper() + '  ' + hometeam + ': ' + homestatline.upper())
-               # len2 = graphics.DrawText(canvas, self.font2, pos, 50, graphics.Color(self.team_colors[awayteam][0][0], self.team_colors[awayteam][0][1], self.team_colors[awayteam][0][2]), awaystatline.upper())
-                #time.sleep(1)
-                ####if (len1 - canvas.width) > 0:
-                    ####if pos == (-1*(len1 - canvas.width) - 2):
-                        ####time.sleep(2)
+                    len1 = graphics.DrawText(canvas, self.font4, pos, 63, graphics.Color(0, 0, 0), awayteam + ': ' + awaystatline.upper() + '  ' + hometeam + ': ' + homestatline.upper())
+                   # len2 = graphics.DrawText(canvas, self.font2, pos, 50, graphics.Color(self.team_colors[awayteam][0][0], self.team_colors[awayteam][0][1], self.team_colors[awayteam][0][2]), awaystatline.upper())
+                    #time.sleep(1)
+                    ####if (len1 - canvas.width) > 0:
+                        ####if pos == (-1*(len1 - canvas.width) - 2):
+                            ####time.sleep(2)
+                            ####break
+                                  #  break
+                                #for line in range(58,64):	
+                                 #   graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
+                        #if pos == -100:
+                         #           break
+                        #time.sleep(0.01)
+
+
+                            #canvas = matrix.SwapOnVSync(canvas)            
+
+                       # time.sleep(0.005)
+                        ####pos -= 1
+                    ####else:
+                        ####time.sleep(3)
                         ####break
-                              #  break
-                            #for line in range(58,64):	
-                             #   graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
-                    #if pos == -100:
-                     #           break
-                    #time.sleep(0.01)
-
-
-                        #canvas = matrix.SwapOnVSync(canvas)            
-
-                   # time.sleep(0.005)
-                    ####pos -= 1
-                ####else:
-                    ####time.sleep(3)
-                    ####break
-              ###  canvas = matrix.SwapOnVSync(canvas)            
+                  ###  canvas = matrix.SwapOnVSync(canvas)            
 
 
             canvas = matrix.SwapOnVSync(canvas)            
