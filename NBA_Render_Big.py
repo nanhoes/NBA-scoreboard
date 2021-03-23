@@ -203,10 +203,12 @@ class Render:
 
                     time.sleep(0.05)
                     canvas = matrix.SwapOnVSync(canvas)
+                else:
+                    break
                 
 
                             
-                                      
+            
             canvas = matrix.SwapOnVSync(canvas)            
             time.sleep(5)
 if __name__=='__main__':
