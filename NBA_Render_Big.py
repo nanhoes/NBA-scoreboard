@@ -264,10 +264,10 @@ class Render:
                   ###  canvas = matrix.SwapOnVSync(canvas)            
 
                 break
-                print('hey')
-                canvas = matrix.SwapOnVSync(canvas)            
-                time.sleep(5)
-                #canvas = matrix.SwapOnVSync(canvas)            
+            print('hey')
+            canvas = matrix.SwapOnVSync(canvas)            
+            time.sleep(5)
+            #canvas = matrix.SwapOnVSync(canvas)            
 
 
 
