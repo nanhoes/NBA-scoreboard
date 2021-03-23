@@ -194,7 +194,7 @@ class Render:
                         print('Yes')
                         print('Is statline at x = 61?')
                         
-                        while pos != canvas.width - len1 - 2
+                        while pos != canvas.width - len1 - 2:
                             pos -=1
                             
                                       
