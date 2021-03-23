@@ -185,10 +185,10 @@ class Render:
                     awayleaderlastname = findawaylastname(awayleadername,2) 
                     awaystatline = awayleadername[0] + '.' + str(awayleaderlastname) + ' ' + str(awayleaderpoints) + '-' + str(awayleaderrebounds) + '-' + str(awayleaderassists)
                     
-                    for line in range(54,64): #statline background
+                    for line in range(56,64): #statline background
                         graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(255, 255, 255))
 
-                    len1 = graphics.DrawText(canvas, self.font4, pos, 62, graphics.Color(0, 0, 0), awaystatline.upper() + '  ' + homestatline.upper())
+                    len1 = graphics.DrawText(canvas, self.font4, pos, 64, graphics.Color(0, 0, 0), awaystatline.upper() + '  ' + homestatline.upper())
                     pos -= 1   
                     print(pos)
                     if pos == -60:
