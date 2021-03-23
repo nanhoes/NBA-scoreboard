@@ -225,9 +225,9 @@ class Render:
                     #pos = 0
                  #       while True:         
                 #            graphics.DrawText(canvas, self.font2, 41, 14, graphics.Color(200, 200, 200), 'HELLO') #away team record
-        ###                for x in range(0, canvas.width):
-        ###                  for y in range(56, canvas.height):
-        ###                    canvas.SetPixel(x, y, 255, 255, 255)
+                    for x in range(0, canvas.width):
+                      for y in range(56, canvas.height):
+                        canvas.SetPixel(x, y, 255, 255, 255)
          # ##          len1 = graphics.DrawText(canvas, self.font4, 2, pos, graphics.Color(0, 0, 0), awayteam + ': ' + awaystatline.upper())
                     #graphics.DrawLine(canvas, 0, 54, 127, pos1, graphics.Color(255, 255, 255))
           #  ##        len2 = graphics.DrawText(canvas, self.font4, 2, pos + 10, graphics.Color(0, 0, 0), hometeam + ': ' + homestatline.upper())
@@ -266,8 +266,8 @@ class Render:
                   ###  canvas = matrix.SwapOnVSync(canvas)            
 
 
-                canvas = matrix.SwapOnVSync(canvas)            
-                time.sleep(5)
+            canvas = matrix.SwapOnVSync(canvas)            
+            time.sleep(5)
         #canvas = matrix.SwapOnVSync(canvas)            
 
 
