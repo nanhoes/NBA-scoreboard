@@ -133,10 +133,11 @@ class Render:
                                     graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(255, 0, 0)) #red line at bottom of screen
                             else:
                                 graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(200, 200, 200), timeremaining)
-                    else and timeremaining[1] != '1': #not a close game or not under 4min
-                        graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(200, 200, 200), timeremaining)
-                    if timeremaining[1] = '1':
-                        graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(200, 200, 200), timeremaining)
+                    else: #not a close game or not under 4min
+                        if timeremaining[1] == '1':
+                            graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(200, 200, 200), timeremaining)
+                        else:
+                            graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(200, 200, 200), timeremaining)
 
                    
 
