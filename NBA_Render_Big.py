@@ -193,9 +193,18 @@ class Render:
                     if (len1 > canvas.width):
                         print('Yes')
                         print('Is statline at x = 61?')
-                        
-                        while pos != canvas.width - len1 - 2:
-                            pos -=1
+                        if (pos == canvas.width - len1 - 2):
+                            print('Yes')
+                            break
+                        else:
+                            while pos != canvas.width - len1 - 2:
+                                pos -=1
+                                print('No, pos = ' + str(pos))
+                    else:
+                        break
+                    break
+                break
+
                             
                                       
             canvas = matrix.SwapOnVSync(canvas)            
