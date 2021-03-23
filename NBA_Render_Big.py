@@ -222,52 +222,52 @@ class Render:
                     #graphics.DrawText(canvas, self.font2, 0, 62, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]), homestatline.upper())
 
 
-              #      pos = 0
-             #       while True:         
-            #            graphics.DrawText(canvas, self.font2, 41, 14, graphics.Color(200, 200, 200), 'HELLO') #away team record
-    ###                for x in range(0, canvas.width):
-    ###                  for y in range(56, canvas.height):
-    ###                    canvas.SetPixel(x, y, 255, 255, 255)
-     # ##          len1 = graphics.DrawText(canvas, self.font4, 2, pos, graphics.Color(0, 0, 0), awayteam + ': ' + awaystatline.upper())
-                #graphics.DrawLine(canvas, 0, 54, 127, pos1, graphics.Color(255, 255, 255))
-      #  ##        len2 = graphics.DrawText(canvas, self.font4, 2, pos + 10, graphics.Color(0, 0, 0), hometeam + ': ' + homestatline.upper())
-       #   ##      pos += 1
-        #    ##    pos1 -= 1 
-         #     ##  if pos == 73:
-          #      ##    time.sleep(2)
-           #       ##  break
-            #  ##  if pos1 == 63:
-             #   ##    break
+                  #      pos = 0
+                 #       while True:         
+                #            graphics.DrawText(canvas, self.font2, 41, 14, graphics.Color(200, 200, 200), 'HELLO') #away team record
+        ###                for x in range(0, canvas.width):
+        ###                  for y in range(56, canvas.height):
+        ###                    canvas.SetPixel(x, y, 255, 255, 255)
+         # ##          len1 = graphics.DrawText(canvas, self.font4, 2, pos, graphics.Color(0, 0, 0), awayteam + ': ' + awaystatline.upper())
+                    #graphics.DrawLine(canvas, 0, 54, 127, pos1, graphics.Color(255, 255, 255))
+          #  ##        len2 = graphics.DrawText(canvas, self.font4, 2, pos + 10, graphics.Color(0, 0, 0), hometeam + ': ' + homestatline.upper())
+           #   ##      pos += 1
+            #    ##    pos1 -= 1 
+             #     ##  if pos == 73:
+              #      ##    time.sleep(2)
+               #       ##  break
+                #  ##  if pos1 == 63:
+                 #   ##    break
 
-                len1 = graphics.DrawText(canvas, self.font4, pos, 63, graphics.Color(0, 0, 0), awayteam + ': ' + awaystatline.upper() + '  ' + hometeam + ': ' + homestatline.upper())
-               # len2 = graphics.DrawText(canvas, self.font2, pos, 50, graphics.Color(self.team_colors[awayteam][0][0], self.team_colors[awayteam][0][1], self.team_colors[awayteam][0][2]), awaystatline.upper())
-                #time.sleep(1)
-                if (len1 - canvas.width) > 0:
-                    if pos == (-1*(len1 - canvas.width) - 2):
-                        time.sleep(2)
+                    len1 = graphics.DrawText(canvas, self.font4, pos, 63, graphics.Color(0, 0, 0), awayteam + ': ' + awaystatline.upper() + '  ' + hometeam + ': ' + homestatline.upper())
+                   # len2 = graphics.DrawText(canvas, self.font2, pos, 50, graphics.Color(self.team_colors[awayteam][0][0], self.team_colors[awayteam][0][1], self.team_colors[awayteam][0][2]), awaystatline.upper())
+                    #time.sleep(1)
+                    if (len1 - canvas.width) > 0:
+                        if pos == (-1*(len1 - canvas.width) - 2):
+                            time.sleep(2)
+                            break
+                                  #  break
+                                #for line in range(58,64):	
+                                 #   graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
+                        #if pos == -100:
+                         #           break
+                        #time.sleep(0.01)
+
+
+                            #canvas = matrix.SwapOnVSync(canvas)            
+
+                       # time.sleep(0.005)
+                        pos -= 1
+                    else:
+                        time.sleep(3)
                         break
-                              #  break
-                            #for line in range(58,64):	
-                             #   graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
-                    #if pos == -100:
-                     #           break
-                    #time.sleep(0.01)
+                  ###  canvas = matrix.SwapOnVSync(canvas)            
 
 
-                        #canvas = matrix.SwapOnVSync(canvas)            
-
-                   # time.sleep(0.005)
-                    pos -= 1
-                else:
-                    time.sleep(3)
-                    break
-              ###  canvas = matrix.SwapOnVSync(canvas)            
-
-
-
-            canvas = matrix.SwapOnVSync(canvas)            
-            time.sleep(5)
-            #canvas = matrix.SwapOnVSync(canvas)            
+                print('hey')
+                canvas = matrix.SwapOnVSync(canvas)            
+                time.sleep(5)
+                #canvas = matrix.SwapOnVSync(canvas)            
 
 
 
