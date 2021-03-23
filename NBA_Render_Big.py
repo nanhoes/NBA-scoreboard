@@ -263,6 +263,7 @@ class Render:
 
                        # time.sleep(0.005)
                         pos -= 1
+                        print(pos)
                     else:
                         time.sleep(3)
                         break
