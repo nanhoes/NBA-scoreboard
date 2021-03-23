@@ -198,7 +198,8 @@ class Render:
                             break
                         else:
                             print('No, pos = ' + str(pos))
-                            pos -=1
+                            while True:
+                                pos -=1
                     else:
                         break
                     break
