@@ -192,9 +192,12 @@ class Render:
                     print('Is statline > canvas width?')
                     if (len1 > canvas.width):
                         print('Yes')
+                        print('Is statline at x = 61?')
                         if (pos == canvas.width - len1 - 2):
+                            print('Yes')
                             break
                         else:
+                            print('No, pos = ' + pos)
                             pos -=1
                     else:
                         break
