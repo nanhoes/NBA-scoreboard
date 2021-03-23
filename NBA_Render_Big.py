@@ -220,7 +220,8 @@ class Render:
                     awaystatline = awayleadername[0] + '.' + str(awayleaderlastname) + ' ' + str(awayleaderpoints) + '-' + str(awayleaderrebounds) + '-' + str(awayleaderassists)
                     #canvas = matrix.SwapOnVSync(canvas)            
                     #graphics.DrawText(canvas, self.font2, 0, 62, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]), homestatline.upper())
-
+                else:
+                    break
 
                     #pos = 0
                  #       while True:         
