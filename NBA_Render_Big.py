@@ -185,6 +185,8 @@ class Render:
                     awayleaderlastname = findawaylastname(awayleadername,2) 
                     awaystatline = awayleadername[0] + '.' + str(awayleaderlastname) + ' ' + str(awayleaderpoints) + '-' + str(awayleaderrebounds) + '-' + str(awayleaderassists)
                     
+                awaystatline = ' '
+                homestatline = ' '
                 for line in range(54,64): #statline background
                     graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(255, 255, 255))
 
