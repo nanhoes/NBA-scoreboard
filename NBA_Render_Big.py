@@ -77,9 +77,6 @@ class Render:
         
 
         for game in game_data:
-            for x in range(0, canvas.width):
-                for y in range(56, canvas.height):
-                    canvas.SetPixel(x, y, 255, 255, 255)
 
             pos = 0
           #  pos1 = 54
@@ -123,6 +120,10 @@ class Render:
 
                 for line in range(0,64):	
                     graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0))
+                for x in range(0, canvas.width):
+                    for y in range(56, canvas.height):
+                        canvas.SetPixel(x, y, 255, 255, 255)
+
 
                 for line in range(20,38):
                     graphics.DrawLine(canvas, 0, line, 38, line, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]))
