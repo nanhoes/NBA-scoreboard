@@ -189,13 +189,7 @@ class Render:
                         graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(255, 255, 255))
 
                     len1 = graphics.DrawText(canvas, self.font4, pos, 62, graphics.Color(0, 0, 0), awaystatline.upper() + '  ' + homestatline.upper())
-                    print('Is statline > canvas width?')
-                    if pos != -60:
-                        pos -= 1
-                        time.sleep(0.05)
-                        print(pos)
-                    else:
-                        break
+                    pos -= 1                        
                     #if (pos == canvas.width - len1 - 2):
                         #print('Yes')
                         #break
