@@ -75,11 +75,12 @@ class Render:
         image = Image.open("/home/pi/My-NBA-scoreboard/lal.png")
         image1 = Image.open("/home/pi/My-NBA-scoreboard/bkn.png")
         
-        for x in range(0, canvas.width):
-            for y in range(56, canvas.height):
-                canvas.SetPixel(x, y, 255, 255, 255)
 
         for game in game_data:
+            for x in range(0, canvas.width):
+                for y in range(56, canvas.height):
+                    canvas.SetPixel(x, y, 255, 255, 255)
+
             pos = 0
           #  pos1 = 54
 
