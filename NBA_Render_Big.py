@@ -201,7 +201,7 @@ class Render:
                      #   break
 
                 time.sleep(0.05)
-                canvas = matrix.SwapOnVSync(canvas)
+                #canvas = matrix.SwapOnVSync(canvas)
                 break
 
                             
