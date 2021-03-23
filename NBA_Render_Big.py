@@ -55,6 +55,8 @@ class Render:
         except:
             print('Error loading spreads data.')
             spreads_data = {}
+            
+        canvas = matrix.CreateFrameCanvas()
        
         for game in game_data:
             hometeam = game['homeTeam']['teamTricode']
