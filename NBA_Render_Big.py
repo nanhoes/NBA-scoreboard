@@ -80,7 +80,7 @@ class Render:
           #  pos1 = 54
 
             while True:         
-
+                print('now')
 
                 # Make image fit our screen.
               #  image.thumbnail((30, matrix.height))
