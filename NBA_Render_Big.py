@@ -197,6 +197,7 @@ class Render:
                         graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(200, 200, 200), 'POSTPONED')
 
                 if game['gameStatus'] != 1 and game['period'] !=1:
+                    print('games finished')
                     homeleadername = game['gameLeaders']['homeLeaders']['name']
                     homeleaderpoints = game['gameLeaders']['homeLeaders']['points']
                     homeleaderrebounds = game['gameLeaders']['homeLeaders']['rebounds']
