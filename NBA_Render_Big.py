@@ -263,7 +263,7 @@ class Render:
                         break
                   ###  canvas = matrix.SwapOnVSync(canvas)            
 
-                break
+                pass
             print('hey')
             canvas = matrix.SwapOnVSync(canvas)            
             time.sleep(5)
