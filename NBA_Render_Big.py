@@ -192,11 +192,11 @@ class Render:
                     print('Is statline > canvas width?')
                     pos -= 1
                     print(pos)
-                    if (pos == canvas.width - len1 - 2):
-                        print('Yes')
-                        break
-                    else:
-                        break
+                    #if (pos == canvas.width - len1 - 2):
+                        #print('Yes')
+                        #break
+                    #else:
+                     #   break
                     break
                 time.sleep(0.05)
                 canvas = matrix.SwapOnVSync(canvas)
