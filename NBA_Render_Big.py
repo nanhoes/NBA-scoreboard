@@ -197,10 +197,11 @@ class Render:
                     else:
                         break
                     break
+                break
                     
                     
-                canvas = matrix.SwapOnVSync(canvas)            
-                time.sleep(5)
+            canvas = matrix.SwapOnVSync(canvas)            
+            time.sleep(5)
 if __name__=='__main__':
     while True:
         Render().Render_Games()
