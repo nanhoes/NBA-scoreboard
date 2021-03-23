@@ -197,7 +197,7 @@ class Render:
                             print('Yes')
                             break
                         else:
-                            print('No, pos = ' + pos)
+                            print('No, pos = ' + str(pos))
                             pos -=1
                     else:
                         break
