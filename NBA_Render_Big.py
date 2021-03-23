@@ -121,14 +121,14 @@ class Render:
                     if timeremaining[0] == 'Q' and (timeremaining[1] >= '4' and (len(timeremaining) == 6 or (len(timeremaining) == 7 and timeremaining[3] <= '4'))): #Q4 or OT < 5min remaining
                         if homescore > awayscore:
                             if (homescore - awayscore) <= 15: #close game
-                                graphics.DrawText(canvas, self.font3, 2, 50, graphics.Color(255, 255, 255), timeremaining) #bright quarter and time remaining
+                                graphics.DrawText(canvas, self.font3, 2, 51, graphics.Color(255, 255, 255), timeremaining) #bright quarter and time remaining
                                 for line in range(54,56):   
                                     graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(255, 0, 0)) #red line at bottom of screen
                             else:
                                 graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(200, 200, 200), timeremaining)
                         else:
                             if (awayscore - homescore) <= 15: #close game
-                                graphics.DrawText(canvas, self.font3, 2, 50, graphics.Color(255, 255, 255), timeremaining) #bright quarter and time remaining
+                                graphics.DrawText(canvas, self.font3, 2, 51, graphics.Color(255, 255, 255), timeremaining) #bright quarter and time remaining
                                 for line in range(54,56):   
                                     graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(255, 0, 0)) #red line at bottom of screen
                             else:
