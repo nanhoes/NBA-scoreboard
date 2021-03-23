@@ -240,7 +240,7 @@ class Render:
                #       ##  break
                 #  ##  if pos1 == 63:
                  #   ##    break
-
+                    print('printing statline')
                     len1 = graphics.DrawText(canvas, self.font4, pos, 63, graphics.Color(0, 0, 0), awayteam + ': ' + awaystatline.upper() + '  ' + hometeam + ': ' + homestatline.upper())
                    # len2 = graphics.DrawText(canvas, self.font2, pos, 50, graphics.Color(self.team_colors[awayteam][0][0], self.team_colors[awayteam][0][1], self.team_colors[awayteam][0][2]), awaystatline.upper())
                     #time.sleep(1)
