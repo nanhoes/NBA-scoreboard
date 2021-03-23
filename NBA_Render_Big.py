@@ -245,7 +245,7 @@ class Render:
                     if (len1 - canvas.width) > 0:
                         print('length > width')
                         if pos == (-1*(len1 - canvas.width) - 2):
-                            ####time.sleep(2)
+                            time.sleep(2)
                             break
                                   #  break
                                 #for line in range(58,64):	
