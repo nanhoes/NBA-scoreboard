@@ -192,7 +192,8 @@ class Render:
 
                 len1 = graphics.DrawText(canvas, self.font4, pos, 62, graphics.Color(0, 0, 0), awaystatline.upper() + '  ' + homestatline.upper())
                 pos -= 1   
-                if pos == 60:
+                print(pos)
+                if pos == -60:
                     break
                     #if (pos == canvas.width - len1 - 2):
                         #print('Yes')
