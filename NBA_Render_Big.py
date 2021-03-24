@@ -136,7 +136,7 @@ class Render:
                                 graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(200, 200, 200), timeremaining)
                     else: #not a close game or not under 4min
                         if timeremaining[1] == '1':
-                            graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(200, 200, 200), timeremaining)
+                            graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(200, 200, 200), timeremaining) #56
                         else:
                             graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(200, 200, 200), timeremaining)
 
