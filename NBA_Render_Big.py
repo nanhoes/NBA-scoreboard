@@ -203,6 +203,8 @@ class Render:
                         canvas = matrix.SwapOnVSync(canvas)
                 else:
                     break
+                break
+                
                 
 
                             
