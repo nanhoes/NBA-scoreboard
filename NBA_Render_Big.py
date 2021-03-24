@@ -192,8 +192,9 @@ class Render:
                     
                     for line in range(56,64): #statline background
                         graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(255, 255, 255))
-
+                    
                     len1 = graphics.DrawText(canvas, self.font4, pos, 63, graphics.Color(0, 0, 0), awaystatline.upper() + '  ' + homestatline.upper())
+                    time.sleep(2)
                     if len1 <= canvas.width:
                         break
                     else:
@@ -209,7 +210,7 @@ class Render:
                             
             print('Sleeping for 5 seconds...')
             if (pos == canvas.width - len1 - 2):
-                time.sleep(1)
+                time.sleep(2)
                 canvas = matrix.SwapOnVSync(canvas)            
             else:
                 canvas = matrix.SwapOnVSync(canvas)            
