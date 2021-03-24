@@ -133,11 +133,11 @@ class Render:
                 graphics.DrawText(canvas, self.font, 35 - len(str(homescore))*5, 18, graphics.Color(0, 0, 0), str(homescore))
 
                 if homescore > awayscore:
-                    for line in range(13,16):
-                        graphics.DrawLine(canvas, 40, line, 41, line, graphics.Color(100, 100, 100))
+                    for line in range(11,18):
+                        graphics.DrawLine(canvas, 40, line, 40, line, graphics.Color(100, 100, 100))
                 else:
-                    for line in range(3,6):
-                        graphics.DrawLine(canvas, 40, line, 41, line, graphics.Color(100, 100, 100))
+                    for line in range(1,8):
+                        graphics.DrawLine(canvas, 40, line, 40, line, graphics.Color(100, 100, 100))
 
 
             if game['gameStatus'] == 1: #upcoming game
