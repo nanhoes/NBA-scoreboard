@@ -38,7 +38,7 @@ class Render:
             for day in os.listdir(self.path):
                 if day=='.DS_Store':
                     continue
-                if day == 'DataTodayTest.json':
+                if day == 'DataToday.json':
                     with open(self.path + day) as file:
                         game_data = json.load(file)
                 
