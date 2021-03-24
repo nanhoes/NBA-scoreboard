@@ -198,7 +198,7 @@ class Render:
                     if posy > 63:
                         #posy -= 1
                         print(posy)
-                        time.sleep(1)
+                        time.sleep(0.01)
                         canvas = matrix.SwapOnVSync(canvas)
                         posy -= 1
                         print('end')
