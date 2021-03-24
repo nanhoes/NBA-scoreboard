@@ -207,7 +207,8 @@ class Render:
                             break
                         else:
                             print(posy)
-                            posx -= 1   
+                            posx -= 1
+                            print(posx)
                             if (posx == canvas.width - len1 - 2):
                                 break
                             time.sleep(0.01)
