@@ -84,7 +84,7 @@ class Render:
                 spread = ''
                 over_under = ''
             
-            pos = 64
+            pos = 128
             len1 = 0
             while True:
                 for line in range(0,64):	
@@ -198,7 +198,7 @@ class Render:
                         break
                     else:
                         pos -= 1   
-                        if (pos == canvas.width - len1 - 2):
+                        if (pos == canvas.width - len1 - 127):
                             break
                         time.sleep(0.01)
                         canvas = matrix.SwapOnVSync(canvas)
