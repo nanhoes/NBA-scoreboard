@@ -203,15 +203,15 @@ class Render:
                         canvas = matrix.SwapOnVSync(canvas)
                 else:
                     break
-                canvas = matrix.SwapOnVSync(canvas)
-                break
-                
-                
+                               
 
                             
             print('Sleeping for 5 seconds...')
-            canvas = matrix.SwapOnVSync(canvas)            
-            time.sleep(5)
+            if (pos == canvas.width - len1 - 2):
+                canvas = matrix.SwapOnVSync(canvas)            
+            else:
+                canvas = matrix.SwapOnVSync(canvas)            
+                time.sleep(5)
 if __name__=='__main__':
     while True:
         Render().Render_Games()
