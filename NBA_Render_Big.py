@@ -209,6 +209,7 @@ class Render:
                             
             print('Sleeping for 5 seconds...')
             if (pos == canvas.width - len1 - 2):
+                time.sleep(1)
                 canvas = matrix.SwapOnVSync(canvas)            
             else:
                 canvas = matrix.SwapOnVSync(canvas)            
