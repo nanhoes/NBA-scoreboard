@@ -84,7 +84,7 @@ class Render:
                 spread = ''
                 over_under = ''
             
-            pos = 2
+            pos = 64
             len1 = 0
             while True:
                 for line in range(0,64):	
