@@ -201,6 +201,7 @@ class Render:
                         print(posy)
                         time.sleep(1)
                         canvas = matrix.SwapOnVSync(canvas)
+                        pass
                         
                     if posy == 63:
                         if len1 <= canvas.width:
