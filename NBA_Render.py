@@ -175,7 +175,7 @@ class Render:
                     awayleaderlastname = findawaylastname(awayleadername,2) 
                     awaystatline = awayleadername[0] + '.' + str(awayleaderlastname) + ' ' + str(awayleaderpoints) + '-' + str(awayleaderrebounds) + '-' + str(awayleaderassists)
                    
-                    for line in range(28,32): #statline background
+                    for line in range(25,32): #statline background
                         graphics.DrawLine(canvas, 0, line, 63, line, graphics.Color(255, 255, 255))
                     
                     len1 = graphics.DrawText(canvas, self.font2, posx, 31, graphics.Color(0, 0, 0), awaystatline.upper() + '  ' + homestatline.upper())
@@ -185,7 +185,7 @@ class Render:
                         posx -= 1
                         if (posx == canvas.width - len1 - 2):
                             break
-                        time.sleep(0.01)
+                        time.sleep(0.05)
                         canvas = matrix.SwapOnVSync(canvas)
                 else:
                     break
