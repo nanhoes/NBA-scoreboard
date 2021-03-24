@@ -197,6 +197,7 @@ class Render:
                     len1 = graphics.DrawText(canvas, self.font4, posx, posy, graphics.Color(0, 0, 0), awaystatline.upper() + '  ' + homestatline.upper())
                     while posy > 63:
                         posy -= 1
+                        print(posy)
                     if len1 <= canvas.width:
                         break
                     else:
