@@ -167,7 +167,7 @@ class Render:
 
 
 
-                if game['gameStatus'] != 1 and game['period'] !=1:
+                if game['gameStatus'] != 1: #and game['period'] !=1:
                     homeleadername = game['gameLeaders']['homeLeaders']['name']
                     homeleaderpoints = game['gameLeaders']['homeLeaders']['points']
                     homeleaderrebounds = game['gameLeaders']['homeLeaders']['rebounds']
