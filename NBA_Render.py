@@ -141,15 +141,15 @@ class Render:
 
 
             if game['gameStatus'] == 1: #upcoming game
-            awayrecord = str(game['awayTeam']['wins']) + '-' + str(game['awayTeam']['losses'])
-            homerecord = str(game['homeTeam']['wins']) + '-' + str(game['homeTeam']['losses'])
-            graphics.DrawText(canvas, self.font2, 21, 7, graphics.Color(200, 200, 200), awayrecord) #away team record
-            graphics.DrawText(canvas, self.font2, 21, 17, graphics.Color(200, 200, 200), homerecord) #home team record
-            if game['gameStatusText'] != 'PPD': #upcoming game
-                graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(200, 200, 200), game['gameStatusText'][0:game['gameStatusText'].find('ET')].upper() + 'et'.upper())
-            if game['gameStatusText'] == 'PPD': #postponed game
-                graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(200, 200, 200), 'POSTPONED')
-                      
+                awayrecord = str(game['awayTeam']['wins']) + '-' + str(game['awayTeam']['losses'])
+                homerecord = str(game['homeTeam']['wins']) + '-' + str(game['homeTeam']['losses'])
+                graphics.DrawText(canvas, self.font2, 21, 7, graphics.Color(200, 200, 200), awayrecord) #away team record
+                graphics.DrawText(canvas, self.font2, 21, 17, graphics.Color(200, 200, 200), homerecord) #home team record
+                if game['gameStatusText'] != 'PPD': #upcoming game
+                    graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(200, 200, 200), game['gameStatusText'][0:game['gameStatusText'].find('ET')].upper() + 'et'.upper())
+                if game['gameStatusText'] == 'PPD': #postponed game
+                    graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(200, 200, 200), 'POSTPONED')
+
             if game['gameStatus'] != 1 and game['period'] !=1:
                 homeleadername = game['gameLeaders']['homeLeaders']['name']
                 homeleaderpoints = game['gameLeaders']['homeLeaders']['points']
