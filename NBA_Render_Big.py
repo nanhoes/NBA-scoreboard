@@ -38,7 +38,7 @@ class Render:
             for day in os.listdir(self.path):
                 if day=='.DS_Store':
                     continue
-                if day == 'DataTodayTest.json':
+                if day == 'DataToday.json':
                     with open(self.path + day) as file:
                         game_data = json.load(file)
                 
@@ -194,7 +194,6 @@ class Render:
                         graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(255, 255, 255))
                     
                     len1 = graphics.DrawText(canvas, self.font4, pos, 63, graphics.Color(0, 0, 0), awaystatline.upper() + '  ' + homestatline.upper())
-                    time.sleep(2)
                     if len1 <= canvas.width:
                         break
                     else:
