@@ -192,14 +192,14 @@ class Render:
                     for line in range(56,64): #statline background
                         graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(255, 255, 255))
 
-                    len1 = graphics.DrawText(canvas, self.font4, pos, 63, graphics.Color(0, 0, 0), awaystatline.upper())#awaystatline.upper() + '  ' + homestatline.upper())
+                    len1 = graphics.DrawText(canvas, self.font4, pos, 63, graphics.Color(0, 0, 0), awaystatline.upper() + '  ' + homestatline.upper())
                     if len1 <= canvas.width:
                         break
                     else:
                         pos -= 1   
                         if (pos == canvas.width - len1 - 2):
                             break
-                        time.sleep(0.05)
+                        time.sleep(0.01)
                         canvas = matrix.SwapOnVSync(canvas)
                 else:
                     break
