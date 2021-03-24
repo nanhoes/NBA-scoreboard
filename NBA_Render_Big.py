@@ -85,7 +85,6 @@ class Render:
                 over_under = ''
             
             posx = 2
-            posy = 72
             len1 = 0
             while True:
                 for line in range(0,64):	
@@ -194,25 +193,15 @@ class Render:
                     for line in range(56,64): #statline background
                         graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(255, 255, 255))
                     
-                    len1 = graphics.DrawText(canvas, self.font4, posx, posy, graphics.Color(0, 0, 0), awaystatline.upper() + '  ' + homestatline.upper())
-                    if posy > 63:
-                        #posy -= 1
-                        print(posy)
+                    len1 = graphics.DrawText(canvas, self.font4, posx, 63, graphics.Color(0, 0, 0), awaystatline.upper() + '  ' + homestatline.upper())
+                    if len1 <= canvas.width:
+                        break
+                    else:
+                        posx -= 1
+                        if (posx == canvas.width - len1 - 2):
+                            break
                         time.sleep(0.01)
                         canvas = matrix.SwapOnVSync(canvas)
-                        posy -= 1
-                        print('end')
-                    if posy == 63:
-                        if len1 <= canvas.width:
-                            break
-                        else:
-                            print(posy)
-                            posx -= 1
-                            print(posx)
-                            if (posx == canvas.width - len1 - 2):
-                                break
-                            time.sleep(0.01)
-                            canvas = matrix.SwapOnVSync(canvas)
                 else:
                     break
                                
