@@ -194,7 +194,7 @@ class Render:
                     for line in range(56,64): #statline background
                         graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(255, 255, 255))
                     
-                    len1 = graphics.DrawText(canvas, self.font4, posx, posy, graphics.Color(0, 0, 0), homestatline.upper())#awaystatline.upper() + '  ' + homestatline.upper())
+                    len1 = graphics.DrawText(canvas, self.font4, posx, posy, graphics.Color(0, 0, 0), awaystatline.upper() + '  ' + homestatline.upper())
                     if posy > 61:
                         posy -= 1
                         print(posy)
