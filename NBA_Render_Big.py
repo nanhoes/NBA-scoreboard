@@ -202,7 +202,6 @@ class Render:
                         canvas = matrix.SwapOnVSync(canvas)
                         posy -= 1
                         print('end')
-                    time.sleep(1)
                     if posy == 63:
                         if len1 <= canvas.width:
                             break
