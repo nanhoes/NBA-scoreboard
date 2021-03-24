@@ -204,6 +204,7 @@ class Render:
                         if len1 <= canvas.width:
                             break
                         else:
+                            print(posy)
                             posx -= 1   
                             if (posx == canvas.width - len1 - 2):
                                 break
