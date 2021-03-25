@@ -9,12 +9,10 @@ class Render:
     def __init__(self):
         self.options = RGBMatrixOptions()
         self.options.gpio_slowdown = 3
-        self.options.rows = 32
-        self.options.cols = 64
+        self.options.rows = 64
+        self.options.cols = 128
         self.options.drop_privileges = False
-        self.options.chain_length = 2
-        self.options.parallel = 2
-        self.options.disable_hardware_pulsing = True
+#        self.options.disable_hardware_pulsing = True
 
         
         self.path = '/home/pi/My-NBA-scoreboard/'
