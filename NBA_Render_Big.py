@@ -4,7 +4,6 @@ import json
 import datetime as dt
 import time
 import sys
-from PIL import Image
 
 class Render:
     def __init__(self):
