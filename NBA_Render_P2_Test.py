@@ -8,7 +8,7 @@ import sys
 class Render:
     def __init__(self):
         self.options = RGBMatrixOptions()
-        self.options.gpio_slowdown = 3
+        self.options.gpio_slowdown = 5
         self.options.rows = 64
         self.options.cols = 128
         self.options.drop_privileges = False
