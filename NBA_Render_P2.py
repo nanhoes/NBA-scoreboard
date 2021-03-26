@@ -97,9 +97,9 @@ class Render:
 
                 if game['gameStatus'] != 1: #white square for score
                     for line in range(20,38):
-                        graphics.DrawLine(canvas, 40, line, 79, line, graphics.Color(0, 0, 0))
+                        graphics.DrawLine(canvas, 40, line, 79, line, graphics.Color(255, 255, 255))
                     for line in range(0,18):
-                        graphics.DrawLine(canvas, 40, line, 79, line, graphics.Color(0, 0, 0))
+                        graphics.DrawLine(canvas, 40, line, 79, line, graphics.Color(255, 255, 255))
                     for line in range(54,56):   
                         graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(255, 255, 255)) #red line at bott
 
@@ -193,7 +193,7 @@ class Render:
                     awaystatline = awayleadername[0] + '.' + str(awayleaderlastname) + ' ' + str(awayleaderpoints) + '-' + str(awayleaderrebounds) + '-' + str(awayleaderassists)
                     
                     for line in range(56,64): #statline background
-                        graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(255, 255, 255))
+                        graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(0, 0, 0))
                     
                     len1 = graphics.DrawText(canvas, self.font4, posx, 63, graphics.Color(255, 255, 255), awaystatline.upper() + '  ' + homestatline.upper())
                     if len1 <= canvas.width:
