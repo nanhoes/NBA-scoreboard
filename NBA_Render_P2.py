@@ -149,10 +149,10 @@ class Render:
 
                     if homescore > awayscore:
                         for line in range(21,37):
-                            graphics.DrawLine(canvas, 80, line, 81, line, graphics.Color(100, 100, 100))
+                            graphics.DrawLine(canvas, 81, line, 82, line, graphics.Color(100, 100, 100))
                     else:
                         for line in range(1,17):
-                            graphics.DrawLine(canvas, 80, line, 81, line, graphics.Color(100, 100, 100))
+                            graphics.DrawLine(canvas, 81, line, 82, line, graphics.Color(100, 100, 100))
 
 
                 if game['gameStatus'] == 1: #GAME IS UPCOMING
