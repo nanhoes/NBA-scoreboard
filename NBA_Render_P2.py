@@ -149,7 +149,7 @@ class Render:
 
                     if homescore > awayscore:
                         for line in range(20,38):
-                            0graphics.DrawLine(canvas, 80, line, 81, line, graphics.Color(255, 0, 0))
+                            graphics.DrawLine(canvas, 80, line, 81, line, graphics.Color(255, 0, 0))
                     else:
                         for line in range(0,18):
                             graphics.DrawLine(canvas, 80, line, 81, line, graphics.Color(255, 0, 0))
