@@ -12,7 +12,7 @@ class Render:
         self.options.rows = 64
         self.options.cols = 128
         self.options.drop_privileges = False
-#        self.options.disable_hardware_pulsing = True
+        self.options.disable_hardware_pulsing = True
 
         
         self.path = '/home/pi/My-NBA-scoreboard/'
