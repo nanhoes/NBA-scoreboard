@@ -158,8 +158,8 @@ class Render:
                 if game['gameStatus'] == 1: #GAME IS UPCOMING
                     awayrecord = str(game['awayTeam']['wins']) + '-' + str(game['awayTeam']['losses'])
                     homerecord = str(game['homeTeam']['wins']) + '-' + str(game['homeTeam']['losses'])
-                    graphics.DrawText(canvas, self.font2, 41, 14, graphics.Color(200, 200, 200), awayrecord) #away team record
-                    graphics.DrawText(canvas, self.font2, 41, 34, graphics.Color(200, 200, 200), homerecord) #home team record
+                    graphics.DrawText(canvas, self.font2, 42, 14, graphics.Color(200, 200, 200), awayrecord) #away team record
+                    graphics.DrawText(canvas, self.font2, 42, 34, graphics.Color(200, 200, 200), homerecord) #home team record
                     if game['gameStatusText'] != 'PPD': #upcoming game
                         graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(200, 200, 200), game['gameStatusText'][0:game['gameStatusText'].find('ET')].upper() + 'ET')
                     if game['gameStatusText'] == 'PPD': #postponed game
