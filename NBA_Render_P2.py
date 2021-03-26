@@ -151,8 +151,7 @@ class Render:
 
                     if homescore > awayscore:
                         for line in range(20,38):
-                            draw.polygon([(200,200), (200, 200), (200,200)], fill = (255,255,255))  
-                        #  graphics.DrawLine(canvas, 80, line, 81, line, graphics.Color(100, 100, 100))
+                            graphics.DrawLine(canvas, 80, line, 81, line, graphics.Color(100, 100, 100))
                     else:
                         for line in range(0,18):
                             graphics.DrawLine(canvas, 80, line, 81, line, graphics.Color(100, 100, 100))
