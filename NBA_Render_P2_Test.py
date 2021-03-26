@@ -12,7 +12,7 @@ class Render:
         self.options.rows = 64
         self.options.cols = 128
         self.options.drop_privileges = False
-        self.options.hardware_mapping = 'adafruit-hat-pwm'
+        self.options.hardware_mapping = 'adafruit-hat'
         self.options.row_address_type = 3
         self.options.panel_type = 'FM6126A'
 
