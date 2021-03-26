@@ -15,6 +15,7 @@ class Render:
 #        self.options.hardware_mapping = 'adafruit-hat'
         self.options.row_address_type = 3
         self.options.panel_type = 'FM6126A'
+        self.options.disable_hardware_pulsing = True
 
 
 
