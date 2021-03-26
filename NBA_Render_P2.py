@@ -100,8 +100,6 @@ class Render:
                         graphics.DrawLine(canvas, 40, line, 79, line, graphics.Color(255, 255, 255))
                     for line in range(0,18):
                         graphics.DrawLine(canvas, 40, line, 79, line, graphics.Color(255, 255, 255))
-                    for line in range(55,56):   
-                        graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(255, 255, 255)) #red line at bott
 
                 graphics.DrawText(canvas, self.font2, 127 - len(str(over_under))*8, 14, graphics.Color(0, 0, 255), over_under)
                 graphics.DrawText(canvas, self.font2, 127 - len(str(spread))*8, 34, graphics.Color(0, 0, 255), spread)
@@ -193,9 +191,9 @@ class Render:
                     awaystatline = awayleadername[0] + '.' + str(awayleaderlastname) + ' ' + str(awayleaderpoints) + '-' + str(awayleaderrebounds) + '-' + str(awayleaderassists)
                     
                     for line in range(56,64): #statline background
-                        graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(0, 0, 0))
+                        graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(100, 100, 100))
                     
-                    len1 = graphics.DrawText(canvas, self.font4, posx, 63, graphics.Color(255, 255, 255), awaystatline.upper() + '  ' + homestatline.upper())
+                    len1 = graphics.DrawText(canvas, self.font4, posx, 63, graphics.Color(0, 0, 0), awaystatline.upper() + '  ' + homestatline.upper())
                     if len1 <= canvas.width:
                         break
                     else:
