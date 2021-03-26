@@ -17,7 +17,7 @@ class Render:
         
         self.path = '/home/pi/My-NBA-scoreboard/'
         
-        lself.font = graphics.Font()
+        self.font = graphics.Font()
         self.font.LoadFont("/home/pi/My-NBA-scoreboard/rpi-rgb-led-matrix/fonts/6x12.bdf")
         self.font2 = graphics.Font()
         self.font2.LoadFont("/home/pi/My-NBA-scoreboard/rpi-rgb-led-matrix/fonts/tom-thumb.bdf")
