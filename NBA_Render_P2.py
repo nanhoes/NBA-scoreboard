@@ -4,6 +4,7 @@ import json
 import datetime as dt
 import time
 import sys
+from PIL import Image,ImageDraw
 
 class Render:
     def __init__(self):
@@ -86,6 +87,7 @@ class Render:
             
             posx = 5
             len1 = 0
+            draw = ImageDraw.Draw(im)
             while True:
                 for line in range(0,64):	
                     graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0)) #clearing matrix
@@ -149,7 +151,8 @@ class Render:
 
                     if homescore > awayscore:
                         for line in range(20,38):
-                            graphics.DrawLine(canvas, 80, line, 81, line, graphics.Color(100, 100, 100))
+                            draw.polygon([(200,200), (200, 200), (200,200)], fill = (255,255,255))  
+                        #  graphics.DrawLine(canvas, 80, line, 81, line, graphics.Color(100, 100, 100))
                     else:
                         for line in range(0,18):
                             graphics.DrawLine(canvas, 80, line, 81, line, graphics.Color(100, 100, 100))
