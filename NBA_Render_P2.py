@@ -21,7 +21,7 @@ class Render:
         self.path = '/home/pi/My-NBA-scoreboard/'
         
         self.font = graphics.Font()
-        self.font.LoadFont("/home/pi/My-NBA-scoreboard/rpi-rgb-led-matrix/fonts/10x20.bdf")
+        self.font.LoadFont("/home/pi/My-NBA-scoreboard/rpi-rgb-led-matrix/fonts/helvR12.bdf")
         self.font2 = graphics.Font()
         self.font2.LoadFont("/home/pi/My-NBA-scoreboard/rpi-rgb-led-matrix/fonts/8x13B.bdf")
         self.font3 = graphics.Font()
