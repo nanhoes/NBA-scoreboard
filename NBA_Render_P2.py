@@ -15,7 +15,7 @@ class Render:
         self.options.disable_hardware_pulsing = True
 
         
-        self.path = '/home/pi/My-NBA-scoreboard/'
+        self.path = '/home/pi/My-NBA-scoreboardd/'
         
         self.font = graphics.Font()
         self.font.LoadFont("/home/pi/My-NBA-scoreboard/rpi-rgb-led-matrix/fonts/6x12.bdf")
