@@ -4,7 +4,6 @@ import json
 import datetime as dt
 import time
 import sys
-from PIL import Image,ImageDraw
 
 class Render:
     def __init__(self):
@@ -87,7 +86,6 @@ class Render:
             
             posx = 5
             len1 = 0
-            draw = ImageDraw.Draw(im)
             while True:
                 for line in range(0,64):	
                     graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0)) #clearing matrix
