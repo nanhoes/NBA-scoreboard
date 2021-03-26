@@ -100,7 +100,7 @@ class Render:
                         graphics.DrawLine(canvas, 40, line, 79, line, graphics.Color(255, 255, 255))
                     for line in range(0,18):
                         graphics.DrawLine(canvas, 40, line, 79, line, graphics.Color(255, 255, 255))
-                    for line in range(54,55):   
+                    for line in range(55,56):   
                         graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(255, 255, 255)) #red line at bott
 
                 graphics.DrawText(canvas, self.font2, 127 - len(str(over_under))*8, 14, graphics.Color(0, 0, 255), over_under)
