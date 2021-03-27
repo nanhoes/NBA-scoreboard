@@ -144,8 +144,8 @@ class Render:
 
                 if game['gameStatus'] == 3: #GAME IS FINISHED
                     graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(100, 100, 100), game['gameStatusText'].upper()) #56
-                    graphics.DrawText(canvas, self.font, 75 - len(str(awayscore))*11, 16, graphics.Color(0, 0, 0), str(awayscore)) 
-                    graphics.DrawText(canvas, self.font, 75 - len(str(homescore))*11, 36, graphics.Color(0, 0, 0), str(homescore)) 
+                    graphics.DrawText(canvas, self.font, 75 - len(str(awayscore))*11, 16, graphics.Color(100, 100, 100), str(awayscore)) 
+                    graphics.DrawText(canvas, self.font, 75 - len(str(homescore))*11, 36, graphics.Color(100, 100, 100), str(homescore)) 
 
                     if homescore > awayscore:
                         for line in range(20,38):
