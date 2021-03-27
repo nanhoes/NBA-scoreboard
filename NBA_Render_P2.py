@@ -146,14 +146,14 @@ class Render:
                     if homescore < awayscore:
                         for line in range(20,38):
                             #graphics.DrawLine(canvas, 80, line, 81, line, graphics.Color(100, 100, 100))
-                            graphics.DrawLine(canvas, 40, line, 79, line, graphics.Color(100, 100, 100))
+                            graphics.DrawLine(canvas, 40, line, 79, line, graphics.Color(75, 75, 75))
                             graphics.DrawText(canvas, self.font, 75 - len(str(homescore))*11, 36, graphics.Color(0, 0, 0), str(homescore)) 
                     else:
                         for line in range(0,18):
-                            graphics.DrawLine(canvas, 40, line, 79, line, graphics.Color(50, 50, 50))
+                            graphics.DrawLine(canvas, 40, line, 79, line, graphics.Color(75, 75, 75))
                             #graphics.DrawLine(canvas, 80, line, 81, line, graphics.Color(100, 100, 100))
                     
-                    graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(255, 255, 255), game['gameStatusText'].upper())
+                    graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(100, 100, 100), game['gameStatusText'].upper())
                     graphics.DrawText(canvas, self.font, 75 - len(str(awayscore))*11, 16, graphics.Color(0, 0, 0), str(awayscore)) 
                     graphics.DrawText(canvas, self.font, 75 - len(str(homescore))*11, 36, graphics.Color(0, 0, 0), str(homescore)) 
 
