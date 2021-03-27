@@ -153,7 +153,7 @@ class Render:
                             graphics.DrawLine(canvas, 40, line, 79, line, graphics.Color(75, 75, 75))
                             #graphics.DrawLine(canvas, 80, line, 81, line, graphics.Color(100, 100, 100))
                     
-                    graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(100, 100, 100), game['gameStatusText'].upper())
+                    graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(200, 200, 200), game['gameStatusText'].upper())
                     graphics.DrawText(canvas, self.font, 75 - len(str(awayscore))*11, 16, graphics.Color(0, 0, 0), str(awayscore)) 
                     graphics.DrawText(canvas, self.font, 75 - len(str(homescore))*11, 36, graphics.Color(0, 0, 0), str(homescore)) 
 
@@ -197,7 +197,7 @@ class Render:
                     awaystatline = awayleadername[0] + '.' + str(awayleaderlastname) + ' ' + str(awayleaderpoints) + '-' + str(awayleaderrebounds) + '-' + str(awayleaderassists)
                     
                     for line in range(56,64): #statline background
-                        graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(255, 255, 255))
+                        graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(200, 200, 200))
                     
                     len1 = graphics.DrawText(canvas, self.font4, posx, 63, graphics.Color(0, 0, 0), awaystatline.upper() + '  ' + homestatline.upper())
                     if len1 <= canvas.width:
