@@ -134,12 +134,12 @@ class Render:
                     graphics.DrawText(canvas, self.font, 35 - len(str(awayscore))*5, 8, graphics.Color(0, 0, 0), str(awayscore)) 
                     graphics.DrawText(canvas, self.font, 35 - len(str(homescore))*5, 18, graphics.Color(0, 0, 0), str(homescore))
 
-                    if homescore > awayscore:
+                    if homescore < awayscore:
                         for line in range(11,18):
-                            graphics.DrawLine(canvas, 40, line, 40, line, graphics.Color(100, 100, 100))
+                            graphics.DrawLine(canvas, 19, line, 38, line, graphics.Color(75, 75, 75))
                     else:
                         for line in range(1,8):
-                            graphics.DrawLine(canvas, 40, line, 40, line, graphics.Color(100, 100, 100))
+                            graphics.DrawLine(canvas, 19, line, 38, line, graphics.Color(75, 75, 75))
 
 
                 if game['gameStatus'] == 1: #upcoming game
@@ -199,12 +199,7 @@ class Render:
                 canvas = matrix.SwapOnVSync(canvas)            
                 time.sleep(5)
 if __name__=='__main__':
-    now = dt.datetime.now()
-    current_time = now.strftime("%H:%M") 
     while True:
-        if current_time[0] == '0' and (current_time[1] >= '1' and current_time[1] <= '7'):
-            os.system('sudo /home/pi/My-NBA-scoreboard/rpi-rgb-led-matrix/examples-api-use/clock -f /home/pi/My-NBA-scoreboard/rpi-rgb-led-matrix/fonts/texgyre-27.bdf --led-rows=32 --led-cols=64 --led-pwm-bits=9 --led-slowdown-gpio=2 --led-gpio-mapping=adafruit-hat -d "%-I:%M" -x -1 -y -1 -C 255,0,0')
-        else:
             Render().Render_Games()
         
         
