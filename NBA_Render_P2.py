@@ -174,8 +174,9 @@ class Render:
                     homeleaderassists = game['gameLeaders']['homeLeaders']['assists']
                     def findhomelastname(homeleadername,n):
                         #Using ' ' as a separator, All_words is a list of all the words in the String
-                        All_words=homeleadername.split(" ")
-                        return All_words[n-1]
+                        if homeleadername is not None:
+                            All_words=homeleadername.split(" ")
+                            return All_words[n-1]
                     homeleaderlastname = findhomelastname(homeleadername,2)
                     homestatline = homeleadername[0] + '.'+ str(homeleaderlastname) + ' ' + str(homeleaderpoints) + '-' + str(homeleaderrebounds) + '-' + str(homeleaderassists)
 
@@ -185,8 +186,9 @@ class Render:
                     awayleaderassists = game['gameLeaders']['awayLeaders']['assists']
                     def findawaylastname(awayleadername,n):
                         #Using ' ' as a separator, All_words is a list of all the words in the String
-                        All_words2=awayleadername.split(" ")
-                        return All_words2[n-1]
+                        if awayleadername is not None:
+                            All_words2=awayleadername.split(" ")
+                            return All_words2[n-1]
                     awayleaderlastname = findawaylastname(awayleadername,2) 
                     awaystatline = awayleadername[0] + '.' + str(awayleaderlastname) + ' ' + str(awayleaderpoints) + '-' + str(awayleaderrebounds) + '-' + str(awayleaderassists)
                     
