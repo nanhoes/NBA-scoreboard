@@ -200,7 +200,7 @@ class Render:
                         posx -= 1
                         if (posx == canvas.width - len1 - 2):
                             break
-                        time.sleep(0.03)
+                        time.sleep(0.04)
                         canvas = matrix.SwapOnVSync(canvas)
                 else:
                     break
