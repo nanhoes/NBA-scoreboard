@@ -88,7 +88,7 @@ class Render:
             len1 = 0
             while True:
                 for line in range(0,64):	
-                    graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(100, 0, 0)) #clearing matrix
+                    graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0)) #clearing matrix
                                                 
                 for line in range(20,38): #team color square
                     graphics.DrawLine(canvas, 0, line, 39, line, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]))
