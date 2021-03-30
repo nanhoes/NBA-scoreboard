@@ -168,31 +168,28 @@ class Render:
 
 
 
-                if game['gameStatus'] != 1: #and game['period'] !=1:
+                if game['gameStatus'] != 1 and if homeleadername is not None and awayleadername is not None: #and game['period'] !=1:
                     homeleadername = game['gameLeaders']['homeLeaders']['name']
                     homeleaderpoints = game['gameLeaders']['homeLeaders']['points']
                     homeleaderrebounds = game['gameLeaders']['homeLeaders']['rebounds']
                     homeleaderassists = game['gameLeaders']['homeLeaders']['assists']
                     def findhomelastname(homeleadername,n):
                         #Using ' ' as a separator, All_words is a list of all the words in the String
-                        if homeleadername is not None:
-                            All_words=homeleadername.split(" ")
-                            return All_words[n-1]
+                        All_words=homeleadername.split(" ")
+                        return All_words[n-1]
                     homeleaderlastname = findhomelastname(homeleadername,2)
                     homestatline = homeleadername[0] + '.'+ str(homeleaderlastname) + ' ' + str(homeleaderpoints) + '-' + str(homeleaderrebounds) + '-' + str(homeleaderassists)
-
                     awayleadername = game['gameLeaders']['awayLeaders']['name']
                     awayleaderpoints = game['gameLeaders']['awayLeaders']['points']
                     awayleaderrebounds = game['gameLeaders']['awayLeaders']['rebounds']
                     awayleaderassists = game['gameLeaders']['awayLeaders']['assists']
                     def findawaylastname(awayleadername,n):
                         #Using ' ' as a separator, All_words is a list of all the words in the String
-                        if awayleadername is not None:
-                            All_words2=awayleadername.split(" ")
-                            return All_words2[n-1]
+                        All_words2=awayleadername.split(" ")
+                        return All_words2[n-1]
                     awayleaderlastname = findawaylastname(awayleadername,2) 
                     awaystatline = awayleadername[0] + '.' + str(awayleaderlastname) + ' ' + str(awayleaderpoints) + '-' + str(awayleaderrebounds) + '-' + str(awayleaderassists)
-                    
+
                     for line in range(56,64): #statline background
                         graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(255, 255, 255))
                     
