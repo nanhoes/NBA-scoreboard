@@ -166,9 +166,10 @@ class Render:
                         graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(200, 200, 200), 'POSTPONED')
 
 
+                homeleadername = game['gameLeaders']['homeLeaders']['name']
+                awayleadername = game['gameLeaders']['awayLeaders']['name']
 
-                if game['gameStatus'] != 1: #and game['period'] !=1:
-                    homeleadername = game['gameLeaders']['homeLeaders']['name']
+                if game['gameStatus'] != 1 and homeleadername is not None and awayleadername is not None:
                     homeleaderpoints = game['gameLeaders']['homeLeaders']['points']
                     homeleaderrebounds = game['gameLeaders']['homeLeaders']['rebounds']
                     homeleaderassists = game['gameLeaders']['homeLeaders']['assists']
@@ -178,8 +179,6 @@ class Render:
                         return All_words[n-1]
                     homeleaderlastname = findhomelastname(homeleadername,2)
                     homestatline = homeleadername[0] + '.'+ str(homeleaderlastname) + ' ' + str(homeleaderpoints) + '-' + str(homeleaderrebounds) + '-' + str(homeleaderassists)
-
-                    awayleadername = game['gameLeaders']['awayLeaders']['name']
                     awayleaderpoints = game['gameLeaders']['awayLeaders']['points']
                     awayleaderrebounds = game['gameLeaders']['awayLeaders']['rebounds']
                     awayleaderassists = game['gameLeaders']['awayLeaders']['assists']
