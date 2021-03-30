@@ -32,9 +32,9 @@ class NBA_Data:
             print(str(dt.datetime.strftime(dt.datetime.now(), '%m/%d/%Y %H:%M')) + ' - ' + string)
             with open('/home/pi/Documents/NBAlog.txt', 'a') as file:
                 file.write(string)
-            #print('Write success')
+            print('Write success')
             try:
-                #print('Sleeping for ' + str(wait_time + 120) + ' seconds.')
+                print('Sleeping for ' + str(wait_time + 120) + ' seconds.')
                 time.sleep(wait_time + 120)
             except ValueError:
                 print(str(dt.datetime.strftime(dt.datetime.now(), '%m/%d/%Y %H:%M')) + ' - Game is about to start')
