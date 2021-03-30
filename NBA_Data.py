@@ -34,7 +34,7 @@ class NBA_Data:
                 file.write(string)
             print('Write success')
             try:
-                print('Sleeping for ' + str(wait_time + 120) + ' seconds.')
+                print('Sleeping for ' + str(wait_time/60 + 2) + ' minutes.')
                 time.sleep(wait_time + 120)
             except ValueError:
                 print(str(dt.datetime.strftime(dt.datetime.now(), '%m/%d/%Y %H:%M')) + ' - Game is about to start')
