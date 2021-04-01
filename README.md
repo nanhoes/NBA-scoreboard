@@ -5,7 +5,8 @@
 3. Open Etcher, plug in SD card, install raspbian image download from file.
 4. Open Berrylan app connect to 'BT WLAN setup' and connect to 2.4 GHz wifi.
 5. SSH into pi, boot on network connection, change region, dtparam=audio=off in /boot/config.txt.
-6. Lastly, erase wifi network with:
+6. Create NBAlog.txt file in /home/pi/Documents
+7. Lastly, erase wifi network with:
       `sudo nmcli connection delete 'searching.. ....'` 
 ### Installation
       sudo apt-get update &&
