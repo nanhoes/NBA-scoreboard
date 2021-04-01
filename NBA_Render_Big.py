@@ -142,7 +142,7 @@ class Render:
                    
 
                 if game['gameStatus'] == 3: #GAME IS FINISHED
-                     if homescore < awayscore:
+                    if homescore < awayscore:
                         for line in range(21,37):
                             graphics.DrawLine(canvas, 40, line, 79, line, graphics.Color(75, 75, 75))
                     else:
