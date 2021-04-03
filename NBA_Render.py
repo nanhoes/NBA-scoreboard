@@ -119,18 +119,18 @@ class Render:
                                 graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(255, 255, 255), timeremaining) #bright quarter and time remaining
                                 graphics.DrawLine(canvas, 0, 31, 63, 31, graphics.Color(255, 0, 0)) #red line at bottom of screen
                             else:
-                                graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(200, 200, 200), timeremaining)
+                                graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(255, 255, 255), timeremaining)
                         else:
                             if (awayscore - homescore) <= 15: #close game
                                 graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(255, 255, 255), timeremaining) #bright quarter and time remaining
                                 graphics.DrawLine(canvas, 0, 31, 63, 31, graphics.Color(255, 0, 0)) #red line at bottom of screen
                             else:
-                                graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(200, 200, 200), timeremaining)
+                                graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(255, 255, 255), timeremaining)
                     else: #not a close game or not under 4min
-                        graphics.DrawText(canvas, self.font2, 2, 24, graphics.Color(200, 200, 200), timeremaining)
+                        graphics.DrawText(canvas, self.font2, 2, 24, graphics.Color(255, 255, 255), timeremaining)
 
                 if game['gameStatus'] == 3: #finished game
-                    graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(200, 200, 200), game['gameStatusText'].upper())
+                    graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(255, 255, 255), game['gameStatusText'].upper())
                     graphics.DrawText(canvas, self.font, 35 - len(str(awayscore))*5, 8, graphics.Color(0, 0, 0), str(awayscore)) 
                     graphics.DrawText(canvas, self.font, 35 - len(str(homescore))*5, 18, graphics.Color(0, 0, 0), str(homescore))
 
@@ -145,12 +145,12 @@ class Render:
                 if game['gameStatus'] == 1: #upcoming game
                     awayrecord = str(game['awayTeam']['wins']) + '-' + str(game['awayTeam']['losses'])
                     homerecord = str(game['homeTeam']['wins']) + '-' + str(game['homeTeam']['losses'])
-                    graphics.DrawText(canvas, self.font2, 21, 7, graphics.Color(200, 200, 200), awayrecord) #away team record
-                    graphics.DrawText(canvas, self.font2, 21, 17, graphics.Color(200, 200, 200), homerecord) #home team record
+                    graphics.DrawText(canvas, self.font2, 21, 7, graphics.Color(255, 255, 255), awayrecord) #away team record
+                    graphics.DrawText(canvas, self.font2, 21, 17, graphics.Color(255, 255, 255), homerecord) #home team record
                     if game['gameStatusText'] != 'PPD': #upcoming game
-                        graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(200, 200, 200), game['gameStatusText'][0:game['gameStatusText'].find('ET')].upper() + 'et'.upper())
+                        graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(255, 255, 255), game['gameStatusText'][0:game['gameStatusText'].find('ET')].upper() + 'et'.upper())
                     if game['gameStatusText'] == 'PPD': #postponed game
-                        graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(200, 200, 200), 'POSTPONED')
+                        graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(255, 255, 255), 'POSTPONED')
 
                 homeleadername = game['gameLeaders']['homeLeaders']['name']
                 awayleadername = game['gameLeaders']['awayLeaders']['name']
@@ -175,7 +175,7 @@ class Render:
                     awaystatline = awayleadername[0] + '.' + str(awayleaderlastname) + ' ' + str(awayleaderpoints) + '-' + str(awayleaderrebounds) + '-' + str(awayleaderassists)
                    
                     for line in range(25,32): #statline background
-                        graphics.DrawLine(canvas, 0, line, 63, line, graphics.Color(100, 100, 100))
+                        graphics.DrawLine(canvas, 0, line, 63, line, graphics.Color(255, 255, 255))
                     
                     len1 = graphics.DrawText(canvas, self.font2, posx, 31, graphics.Color(0, 0, 0), awaystatline + '  ' + homestatline)
                     if len1 <= canvas.width:
