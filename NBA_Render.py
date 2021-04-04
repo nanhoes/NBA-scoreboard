@@ -130,16 +130,15 @@ class Render:
                         graphics.DrawText(canvas, self.font2, 2, 25, graphics.Color(200, 200, 200), timeremaining)
 
                 if game['gameStatus'] == 3: #finished game
-                    graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(200, 200, 200), game['gameStatusText'].upper())
-                    graphics.DrawText(canvas, self.font, 35 - len(str(awayscore))*5, 8, graphics.Color(0, 0, 0), str(awayscore)) 
-                    graphics.DrawText(canvas, self.font, 35 - len(str(homescore))*5, 18, graphics.Color(0, 0, 0), str(homescore))
-
                     if homescore < awayscore:
                         for line in range(9,18):
                             graphics.DrawLine(canvas, 19, line, 38, line, graphics.Color(75, 75, 75))
                     else:
                         for line in range(1,7):
                             graphics.DrawLine(canvas, 19, line, 38, line, graphics.Color(75, 75, 75))
+                    graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(200, 200, 200), game['gameStatusText'].upper())
+                    graphics.DrawText(canvas, self.font, 35 - len(str(awayscore))*5, 8, graphics.Color(0, 0, 0), str(awayscore)) 
+                    graphics.DrawText(canvas, self.font, 35 - len(str(homescore))*5, 18, graphics.Color(0, 0, 0), str(homescore))
 
 
                 if game['gameStatus'] == 1: #upcoming game
