@@ -177,7 +177,7 @@ class Render:
                     for line in range(25,32): #statline background
                         graphics.DrawLine(canvas, 0, line, 63, line, graphics.Color(0, 0, 0))
                     
-                    len1 = graphics.DrawText(canvas, self.font2, posx, 31, graphics.Color(255, 255, 255), awaystatline + '  ' + homestatline)
+                    len1 = graphics.DrawText(canvas, self.font2, posx, 31, graphics.Color(255, 255, 255), timeremaining + '      ' + awaystatline + '  ' + homestatline)
                     if len1 <= canvas.width:
                         break
                     else:
