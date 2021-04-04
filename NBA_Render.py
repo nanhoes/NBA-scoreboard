@@ -130,7 +130,7 @@ class Render:
                     for line in range(10,19):
                         graphics.DrawLine(canvas, 19, line, 38, line, graphics.Color(75, 75, 75))
                 else:
-                    for line in range(1,7):
+                    for line in range(0,9):
                         graphics.DrawLine(canvas, 19, line, 38, line, graphics.Color(75, 75, 75))
                 graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(200, 200, 200), game['gameStatusText'].upper())
                 graphics.DrawText(canvas, self.font, 35 - len(str(awayscore))*5, 8, graphics.Color(0, 0, 0), str(awayscore)) 
