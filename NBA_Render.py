@@ -135,7 +135,7 @@ class Render:
                     graphics.DrawText(canvas, self.font, 35 - len(str(homescore))*5, 18, graphics.Color(0, 0, 0), str(homescore))
 
                     if homescore < awayscore:
-                        for line in range(10,19):
+                        for line in range(9,18):
                             graphics.DrawLine(canvas, 19, line, 38, line, graphics.Color(75, 75, 75))
                     else:
                         for line in range(1,7):
