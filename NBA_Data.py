@@ -59,5 +59,5 @@ if __name__ == '__main__':
         #print('Successfully gathered data.')
         #except:
         #print('Error requesting data - retrying in 120 seconds')
-        time.sleep(120)
+        time.sleep(1)
         #test = False
