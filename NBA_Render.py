@@ -123,7 +123,7 @@ class Render:
                         else:
                             graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(200, 200, 200), timeremaining)
                 else: #not a close game or not under 4min
-                    graphics.DrawText(canvas, self.font2, 2, 28, graphics.Color(200, 200, 200), timeremaining)
+                    graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(200, 200, 200), timeremaining)
 
             if game['gameStatus'] == 3: #finished game
                 if homescore < awayscore:
