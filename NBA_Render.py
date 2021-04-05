@@ -148,7 +148,7 @@ class Render:
                     graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(200, 200, 200), 'POSTPONED')
 
             canvas = matrix.SwapOnVSync(canvas)            
-            time.sleep(1)
+            time.sleep(5)
             
 if __name__=='__main__':
     while True:
