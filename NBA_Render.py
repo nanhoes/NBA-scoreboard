@@ -103,7 +103,7 @@ class Render:
 
             
             for line in range(0,56):
-                graphics.DrawLine(canvas, 121, line, 125, line, graphics.Color(255, 0, 0))   
+                graphics.DrawLine(canvas, 50, line, 60, line, graphics.Color(255, 0, 0))   
                 
             homescore = game['homeTeam']['score']
             awayscore = game['awayTeam']['score']
