@@ -116,18 +116,22 @@ class Render:
             homescore = game['homeTeam']['score']
             awayscore = game['awayTeam']['score']
             timeremaining = game['gameStatusText']
-            print(timeremaining)
+            
+            print('Initial: ' + timeremaining)
             if timeremaining[0] == 'Q' and timeremaining[3] == '0':
                 timeremaining = game['gameStatusText'][:3] + game['gameStatusText'][4:]
+                print('Removing first zero: ' + timeremaining)
                 if timeremaining[1] == '1':
                     timeremaining = '1ST' + game['gameStatusText'][2:]
-            print(timeremaining)
+                print('Changing to 1ST: ' + timeremaining)
+
             if timeremaining[0] == 'Q' and timeremaining[3] == '0' and timeremaining[4] == ':':
-                timeremaining = game['gameStatusText'][:3] + game['gameStatusText'][5:]    
+                timeremaining = game['gameStatusText'][:3] + game['gameStatusText'][5:] 
+                print('Removing second zero: ' + timeremaining)
                 if timeremaining[1] == '1':
                     timeremaining = '1ST' + game['gameStatusText'][2:]
-            print(timeremaining)
- 
+                print('Changing to 1ST: ' + timeremaining)
+                
             if game['gameStatus'] == 2: #game is live
                 graphics.DrawText(canvas, self.font, 35 - len(str(awayscore))*5, 8, graphics.Color(0, 0, 0), str(awayscore)) 
                 graphics.DrawText(canvas, self.font, 35 - len(str(homescore))*5, 18, graphics.Color(0, 0, 0), str(homescore))
