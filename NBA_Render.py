@@ -83,7 +83,7 @@ class Render:
                 spread = ''
                 over_under = ''
                 
-            graphics.DrawLine(canvas, 124, 54, 124, 54, graphics.Color(255, 0, 0));    
+            graphics.DrawLine(canvas, 124, 54, 125, 55, graphics.Color(255, 0, 0));    
             
                 
                 
