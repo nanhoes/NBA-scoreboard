@@ -89,10 +89,6 @@ class Render:
                 graphics.DrawLine(canvas, 0, line, 18, line, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]))
             for line in range(0,9):
                 graphics.DrawLine(canvas, 0, line, 18, line, graphics.Color(self.team_colors[awayteam][0][0], self.team_colors[awayteam][0][1], self.team_colors[awayteam][0][2]))
-
-            for line in range(0,56):
-                graphics.DrawLine(canvas, 121, line, 125, line, graphics.Color(255, 0, 0))   
-                
                 
             if game['gameStatus'] != 1: #finished game
                 for line in range(10,19):
@@ -153,6 +149,11 @@ class Render:
                     graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(200, 200, 200), game['gameStatusText'][0:game['gameStatusText'].find('ET')].upper() + 'et'.upper())
                 if game['gameStatusText'] == 'PPD': #postponed game
                     graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(200, 200, 200), 'POSTPONED')
+                    
+            
+            for line in range(0,56):
+                graphics.DrawLine(canvas, 121, line, 125, line, graphics.Color(255, 0, 0))   
+                
 
             canvas = matrix.SwapOnVSync(canvas)            
             time.sleep(5)
