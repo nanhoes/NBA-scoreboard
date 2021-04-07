@@ -102,15 +102,15 @@ class Render:
             graphics.DrawText(canvas, self.font, 1, 8, graphics.Color(self.team_colors[awayteam][1][0], self.team_colors[awayteam][1][1], self.team_colors[awayteam][1][2]), awayteam)
 
             
-            for line in range(22,32):
+            for line in range(21,31):
                 graphics.DrawLine(canvas, 59, line, 60, line, graphics.Color(0, 0, 255))   
                 graphics.DrawLine(canvas, 62, line, 62, line, graphics.Color(255, 0, 0))
                 graphics.DrawLine(canvas, 61, line, 61, line, graphics.Color(255, 255, 255))   
-            for line in range(24,28):
+            for line in range(23,27):
                 graphics.DrawLine(canvas, 59, line, 59, line, graphics.Color(255, 255, 255))   
-            for line in range(23,29):
+            for line in range(22,28):
                 graphics.DrawLine(canvas, 60, line, 60, line, graphics.Color(255, 255, 255))   
-            for line in range(26,28):
+            for line in range(25,27):
                 graphics.DrawLine(canvas, 62, line, 62, line, graphics.Color(255, 255, 255))   
 
 
