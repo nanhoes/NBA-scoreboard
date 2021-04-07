@@ -8,6 +8,9 @@ from PIL import Image
 
 class Render:
     def __init__(self):
+        
+        image = Image.open("/home/pi/My-NBA-scoreboard/lal.png")
+
         self.options = RGBMatrixOptions()
         self.options.hardware_mapping = 'adafruit-hat'
         self.options.gpio_slowdown = 3
@@ -27,11 +30,8 @@ class Render:
                         
     def Render_Image(self, printer=False):
         matrix = RGBMatrix(options=self.options)
-        canvas = matrix.CreateFrameCanvas()
-        image = Image.open("/home/pi/My-NBA-scoreboard/lal.png")
         image.thumbnail((10, 10), Image.ANTIALIAS)
         matrix.SetImage(image.convert('RGB'))
-        canvas = matrix.SwapOnVSync(canvas)
 
 
     
