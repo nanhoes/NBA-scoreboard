@@ -27,7 +27,7 @@ class Render:
                         
     def Render_Image(self, printer=False):
         matrix = RGBMatrix(options=self.options)
-        image = Image.open("/home/pi/My-NBA-scoreboard/lal.png")
+        image = Image.open("/home/pi/My-NBA-scoreboard/nbalogo.png")
         image.thumbnail((10, 10), Image.ANTIALIAS)
         matrix.SetImage(image.convert('RGB'))
 
@@ -161,4 +161,4 @@ class Render:
 
 if __name__=='__main__':
     while True:
-        Render().Render_Games()
+        Render().Render_Image()
