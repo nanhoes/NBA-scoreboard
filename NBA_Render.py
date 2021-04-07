@@ -85,7 +85,7 @@ class Render:
                 
                 
             for line in range(54,63):
-                graphics.DrawLine(canvas, 124, line, 124, line, graphics.Color(255, 0, 0))    
+                graphics.DrawLine(canvas, 124, line, 127, line, graphics.Color(255, 0, 0))    
             
                 
                 
