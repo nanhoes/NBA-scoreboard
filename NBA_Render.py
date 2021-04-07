@@ -95,6 +95,8 @@ class Render:
                 image = Image.open("/home/pi/My-NBA-scoreboard/nbalogo.jpg")
                 image.thumbnail((matrix.width, matrix.height), Image.ANTIALIAS)
                 matrix.SetImage(image.convert('RGB'))
+                canvas = matrix.SwapOnVSync(canvas)            
+
 
                 for line in range(0,32):
                     graphics.DrawLine(canvas, 0, line, 64, line, graphics.Color(0, 0, 0))
