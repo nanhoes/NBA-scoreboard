@@ -28,7 +28,7 @@ class Render:
     def Render_Image(self, printer=False):
         matrix = RGBMatrix(options=self.options)
         image = Image.open("/home/pi/My-NBA-scoreboard/lal.png")
-        image.thumbnail((matrix.width, matrix.height), Image.ANTIALIAS)
+        image.thumbnail(10, 10), Image.ANTIALIAS)
         matrix.SetImage(image.convert('RGB'))
 
     
