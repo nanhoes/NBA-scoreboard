@@ -21,6 +21,8 @@ options = RGBMatrixOptions()
 options.rows = 32
 options.cols = 64
 options.hardware_mapping = 'adafruit-hat'  # If you have an Adafruit HAT: 'adafruit-hat'
+options.gpio_slowdown = 3
+options.drop_privileges = False
 
 #font = graphics.Font()
 #font.LoadFont("/home/pi/rpi-rgb-led-matrix/fonts/10x20.bdf")
