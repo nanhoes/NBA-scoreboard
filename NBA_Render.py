@@ -155,7 +155,7 @@ class Render:
             image.thumbnail((10, 10), Image.ANTIALIAS)
             ImageChops.offset(image,115,45)
             matrix.SetImage(image.convert('RGB'))
-
+            time.sleep(1)
             canvas = matrix.SwapOnVSync(canvas)            
             time.sleep(5)
 
