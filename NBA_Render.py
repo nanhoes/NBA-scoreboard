@@ -32,7 +32,7 @@ class Render:
         matrix = RGBMatrix(options=self.options)
         image.thumbnail((10, 10), Image.ANTIALIAS)
         matrix.SetImage(image.convert('RGB'))
-
+        time.sleep(5)
 
 
     
