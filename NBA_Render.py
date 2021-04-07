@@ -101,6 +101,10 @@ class Render:
             graphics.DrawText(canvas, self.font, 1, 18, graphics.Color(self.team_colors[hometeam][1][0], self.team_colors[hometeam][1][1], self.team_colors[hometeam][1][2]), hometeam)
             graphics.DrawText(canvas, self.font, 1, 8, graphics.Color(self.team_colors[awayteam][1][0], self.team_colors[awayteam][1][1], self.team_colors[awayteam][1][2]), awayteam)
 
+            
+            for line in range(0,56):
+                graphics.DrawLine(canvas, 121, line, 125, line, graphics.Color(255, 0, 0))   
+                
             homescore = game['homeTeam']['score']
             awayscore = game['awayTeam']['score']
             timeremaining = game['gameStatusText']
