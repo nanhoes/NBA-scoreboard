@@ -82,8 +82,10 @@ class Render:
                 #print('No spreads for this game.')
                 spread = ''
                 over_under = ''
-            for line in range(54,55):
-                graphics.DrawLine(canvas, 124, line, 125, line, graphics.Color(255, 0, 0))    
+                
+                
+            for line in range(54,56):
+                graphics.DrawLine(canvas, 124, line, 124, line, graphics.Color(255, 0, 0))    
             
                 
                 
