@@ -57,6 +57,10 @@ class Render:
         canvas = matrix.CreateFrameCanvas()
         
         for game in game_data:
+            
+            image.thumbnail((10, 10), Image.ANTIALIAS)
+            ImageChops.offset(image,115,45)
+            matrix.SetImage(image.convert('RGB'))
           
             hometeam = game['homeTeam']['teamTricode']
             awayteam = game['awayTeam']['teamTricode']
@@ -151,11 +155,6 @@ class Render:
                 if game['gameStatusText'] == 'PPD': #postponed game
                     graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(200, 200, 200), 'POSTPONED')
 
-            canvas = matrix.SwapOnVSync(canvas)            
-            image.thumbnail((10, 10), Image.ANTIALIAS)
-            ImageChops.offset(image,115,45)
-            matrix.SetImage(image.convert('RGB'))
-            time.sleep(1)
             canvas = matrix.SwapOnVSync(canvas)            
             time.sleep(5)
 
