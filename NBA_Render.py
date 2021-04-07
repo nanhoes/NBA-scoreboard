@@ -32,6 +32,7 @@ class Render:
         image.thumbnail((10, 10), Image.ANTIALIAS)
         matrix.SetImage(image.convert('RGB'))
         canvas = matrix.SwapOnVSync(canvas)            
+        time.sleep(5)
 
 
 
