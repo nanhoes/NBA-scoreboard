@@ -122,7 +122,7 @@ class Render:
                 timeremaining = game['gameStatusText'][:3] + game['gameStatusText'][4:]
                 print('Removing first zero: ' + timeremaining)
                 if timeremaining[1] == '1':
-                    timeremaining = '1ST' + game['gameStatusText'][2:]
+                    timeremaining = '1ST' + timeremaining[2:]
                 print('Changing to 1ST: ' + timeremaining)
 
             if timeremaining[0] == 'Q' and timeremaining[3] == '0' and timeremaining[4] == ':':
