@@ -112,9 +112,6 @@ class Render:
                 graphics.DrawLine(canvas, 59, line, 59, line, graphics.Color(255, 255, 255))   
             for line in range(24,26):
                 graphics.DrawLine(canvas, 61, line, 61, line, graphics.Color(255, 255, 255))   
-
-
-
                 
             homescore = game['homeTeam']['score']
             awayscore = game['awayTeam']['score']
@@ -123,6 +120,8 @@ class Render:
                 timeremaining = game['gameStatusText'][:3] + game['gameStatusText'][4:]
             if timeremaining[0] == 'Q' and timeremaining[3] == '0' and timeremaining[4] == ':':
                 timeremaining = game['gameStatusText'][:3] + game['gameStatusText'][5:]    
+            if timeremaining[1] = '1':
+                timeremaining = '1ST' + game['gamestatusText'][1:]
 
             if game['gameStatus'] == 2: #game is live
                 graphics.DrawText(canvas, self.font, 35 - len(str(awayscore))*5, 8, graphics.Color(0, 0, 0), str(awayscore)) 
