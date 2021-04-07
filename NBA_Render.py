@@ -55,7 +55,7 @@ class Render:
 
         image = Image.open("/home/pi/My-NBA-scoreboard/nbalogo.png")
         image.thumbnail((matrix.width, matrix.height), Image.ANTIALIAS)
-        matrix.SetImage(image.convert('RGB'))
+        matrix.SetImage(image.convert('RGBA'))
         
         for game in game_data:
             hometeam = game['homeTeam']['teamTricode']
