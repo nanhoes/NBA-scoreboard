@@ -61,7 +61,8 @@ class Render:
             image.thumbnail((10, 10), Image.ANTIALIAS)
             ImageChops.offset(image,115,45)
             matrix.SetImage(image.convert('RGB'))
-            canvas = matrix.SwapOnVSync(canvas)            
+            canvas = matrix.SwapOnVSync(canvas)  
+            time.sleep(5)
 
             hometeam = game['homeTeam']['teamTricode']
             awayteam = game['awayTeam']['teamTricode']
