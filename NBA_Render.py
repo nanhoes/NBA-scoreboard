@@ -82,13 +82,6 @@ class Render:
                 #print('No spreads for this game.')
                 spread = ''
                 over_under = ''
-                
-                
-            for line in range(54,63):
-                graphics.DrawLine(canvas, 124, line, 127, line, graphics.Color(255, 0, 0))    
-            
-                
-                
 
             for line in range(0,32):
                 graphics.DrawLine(canvas, 0, line, 64, line, graphics.Color(0, 0, 0))
@@ -97,6 +90,10 @@ class Render:
             for line in range(0,9):
                 graphics.DrawLine(canvas, 0, line, 18, line, graphics.Color(self.team_colors[awayteam][0][0], self.team_colors[awayteam][0][1], self.team_colors[awayteam][0][2]))
 
+            for line in range(54,56):
+                graphics.DrawLine(canvas, 124, line, 124, line, graphics.Color(0, 0, 255))   
+                
+                
             if game['gameStatus'] != 1: #finished game
                 for line in range(10,19):
                     graphics.DrawLine(canvas, 19, line, 38, line, graphics.Color(255, 255, 255))
