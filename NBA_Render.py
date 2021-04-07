@@ -151,7 +151,7 @@ class Render:
                 if game['gameStatusText'] == 'PPD': #postponed game
                     graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(200, 200, 200), 'POSTPONED')
                     
-            ImageChops.offset(124,54)
+            ImageChops.offset(image,124,54)
             image.thumbnail((10, 10), Image.ANTIALIAS)
             matrix.SetImage(image.convert('RGB'))
 
