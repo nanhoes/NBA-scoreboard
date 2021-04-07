@@ -84,7 +84,7 @@ class Render:
                 over_under = ''
                 
                 
-            for line in range(54,56):
+            for line in range(54,63):
                 graphics.DrawLine(canvas, 124, line, 124, line, graphics.Color(255, 0, 0))    
             
                 
