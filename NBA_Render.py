@@ -53,9 +53,9 @@ class Render:
         
         canvas = matrix.CreateFrameCanvas()
 
-        image = Image.open("/home/pi/My-NBA-scoreboard/nbalogo.png")
+        image = Image.open("/home/pi/My-NBA-scoreboard/nbalogo.jpg")
         image.thumbnail((matrix.width, matrix.height), Image.ANTIALIAS)
-        matrix.SetImage(image.convert('RGBA'))
+        matrix.SetImage(image.convert('RGB'))
         
         for game in game_data:
             hometeam = game['homeTeam']['teamTricode']
