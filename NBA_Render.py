@@ -102,8 +102,8 @@ class Render:
             graphics.DrawText(canvas, self.font, 1, 8, graphics.Color(self.team_colors[awayteam][1][0], self.team_colors[awayteam][1][1], self.team_colors[awayteam][1][2]), awayteam)
 
             
-            for line in range(22,23):
-                graphics.DrawLine(canvas, 60, line, 60, line, graphics.Color(255, 0, 0))   
+            for line in range(22,24):
+                graphics.DrawLine(canvas, 60, line, 60, line, graphics.Color(0, 0, 255))   
                 
             homescore = game['homeTeam']['score']
             awayscore = game['awayTeam']['score']
