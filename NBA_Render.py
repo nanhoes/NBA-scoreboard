@@ -102,8 +102,19 @@ class Render:
             graphics.DrawText(canvas, self.font, 1, 8, graphics.Color(self.team_colors[awayteam][1][0], self.team_colors[awayteam][1][1], self.team_colors[awayteam][1][2]), awayteam)
 
             
-            for line in range(22,24):
-                graphics.DrawLine(canvas, 60, line, 60, line, graphics.Color(0, 0, 255))   
+            for line in range(22,32):
+                graphics.DrawLine(canvas, 60, line, 61, line, graphics.Color(0, 0, 255))   
+                graphics.DrawLine(canvas, 63, line, 63, line, graphics.Color(255, 0, 0))
+                graphics.DrawLine(canvas, 62, line, 62, line, graphics.Color(255, 255, 255))   
+            for line in range(24,28):
+                graphics.DrawLine(canvas, 60, line, 60, line, graphics.Color(255, 255, 255))   
+            for line in range(23,29):
+                graphics.DrawLine(canvas, 61, line, 61, line, graphics.Color(255, 255, 255))   
+            for line in range(26,28):
+                graphics.DrawLine(canvas, 63, line, 63, line, graphics.Color(255, 255, 255))   
+
+
+
                 
             homescore = game['homeTeam']['score']
             awayscore = game['awayTeam']['score']
