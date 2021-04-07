@@ -30,11 +30,8 @@ class Render:
                         
     def Render_Image(self, printer=False):
         matrix = RGBMatrix(options=self.options)
-        canvas = matrix.CreateFrameCanvas()
         image.thumbnail((10, 10), Image.ANTIALIAS)
         matrix.SetImage(image.convert('RGB'))
-        canvas = matrix.SwapOnVSync(canvas)            
-        time.sleep(5)
 
 
 
