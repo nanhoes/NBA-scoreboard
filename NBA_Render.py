@@ -136,6 +136,8 @@ class Render:
                     timeremaining = '3RD OT' + timeremaining[2:]
                 if timeremaining[1] == '8':
                     timeremaining = '4TH OT' + timeremaining[2:]
+            if timeremaining == 'Half':
+                timeremaining = 'HALFTIME'
                            
             if game['gameStatus'] == 2: #game is live
                 graphics.DrawText(canvas, self.font, 35 - len(str(awayscore))*5, 8, graphics.Color(0, 0, 0), str(awayscore)) 
