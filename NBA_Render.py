@@ -144,7 +144,8 @@ class Render:
             if game['gameStatus'] == 2: #game is live
                 graphics.DrawText(canvas, self.font, 35 - len(str(awayscore))*5, 8, graphics.Color(0, 0, 0), str(awayscore)) 
                 graphics.DrawText(canvas, self.font, 35 - len(str(homescore))*5, 18, graphics.Color(0, 0, 0), str(homescore))
-                if timeremaining[0] >= '4' and (timeremaining[5] <= '4' or timeremaining[5] == ':'): #Q4 or OT < 5min remaining
+                print('gameStatusText')
+                if timeremaining[0] >= '4' and (timeremaining[4] <= '4' or timeremaining[4] == ':'): #Q4 or OT < 5min remaining
                     if homescore > awayscore:
                         if (homescore - awayscore) <= 15: #close game
                             graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(255, 255, 255), timeremaining) #bright quarter and time remaining
