@@ -116,9 +116,10 @@ class Render:
             homescore = game['homeTeam']['score']
             awayscore = game['awayTeam']['score']
             timeremaining = game['gameStatusText']
-            
+            print(timeremaining)
             if timeremaining[0] == 'Q' and timeremaining[3] == '0':
                 timeremaining = timeremaining[:3] + timeremaining[4:]
+                print(timeremaining)
                 if timeremaining[1] == '1':
                     timeremaining = '1ST' + timeremaining[2:]
                 if timeremaining[1] == '2':
