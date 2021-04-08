@@ -156,7 +156,10 @@ class Render:
                             graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(255, 255, 255), timeremaining) #bright quarter and time remaining
                             graphics.DrawLine(canvas, 0, 31, 63, 31, graphics.Color(255, 0, 0)) #red line at bottom of screen
                         else:
-                            graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(200, 200, 200), timeremaining)
+                            if timeremaining[0] == '1':
+                                graphics.DrawText(canvas, self.font3, 1, 28, graphics.Color(200, 200, 200), timeremaining)
+                            else:
+                                graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(200, 200, 200), timeremaining)
                 else: #not a close game or not under 4min
                     graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(200, 200, 200), timeremaining)
 
