@@ -180,7 +180,7 @@ class Render:
                 if game['gameStatusText'] != 'PPD': #upcoming game
                     if game['gameStatusText'][0] == '1':
                         graphics.DrawText(canvas, self.font3, 3, 28, graphics.Color(200, 200, 200), game['gameStatusText'][0:game['gameStatusText'].find('ET')].upper() + 'et'.upper())
-                    else
+                    else:
                         graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(200, 200, 200), game['gameStatusText'][0:game['gameStatusText'].find('ET')].upper() + 'et'.upper())
                 if game['gameStatusText'] == 'PPD': #postponed game
                     graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(200, 200, 200), 'POSTPONED')
