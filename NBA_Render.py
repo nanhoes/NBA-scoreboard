@@ -103,8 +103,8 @@ class Render:
 
             # NBA Logo
             for line in range(20,30):
-                graphics.DrawLine(canvas, 58, line, 59, line, graphics.Color(0, 0, 255))   
-                graphics.DrawLine(canvas, 61, line, 61, line, graphics.Color(255, 0, 0))
+                graphics.DrawLine(canvas, 57, line, 59, line, graphics.Color(0, 0, 255))   
+                graphics.DrawLine(canvas, 61, line, 62, line, graphics.Color(255, 0, 0))
                 graphics.DrawLine(canvas, 60, line, 60, line, graphics.Color(255, 255, 255))   
             for line in range(22,26):
                 graphics.DrawLine(canvas, 58, line, 58, line, graphics.Color(255, 255, 255))   
@@ -117,25 +117,27 @@ class Render:
             awayscore = game['awayTeam']['score']
             timeremaining = game['gameStatusText']
             print(timeremaining)
-            while timeremaining[0] == 'Q' and timeremaining[3] == '0':
+            if timeremaining[0] == 'Q' and timeremaining[3] == '0':
                 timeremaining = timeremaining[:3] + timeremaining[4:]
+                if timeremaining[0] == 'Q' and timeremaining[3] == '0':
+                    timeremaining = timeremaining[:3] + timeremaining[4:]
                 print(timeremaining)
-                if timeremaining[1] == '1':
-                    timeremaining = '1ST' + timeremaining[2:]
-                if timeremaining[1] == '2':
-                    timeremaining = '2ND' + timeremaining[2:]
-                if timeremaining[1] == '3':
-                    timeremaining = '3RD' + timeremaining[2:]
-                if timeremaining[1] == '4':
-                    timeremaining = '4TH' + timeremaining[2:]
-                if timeremaining[1] == '5':
-                    timeremaining = '1ST OT' + timeremaining[2:]
-                if timeremaining[1] == '6':
-                    timeremaining = '2ND OT' + timeremaining[2:]
-                if timeremaining[1] == '7':
-                    timeremaining = '3RD OT' + timeremaining[2:]
-                if timeremaining[1] == '8':
-                    timeremaining = '4TH OT' + timeremaining[2:]
+            if timeremaining[1] == '1':
+                timeremaining = '1ST' + timeremaining[2:]
+            if timeremaining[1] == '2':
+                timeremaining = '2ND' + timeremaining[2:]
+            if timeremaining[1] == '3':
+                timeremaining = '3RD' + timeremaining[2:]
+            if timeremaining[1] == '4':
+                timeremaining = '4TH' + timeremaining[2:]
+            if timeremaining[1] == '5':
+                timeremaining = '1ST OT' + timeremaining[2:]
+            if timeremaining[1] == '6':
+                timeremaining = '2ND OT' + timeremaining[2:]
+            if timeremaining[1] == '7':
+                timeremaining = '3RD OT' + timeremaining[2:]
+            if timeremaining[1] == '8':
+                timeremaining = '4TH OT' + timeremaining[2:]
             if timeremaining == 'Half':
                 timeremaining = 'HALFTIME'
                 
