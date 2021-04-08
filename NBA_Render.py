@@ -179,7 +179,7 @@ class Render:
                 graphics.DrawText(canvas, self.font2, 21, 16, graphics.Color(200, 200, 200), homerecord) #home team record
                 if game['gameStatusText'] != 'PPD': #upcoming game
                     if game['gameStatusText'][0] == '1':
-                        graphics.DrawText(canvas, self.font3, 3, 28, graphics.Color(200, 200, 200), game['gameStatusText'][0:game['gameStatusText'].find('ET')].upper() + 'et'.upper())
+                        graphics.DrawText(canvas, self.font3, 1, 28, graphics.Color(200, 200, 200), game['gameStatusText'][0:game['gameStatusText'].find('ET')].upper() + 'et'.upper())
                     else:
                         graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(200, 200, 200), game['gameStatusText'][0:game['gameStatusText'].find('ET')].upper() + 'et'.upper())
                 if game['gameStatusText'] == 'PPD': #postponed game
