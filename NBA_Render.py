@@ -103,8 +103,8 @@ class Render:
 
             # NBA Logo
             for line in range(20,30):
-                graphics.DrawLine(canvas, 57, line, 60, line, graphics.Color(0, 0, 255))   
-                graphics.DrawLine(canvas, 60, line, 62, line, graphics.Color(255, 0, 0))
+                graphics.DrawLine(canvas, 58, line, 60, line, graphics.Color(0, 0, 255))   
+                graphics.DrawLine(canvas, 60, line, 61, line, graphics.Color(255, 0, 0))
                 graphics.DrawLine(canvas, 60, line, 60, line, graphics.Color(255, 255, 255))   
             for line in range(22,26):
                 graphics.DrawLine(canvas, 58, line, 58, line, graphics.Color(255, 255, 255))   
