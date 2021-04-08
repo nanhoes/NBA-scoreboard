@@ -105,15 +105,33 @@ class Render:
                 graphics.DrawText(canvas, self.font, 2, 36, graphics.Color(self.team_colors[hometeam][1][0], self.team_colors[hometeam][1][1], self.team_colors[hometeam][1][2]), hometeam)
                 graphics.DrawText(canvas, self.font, 2, 16, graphics.Color(self.team_colors[awayteam][1][0], self.team_colors[awayteam][1][1], self.team_colors[awayteam][1][2]), awayteam)
 
-                homescore = game['homeTeam']['score']
-                awayscore = game['awayTeam']['score']
-                timeremaining = game['gameStatusText']
+            homescore = game['homeTeam']['score']
+            awayscore = game['awayTeam']['score']
+            timeremaining = game['gameStatusText']
+            if timeremaining[0] == 'Q' and timeremaining[3] == '0':
+                timeremaining = timeremaining[:3] + timeremaining[4:]
                 if timeremaining[0] == 'Q' and timeremaining[3] == '0':
-                    timeremaining = game['gameStatusText'][:3] + game['gameStatusText'][4:]
-                if timeremaining[0] == 'Q' and timeremaining[3] == '0' and timeremaining[4] == ':':
-                    timeremaining = game['gameStatusText'][:3] + game['gameStatusText'][5:]
-
-
+                    timeremaining = timeremaining[:3] + timeremaining[4:]
+            if timeremaining[1] == '1':
+                timeremaining = '1ST' + timeremaining[2:]
+            if timeremaining[1] == '2':
+                timeremaining = '2ND' + timeremaining[2:]
+            if timeremaining[1] == '3':
+                timeremaining = '3RD' + timeremaining[2:]
+            if timeremaining[1] == '4':
+                timeremaining = '4TH' + timeremaining[2:]
+            if timeremaining[1] == '5':
+                timeremaining = '1ST OT' + timeremaining[2:]
+            if timeremaining[1] == '6':
+                timeremaining = '2ND OT' + timeremaining[2:]
+            if timeremaining[1] == '7':
+                timeremaining = '3RD OT' + timeremaining[2:]
+            if timeremaining[1] == '8':
+                timeremaining = '4TH OT' + timeremaining[2:]
+            if timeremaining == 'Half':
+                timeremaining = 'HALFTIME'
+                
+            timeremaining = timeremaining.upper()
 
                 if game['gameStatus'] == 2: #GAME IS LIVE
                     graphics.DrawText(canvas, self.font, 74 - len(str(awayscore))*11, 16, graphics.Color(0, 0, 0), str(awayscore)) 
@@ -134,13 +152,8 @@ class Render:
                             else:
                                 graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(200, 200, 200), timeremaining)
                     else: #not a close game or not under 4min
-                        if timeremaining[1] == '1':
-                            graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(200, 200, 200), timeremaining) #56
-                        else:
-                            graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(200, 200, 200), timeremaining)
-
+                        graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(200, 200, 200), timeremaining) #56
                    
-
                 if game['gameStatus'] == 3: #GAME IS FINISHED
                     if homescore < awayscore:
                         for line in range(20,38):
