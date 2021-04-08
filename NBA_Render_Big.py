@@ -138,14 +138,14 @@ class Render:
                     graphics.DrawText(canvas, self.font, 74 - len(str(homescore))*11, 36, graphics.Color(0, 0, 0), str(homescore)) 
                     if (game['gameStatusText'][0] == 'Q' and game['gameStatusText'][1] >= '4') and (game['gameStatusText'][3] == '0' and game['gameStatusText'][4] <= '4'): #Q4 or OT < 5min remaining
                         if homescore > awayscore:
-                            if (homescore - awayscore) <= 15: #close game
+                            if (homescore - awayscore) <= 10: #close game
                                 graphics.DrawText(canvas, self.font3, 2, 51, graphics.Color(255, 255, 255), timeremaining) #bright quarter and time remaining
                                 for line in range(54,56):   
                                     graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(255, 0, 0)) #red line at bottom of screen
                             else:
                                 graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(200, 200, 200), timeremaining)
                         else:
-                            if (awayscore - homescore) <= 15: #close game
+                            if (awayscore - homescore) <= 10: #close game
                                 graphics.DrawText(canvas, self.font3, 2, 51, graphics.Color(255, 255, 255), timeremaining) #bright quarter and time remaining
                                 for line in range(54,56):   
                                     graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(255, 0, 0)) #red line at bottom of screen
