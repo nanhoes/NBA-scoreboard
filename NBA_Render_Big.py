@@ -105,33 +105,33 @@ class Render:
                 graphics.DrawText(canvas, self.font, 2, 36, graphics.Color(self.team_colors[hometeam][1][0], self.team_colors[hometeam][1][1], self.team_colors[hometeam][1][2]), hometeam)
                 graphics.DrawText(canvas, self.font, 2, 16, graphics.Color(self.team_colors[awayteam][1][0], self.team_colors[awayteam][1][1], self.team_colors[awayteam][1][2]), awayteam)
 
-            homescore = game['homeTeam']['score']
-            awayscore = game['awayTeam']['score']
-            timeremaining = game['gameStatusText']
-            if timeremaining[0] == 'Q' and timeremaining[3] == '0':
-                timeremaining = timeremaining[:3] + timeremaining[4:]
+                homescore = game['homeTeam']['score']
+                awayscore = game['awayTeam']['score']
+                timeremaining = game['gameStatusText']
                 if timeremaining[0] == 'Q' and timeremaining[3] == '0':
                     timeremaining = timeremaining[:3] + timeremaining[4:]
-            if timeremaining[1] == '1':
-                timeremaining = '1ST' + timeremaining[2:]
-            if timeremaining[1] == '2':
-                timeremaining = '2ND' + timeremaining[2:]
-            if timeremaining[1] == '3':
-                timeremaining = '3RD' + timeremaining[2:]
-            if timeremaining[1] == '4':
-                timeremaining = '4TH' + timeremaining[2:]
-            if timeremaining[1] == '5':
-                timeremaining = '1ST OT' + timeremaining[2:]
-            if timeremaining[1] == '6':
-                timeremaining = '2ND OT' + timeremaining[2:]
-            if timeremaining[1] == '7':
-                timeremaining = '3RD OT' + timeremaining[2:]
-            if timeremaining[1] == '8':
-                timeremaining = '4TH OT' + timeremaining[2:]
-            if timeremaining == 'Half':
-                timeremaining = 'HALFTIME'
-                
-            timeremaining = timeremaining.upper()
+                    if timeremaining[0] == 'Q' and timeremaining[3] == '0':
+                        timeremaining = timeremaining[:3] + timeremaining[4:]
+                if timeremaining[1] == '1':
+                    timeremaining = '1ST' + timeremaining[2:]
+                if timeremaining[1] == '2':
+                    timeremaining = '2ND' + timeremaining[2:]
+                if timeremaining[1] == '3':
+                    timeremaining = '3RD' + timeremaining[2:]
+                if timeremaining[1] == '4':
+                    timeremaining = '4TH' + timeremaining[2:]
+                if timeremaining[1] == '5':
+                    timeremaining = '1ST OT' + timeremaining[2:]
+                if timeremaining[1] == '6':
+                    timeremaining = '2ND OT' + timeremaining[2:]
+                if timeremaining[1] == '7':
+                    timeremaining = '3RD OT' + timeremaining[2:]
+                if timeremaining[1] == '8':
+                    timeremaining = '4TH OT' + timeremaining[2:]
+                if timeremaining == 'Half':
+                    timeremaining = 'HALFTIME'
+
+                timeremaining = timeremaining.upper()
 
                 if game['gameStatus'] == 2: #GAME IS LIVE
                     graphics.DrawText(canvas, self.font, 74 - len(str(awayscore))*11, 16, graphics.Color(0, 0, 0), str(awayscore)) 
