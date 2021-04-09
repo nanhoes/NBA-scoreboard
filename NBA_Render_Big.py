@@ -84,8 +84,8 @@ class Render:
                 over_under = ''
             print(spread)
             print(over_under)
-            spread = -5.5
-            over_under = 240
+            spread = '-5.5'
+            over_under = '240'
             posx = 5
             len1 = 0
             while True:
