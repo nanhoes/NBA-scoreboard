@@ -46,7 +46,7 @@ class Render:
             game_data = {}
         
         try:
-            with open(self.path + 'NBASpreads.json', 'r') as file:
+            with open(self.path + 'NBASpreadsTest.json', 'r') as file:
                 spreads_data = json.load(file)
             with open(self.path + 'NBASpreadsLive.json', 'r') as file:
                 spreads_data_live = json.load(file)
