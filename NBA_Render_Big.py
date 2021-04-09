@@ -82,7 +82,8 @@ class Render:
             except KeyError:
                 spread = ''
                 over_under = ''
-            
+            print(spread)
+            print(over_under)
             posx = 5
             len1 = 0
             while True:
