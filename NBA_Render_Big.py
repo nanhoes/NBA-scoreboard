@@ -146,13 +146,13 @@ class Render:
                 if timeremaining[1] == '4':
                     timeremaining = '4TH' + timeremaining[2:]
                 if timeremaining[1] == '5':
-                    timeremaining = 'OT 1' + timeremaining[2:]
+                    timeremaining = 'OT' + timeremaining[2:]
                 if timeremaining[1] == '6':
-                    timeremaining = 'OT 2' + timeremaining[2:]
+                    timeremaining = 'OT2' + timeremaining[2:]
                 if timeremaining[1] == '7':
-                    timeremaining = 'OT 3' + timeremaining[2:]
+                    timeremaining = 'OT3' + timeremaining[2:]
                 if timeremaining[1] == '8':
-                    timeremaining = 'OT 4' + timeremaining[2:]
+                    timeremaining = 'OT4' + timeremaining[2:]
                 if timeremaining == 'Half':
                     timeremaining = 'HALFTIME'
 
