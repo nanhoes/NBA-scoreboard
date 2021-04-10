@@ -14,7 +14,7 @@ class Render:
         self.options.drop_privileges = False
         self.options.chain_length = 2
         self.options.parallel = 2
-        self.options.disable_hardware_pulsing = True
+        self.options.disable_hardware_pulsing = False
 
         
         self.path = '/home/pi/My-NBA-scoreboard/'
