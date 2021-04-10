@@ -42,7 +42,7 @@ matrix = RGBMatrix(options = options)
 #matrix.SetImage(image.convert('RGB'),5,0)
 #image1.thumbnail((30, matrix.height))
 #matrix.SetImage(image1.convert('RGB'),93,0)
-image.thumbnail((20, 20), Image.ANTIALIAS)
+image.thumbnail((15, 15), Image.ANTIALIAS)
 matrix.SetImage(image.convert('RGB'))
 
 
