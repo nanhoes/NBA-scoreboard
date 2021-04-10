@@ -118,11 +118,11 @@ class Render:
                     graphics.DrawLine(canvas, 121, line, 121, line, graphics.Color(255, 255, 255))   
                 for line in range(40,52):
                     graphics.DrawLine(canvas, 122, line, 122, line, graphics.Color(255, 255, 255))   
-                for line in range(43,48):
+                for line in range(43,49):
                     graphics.DrawLine(canvas, 123, line, 123, line, graphics.Color(255, 255, 255))  
                 for line in range(50,55):
                     graphics.DrawLine(canvas, 123, line, 123, line, graphics.Color(255, 255, 255))   
-                for line in range(46,48):
+                for line in range(46,49):
                     graphics.DrawLine(canvas, 124, line, 124, line, graphics.Color(255, 255, 255))   
                     
                 
