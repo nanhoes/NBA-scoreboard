@@ -165,14 +165,14 @@ class Render:
                         if homescore > awayscore:
                             if (homescore - awayscore) <= 10: #close game
                                 graphics.DrawText(canvas, self.font3, 2, 51, graphics.Color(255, 255, 255), timeremaining) #bright quarter and time remaining
-                                for line in range(54,56):   
+                                for line in range(55,56):   
                                     graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(255, 0, 0)) #red line at bottom of screen
                             else:
                                 graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(200, 200, 200), timeremaining)
                         else:
                             if (awayscore - homescore) <= 10: #close game
                                 graphics.DrawText(canvas, self.font3, 2, 51, graphics.Color(255, 255, 255), timeremaining) #bright quarter and time remaining
-                                for line in range(54,56):   
+                                for line in range(55,56):   
                                     graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(255, 0, 0)) #red line at bottom of screen
                             else:
                                 graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(200, 200, 200), timeremaining)
