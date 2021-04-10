@@ -100,35 +100,32 @@ class Render:
                     for line in range(0,18):
                         graphics.DrawLine(canvas, 39, line, 77, line, graphics.Color(255, 255, 255))
 
+                    # NBA Logo
+                    for line in range(38,52):
+                        graphics.DrawLine(canvas, 119, line, 122, line, graphics.Color(0, 0, 255))   
+                        graphics.DrawLine(canvas, 123, line, 124, line, graphics.Color(255, 0, 0))
+                    for line in range(41,45):
+                        graphics.DrawLine(canvas, 119, line, 119, line, graphics.Color(255, 255, 255))   
+                    for line in range(40,46):
+                        graphics.DrawLine(canvas, 120, line, 120, line, graphics.Color(255, 255, 255))   
+                    for line in range(39,47):
+                        graphics.DrawLine(canvas, 121, line, 121, line, graphics.Color(255, 255, 255))   
+                    for line in range(38,49):
+                        graphics.DrawLine(canvas, 122, line, 122, line, graphics.Color(255, 255, 255))   
+                    for line in range(43,44):
+                        graphics.DrawLine(canvas, 122, line, 122, line, graphics.Color(255, 0, 0))   
+                    for line in range(41,46):
+                        graphics.DrawLine(canvas, 123, line, 123, line, graphics.Color(255, 255, 255))  
+                    for line in range(48,52):
+                        graphics.DrawLine(canvas, 123, line, 123, line, graphics.Color(255, 255, 255))   
+                    for line in range(45,46):
+                        graphics.DrawLine(canvas, 124, line, 124, line, graphics.Color(255, 255, 255))   
+
+
                 graphics.DrawText(canvas, self.font2, 127 - len(str(over_under))*8, 14, graphics.Color(0, 0, 255), over_under)
                 graphics.DrawText(canvas, self.font2, 127 - len(str(spread))*8, 34, graphics.Color(0, 0, 255), spread)
                 graphics.DrawText(canvas, self.font, 2, 36, graphics.Color(self.team_colors[hometeam][1][0], self.team_colors[hometeam][1][1], self.team_colors[hometeam][1][2]), hometeam)
                 graphics.DrawText(canvas, self.font, 2, 16, graphics.Color(self.team_colors[awayteam][1][0], self.team_colors[awayteam][1][1], self.team_colors[awayteam][1][2]), awayteam)
-
-
-          # NBA Logo
-                for line in range(38,52):
-                    graphics.DrawLine(canvas, 119, line, 122, line, graphics.Color(0, 0, 255))   
-                    graphics.DrawLine(canvas, 123, line, 124, line, graphics.Color(255, 0, 0))
-                for line in range(41,45):
-                    graphics.DrawLine(canvas, 119, line, 119, line, graphics.Color(255, 255, 255))   
-                for line in range(40,46):
-                    graphics.DrawLine(canvas, 120, line, 120, line, graphics.Color(255, 255, 255))   
-                for line in range(39,47):
-                    graphics.DrawLine(canvas, 121, line, 121, line, graphics.Color(255, 255, 255))   
-                for line in range(38,49):
-                    graphics.DrawLine(canvas, 122, line, 122, line, graphics.Color(255, 255, 255))   
-                for line in range(43,44):
-                    graphics.DrawLine(canvas, 122, line, 122, line, graphics.Color(255, 0, 0))   
-                for line in range(41,46):
-                    graphics.DrawLine(canvas, 123, line, 123, line, graphics.Color(255, 255, 255))  
-                for line in range(48,52):
-                    graphics.DrawLine(canvas, 123, line, 123, line, graphics.Color(255, 255, 255))   
-                for line in range(45,46):
-                    graphics.DrawLine(canvas, 124, line, 124, line, graphics.Color(255, 255, 255))   
-                    
-                
-                
                 
                 homescore = game['homeTeam']['score']
                 awayscore = game['awayTeam']['score']
@@ -165,14 +162,14 @@ class Render:
                         if homescore > awayscore:
                             if (homescore - awayscore) <= 10: #close game
                                 graphics.DrawText(canvas, self.font3, 2, 51, graphics.Color(255, 255, 255), timeremaining) #bright quarter and time remaining
-                                for line in range(55,56):   
+                                for line in range(54,56):   
                                     graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(255, 0, 0)) #red line at bottom of screen
                             else:
                                 graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(200, 200, 200), timeremaining)
                         else:
                             if (awayscore - homescore) <= 10: #close game
                                 graphics.DrawText(canvas, self.font3, 2, 51, graphics.Color(255, 255, 255), timeremaining) #bright quarter and time remaining
-                                for line in range(55,56):   
+                                for line in range(54,56):   
                                     graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(255, 0, 0)) #red line at bottom of screen
                             else:
                                 graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(200, 200, 200), timeremaining)
@@ -199,9 +196,31 @@ class Render:
                     graphics.DrawText(canvas, self.font2, 41, 14, graphics.Color(200, 200, 200), awayrecord) #away team record
                     graphics.DrawText(canvas, self.font2, 41, 34, graphics.Color(200, 200, 200), homerecord) #home team record
                     if game['gameStatusText'] != 'PPD': #upcoming game
-                        graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(200, 200, 200), game['gameStatusText'][0:game['gameStatusText'].find('ET')].upper() + 'ET')
+                        graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(200, 200, 200), game['gameStatusText'][0:game['gameStatusText'].find('ET')].upper() + 'ET')
                     if game['gameStatusText'] == 'PPD': #postponed game
-                        graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(200, 200, 200), 'POSTPONED')
+                        graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(200, 200, 200), 'POSTPONED')
+
+                    # NBA Logo
+                    for line in range(42,56):
+                        graphics.DrawLine(canvas, 119, line, 122, line, graphics.Color(0, 0, 255))   
+                        graphics.DrawLine(canvas, 123, line, 124, line, graphics.Color(255, 0, 0))
+                    for line in range(45,49):
+                        graphics.DrawLine(canvas, 119, line, 119, line, graphics.Color(255, 255, 255))   
+                    for line in range(44,50):
+                        graphics.DrawLine(canvas, 120, line, 120, line, graphics.Color(255, 255, 255))   
+                    for line in range(43,51):
+                        graphics.DrawLine(canvas, 121, line, 121, line, graphics.Color(255, 255, 255))   
+                    for line in range(42,53):
+                        graphics.DrawLine(canvas, 122, line, 122, line, graphics.Color(255, 255, 255))   
+                    for line in range(47,48):
+                        graphics.DrawLine(canvas, 122, line, 122, line, graphics.Color(255, 0, 0))   
+                    for line in range(45,50):
+                        graphics.DrawLine(canvas, 123, line, 123, line, graphics.Color(255, 255, 255))  
+                    for line in range(52,56):
+                        graphics.DrawLine(canvas, 123, line, 123, line, graphics.Color(255, 255, 255))   
+                    for line in range(49,50):
+                        graphics.DrawLine(canvas, 124, line, 124, line, graphics.Color(255, 255, 255))   
+
 
 
                 homeleadername = game['gameLeaders']['homeLeaders']['name']
