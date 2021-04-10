@@ -107,15 +107,15 @@ class Render:
 
 
           # NBA Logo
-                for line in range(44,54):
+                for line in range(43,55):
                     graphics.DrawLine(canvas, 122, line, 124, line, graphics.Color(0, 0, 255))   
                     graphics.DrawLine(canvas, 124, line, 125, line, graphics.Color(255, 0, 0))
                     graphics.DrawLine(canvas, 124, line, 124, line, graphics.Color(255, 255, 255))   
-                for line in range(46,50):
-                    graphics.DrawLine(canvas, 122, line, 122, line, graphics.Color(255, 255, 255))   
                 for line in range(45,51):
+                    graphics.DrawLine(canvas, 122, line, 122, line, graphics.Color(255, 255, 255))   
+                for line in range(44,52):
                     graphics.DrawLine(canvas, 123, line, 123, line, graphics.Color(255, 255, 255))   
-                for line in range(48,50):
+                for line in range(47,51):
                     graphics.DrawLine(canvas, 125, line, 125, line, graphics.Color(255, 255, 255))   
 
 
@@ -232,7 +232,7 @@ class Render:
                         posx -= 1
                         if (posx == canvas.width - len1 - 2):
                             break
-                        time.sleep(0.01)
+                        time.sleep(0.05)
                         canvas = matrix.SwapOnVSync(canvas)
                 else:
                     break
