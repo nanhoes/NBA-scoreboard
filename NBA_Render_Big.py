@@ -204,24 +204,24 @@ class Render:
                         graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(200, 200, 200), 'POSTPONED')
 
                     # NBA Logo
-                    for line in range(42,56):
+                    for line in range(46,60):
                         graphics.DrawLine(canvas, 119, line, 122, line, graphics.Color(0, 0, 255))   
                         graphics.DrawLine(canvas, 123, line, 124, line, graphics.Color(255, 0, 0))
-                    for line in range(45,49):
+                    for line in range(49,53):
                         graphics.DrawLine(canvas, 119, line, 119, line, graphics.Color(255, 255, 255))   
-                    for line in range(44,50):
+                    for line in range(48,54):
                         graphics.DrawLine(canvas, 120, line, 120, line, graphics.Color(255, 255, 255))   
-                    for line in range(43,51):
+                    for line in range(47,55):
                         graphics.DrawLine(canvas, 121, line, 121, line, graphics.Color(255, 255, 255))   
-                    for line in range(42,53):
+                    for line in range(46,57):
                         graphics.DrawLine(canvas, 122, line, 122, line, graphics.Color(255, 255, 255))   
-                    for line in range(47,48):
+                    for line in range(51,52):
                         graphics.DrawLine(canvas, 122, line, 122, line, graphics.Color(255, 0, 0))   
-                    for line in range(45,50):
+                    for line in range(49,54):
                         graphics.DrawLine(canvas, 123, line, 123, line, graphics.Color(255, 255, 255))  
-                    for line in range(52,56):
+                    for line in range(56,60):
                         graphics.DrawLine(canvas, 123, line, 123, line, graphics.Color(255, 255, 255))   
-                    for line in range(49,50):
+                    for line in range(53,54):
                         graphics.DrawLine(canvas, 124, line, 124, line, graphics.Color(255, 255, 255))   
 
 
