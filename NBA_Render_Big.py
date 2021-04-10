@@ -108,24 +108,24 @@ class Render:
 
           # NBA Logo
                 for line in range(40,54):
-                    graphics.DrawLine(canvas, 122, line, 126, line, graphics.Color(0, 0, 255))   
-                    graphics.DrawLine(canvas, 127, line, 128, line, graphics.Color(255, 0, 0))
+                    graphics.DrawLine(canvas, 119, line, 123, line, graphics.Color(0, 0, 255))   
+                    graphics.DrawLine(canvas, 124, line, 125, line, graphics.Color(255, 0, 0))
                 for line in range(40,52):
-                    graphics.DrawLine(canvas, 124, line, 124, line, graphics.Color(255, 255, 255))   
+                    graphics.DrawLine(canvas, 121, line, 121, line, graphics.Color(255, 255, 255))   
                 for line in range(43,46):
-                    graphics.DrawLine(canvas, 122, line, 122, line, graphics.Color(255, 255, 255))   
+                    graphics.DrawLine(canvas, 119, line, 119, line, graphics.Color(255, 255, 255))   
                 for line in range(42,47):
-                    graphics.DrawLine(canvas, 123, line, 123, line, graphics.Color(255, 255, 255))   
+                    graphics.DrawLine(canvas, 120, line, 120, line, graphics.Color(255, 255, 255))   
                 for line in range(41,48):
-                    graphics.DrawLine(canvas, 124, line, 124, line, graphics.Color(255, 255, 255))   
+                    graphics.DrawLine(canvas, 121, line, 121, line, graphics.Color(255, 255, 255))   
                 for line in range(40,49):
-                    graphics.DrawLine(canvas, 125, line, 125, line, graphics.Color(255, 255, 255))   
+                    graphics.DrawLine(canvas, 122, line, 122, line, graphics.Color(255, 255, 255))   
                 for line in range(43,48):
-                    graphics.DrawLine(canvas, 126, line, 126, line, graphics.Color(255, 255, 255))  
+                    graphics.DrawLine(canvas, 123, line, 123, line, graphics.Color(255, 255, 255))  
                 for line in range(50,54):
-                    graphics.DrawLine(canvas, 126, line, 126, line, graphics.Color(255, 255, 255))   
+                    graphics.DrawLine(canvas, 123, line, 123, line, graphics.Color(255, 255, 255))   
                 for line in range(46,48):
-                    graphics.DrawLine(canvas, 127, line, 127, line, graphics.Color(255, 255, 255))   
+                    graphics.DrawLine(canvas, 124, line, 124, line, graphics.Color(255, 255, 255))   
                     
                 
                 
