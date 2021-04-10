@@ -25,6 +25,7 @@ options.gpio_slowdown = 3
 options.drop_privileges = False
 options.chain_length = 2
 options.parallel = 2
+options.disable_hardware_pulsing = True
 
 #font = graphics.Font()
 #font.LoadFont("/home/pi/rpi-rgb-led-matrix/fonts/10x20.bdf")
