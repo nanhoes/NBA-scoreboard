@@ -20,9 +20,11 @@ image = Image.open(image_file)
 options = RGBMatrixOptions()
 options.rows = 32
 options.cols = 64
-options.hardware_mapping = 'adafruit-hat'  # If you have an Adafruit HAT: 'adafruit-hat'
+options.hardware_mapping = 'regular'  # If you have an Adafruit HAT: 'adafruit-hat'
 options.gpio_slowdown = 3
 options.drop_privileges = False
+options.chain_length = 2
+options.parallel = 2
 
 #font = graphics.Font()
 #font.LoadFont("/home/pi/rpi-rgb-led-matrix/fonts/10x20.bdf")
