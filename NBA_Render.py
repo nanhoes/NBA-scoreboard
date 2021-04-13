@@ -12,7 +12,7 @@ image = Image.open("/home/pi/My-NBA-scoreboard/nbalogo.png")
 class Render:
     def __init__(self):     
         self.options = RGBMatrixOptions()
-        self.options.hardware_mapping = 'adafruit-hat'
+        self.options.hardware_mapping = 'regular'
         self.options.gpio_slowdown = 3
         self.options.rows = 32
         self.options.cols = 64
