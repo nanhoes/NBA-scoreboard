@@ -30,7 +30,7 @@ class NBA_Data:
             
         if live == False and later_today == True: #No games rn but there will be later today
             wait_time = (dt.datetime.strptime(next_game, '%Y-%m-%dT%H:%M:%SZ') - dt.datetime.utcnow()).total_seconds()
-            string = 'Next game in ' + '{:4.1f}'.format(wait_time/3600) + ' hours.' + ' ' + awayteam + ' vs. ' + hometeam + ' .\n'
+            string = 'Next game in ' + '{:4.1f}'.format(wait_time/3600) + ' hours.' + ' ' + awayteam + ' vs. ' + hometeam + '\n'
             print(str(dt.datetime.strftime(dt.datetime.now(), '%m/%d/%Y %H:%M')) + ' - ' + string)
             with open('/home/pi/Documents/NBAlog.txt', 'a') as file:
                 file.write(string)
