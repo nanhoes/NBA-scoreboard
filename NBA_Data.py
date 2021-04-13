@@ -25,11 +25,13 @@ class NBA_Data:
                 if later_today == False and game['gameStatusText'] != 'PPD': #if this passes,  then this is the next game
                     next_game = game['gameTimeUTC']
                     later_today = True
+            hometeam = game['homeTeam']['teamTricode']
+            awayteam = game['awayTeam']['teamTricode']
             
         if live == False and later_today == True: #No games rn but there will be later today
             wait_time = (dt.datetime.strptime(next_game, '%Y-%m-%dT%H:%M:%SZ') - dt.datetime.utcnow()).total_seconds()
             string = 'Next game in ' + '{:4.1f}'.format(wait_time/3600) + ' hours.\n'
-            print(str(dt.datetime.strftime(dt.datetime.now(), '%m/%d/%Y %H:%M')) + ' - ' + string + ' ' game['homeTeam']['teamTricode'] + ' vs. ' + game['awayTeam']['teamTricode'])
+            print(str(dt.datetime.strftime(dt.datetime.now(), '%m/%d/%Y %H:%M')) + ' - ' + string + ' ' + awayteam + ' vs. ' + hometeam)
             with open('/home/pi/Documents/NBAlog.txt', 'a') as file:
                 file.write(string)
             print('Write success')
