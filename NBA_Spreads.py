@@ -1,4 +1,6 @@
 import requests
+from requests.adapters import HTTPAdapter
+from requests.packages.urllib3.util.retry import Retry
 from bs4 import BeautifulSoup
 import json
 import datetime as dt
@@ -40,10 +42,12 @@ class NBA_Spreads:
     def Spreads_Update(self):
         url = 'https://www.bovada.lv/services/sports/event/v2/events/A/description/basketball/nba'
 
-        try:
-            response = requests.get(url).json()
-        except requests.exceptions.ConnectionError:
-            r.status_code = "Connection refused"
+        response = requests.get(url).json()
+        retry = Retry(connect=3, backoff_factor=0.5)
+        adapter = HTTPAdapter(max_retries=retry)
+        response.mount('http://', adapter)
+        response.mount('https://', adapter)
+        response.get(url)
 
         with open(self.path, 'r') as file:
             data = json.load(file)
