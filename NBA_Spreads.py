@@ -40,8 +40,11 @@ class NBA_Spreads:
     def Spreads_Update(self):
         url = 'https://www.bovada.lv/services/sports/event/v2/events/A/description/basketball/nba'
 
-        response = requests.get(url).json()
-        
+        try:
+            response = requests.get(url).json()
+        except requests.exceptions.ConnectionError:
+            r.status_code = "Connection refused"
+
         with open(self.path, 'r') as file:
             data = json.load(file)
         
