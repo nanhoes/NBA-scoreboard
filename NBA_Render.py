@@ -31,7 +31,7 @@ class Render:
     def Render_Games(self, printer=False):
         matrix = RGBMatrix(options=self.options)
         date_range = []
-        disp_live_odds = True
+        disp_live_odds = False
         try:
             for day in os.listdir(self.path):
                 if day=='.DS_Store':
