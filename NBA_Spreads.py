@@ -42,7 +42,7 @@ class NBA_Spreads:
     def Spreads_Update(self):
         url = 'https://www.bovada.lv/services/sports/event/v2/events/A/description/basketball/nba'
         
-        response = requests.get(url).json()
+        response = requests.get(url,verify=False).json()
         
         with open(self.path, 'r') as file:
             data = json.load(file)
