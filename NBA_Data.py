@@ -8,7 +8,7 @@ class NBA_Data:
     
     
     def __init__(self):
-        self.game_data = requests.get('https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json').json()['scoreboard']['games']
+        self.game_data = requests.get('https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json',verify=False).json()['scoreboard']['games']
         print(str(dt.datetime.strftime(dt.datetime.now(), '%m/%d/%Y %H:%M')) + ' - NBA Data Gathered')
     
     def JSON_dump(self):
