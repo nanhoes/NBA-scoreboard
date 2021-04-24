@@ -10,9 +10,9 @@ class NBA_Data:
     
     def __init__(self):
         try:
-            self.game_data = requests.get('https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json',timeout=0.001).json()['scoreboard']['games']
+            self.game_data = requests.get('https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json',timeout=1.000).json()['scoreboard']['games']
         except requests.ConnectionError:
-        
+            break
         print(str(dt.datetime.strftime(dt.datetime.now(), '%m/%d/%Y %H:%M')) + ' - NBA Data Gathered')
     
     def JSON_dump(self):
