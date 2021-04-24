@@ -18,7 +18,7 @@ class NBA_Data:
         try:
             self.game_data = session.get('https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json',timeout=1.000).json()['scoreboard']['games']
         except requests.exceptions.RequestException as e:  # This is the correct syntax
-            sleep(1)
+            time.sleep(1)
         print(str(dt.datetime.strftime(dt.datetime.now(), '%m/%d/%Y %H:%M')) + ' - NBA Data Gathered')
     
     def JSON_dump(self):
