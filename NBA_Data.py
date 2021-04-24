@@ -3,12 +3,16 @@ from NBA_File_Handler import *
 import time
 import datetime as dt
 from NBA_Spreads import *
+from requests.exceptions import ConnectionError
 
 class NBA_Data:
     
     
     def __init__(self):
-        self.game_data = requests.get('https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json',verify=False).json()['scoreboard']['games']
+        try:
+            self.game_data = requests.get('https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json',timeout=0.001).json()['scoreboard']['games']
+        except requests.ConnectionError:
+        
         print(str(dt.datetime.strftime(dt.datetime.now(), '%m/%d/%Y %H:%M')) + ' - NBA Data Gathered')
     
     def JSON_dump(self):
