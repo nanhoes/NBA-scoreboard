@@ -3,16 +3,20 @@ from NBA_File_Handler import *
 import time
 import datetime as dt
 from NBA_Spreads import *
-from requests.exceptions import ConnectionError
+from requests.adapters import HTTPAdapter
+from requests.packages.urllib3.util.retry import Retry
 
 class NBA_Data:
     
     
     def __init__(self):
-        try:
-            self.game_data = requests.get('https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json',timeout=1.000).json()['scoreboard']['games']
-        except requests.ConnectionError as error:
-            print("Error: ", error)
+        session = requests.Session()
+        retry = Retry(connect=3, backoff_factor=0.5)
+        adapter = HTTPAdapter(max_retries=retry)
+        session.mount('http://', adapter)
+        session.mount('https://', adapter)
+
+        self.game_data = session.get('https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json',timeout=1.000).json()['scoreboard']['games']
         print(str(dt.datetime.strftime(dt.datetime.now(), '%m/%d/%Y %H:%M')) + ' - NBA Data Gathered')
     
     def JSON_dump(self):
