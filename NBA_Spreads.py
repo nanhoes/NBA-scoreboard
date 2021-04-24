@@ -13,7 +13,14 @@ class NBA_Spreads:
     def Spreads_New_Day(self):
         url = 'https://www.bovada.lv/services/sports/event/v2/events/A/description/basketball/nba'
 
-        response = requests.get(url).json()
+        session = requests.Session()
+        retry = Retry(connect=3, backoff_factor=0.5)
+        adapter = HTTPAdapter(max_retries=retry)
+        session.mount('http://', adapter)
+        session.mount('https://', adapter)
+        
+        response = session.get(url).json()
+        
         data = {}
         for game in response[0]['events']:
             
