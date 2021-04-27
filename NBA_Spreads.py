@@ -8,7 +8,7 @@ class NBA_Spreads:
         self.path = '/home/pi/NBA-scoreboard/NBASpreads.json'
         self.path_live = '/home/pi/NBA-scoreboard/NBASpreadsLive.json'
         
-    def New_Day(self):
+    def Spreads_New_Day(self):
         url = 'https://www.bovada.lv/services/sports/event/v2/events/A/description/basketball/nba'
 
         response = requests.get(url).json()
@@ -89,7 +89,7 @@ class NBA_Spreads:
 
 if __name__ == '__main__':
     #NBA_Spreads().Spreads_Update()
-    NBA_Spreads().New_Day()
+    NBA_Spreads().Spreads_New_Day()
     
     
 #Set up a script similar to the NBA data that updates spreads every 2 minutes for live data only
