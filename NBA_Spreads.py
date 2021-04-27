@@ -1,26 +1,17 @@
 import requests
-from requests.adapters import HTTPAdapter
-from requests.packages.urllib3.util.retry import Retry
 from bs4 import BeautifulSoup
 import json
 import datetime as dt
 
 class NBA_Spreads:
     def __init__(self):
-        self.path = '/home/pi/My-NBA-scoreboard/NBASpreads.json'
-        self.path_live = '/home/pi/My-NBA-scoreboard/NBASpreadsLive.json'
+        self.path = '/home/pi/NBA-scoreboard/NBASpreads.json'
+        self.path_live = '/home/pi/NBA-scoreboard/NBASpreadsLive.json'
         
-    def Spreads_New_Day(self):
+    def New_Day(self):
         url = 'https://www.bovada.lv/services/sports/event/v2/events/A/description/basketball/nba'
 
-        session = requests.Session()
-        retry = Retry(connect=3, backoff_factor=0.5)
-        adapter = HTTPAdapter(max_retries=retry)
-        session.mount('http://', adapter)
-        session.mount('https://', adapter)
-        
-        response = session.get(url).json()
-        
+        response = requests.get(url).json()
         data = {}
         for game in response[0]['events']:
             
@@ -32,14 +23,12 @@ class NBA_Spreads:
             if dt.datetime.strftime(dt.datetime.now(), '%Y%m%d') != gamelink[len(gamelink)-8:len(gamelink)]:
                 #print(gamelink[len(gamelink)-9:-1])
                 continue
-            try:
-                data[gamelink] = {}
-                data[gamelink]['hometeam'] = game['displayGroups'][0]['markets'][1]['outcomes'][1]['description']
-                data[gamelink]['awayteam'] = game['displayGroups'][0]['markets'][1]['outcomes'][0]['description']
-                data[gamelink]['spread'] = game['displayGroups'][0]['markets'][1]['outcomes'][1]['price']['handicap']
-                data[gamelink]['over_under'] = game['displayGroups'][0]['markets'][2]['outcomes'][0]['price']['handicap']
-            except:
-                print('Error gathering live data')            
+            data[gamelink] = {}
+            data[gamelink]['hometeam'] = game['displayGroups'][0]['markets'][1]['outcomes'][1]['description']
+            data[gamelink]['awayteam'] = game['displayGroups'][0]['markets'][1]['outcomes'][0]['description']
+            data[gamelink]['spread'] = game['displayGroups'][0]['markets'][1]['outcomes'][1]['price']['handicap']
+            data[gamelink]['over_under'] = game['displayGroups'][0]['markets'][2]['outcomes'][0]['price']['handicap']
+            
         with open(self.path, 'w') as file:
             json.dump(data, file)
         
@@ -48,14 +37,8 @@ class NBA_Spreads:
             
     def Spreads_Update(self):
         url = 'https://www.bovada.lv/services/sports/event/v2/events/A/description/basketball/nba'
-        
-        session = requests.Session()
-        retry = Retry(connect=3, backoff_factor=0.5)
-        adapter = HTTPAdapter(max_retries=retry)
-        session.mount('http://', adapter)
-        session.mount('https://', adapter)
-        
-        response = session.get(url).json() 
+
+        response = requests.get(url).json()
         
         with open(self.path, 'r') as file:
             data = json.load(file)
@@ -71,15 +54,12 @@ class NBA_Spreads:
             gamelink = game['link'][0:len(game['link'])-4]
             if dt.datetime.strftime(dt.datetime.now(), '%Y%m%d') != gamelink[len(gamelink)-8:len(gamelink)]:
                 continue
-            try:
-                data[gamelink] = {}
-                data[gamelink]['hometeam'] = game['displayGroups'][0]['markets'][1]['outcomes'][1]['description']
-                data[gamelink]['awayteam'] = game['displayGroups'][0]['markets'][1]['outcomes'][0]['description']
-                data[gamelink]['spread'] = game['displayGroups'][0]['markets'][1]['outcomes'][1]['price']['handicap']
-                data[gamelink]['over_under'] = game['displayGroups'][0]['markets'][2]['outcomes'][0]['price']['handicap']
-            except:
-                print('Error gathering live data')
-                
+            data[gamelink] = {}
+            data[gamelink]['hometeam'] = game['displayGroups'][0]['markets'][1]['outcomes'][1]['description']
+            data[gamelink]['awayteam'] = game['displayGroups'][0]['markets'][1]['outcomes'][0]['description']
+            data[gamelink]['spread'] = game['displayGroups'][0]['markets'][1]['outcomes'][1]['price']['handicap']
+            data[gamelink]['over_under'] = game['displayGroups'][0]['markets'][2]['outcomes'][0]['price']['handicap']
+        
         with open(self.path, 'w') as file:
             json.dump(data, file)
         
@@ -88,10 +68,6 @@ class NBA_Spreads:
             
             if game['type'] != 'GAMEEVENT' or game['live'] != True:
                 #print('Not a game.')
-                
-                #print(game['type'])
-                #print(game['live'])
-                      
                 continue
             
             gamelink = game['link'][0:len(game['link'])-4]
@@ -105,7 +81,7 @@ class NBA_Spreads:
                 data_live[gamelink]['spread'] = game['displayGroups'][0]['markets'][1]['outcomes'][1]['price']['handicap']
                 data_live[gamelink]['over_under'] = game['displayGroups'][0]['markets'][2]['outcomes'][0]['price']['handicap']
             except:
-                print('Error gathering live data')
+                print('Error gatehring live data')
         with open(self.path_live, 'w') as file:
             json.dump(data_live, file)
         
@@ -113,7 +89,7 @@ class NBA_Spreads:
 
 if __name__ == '__main__':
     #NBA_Spreads().Spreads_Update()
-    NBA_Spreads().Spreads_New_Day()
+    NBA_Spreads().New_Day()
     
     
 #Set up a script similar to the NBA data that updates spreads every 2 minutes for live data only
