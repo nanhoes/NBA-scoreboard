@@ -3,22 +3,12 @@ from NBA_File_Handler import *
 import time
 import datetime as dt
 from NBA_Spreads import *
-from requests.adapters import HTTPAdapter
-from requests.packages.urllib3.util.retry import Retry
 
 class NBA_Data:
     
     
     def __init__(self):
-        session = requests.Session()
-        retry = Retry(connect=3, backoff_factor=0.5)
-        adapter = HTTPAdapter(max_retries=retry)
-        session.mount('http://', adapter)
-        session.mount('https://', adapter)
-        try:
-            self.game_data = session.get('https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json',timeout=1.000).json()['scoreboard']['games']
-        except requests.exceptions.RequestException as e:  # This is the correct syntax
-            time.sleep(1)
+        self.game_data = requests.get('https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json').json()['scoreboard']['games']
         print(str(dt.datetime.strftime(dt.datetime.now(), '%m/%d/%Y %H:%M')) + ' - NBA Data Gathered')
     
     def JSON_dump(self):
@@ -35,18 +25,16 @@ class NBA_Data:
                 if later_today == False and game['gameStatusText'] != 'PPD': #if this passes,  then this is the next game
                     next_game = game['gameTimeUTC']
                     later_today = True
-            hometeam = game['homeTeam']['teamTricode']
-            awayteam = game['awayTeam']['teamTricode']
             
         if live == False and later_today == True: #No games rn but there will be later today
             wait_time = (dt.datetime.strptime(next_game, '%Y-%m-%dT%H:%M:%SZ') - dt.datetime.utcnow()).total_seconds()
-            string = 'Next game in ' + '{:4.1f}'.format(wait_time/3600) + ' hours.' + ' ' + awayteam + ' vs. ' + hometeam + '\n'
+            string = 'Next game in ' + '{:4.1f}'.format(wait_time/3600) + ' hours.\n'
             print(str(dt.datetime.strftime(dt.datetime.now(), '%m/%d/%Y %H:%M')) + ' - ' + string)
             with open('/home/pi/Documents/NBAlog.txt', 'a') as file:
                 file.write(string)
-            print('Write success')
+            #print('Write success')
             try:
-                print('Sleeping for ' + str(wait_time/60 + 2) + ' minutes.')
+                #print('Sleeping for ' + str(wait_time + 120) + ' seconds.')
                 time.sleep(wait_time + 120)
             except ValueError:
                 print(str(dt.datetime.strftime(dt.datetime.now(), '%m/%d/%Y %H:%M')) + ' - Game is about to start')
