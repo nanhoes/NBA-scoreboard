@@ -71,7 +71,7 @@ class Render:
             print(gamelink)
 
             try:
-                if disp_live_odds == True and game['gameStatus'] == 2:
+                if disp_live_odds == True and game['gameStatus'] == 2 and spreads_data_live is not None:
                     spread = spreads_data_live[gamelink]['spread']
                     over_under = spreads_data_live[gamelink]['over_under']
                 else:
