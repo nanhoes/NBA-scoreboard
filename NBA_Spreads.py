@@ -97,7 +97,7 @@ class NBA_Spreads:
 
 if __name__ == '__main__':
     #NBA_Spreads().Spreads_Update()
-    NBA_Spreads().Spreads_New_Day()
+    NBA_Spreads().New_Day()
 
 
 #Set up a script similar to the NBA data that updates spreads every 2 minutes for live data only
