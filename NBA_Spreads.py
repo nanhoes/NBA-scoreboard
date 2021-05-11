@@ -56,11 +56,14 @@ class NBA_Spreads:
             gamelink = game['link'][0:len(game['link'])-4]
             if dt.datetime.strftime(dt.datetime.now(), '%Y%m%d') != gamelink[len(gamelink)-8:len(gamelink)]:
                 continue
-            data[gamelink] = {}
-            data[gamelink]['hometeam'] = game['displayGroups'][0]['markets'][1]['outcomes'][1]['description']
-            data[gamelink]['awayteam'] = game['displayGroups'][0]['markets'][1]['outcomes'][0]['description']
-            data[gamelink]['spread'] = game['displayGroups'][0]['markets'][1]['outcomes'][1]['price']['handicap']
-            data[gamelink]['over_under'] = game['displayGroups'][0]['markets'][2]['outcomes'][0]['price']['handicap']
+            try:
+                data[gamelink] = {}
+                data[gamelink]['hometeam'] = game['displayGroups'][0]['markets'][1]['outcomes'][1]['description']
+                data[gamelink]['awayteam'] = game['displayGroups'][0]['markets'][1]['outcomes'][0]['description']
+                data[gamelink]['spread'] = game['displayGroups'][0]['markets'][1]['outcomes'][1]['price']['handicap']
+                data[gamelink]['over_under'] = game['displayGroups'][0]['markets'][2]['outcomes'][0]['price']['handicap']
+            except:
+                print('Error gatehring live data')
         
         with open(self.path, 'w') as file:
             json.dump(data, file)
