@@ -54,9 +54,9 @@ class NBA_Data:
 if __name__ == '__main__':
     test = True
     while test == True:
-        #try:
-        NBA_Data().JSON_dump()
-        #print('Successfully gathered data.')
-        #except:
-        #print('Error requesting data - retrying in 120 seconds')
+        try:
+            NBA_Data().JSON_dump()
+            print('Successfully gathered data.')
+        except:
+            print('Error requesting data - retrying in 120 seconds')
         time.sleep(120)
