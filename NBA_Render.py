@@ -54,12 +54,7 @@ class Render:
             print('Error loading spreads data.')
             spreads_data = {}
         
-        canvas = matrix.CreateFrameCanvas()
-        
-        print("No games today.")
-        #graphics.DrawText(canvas, self.font, 0, 31, graphics.Color(255, 255, 255), "No games today")
-        for line in range(0,32):
-            graphics.DrawLine(canvas, 0, line, 64, line, graphics.Color(245, 0, 0))        
+        canvas = matrix.CreateFrameCanvas()        
         
         for game in game_data:
             hometeam = game['homeTeam']['teamTricode']
@@ -74,8 +69,7 @@ class Render:
 
             gamelink = r'/basketball/nba/{0}-{1}-{2}'.format(away, home, game['gameCode'][0:game['gameCode'].find(r'/')])
             print(gamelink)
-            
-                
+                        
             try:
                 if disp_live_odds == True and game['gameStatus'] == 2 and spreads_data_live is not None:
                     spread = spreads_data_live[gamelink]['spread']
@@ -90,7 +84,7 @@ class Render:
                 over_under = ''
 
             for line in range(0,32):
-                graphics.DrawLine(canvas, 0, line, 64, line, graphics.Color(255, 0, 0))
+                graphics.DrawLine(canvas, 0, line, 64, line, graphics.Color(0, 0, 0))
             for line in range(10,19):
                 graphics.DrawLine(canvas, 0, line, 18, line, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]))
             for line in range(0,9):
