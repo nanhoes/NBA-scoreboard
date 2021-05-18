@@ -57,7 +57,7 @@ class Render:
         canvas = matrix.CreateFrameCanvas()
         
         print(game_data)
-        if game_data == '[]':
+        if game_data == '[]\n:
             print("No games today.")
             graphics.DrawText(canvas, self.font, 0, 31, graphics.Color(255, 255, 255), "No games today")
                 
