@@ -57,8 +57,9 @@ class Render:
         canvas = matrix.CreateFrameCanvas()
         
         print("No games today.")
-        graphics.DrawText(canvas, self.font, 0, 31, graphics.Color(255, 255, 255), "No games today")
-                
+        #graphics.DrawText(canvas, self.font, 0, 31, graphics.Color(255, 255, 255), "No games today")
+        for line in range(0,32):
+            graphics.DrawLine(canvas, 0, line, 64, line, graphics.Color(245, 0, 0))        
         
         for game in game_data:
             hometeam = game['homeTeam']['teamTricode']
