@@ -56,8 +56,12 @@ class Render:
         
         canvas = matrix.CreateFrameCanvas()
         
+        if game_data == '[]':
+            print("No games today.")
+            graphics.DrawText(canvas, self.font, 0, 31, graphics.Color(255, 255, 255), "No games today")
+                
+        
         for game in game_data:
-            print(game_data)
             hometeam = game['homeTeam']['teamTricode']
             awayteam = game['awayTeam']['teamTricode']
 
@@ -71,9 +75,6 @@ class Render:
             gamelink = r'/basketball/nba/{0}-{1}-{2}'.format(away, home, game['gameCode'][0:game['gameCode'].find(r'/')])
             print(gamelink)
             
-            if gamelink is none:
-                print("No games today.")
-                graphics.DrawText(canvas, self.font, 0, 31, graphics.Color(255, 255, 255), "No games today")
                 
             try:
                 if disp_live_odds == True and game['gameStatus'] == 2 and spreads_data_live is not None:
