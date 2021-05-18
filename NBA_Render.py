@@ -57,7 +57,7 @@ class Render:
         canvas = matrix.CreateFrameCanvas()
         
         for game in game_data:
-            print(game_data) //
+            print(game_data)
             hometeam = game['homeTeam']['teamTricode']
             awayteam = game['awayTeam']['teamTricode']
 
