@@ -90,7 +90,7 @@ class Render:
                 over_under = ''
 
             for line in range(0,32):
-                graphics.DrawLine(canvas, 0, line, 64, line, graphics.Color(0, 0, 0))
+                graphics.DrawLine(canvas, 0, line, 64, line, graphics.Color(255, 0, 0))
             for line in range(10,19):
                 graphics.DrawLine(canvas, 0, line, 18, line, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]))
             for line in range(0,9):
