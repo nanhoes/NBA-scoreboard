@@ -87,18 +87,18 @@ class Render:
                 graphics.DrawLine(canvas, 0, line, 64, line, graphics.Color(0, 0, 0))
             for line in range(10,19):
                 graphics.DrawLine(canvas, 0, line, 18, line, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]))
-            for line in range(0,9):  
+            for line in range(0,9):
                 graphics.DrawLine(canvas, 0, line, 18, line, graphics.Color(self.team_colors[awayteam][0][0], self.team_colors[awayteam][0][1], self.team_colors[awayteam][0][2]))
-                      
+                
             if game['gameStatus'] != 1: #finished game
-                for line in range(10,19): 
+                for line in range(10,19):
                     graphics.DrawLine(canvas, 19, line, 38, line, graphics.Color(255, 255, 255))
                 for line in range(0,9):
                     graphics.DrawLine(canvas, 19, line, 38, line, graphics.Color(255, 255, 255))
 
             graphics.DrawText(canvas, self.font2, 64 - len(str(over_under))*4, 7, graphics.Color(0, 0, 255), over_under)
             graphics.DrawText(canvas, self.font2, 64 - len(str(spread))*4, 17, graphics.Color(0, 0, 255), spread)
-            graphics.DrawText(canvas, self.font, 1, 18, graphics.Color(self.team_colors[hometeam][1][0], self.team_colors[hometeam][1][1], self.team_colors[hometeam][1][2]), hometeam)  
+            graphics.DrawText(canvas, self.font, 1, 18, graphics.Color(self.team_colors[hometeam][1][0], self.team_colors[hometeam][1][1], self.team_colors[hometeam][1][2]), hometeam)
             graphics.DrawText(canvas, self.font, 1, 8, graphics.Color(self.team_colors[awayteam][1][0], self.team_colors[awayteam][1][1], self.team_colors[awayteam][1][2]), awayteam)
 
             # NBA Logo
@@ -142,8 +142,8 @@ class Render:
             timeremaining = timeremaining.upper()
                            
             if game['gameStatus'] == 2: #game is live
-                graphics.DrawText(canvas, self.font, 35 - len(str(awayscore))*5, 8, graphics.Color(0, 0, 0), str(awayscore))  
-                graphics.DrawText(canvas, self.font, 35 - len(str(homescore))*5, 18, graphics.Color(0, 0, 0), str(homescore)) 
+                graphics.DrawText(canvas, self.font, 35 - len(str(awayscore))*5, 8, graphics.Color(0, 0, 0), str(awayscore)) 
+                graphics.DrawText(canvas, self.font, 35 - len(str(homescore))*5, 18, graphics.Color(0, 0, 0), str(homescore))
                 if (game['gameStatusText'][0] == 'Q' and game['gameStatusText'][1] >= '4') and (game['gameStatusText'][3] == '0' and game['gameStatusText'][4] <= '4'): #Q4 or OT < 5min remaining
                     if homescore > awayscore:
                         if (homescore - awayscore) <= 10: #close game
@@ -171,8 +171,8 @@ class Render:
                     for line in range(0,9):
                         graphics.DrawLine(canvas, 19, line, 38, line, graphics.Color(75, 75, 75))
                 graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(200, 200, 200), game['gameStatusText'].upper())
-                graphics.DrawText(canvas, self.font, 40 - len(str(awayscore))*5, 8, graphics.Color(0, 0, 0), str(awayscore))  ######### 35->40
-                graphics.DrawText(canvas, self.font, 40 - len(str(homescore))*5, 18, graphics.Color(0, 0, 0), str(homescore))  ######### 35->40
+                graphics.DrawText(canvas, self.font, 35 - len(str(awayscore))*5, 8, graphics.Color(0, 0, 0), str(awayscore)) 
+                graphics.DrawText(canvas, self.font, 35 - len(str(homescore))*5, 18, graphics.Color(0, 0, 0), str(homescore))
 
 
             if game['gameStatus'] == 1: #upcoming game
