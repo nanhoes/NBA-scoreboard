@@ -95,9 +95,9 @@ class Render:
             
             if game['gameStatus'] != 1: #finished game
                 for line in range(10,19): ######### 19->24,38->43
-                    graphics.DrawLine(canvas, 24, line, 43, line, graphics.Color(255, 255, 255))
+                    graphics.DrawLine(canvas, 23, line, 42, line, graphics.Color(255, 255, 255))
                 for line in range(0,9): ######### 19->24,38->43
-                    graphics.DrawLine(canvas, 24, line, 43, line, graphics.Color(255, 255, 255))
+                    graphics.DrawLine(canvas, 23, line, 42, line, graphics.Color(255, 255, 255))
 
             graphics.DrawText(canvas, self.font2, 64 - len(str(over_under))*4, 7, graphics.Color(0, 0, 255), over_under)
             graphics.DrawText(canvas, self.font2, 64 - len(str(spread))*4, 17, graphics.Color(0, 0, 255), spread)
