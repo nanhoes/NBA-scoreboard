@@ -168,11 +168,11 @@ class Render:
 
             if game['gameStatus'] == 3: #finished game
                 if homescore < awayscore:
-                    for line in range(10,19):
-                        graphics.DrawLine(canvas, 19, line, 38, line, graphics.Color(75, 75, 75))
+                    for line in range(10,19):####### 19->24
+                        graphics.DrawLine(canvas, 24, line, 38, line, graphics.Color(75, 75, 75))
                 else:
-                    for line in range(0,9):
-                        graphics.DrawLine(canvas, 19, line, 38, line, graphics.Color(75, 75, 75))
+                    for line in range(0,9):####### 19->24
+                        graphics.DrawLine(canvas, 24, line, 38, line, graphics.Color(75, 75, 75))
                 graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(200, 200, 200), game['gameStatusText'].upper())
                 graphics.DrawText(canvas, self.font, 40 - len(str(awayscore))*5, 8, graphics.Color(0, 0, 0), str(awayscore))  ######### 35->40
                 graphics.DrawText(canvas, self.font, 40 - len(str(homescore))*5, 18, graphics.Color(0, 0, 0), str(homescore))  ######### 35->40
