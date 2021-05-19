@@ -86,9 +86,9 @@ class Render:
             for line in range(0,32):
                 graphics.DrawLine(canvas, 0, line, 64, line, graphics.Color(0, 0, 0))
             for line in range(10,19): ######### 0->5,18->23
-                graphics.DrawLine(canvas, 5, line, 23, line, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]))
+                graphics.DrawLine(canvas, 4, line, 22, line, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]))
             for line in range(0,9):  ######### 0->5,18->23
-                graphics.DrawLine(canvas, 5, line, 23, line, graphics.Color(self.team_colors[awayteam][0][0], self.team_colors[awayteam][0][1], self.team_colors[awayteam][0][2]))
+                graphics.DrawLine(canvas, 4, line, 22, line, graphics.Color(self.team_colors[awayteam][0][0], self.team_colors[awayteam][0][1], self.team_colors[awayteam][0][2]))
             
             graphics.DrawText(canvas, self.font2, 1, 7, graphics.Color(255, 255, 255), '6') # seed away
             graphics.DrawText(canvas, self.font2, 1, 17, graphics.Color(255, 255, 255), '3') # seed home
@@ -101,8 +101,8 @@ class Render:
 
             graphics.DrawText(canvas, self.font2, 64 - len(str(over_under))*4, 7, graphics.Color(0, 0, 255), over_under)
             graphics.DrawText(canvas, self.font2, 64 - len(str(spread))*4, 17, graphics.Color(0, 0, 255), spread)
-            graphics.DrawText(canvas, self.font, 6, 18, graphics.Color(self.team_colors[hometeam][1][0], self.team_colors[hometeam][1][1], self.team_colors[hometeam][1][2]), hometeam)  ######### 1->6
-            graphics.DrawText(canvas, self.font, 6, 8, graphics.Color(self.team_colors[awayteam][1][0], self.team_colors[awayteam][1][1], self.team_colors[awayteam][1][2]), awayteam)######### 1->6
+            graphics.DrawText(canvas, self.font, 5, 18, graphics.Color(self.team_colors[hometeam][1][0], self.team_colors[hometeam][1][1], self.team_colors[hometeam][1][2]), hometeam)  ######### 1->6
+            graphics.DrawText(canvas, self.font, 5, 8, graphics.Color(self.team_colors[awayteam][1][0], self.team_colors[awayteam][1][1], self.team_colors[awayteam][1][2]), awayteam)######### 1->6
 
             # NBA Logo
             for line in range(20,30):
@@ -145,8 +145,8 @@ class Render:
             timeremaining = timeremaining.upper()
                            
             if game['gameStatus'] == 2: #game is live
-                graphics.DrawText(canvas, self.font, 40 - len(str(awayscore))*5, 8, graphics.Color(0, 0, 0), str(awayscore))  ######### 35->40
-                graphics.DrawText(canvas, self.font, 40 - len(str(homescore))*5, 18, graphics.Color(0, 0, 0), str(homescore)) ######### 35->40
+                graphics.DrawText(canvas, self.font, 39 - len(str(awayscore))*5, 8, graphics.Color(0, 0, 0), str(awayscore))  ######### 35->40
+                graphics.DrawText(canvas, self.font, 39 - len(str(homescore))*5, 18, graphics.Color(0, 0, 0), str(homescore)) ######### 35->40
                 if (game['gameStatusText'][0] == 'Q' and game['gameStatusText'][1] >= '4') and (game['gameStatusText'][3] == '0' and game['gameStatusText'][4] <= '4'): #Q4 or OT < 5min remaining
                     if homescore > awayscore:
                         if (homescore - awayscore) <= 10: #close game
@@ -169,10 +169,10 @@ class Render:
             if game['gameStatus'] == 3: #finished game
                 if homescore < awayscore:
                     for line in range(10,19):####### 19->24,38->43
-                        graphics.DrawLine(canvas, 24, line, 43, line, graphics.Color(75, 75, 75))
+                        graphics.DrawLine(canvas, 23, line, 42, line, graphics.Color(75, 75, 75))
                 else:
                     for line in range(0,9):####### 19->24,38->43
-                        graphics.DrawLine(canvas, 24, line, 43, line, graphics.Color(75, 75, 75))
+                        graphics.DrawLine(canvas, 23, line, 42, line, graphics.Color(75, 75, 75))
                 graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(200, 200, 200), game['gameStatusText'].upper())
                 graphics.DrawText(canvas, self.font, 40 - len(str(awayscore))*5, 8, graphics.Color(0, 0, 0), str(awayscore))  ######### 35->40
                 graphics.DrawText(canvas, self.font, 40 - len(str(homescore))*5, 18, graphics.Color(0, 0, 0), str(homescore))  ######### 35->40
