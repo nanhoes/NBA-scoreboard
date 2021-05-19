@@ -91,7 +91,7 @@ class Render:
                 graphics.DrawLine(canvas, 5, line, 18, line, graphics.Color(self.team_colors[awayteam][0][0], self.team_colors[awayteam][0][1], self.team_colors[awayteam][0][2]))
             
             graphics.DrawText(canvas, self.font2, 1, 6, graphics.Color(255, 255, 255), '6') # seed away
-            graphics.DrawText(canvas, self.font2, 1, 6, graphics.Color(255, 255, 255), '3') # seed home
+            graphics.DrawText(canvas, self.font2, 1, 12, graphics.Color(255, 255, 255), '3') # seed home
             
             if game['gameStatus'] != 1: #finished game
                 for line in range(10,19): ######### 19->24
