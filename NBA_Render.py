@@ -90,8 +90,8 @@ class Render:
             for line in range(0,9):  ######### 0->5,18->23
                 graphics.DrawLine(canvas, 4, line, 22, line, graphics.Color(self.team_colors[awayteam][0][0], self.team_colors[awayteam][0][1], self.team_colors[awayteam][0][2]))
             
-            graphics.DrawText(canvas, self.font2, 1, 7, graphics.Color(255, 255, 255), '6') # seed away
-            graphics.DrawText(canvas, self.font2, 1, 17, graphics.Color(255, 255, 255), '3') # seed home
+            graphics.DrawText(canvas, self.font2, 0, 7, graphics.Color(255, 255, 255), '6') # seed away
+            graphics.DrawText(canvas, self.font2, 0, 17, graphics.Color(255, 255, 255), '3') # seed home
             
             if game['gameStatus'] != 1: #finished game
                 for line in range(10,19): ######### 19->24,38->43
