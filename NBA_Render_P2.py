@@ -68,21 +68,21 @@ class Render:
                 graphics.DrawLine(canvas, 116+4, line, 119+4, line, graphics.Color(0, 0, 255))   
                 graphics.DrawLine(canvas, 120+4, line, 121+4, line, graphics.Color(255, 0, 0))
             for line in range(41+10,45+10):
-                graphics.DrawLine(canvas, 116+4, line, 116+4, line, graphics.Color(255, 255, 255))   
+                graphics.DrawLine(canvas, 116+4, line, 116+4, line, graphics.Color(150, 150, 150))   
             for line in range(40+10,46+10):
-                graphics.DrawLine(canvas, 117+4, line, 117+4, line, graphics.Color(255, 255, 255))   
-            for line in range(39+10,47+10):
-                graphics.DrawLine(canvas, 118+4, line, 118+4, line, graphics.Color(255, 255, 255))   
+                graphics.DrawLine(canvas, 117+4, line, 117+4, line, graphics.Color(150, 150, 150))   
+            for line in range(39+10,47+10):150
+                graphics.DrawLine(canvas, 118+4, line, 118+4, line, graphics.Color(150, 150, 150))   
             for line in range(38+10,49+10):
-                graphics.DrawLine(canvas, 119+4, line, 119+4, line, graphics.Color(255, 255, 255))   
+                graphics.DrawLine(canvas, 119+4, line, 119+4, line, graphics.Color(150, 150, 150))   
             for line in range(43+10,44+10):
                 graphics.DrawLine(canvas, 119+4, line, 119+4, line, graphics.Color(255, 0, 0))   
             for line in range(41+10,46+10):
-                graphics.DrawLine(canvas, 120+4, line, 120+4, line, graphics.Color(255, 255, 255))  
+                graphics.DrawLine(canvas, 120+4, line, 120+4, line, graphics.Color(150, 150, 150))  
             for line in range(48+10,52+10):
-                graphics.DrawLine(canvas, 120+4, line, 120+4, line, graphics.Color(255, 255, 255))   
+                graphics.DrawLine(canvas, 120+4, line, 120+4, line, graphics.Color(150, 150, 150))   
             for line in range(45+10,46+10):
-                graphics.DrawLine(canvas, 121+4, line, 121+4, line, graphics.Color(255, 255, 255))   
+                graphics.DrawLine(canvas, 121+4, line, 121+4, line, graphics.Color(150, 150, 150))   
             canvas = matrix.SwapOnVSync(canvas)
             signal.pause()
        
