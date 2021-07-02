@@ -63,25 +63,25 @@ class Render:
             graphics.DrawText(canvas, self.font, (128-(13*8))/2+1, 29, graphics.Color(150,150,150), 'NO GAMES')
             graphics.DrawText(canvas, self.font, (127-13*5)/2+2, 48, graphics.Color(150,150,150), 'TODAY')
              # NBA Logo
-            for line in range(38,52):
-                graphics.DrawLine(canvas, 116, line, 119, line, graphics.Color(0, 0, 255))   
-                graphics.DrawLine(canvas, 120, line, 121, line, graphics.Color(255, 0, 0))
-            for line in range(41,45):
-                graphics.DrawLine(canvas, 116, line, 116, line, graphics.Color(150,150,150))   
-            for line in range(40,46):
-                graphics.DrawLine(canvas, 117, line, 117, line, graphics.Color(150,150,150))   
-            for line in range(39,47):
-                graphics.DrawLine(canvas, 118, line, 118, line, graphics.Color(150,150,150))   
-            for line in range(38,49):
-                graphics.DrawLine(canvas, 119, line, 119, line, graphics.Color(150,150,150))   
-            for line in range(43,44):
-                graphics.DrawLine(canvas, 119, line, 119, line, graphics.Color(255, 0, 0))   
-            for line in range(41,46):
-                graphics.DrawLine(canvas, 120, line, 120, line, graphics.Color(150,150,150))  
-            for line in range(48,52):
-                graphics.DrawLine(canvas, 120, line, 120, line, graphics.Color(150,150,150))   
-            for line in range(45,46):
-                graphics.DrawLine(canvas, 121, line, 121, line, graphics.Color(150,150,150))   
+            for line in range(38+4,52+4):
+                graphics.DrawLine(canvas, 116+10, line, 119+10, line, graphics.Color(0, 0, 255))   
+                graphics.DrawLine(canvas, 120+10, line, 121+10, line, graphics.Color(255, 0, 0))
+            for line in range(41+4,45+4):
+                graphics.DrawLine(canvas, 116+10, line, 116+10, line, graphics.Color(150,150,150))   
+            for line in range(40+4,46+4):
+                graphics.DrawLine(canvas, 117+10, line, 117+10, line, graphics.Color(150,150,150))   
+            for line in range(39+4,47+4):
+                graphics.DrawLine(canvas, 118+10, line, 118+10, line, graphics.Color(150,150,150))   
+            for line in range(38+4,49+4):
+                graphics.DrawLine(canvas, 119+10, line, 119+10, line, graphics.Color(150,150,150))   
+            for line in range(43+4,44+4):
+                graphics.DrawLine(canvas, 119+10, line, 119+10, line, graphics.Color(255, 0, 0))   
+            for line in range(41+4,46+4):
+                graphics.DrawLine(canvas, 120+10, line, 120+10, line, graphics.Color(150,150,150))  
+            for line in range(48+4,52+4):
+                graphics.DrawLine(canvas, 120+10, line, 120+10, line, graphics.Color(150,150,150))   
+            for line in range(45+4,46+4):
+                graphics.DrawLine(canvas, 121+10, line, 121+10, line, graphics.Color(150,150,150))   
             canvas = matrix.SwapOnVSync(canvas)
             signal.pause()
        
