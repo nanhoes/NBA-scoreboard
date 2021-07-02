@@ -62,13 +62,28 @@ class Render:
             print('no games')
             graphics.DrawText(canvas, self.font, (128-(13*8))/2+1, 29, graphics.Color(150,150,150), 'NO GAMES')
             graphics.DrawText(canvas, self.font, (127-13*5)/2+2, 48, graphics.Color(150,150,150), 'TODAY')
+             # NBA Logo
+            for line in range(38,52):
+                graphics.DrawLine(canvas, 116, line, 119, line, graphics.Color(0, 0, 255))   
+                graphics.DrawLine(canvas, 120, line, 121, line, graphics.Color(255, 0, 0))
+            for line in range(41,45):
+                graphics.DrawLine(canvas, 116, line, 116, line, graphics.Color(255, 255, 255))   
+            for line in range(40,46):
+                graphics.DrawLine(canvas, 117, line, 117, line, graphics.Color(255, 255, 255))   
+            for line in range(39,47):
+                graphics.DrawLine(canvas, 118, line, 118, line, graphics.Color(255, 255, 255))   
+            for line in range(38,49):
+                graphics.DrawLine(canvas, 119, line, 119, line, graphics.Color(255, 255, 255))   
+            for line in range(43,44):
+                graphics.DrawLine(canvas, 119, line, 119, line, graphics.Color(255, 0, 0))   
+            for line in range(41,46):
+                graphics.DrawLine(canvas, 120, line, 120, line, graphics.Color(255, 255, 255))  
+            for line in range(48,52):
+                graphics.DrawLine(canvas, 120, line, 120, line, graphics.Color(255, 255, 255))   
+            for line in range(45,46):
+                graphics.DrawLine(canvas, 121, line, 121, line, graphics.Color(255, 255, 255))   
             canvas = matrix.SwapOnVSync(canvas)
             signal.pause()
-
-
-            
-
-            
        
         for game in game_data:
             hometeam = game['homeTeam']['teamTricode']
@@ -112,6 +127,27 @@ class Render:
                         graphics.DrawLine(canvas, 40, line, 79, line, graphics.Color(255, 255, 255))
                     for line in range(0,18):
                         graphics.DrawLine(canvas, 40, line, 79, line, graphics.Color(255, 255, 255))
+                        
+                         # NBA Logo
+                    for line in range(38,52):
+                        graphics.DrawLine(canvas, 116, line, 119, line, graphics.Color(0, 0, 255))   
+                        graphics.DrawLine(canvas, 120, line, 121, line, graphics.Color(255, 0, 0))
+                    for line in range(41,45):
+                        graphics.DrawLine(canvas, 116, line, 116, line, graphics.Color(255, 255, 255))   
+                    for line in range(40,46):
+                        graphics.DrawLine(canvas, 117, line, 117, line, graphics.Color(255, 255, 255))   
+                    for line in range(39,47):
+                        graphics.DrawLine(canvas, 118, line, 118, line, graphics.Color(255, 255, 255))   
+                    for line in range(38,49):
+                        graphics.DrawLine(canvas, 119, line, 119, line, graphics.Color(255, 255, 255))   
+                    for line in range(43,44):
+                        graphics.DrawLine(canvas, 119, line, 119, line, graphics.Color(255, 0, 0))   
+                    for line in range(41,46):
+                        graphics.DrawLine(canvas, 120, line, 120, line, graphics.Color(255, 255, 255))  
+                    for line in range(48,52):
+                        graphics.DrawLine(canvas, 120, line, 120, line, graphics.Color(255, 255, 255))   
+                    for line in range(45,46):
+                        graphics.DrawLine(canvas, 121, line, 121, line, graphics.Color(255, 255, 255))   
 
                 graphics.DrawText(canvas, self.font2, 127 - len(str(over_under))*8, 14, graphics.Color(0, 0, 255), over_under)
                 graphics.DrawText(canvas, self.font2, 127 - len(str(spread))*8, 34, graphics.Color(0, 0, 255), spread)
