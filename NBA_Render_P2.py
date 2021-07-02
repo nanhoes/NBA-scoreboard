@@ -59,7 +59,7 @@ class Render:
         canvas = matrix.CreateFrameCanvas()
         print('Game data:') 
         print(game_data)
-        if game_data == '[]':
+        if game_data == '[]/n':
             print('yes')
        
         for game in game_data:
