@@ -59,6 +59,8 @@ class Render:
         canvas = matrix.CreateFrameCanvas()
         print('Game data:') 
         print(game_data)
+        if game_data == '[]':
+            print('yes')
        
         for game in game_data:
             hometeam = game['homeTeam']['teamTricode']
