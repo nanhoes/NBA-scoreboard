@@ -45,7 +45,7 @@ class Render:
                             game_data = json.load(file)
                         else:
                             print('NO GAMES TODAY')
-                            game_data = 'no games'
+                            game_data = '[]'
                             print(game_data)
                 
         except:
