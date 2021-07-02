@@ -67,21 +67,21 @@ class Render:
                 graphics.DrawLine(canvas, 116, line, 119, line, graphics.Color(0, 0, 255))   
                 graphics.DrawLine(canvas, 120, line, 121, line, graphics.Color(255, 0, 0))
             for line in range(41,45):
-                graphics.DrawLine(canvas, 116, line, 116, line, graphics.Color(255, 255, 255))   
+                graphics.DrawLine(canvas, 116, line, 116, line, graphics.Color(150,150,150))   
             for line in range(40,46):
-                graphics.DrawLine(canvas, 117, line, 117, line, graphics.Color(255, 255, 255))   
+                graphics.DrawLine(canvas, 117, line, 117, line, graphics.Color(150,150,150))   
             for line in range(39,47):
-                graphics.DrawLine(canvas, 118, line, 118, line, graphics.Color(255, 255, 255))   
+                graphics.DrawLine(canvas, 118, line, 118, line, graphics.Color(150,150,150))   
             for line in range(38,49):
-                graphics.DrawLine(canvas, 119, line, 119, line, graphics.Color(255, 255, 255))   
+                graphics.DrawLine(canvas, 119, line, 119, line, graphics.Color(150,150,150))   
             for line in range(43,44):
                 graphics.DrawLine(canvas, 119, line, 119, line, graphics.Color(255, 0, 0))   
             for line in range(41,46):
-                graphics.DrawLine(canvas, 120, line, 120, line, graphics.Color(255, 255, 255))  
+                graphics.DrawLine(canvas, 120, line, 120, line, graphics.Color(150,150,150))  
             for line in range(48,52):
-                graphics.DrawLine(canvas, 120, line, 120, line, graphics.Color(255, 255, 255))   
+                graphics.DrawLine(canvas, 120, line, 120, line, graphics.Color(150,150,150))   
             for line in range(45,46):
-                graphics.DrawLine(canvas, 121, line, 121, line, graphics.Color(255, 255, 255))   
+                graphics.DrawLine(canvas, 121, line, 121, line, graphics.Color(150,150,150))   
             canvas = matrix.SwapOnVSync(canvas)
             signal.pause()
        
