@@ -61,7 +61,7 @@ class Render:
         if game_data == []:
             print('no games')
             os.system("sudo /home/pi/My-NBA-scoreboard/rpi-rgb-led-matrix/examples-api-use/demo --led-rows=64 --led-cols=128 --led-row-addr-type=3 --led-panel-type='FM6126A' --led-slowdown-gpio=2 --led-brightness=50 --led-pwm-bits=10 -D 7")
-            graphics.DrawText(canvas, self.font, 2, 36, graphics.Color(255,0,0), 'NO GAMES TODAY :(')
+            # graphics.DrawText(canvas, self.font, 2, 36, graphics.Color(255,0,0), 'NO GAMES TODAY :(')
             canvas = matrix.SwapOnVSync(canvas)
             signal.pause()
 
