@@ -40,13 +40,7 @@ class Render:
                     continue
                 if day == 'DataToday.json':
                     with open(self.path + day) as file:
-                        if file.read(2) != '[]':
-                            file.seek(0)    
-                            game_data = json.load(file)
-                        else:
-                            print('NO GAMES TODAY')
-                            game_data = '[]'
-                            print(game_data)
+                        game_data = json.load(file)
                 
         except:
             print('Error loading spreads data.')
@@ -63,6 +57,8 @@ class Render:
             spreads_data = {}
             
         canvas = matrix.CreateFrameCanvas()
+        if game_data = []:
+            print('no games')
        
         for game in game_data:
             hometeam = game['homeTeam']['teamTricode']
