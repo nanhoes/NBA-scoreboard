@@ -57,7 +57,7 @@ class Render:
             spreads_data = {}
             
         canvas = matrix.CreateFrameCanvas()
-        if game_data = []:
+        if game_data == []:
             print('no games')
        
         for game in game_data:
