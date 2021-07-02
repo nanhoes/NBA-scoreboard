@@ -60,7 +60,7 @@ class Render:
         canvas = matrix.CreateFrameCanvas()
         if game_data == []:
             print('no games')
-            graphics.DrawText(canvas, self.font, (128-(13*8))/2+1, 30, graphics.Color(150,150,150), 'NO GAMES')
+            graphics.DrawText(canvas, self.font, (128-(13*8))/2+1, 29, graphics.Color(150,150,150), 'NO GAMES')
             graphics.DrawText(canvas, self.font, (127-13*5)/2+2, 48, graphics.Color(150,150,150), 'TODAY')
             canvas = matrix.SwapOnVSync(canvas)
             signal.pause()
