@@ -43,8 +43,9 @@ class Render:
                         if file.read(2) != '[]':
                             file.seek(0)    
                             game_data = json.load(file)
-                        if file.read(2) == '[]':
+                        else:
                             print('NO GAMES TODAY')
+                            break
                 
         except:
             print('Error loading spreads data.')
