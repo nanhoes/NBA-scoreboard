@@ -45,7 +45,8 @@ class Render:
                             game_data = json.load(file)
                         else:
                             print('NO GAMES TODAY')
-                            break
+                            game_data = 'no games'
+                            print(game_data)
                 
         except:
             print('Error loading spreads data.')
