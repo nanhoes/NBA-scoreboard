@@ -66,7 +66,7 @@ class Render:
             for line in range(38+10,52+10):
                 graphics.DrawLine(canvas, 116+4, line, 119+4, line, graphics.Color(0, 0, 255))   
                 graphics.DrawLine(canvas, 120+4, line, 121+4, line, graphics.Color(255, 0, 0))
-            for line in range(41+10,1045+10):
+            for line in range(41+10,45+10):
                 graphics.DrawLine(canvas, 116+4, line, 116+4, line, graphics.Color(150,150,150))   
             for line in range(40+10,46+10):
                 graphics.DrawLine(canvas, 117+4, line, 117+4, line, graphics.Color(150,150,150))   
