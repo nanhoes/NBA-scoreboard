@@ -4,6 +4,7 @@ import json
 import datetime as dt
 import time
 import sys
+import signal
 
 class Render:
     def __init__(self):
@@ -62,7 +63,7 @@ class Render:
             for line in range(0,64):	
                 graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(100, 100, 100)) #clearing matrix
             canvas = matrix.SwapOnVSync(canvas)
-            time.sleep(5)
+            signal.pause()
 
 
             
@@ -98,7 +99,6 @@ class Render:
             posx = 5
             len1 = 0
             while True:
-                print('no games')
                 for line in range(0,64):	
                     graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0)) #clearing matrix
                                                 
