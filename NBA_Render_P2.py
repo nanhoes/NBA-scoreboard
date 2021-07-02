@@ -57,13 +57,11 @@ class Render:
             spreads_data = {}
             
         canvas = matrix.CreateFrameCanvas()
+        print('Game data: ' + game_data)
        
         for game in game_data:
             hometeam = game['homeTeam']['teamTricode']
             awayteam = game['awayTeam']['teamTricode']
-            print(hometeam)
-            if hometeam is none:
-                print('No games today')
 
             home = (game['homeTeam']['teamCity'] + '-' + game['homeTeam']['teamName']).replace(' ', '-').lower()
             away = (game['awayTeam']['teamCity'] + '-' + game['awayTeam']['teamName']).replace(' ', '-').lower()
