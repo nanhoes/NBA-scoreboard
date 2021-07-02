@@ -57,7 +57,8 @@ class Render:
             spreads_data = {}
             
         canvas = matrix.CreateFrameCanvas()
-        print('Game data: ' + game_data)
+        print('Game data:') 
+        print(game_data)
        
         for game in game_data:
             hometeam = game['homeTeam']['teamTricode']
