@@ -57,12 +57,16 @@ class Render:
             spreads_data = {}
             
         canvas = matrix.CreateFrameCanvas()
+        if game_data == []:
+            while True:
+                for line in range(0,64):	
+                    graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(100, 100, 100)) #clearing matrix
+
+            
        
         for game in game_data:
             hometeam = game['homeTeam']['teamTricode']
             awayteam = game['awayTeam']['teamTricode']
-            if game_data == []:
-                print('no games')
 
             home = (game['homeTeam']['teamCity'] + '-' + game['homeTeam']['teamName']).replace(' ', '-').lower()
             away = (game['awayTeam']['teamCity'] + '-' + game['awayTeam']['teamName']).replace(' ', '-').lower()
