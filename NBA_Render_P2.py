@@ -93,6 +93,7 @@ class Render:
             posx = 5
             len1 = 0
             while True:
+                print('no games')
                 for line in range(0,64):	
                     graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(0, 0, 0)) #clearing matrix
                                                 
