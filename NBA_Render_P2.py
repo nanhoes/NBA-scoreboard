@@ -59,8 +59,10 @@ class Render:
         canvas = matrix.CreateFrameCanvas()
         if game_data == []:
             while True:
+                print('no games')
                 for line in range(0,64):	
                     graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(100, 100, 100)) #clearing matrix
+            
 
             
        
