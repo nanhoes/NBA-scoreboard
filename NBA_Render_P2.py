@@ -84,8 +84,7 @@ class Render:
             for line in range(45+10,46+10):
                 graphics.DrawLine(canvas, 121+4, line, 121+4, line, graphics.Color(150, 150, 150))   
             canvas = matrix.SwapOnVSync(canvas)
-            signal.pause()
-       
+            time.sleep(120)       
         for game in game_data:
             hometeam = game['homeTeam']['teamTricode']
             awayteam = game['awayTeam']['teamTricode']
