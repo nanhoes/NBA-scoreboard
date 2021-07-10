@@ -9,3 +9,5 @@ sudo make install-python PYTHON=$(which python3)
 sudo apt-get install python3-bs4
 
 cd
+sudo apt-get install otf2bdf
+cd
