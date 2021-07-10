@@ -10,4 +10,5 @@ sudo apt-get install python3-bs4
 
 cd
 sudo apt-get install otf2bdf
-cd
+cd /home/pi/My-NBA-scoreboard
+otf2bdf -v -o Minimal-Mono-Bold.bdf -r 72 -p 18 /home/pi/My-NBA-scoreboard/Minimal-Mono-Bold.otf
