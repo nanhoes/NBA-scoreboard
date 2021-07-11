@@ -231,6 +231,26 @@ class Render:
                         graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(200, 200, 200), game['gameStatusText'][0:game['gameStatusText'].find('ET')].upper() + 'ET')
                     if game['gameStatusText'] == 'PPD': #postponed game
                         graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(200, 200, 200), 'POSTPONED')
+                    # NBA Logo
+                    for line in range(44,58):
+                        graphics.DrawLine(canvas, 116, line, 119, line, graphics.Color(0, 0, 255))   
+                        graphics.DrawLine(canvas, 120, line, 121, line, graphics.Color(255, 0, 0))
+                    for line in range(47,51):
+                        graphics.DrawLine(canvas, 116, line, 116, line, graphics.Color(255, 255, 255))   
+                    for line in range(46,52):
+                        graphics.DrawLine(canvas, 117, line, 117, line, graphics.Color(255, 255, 255))   
+                    for line in range(45,53):
+                        graphics.DrawLine(canvas, 118, line, 118, line, graphics.Color(255, 255, 255))   
+                    for line in range(44,55):
+                        graphics.DrawLine(canvas, 119, line, 119, line, graphics.Color(255, 255, 255))   
+                    for line in range(49,50):
+                        graphics.DrawLine(canvas, 119, line, 119, line, graphics.Color(255, 0, 0))   
+                    for line in range(47,52):
+                        graphics.DrawLine(canvas, 120, line, 120, line, graphics.Color(255, 255, 255))  
+                    for line in range(54,58):
+                        graphics.DrawLine(canvas, 120, line, 120, line, graphics.Color(255, 255, 255))   
+                    for line in range(51,52):
+                        graphics.DrawLine(canvas, 121, line, 121, line, graphics.Color(255, 255, 255))   
 
 
                 homeleadername = game['gameLeaders']['homeLeaders']['name']
