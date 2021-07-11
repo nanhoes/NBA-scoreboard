@@ -28,3 +28,18 @@
       0 5 * * * sudo python3 /home/pi/My-NBA-scoreboard/NBA_Data.py
 
       */30 * * * * sudo python3 /home/pi/My-NBA-scoreboard/NBA_Spreads.py
+      
+### Manage Homebridge
+      The Homebridge UI web interface will allow you to install, remove and update plugins, and modify the Homebridge config.json and manage other aspects of your Homebridge service.
+
+      The default user is admin with password admin.
+
+      If you're using macOS or a mobile device, you should be able to access the UI via http://homebridge.local.
+
+      If you're using Windows, or http://homebridge.local does not work for you, you will need to find the IP address of your Raspberry Pi another way:
+
+      Login to your router and find the "connected devices" or "dhcp clients" page to find the IP address that was assigned to the Raspberry Pi.
+      Use an iPhone to access http://homebridge.local, once you login using the default username and password (admin/admin) you can find the IP address under System Information.
+      Download the Fing app for iOS or Android to scan your network to find the IP address of your Raspberry Pi.
+      As a last resort, if you plug a monitor into your Raspberry Pi, the IP address will be displayed on the attached screen once it has finished booting.
+      Once you've found your IP address, login to the web interface by going to http://<ip address of your server>.
