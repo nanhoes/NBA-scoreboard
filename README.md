@@ -16,7 +16,7 @@
       sudo chmod +x install.sh &&
       sudo ./install.sh
       
-### My Crontab (run 'sudo crontab -e', paste this at end of crontab file)
+### Crontab (run 'sudo crontab -e', paste this crontab below ▼ at end of file)
       @reboot sudo python3 /home/pi/My-NBA-scoreboard/NBA_Data.py
 
       @reboot sudo python3 /home/pi/My-NBA-scoreboard/NBA_Render.py
