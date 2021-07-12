@@ -1,4 +1,4 @@
-# Raspberry Pi Setup
+## Raspberry Pi Setup
 1. Download raspbian image with Homebridge: https://github.com/homebridge/homebridge-raspbian-image/releases/latest
 2. Download Etcher: https://www.balena.io/etcher/
 3. Open Etcher, plug in SD card, install raspbian image download from file.
@@ -7,6 +7,7 @@
 6. SSH into pi, boot on network connection, change region, dtparam=audio=off in /boot/config.txt.
 7. Create NBAlog.txt file in /home/pi/Documents
 
+
 # Installation
       sudo apt-get update &&
       sudo apt-get install git python-pip &&
@@ -14,6 +15,7 @@
       cd My-NBA-scoreboard &&
       sudo chmod +x install.sh &&
       sudo ./install.sh
+      
       
 # Crontab (run 'sudo crontab -e', paste this crontab below ▼ at end of file)
       @reboot sudo python3 /home/pi/My-NBA-scoreboard/NBA_Data.py
@@ -27,6 +29,7 @@
       0 5 * * * sudo python3 /home/pi/My-NBA-scoreboard/NBA_Data.py
 
       */30 * * * * sudo python3 /home/pi/My-NBA-scoreboard/NBA_Spreads.py
+      
       
 # Manage Homebridge and Connect Raspberry Pi to Homekit
 Follow steps on Homebridge github: https://github.com/homebridge/homebridge-raspbian-image/wiki/Getting-Started
