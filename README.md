@@ -8,7 +8,7 @@
 7. Create NBAlog.txt file in /home/pi/Documents
 
 
-# Installation
+## Installation
       sudo apt-get update &&
       sudo apt-get install git python-pip &&
       git clone https://github.com/nanhoes/My-NBA-scoreboard &&
@@ -17,7 +17,7 @@
       sudo ./install.sh
       
       
-# Crontab (run 'sudo crontab -e', paste this crontab below ▼ at end of file)
+## Crontab (run 'sudo crontab -e', paste this crontab below ▼ at end of file)
       @reboot sudo python3 /home/pi/My-NBA-scoreboard/NBA_Data.py
 
       @reboot sudo python3 /home/pi/My-NBA-scoreboard/NBA_Render.py
@@ -31,5 +31,5 @@
       */30 * * * * sudo python3 /home/pi/My-NBA-scoreboard/NBA_Spreads.py
       
       
-# Manage Homebridge and Connect Raspberry Pi to Homekit
+## Manage Homebridge and Connect Raspberry Pi to Homekit
 Follow steps on Homebridge github: https://github.com/homebridge/homebridge-raspbian-image/wiki/Getting-Started
