@@ -55,7 +55,27 @@ class Render:
             spreads_data = {}
         
         canvas = matrix.CreateFrameCanvas()        
-        
+
+        if game_data == []:
+            print('no games')
+            graphics.DrawText(canvas, self.font, (10, 15, graphics.Color(150,150,150), 'NO GAMES')
+            graphics.DrawText(canvas, self.font, (10, 24, graphics.Color(150,150,150), 'TODAY')
+            
+            # NBA Logo
+            for line in range(20,30):
+                graphics.DrawLine(canvas, 58, line, 60, line, graphics.Color(0, 0, 255))   
+                graphics.DrawLine(canvas, 60, line, 61, line, graphics.Color(255, 0, 0))
+                graphics.DrawLine(canvas, 60, line, 60, line, graphics.Color(255, 255, 255))   
+            for line in range(22,26):
+                graphics.DrawLine(canvas, 58, line, 58, line, graphics.Color(255, 255, 255))   
+            for line in range(21,27):
+                graphics.DrawLine(canvas, 59, line, 59, line, graphics.Color(255, 255, 255))   
+            for line in range(24,26):
+                graphics.DrawLine(canvas, 61, line, 61, line, graphics.Color(255, 255, 255))   
+
+            canvas = matrix.SwapOnVSync(canvas)
+            time.sleep(120)       
+       
         for game in game_data:
             hometeam = game['homeTeam']['teamTricode']
             awayteam = game['awayTeam']['teamTricode']
