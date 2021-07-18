@@ -58,7 +58,7 @@ class Render:
 
         if game_data == []:
             print('no games')
-            graphics.DrawText(canvas, self.font, (63-6*7)/2-5, 14, graphics.Color(150,150,150), 'NO GAMES')
+            graphics.DrawText(canvas, self.font, (63-6*7)/2-2, 14, graphics.Color(150,150,150), 'NO GAMES')
             graphics.DrawText(canvas, self.font, (63-6*5)/2, 25, graphics.Color(150,150,150), 'TODAY')
             
             # NBA Logo
