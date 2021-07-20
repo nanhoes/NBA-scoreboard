@@ -1,4 +1,3 @@
-from RGBMatrixEmulator import graphics, RGBMatrix, RGBMatrixOptions
 import os
 import json
 import datetime as dt
@@ -6,6 +5,7 @@ import time
 import sys
 from PIL import Image
 from PIL import ImageChops
+from RGBMatrixEmulator import graphics, RGBMatrix, RGBMatrixOptions
 
 image = Image.open("/home/pi/My-NBA-scoreboard/nbalogo.png")
 
