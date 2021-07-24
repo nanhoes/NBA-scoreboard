@@ -12,3 +12,7 @@ cd
 sudo apt-get install otf2bdf
 cd /home/pi/My-NBA-scoreboard
 otf2bdf -v -o Minimal-Mono-Bold.bdf -r 72 -p 18 /home/pi/My-NBA-scoreboard/Minimal-Mono-Bold.otf
+sudo python3 /home/pi/My-NBA-scoreboard/NBA_Data.py
+sudo python3 /home/pi/My-NBA-scoreboard/Spreads_New_Day.py
+sudo python3 /home/pi/My-NBA-scoreboard/NBA_Spreads.py
+sudo python3 /home/pi/My-NBA-scoreboard/NBA_Render.py
