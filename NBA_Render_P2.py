@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 from rgbmatrix import graphics, RGBMatrix, RGBMatrixOptions
 import os
