@@ -5,6 +5,9 @@ import datetime as dt
 import time
 import sys
 import signal
+import cgi
+import cgitb
+cgitb.enable()
 
 class Render:
     def __init__(self):
