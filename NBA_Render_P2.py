@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 from rgbmatrix import graphics, RGBMatrix, RGBMatrixOptions
 import os
 import json
