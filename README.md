@@ -1,5 +1,5 @@
 ## Raspberry Pi Setup
-1. Download the BerryLan flavoured Raspbian image: https://downloads.nymea.io/images/raspberrypi/latest
+1. Download the BerryLan flavoured Raspbian image: https://downloads.nymea.io/images/berrylan/
 2. Download Etcher: https://www.balena.io/etcher/
 3. Open Etcher, plug SD card into computer, install raspbian image download from file.
 4. Insert the SD Card and power on your Raspberry Pi.
