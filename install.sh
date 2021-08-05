@@ -5,7 +5,6 @@ git clone https://github.com/hzeller/rpi-rgb-led-matrix.git
 
 cd
 cd /home/pi/NBA-scoreboard/rpi-rgb-led-matrix
-sudo make
 
 echo "Installing python3:"
 sudo apt-get update && sudo apt-get install python3-dev python3-pillow -y
