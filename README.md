@@ -5,7 +5,7 @@
 4. Insert the SD Card and power on your Raspberry Pi.
 5. Install the BerryLan iOS or Android App and follow the instructions.
 6. SSH into pi, run `sudo raspi-config`, set network at boot on: *System Options > Network at Boot > Yes*, pick timezone: *Localisation Options > Timezone*, change hostname and password, `sudo nano /boot/config.txt` set dtparam=audio=off.
-7. Create NBAlog.txt file (enter linebreak to save file): `mkdir Documents && sudo nano /home/pi/Documents/NBAlog.txt && Log:`
+7. Create NBAlog.txt file (put a space in the file to save it): `mkdir Documents && sudo nano /home/pi/Documents/NBAlog.txt`
 
 ## Installation
       sudo apt-get update &&
