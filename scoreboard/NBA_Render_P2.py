@@ -27,7 +27,7 @@ class Render:
         self.options.drop_privileges = False
         self.options.hardware_mapping = 'adafruit-hat-pwm'
         self.options.row_address_type = 3
-        self.options.brightness = 10
+        self.options.brightness = 100
         #self.options.panel_type = 'FM6126A'
          
         self.path = '/home/pi/NBA-scoreboard/scoreboard/'
