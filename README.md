@@ -13,8 +13,6 @@
       sudo apt-get install git python-pip &&
       git clone https://github.com/nanhoes/My-NBA-scoreboard &&
       cd My-NBA-scoreboard &&
-      sudo chmod +x install.sh &&
-      sudo ./install.sh &&
       sudo bash setup.sh
            
 ## Crontab (run 'sudo crontab -e', paste this crontab below ▼ at end of file)
