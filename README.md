@@ -12,7 +12,7 @@
       sudo apt-get install git python-pip &&
       git clone https://github.com/nanhoes/NBA-scoreboard &&
       cd NBA-scoreboard &&
-      sudo bash setup.sh
+      sudo bash install.sh
            
 ## Crontab (run 'sudo crontab -e', paste this crontab below ▼ at end of file)
       @reboot sudo python3 /home/pi/NBA-scoreboard/scoreboard/NBA_Data.py
