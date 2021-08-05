@@ -4,7 +4,7 @@ echo "Installing rpi-rgb-led-matrix:"
 git clone https://github.com/hzeller/rpi-rgb-led-matrix.git
 
 cd
-cd /home/pi/My-NBA-scoreboard/rpi-rgb-led-matrix
+cd /home/pi/My-NBA-scoreboard/scoreboard/rpi-rgb-led-matrix
 
 echo "Installing python3:"
 sudo apt-get update && sudo apt-get install python3-dev python3-pillow -y
