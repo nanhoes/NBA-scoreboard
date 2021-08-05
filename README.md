@@ -13,6 +13,11 @@
       git clone https://github.com/nanhoes/NBA-scoreboard &&
       cd NBA-scoreboard &&
       sudo bash install.sh
+      
+## Supported Matrices
+      P2 128x64
+      P4 64x32
+      Four P4 64x32 chained together (2x2)
            
 ## Crontab (run 'sudo crontab -e', paste this crontab below ▼ at end of file)
       @reboot sudo python3 /home/pi/NBA-scoreboard/scoreboard/NBA_Data.py
