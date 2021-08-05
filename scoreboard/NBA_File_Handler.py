@@ -7,7 +7,7 @@ class NBA_FILE_HANDLER:
     
     
     def __init__(self):
-        self.path = '/home/pi/My-NBA-scoreboard/scoreboard/'
+        self.path = '/home/pi/NBA-scoreboard/scoreboard/'
         
     def JSON_GAMEDATA(self, gamedata, date):
         
