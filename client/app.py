@@ -10,7 +10,7 @@ app = Flask(__name__)
 app.config["CACHE_TYPE"] = "null"
 
 dir = os.path.dirname(__file__)
-filename = os.path.join(dir, '../../config/matrix_options.ini')
+filename = os.path.join(dir, '/home/pi/NBA-scoreboard/config/matrix_options.ini')
 
 # Configuration for the matrix
 config = configparser.ConfigParser()
