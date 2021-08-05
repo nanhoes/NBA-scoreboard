@@ -23,6 +23,18 @@ install_path=$(pwd)
 echo "Installing flask library:"
 pip install flask --upgrade
 
+echo "Removing render service if it exists:"
+sudo systemctl stop render
+sudo rm -rf /etc/systemd/system/render.*
+sudo systemctl daemon-reload
+echo "...done"
+
+echo "Removing render-client service if it exists:"
+sudo systemctl stop render-client
+sudo rm -rf /etc/systemd/system/render-client.*
+sudo systemctl daemon-reload
+echo "...done"
+
 echo "Creating render service:"
 sudo cp ./config/render.service /etc/systemd/system/
 sudo sed -i -e "/\[Service\]/a ExecStart=python3 ${install_path}/scoreboard/NBA_Render_P2.py < /dev/zero &> /dev/null &" /etc/systemd/system/render.service
