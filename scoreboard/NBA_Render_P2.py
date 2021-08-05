@@ -21,15 +21,14 @@ class Render:
         config.read(filename)
         
         self.options = RGBMatrixOptions()
-        self.options.gpio_slowdown = int(config['DEFAULT']['gpio_slowdown'])
-        self.options.rows = int(config['DEFAULT']['rows'])
-        self.options.cols = int(config['DEFAULT']['columns'])
-        self.options.drop_privileges = config['DEFAULT']['drop_privileges']
-        self.options.hardware_mapping = config['DEFAULT']['hardware_mapping']
-        self.options.row_address_type = int(config['DEFAULT']['row_address_type']
+        self.options.gpio_slowdown = 1
+        self.options.rows = 64
+        self.options.cols = 128
+        self.options.drop_privileges = 'False'
+        self.options.hardware_mapping = 'adafruit-hat-pwm'
+        self.options.row_address_type = 3
         #self.options.panel_type = 'FM6126A'
-        self.options.brightness = int(config['DEFAULT']['brightness'])
-        
+         
         self.path = '/home/pi/NBA-scoreboard/scoreboard/'
         
         self.font = graphics.Font()
