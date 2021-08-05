@@ -67,5 +67,5 @@ def handle_size():
         config.write(configfile)
     job = manager.RestartUnit('render.service', 'fail')
     return render_template('index.html', brightness = brightness, width = int(request.form['width']), height = int(request.form['height']), power = power)
-
-app.run(host='0.0.0.0', port=80) 
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=80) 
