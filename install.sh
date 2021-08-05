@@ -41,7 +41,7 @@ if [[ ! "$REPLY" =~ ^(yes|y|Y)$ ]]; then
         echo "Exiting without reboot."
         exit 0
 fi
-echo "Reboot started... Will start scoreboard on reboot..."
+echo "Reboot started..."
 reboot
 sleep infinity
 
