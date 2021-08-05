@@ -39,9 +39,9 @@ def handle_power():
     height = int(config['DEFAULT']['columns'])
     config.set('DEFAULT', 'power', request.form['power'])
     if power == 'on':
-      job = manager.StartUnit('spotipi.service', 'replace')
+      job = manager.StartUnit('render.service', 'replace')
     else:
-      job = manager.StopUnit('spotipi.service', 'replace')
+      job = manager.StopUnit('render.service', 'replace')
     return render_template('index.html', brightness = brightness, width = width, height = height, power = power)
 
 # handling form data
@@ -53,7 +53,7 @@ def handle_brightness():
     power = config['DEFAULT']['power']
     with open(filename, 'wb') as configfile:
         config.write(configfile)
-    job = manager.RestartUnit('spotipi.service', 'fail')
+    job = manager.RestartUnit('render.service', 'fail')
     return render_template('index.html', brightness = request.form['brightness'], width = width, height = height, power = power)
 
 # handling form data
@@ -65,7 +65,7 @@ def handle_size():
     power = config['DEFAULT']['power']
     with open(filename, 'wb') as configfile:
         config.write(configfile)
-    job = manager.RestartUnit('spotipi.service', 'fail')
+    job = manager.RestartUnit('render.service', 'fail')
     return render_template('index.html', brightness = brightness, width = int(request.form['width']), height = int(request.form['height']), power = power)
 
 app.run(host='0.0.0.0', port=80) 
