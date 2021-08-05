@@ -4,7 +4,7 @@ echo "Installing rpi-rgb-led-matrix:"
 git clone https://github.com/hzeller/rpi-rgb-led-matrix.git
 
 cd
-cd /home/pi/My-NBA-scoreboard/scoreboard/rpi-rgb-led-matrix
+cd /home/pi/NBA-scoreboard/scoreboard/rpi-rgb-led-matrix
 
 echo "Installing python3:"
 sudo apt-get update && sudo apt-get install python3-dev python3-pillow -y
@@ -15,9 +15,9 @@ sudo apt-get install python3-bs4
 echo "Installing font dependencies:"
 cd
 sudo apt-get install otf2bdf
-cd /home/pi/My-NBA-scoreboard
-otf2bdf -v -o Minimal-Mono-Bold.bdf -r 72 -p 18 /home/pi/My-NBA-scoreboard/Minimal-Mono-Bold.otf
-cd /home/pi/My-NBA-scoreboard
+cd /home/pi/NBA-scoreboard
+otf2bdf -v -o Minimal-Mono-Bold.bdf -r 72 -p 18 /home/pi/NBA-scoreboard/Minimal-Mono-Bold.otf
+cd /home/pi/NBA-scoreboard
 
 install_path=$(pwd)
 echo "Installing flask library:"
