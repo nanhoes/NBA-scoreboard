@@ -4,7 +4,7 @@ echo "Installing rpi-rgb-led-matrix:"
 git clone https://github.com/hzeller/rpi-rgb-led-matrix.git
 
 cd
-cd /home/pi/NBA-scoreboard/scoreboard/rpi-rgb-led-matrix
+cd /home/pi/NBA-scoreboard/rpi-rgb-led-matrix
 sudo make
 
 echo "Installing python3:"
