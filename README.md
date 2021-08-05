@@ -11,22 +11,22 @@
 ## Installation
       sudo apt-get update &&
       sudo apt-get install git python-pip &&
-      git clone https://github.com/nanhoes/My-NBA-scoreboard &&
-      cd My-NBA-scoreboard &&
+      git clone https://github.com/nanhoes/NBA-scoreboard &&
+      cd NBA-scoreboard &&
       sudo bash setup.sh
            
 ## Crontab (run 'sudo crontab -e', paste this crontab below ▼ at end of file)
-      @reboot sudo python3 /home/pi/My-NBA-scoreboard/NBA_Data.py
+      @reboot sudo python3 /home/pi/NBA-scoreboard/scoreboard/NBA_Data.py
 
-      @reboot sudo python3 /home/pi/My-NBA-scoreboard/NBA_Render.py
+      @reboot sudo python3 /home/pi/NBA-scoreboard/scoreboard/NBA_Render.py
 
-      @reboot sudo python3 /home/pi/My-NBA-scoreboard/NBA_Spreads.py
+      @reboot sudo python3 /home/pi/NBA-scoreboard/scoreboard/NBA_Spreads.py
 
-      0 11 * * * sudo python3 /home/pi/My-NBA-scoreboard/Spreads_New_Day.py
+      0 11 * * * sudo python3 /home/pi/NBA-scoreboard/scoreboard/Spreads_New_Day.py
 
-      0 5 * * * sudo python3 /home/pi/My-NBA-scoreboard/NBA_Data.py
+      0 5 * * * sudo python3 /home/pi/NBA-scoreboard/scoreboard/NBA_Data.py
 
-      */30 * * * * sudo python3 /home/pi/My-NBA-scoreboard/NBA_Spreads.py
+      */30 * * * * sudo python3 /home/pi/NBA-scoreboard/scoreboard/NBA_Spreads.py
       
       
 ## Manage Homebridge and Connect Raspberry Pi to Homekit
