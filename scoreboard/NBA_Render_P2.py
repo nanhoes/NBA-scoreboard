@@ -24,7 +24,7 @@ class Render:
         self.options.gpio_slowdown = int(config['DEFAULT']['gpio_slowdown'])
         self.options.rows = int(config['DEFAULT']['rows'])
         self.options.cols = int(config['DEFAULT']['columns'])
-        self.options.drop_privileges = config['DEFAULT']['drop_privileges']
+        self.options.drop_privileges = int(config['DEFAULT']['drop_privileges'])
         self.options.hardware_mapping = config['DEFAULT']['hardware_mapping']
         self.options.row_address_type = int(config['DEFAULT']['row_address_type'])
         self.options.brightness = int(config['DEFAULT']['brightness'])
