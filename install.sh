@@ -22,6 +22,7 @@ cd /home/pi/NBA-scoreboard
 install_path=$(pwd)
 echo "Installing flask library:"
 pip install flask --upgrade
+
 echo "Creating render service:"
 sudo cp ./config/render.service /etc/systemd/system/
 sudo sed -i -e "/\[Service\]/a ExecStart=python3 ${install_path}/NBA_Render_P2.py < /dev/zero &> /dev/null &" /etc/systemd/system/render.service
@@ -32,6 +33,14 @@ sudo echo "[Service]" >> $render_env_path
 sudo systemctl daemon-reload
 sudo systemctl start render
 sudo systemctl enable render
+echo "...done"
+
+echo "Creating render-client service:"
+sudo cp ./config/render-client.service /etc/systemd/system/
+sudo sed -i -e "/\[Service\]/a ExecStart=python3 ${install_path}/client/app.py &" /etc/systemd/system/render-client.service
+sudo systemctl daemon-reload
+sudo systemctl start render-client
+sudo systemctl enable render-client
 echo "...done"
 
 echo -n "In order to finish setup a reboot is necessary..."
