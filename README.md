@@ -26,7 +26,3 @@
       0 5 * * * sudo python3 /home/pi/NBA-scoreboard/scoreboard/NBA_Data.py
 
       */30 * * * * sudo python3 /home/pi/NBA-scoreboard/scoreboard/NBA_Spreads.py
-      
-      
-## Manage Homebridge and Connect Raspberry Pi to Homekit
-Follow steps on Homebridge github: https://github.com/homebridge/homebridge-raspbian-image/wiki/Getting-Started
