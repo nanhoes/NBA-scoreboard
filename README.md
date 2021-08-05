@@ -1,9 +1,9 @@
 ## Raspberry Pi Setup
-1. Download raspbian image with Homebridge: https://github.com/homebridge/homebridge-raspbian-image/releases/latest
+1. Download the BerryLan flavoured Raspbian image: https://downloads.nymea.io/images/raspberrypi/latest
 2. Download Etcher: https://www.balena.io/etcher/
-3. Open Etcher, plug in SD card, install raspbian image download from file.
-4. Power on raspberry pi, wait 1-2 minutes, connect to network name Homebridge WiFi Setup
-5. Wait a few moments until the captive portal opens, this portal will allow you to connect the Raspberry Pi to your local WiFi network.
+3. Open Etcher, plug SD card into computer, install raspbian image download from file.
+4. Insert the SD Card and power on your Raspberry Pi.
+5. Install the BerryLan iOS or Android App and follow the instructions.
 6. SSH into pi, boot on network connection, change region, dtparam=audio=off in /boot/config.txt.
 7. Create NBAlog.txt file in /home/pi/Documents
 
