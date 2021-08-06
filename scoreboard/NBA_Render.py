@@ -23,7 +23,7 @@ class Render:
         self.options.chain_length = int(config['DEFAULT']['chain_length'])
         self.options.parallel = int(config['DEFAULT']['parallel'])
         self.options.hardware_mapping = config['DEFAULT']['hardware_mapping']
-        self.options.gpio_slowdown = int(config['DEFAULT']['gpio_slowdown'])
+        self.options.gpio_slowdown = 3
         self.options.brightness = int(config['DEFAULT']['brightness'])
         self.options.row_address_type = int(config['DEFAULT']['row_address_type'])
        
