@@ -37,7 +37,7 @@ echo "...done"
 
 echo "Creating render service:"
 sudo cp ./config/render.service /etc/systemd/system/
-sudo sed -i -e "/\[Service\]/a ExecStart=python3 ${install_path}/scoreboard/NBA_Render_P2.py < /dev/zero &> /dev/null &" /etc/systemd/system/render.service
+sudo sed -i -e "/\[Service\]/a ExecStart=python3 ${install_path}/scoreboard/NBA_Render.py < /dev/zero &> /dev/null &" /etc/systemd/system/render.service
 sudo mkdir /etc/systemd/system/render.service.d
 render_env_path=/etc/systemd/system/render.service.d/render_env.conf
 sudo touch $render_env_path
