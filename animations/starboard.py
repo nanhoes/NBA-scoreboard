@@ -5,7 +5,7 @@ import colorsys
 import configparser
 import os
 
-mode = 0
+mode = 1
 maxdrops = 75
 
 # Configuration file    
@@ -20,13 +20,13 @@ options = RGBMatrixOptions()
 options.gpio_slowdown = 0
 options.rows = int(config['DEFAULT']['rows'])
 options.cols = int(config['DEFAULT']['columns'])
-#options.drop_privileges = int(config['DEFAULT']['drop_privileges'])
+options.drop_privileges = int(config['DEFAULT']['drop_privileges'])
 options.hardware_mapping = config['DEFAULT']['hardware_mapping']
 options.row_address_type = int(config['DEFAULT']['row_address_type'])
 options.brightness = int(config['DEFAULT']['brightness'])
-options.pwm_bits = 11
+options.pwm_bits = 5
 
-mode = 0
+mode = 1
 
 class Drop:
     def __init__(self):
