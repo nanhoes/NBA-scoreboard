@@ -20,14 +20,5 @@
       Four P4 64x32 chained together (2x2)
            
 ## Crontab (run 'sudo crontab -e', paste this crontab below ▼ at end of file)
-      @reboot sudo python3 /home/pi/NBA-scoreboard/scoreboard/NBA_Data.py
-
-      @reboot sudo python3 /home/pi/NBA-scoreboard/scoreboard/NBA_Render.py
-
-      @reboot sudo python3 /home/pi/NBA-scoreboard/scoreboard/NBA_Spreads.py
-
-      0 11 * * * sudo python3 /home/pi/NBA-scoreboard/scoreboard/Spreads_New_Day.py
-
-      0 5 * * * sudo python3 /home/pi/NBA-scoreboard/scoreboard/NBA_Data.py
-
-      */30 * * * * sudo python3 /home/pi/NBA-scoreboard/scoreboard/NBA_Spreads.py
+    58 8 * * * sudo python3 /home/pi/My-NBA-scoreboard/Spreads_New_Day.py
+    0 */2 * * * sudo python3 /home/pi/My-NBA-scoreboard/Spreads_Update.py
