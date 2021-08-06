@@ -1,0 +1,14 @@
+[Unit]
+Description=NBA Data
+
+[Service]
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=starboard
+LimitRTPRIO=99
+Restart=always
+RestartSec=3
+EnvironmentFile=/etc/systemd/system/starboard.service.d/starboard_env.conf
+
+[Install]
+WantedBy=multi-user.target
