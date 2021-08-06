@@ -26,7 +26,6 @@ class Render:
         self.options.gpio_slowdown = 3
         self.options.brightness = int(config['DEFAULT']['brightness'])
         self.options.row_address_type = int(config['DEFAULT']['row_address_type'])
-        self.options.drop_privileges = False
 
         self.path = '/home/pi/NBA-scoreboard/scoreboard'
         
