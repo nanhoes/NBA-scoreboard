@@ -2,9 +2,18 @@ from rgbmatrix import RGBMatrix, RGBMatrixOptions, graphics
 from time import sleep
 import random
 import colorsys
+import configparser
 
 mode = 0
 maxdrops = 75
+
+# Configuration file    
+dir = os.path.dirname(__file__)
+filename = os.path.join(dir, '../config/matrix_options.ini')
+
+# Configuration for the matrix
+config = configparser.ConfigParser()
+config.read(filename)
 
 options = RGBMatrixOptions()
 options.gpio_slowdown = int(config['DEFAULT']['gpio_slowdown'])
