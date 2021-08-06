@@ -71,6 +71,17 @@ sudo systemctl start spreads
 sudo systemctl enable spreads
 echo "...done"
 
+echo "Creating starboard service:"
+sudo cp ./config/starboard.service /etc/systemd/system/
+sudo sed -i -e "/\[Service\]/a ExecStart=python3 ${install_path}/animations/starboard.py < /dev/zero &> /dev/null &" /etc/systemd/system/starboard.service
+sudo mkdir /etc/systemd/system/starboard.service.d
+starboard_env_path=/etc/systemd/system/starboard.service.d/starboard_env.conf
+sudo touch $starboard_env_path
+sudo echo "[Service]" >> $starboard_env_path
+sudo systemctl daemon-reload
+sudo systemctl disable starboard
+echo "...done"
+
 echo "Creating render-client service:"
 sudo cp ./config/render-client.service /etc/systemd/system/
 sudo sed -i -e "/\[Service\]/a ExecStart=python ${install_path}/client/app.py &" /etc/systemd/system/render-client.service
