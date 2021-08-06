@@ -30,7 +30,7 @@ options.disable_hardware_pulsing = 0
 options.gpio_slowdown = 1
 options.brightness = 100
 options.pwm_bits = 11
-options.hardware_mapping="adafruit-hat"
+options.hardware_mapping="adafruit-hat-pwm"
 
 mode = 0
 
