@@ -88,11 +88,11 @@
       </select>
       <button type="submit" class="btn btn-primary">Update</button>
     </form>
-    <form action="/power", method="POST">
+    <form action="/NBA", method="POST">
       <div class="form-group">
-        <label>Power</label>
-        <input {% if power=='on' %} disabled="disabled"{% endif %} type="submit" name="power" class="btn btn-success" value="on"></input>
-        <input {% if power=='off' %} disabled="disabled"{% endif %} type="submit" name="power" class="btn btn-danger" value="off"></input>
+        <label>NBA</label>
+        <input {% if NBA=='on' %} disabled="disabled"{% endif %} type="submit" name="NBA" class="btn btn-success" value="on"></input>
+        <input {% if NBA=='off' %} disabled="disabled"{% endif %} type="submit" name="NBA" class="btn btn-danger" value="off"></input>
       </div>
     </form>
     </form>
