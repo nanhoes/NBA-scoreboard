@@ -79,7 +79,7 @@ def handle_starboard():
     brightness = int(config['DEFAULT']['brightness'])
     width = int(config['DEFAULT']['rows'])
     height = int(config['DEFAULT']['columns'])
-    starboard = config['DEFAULT']['starboard']
+    power = config['DEFAULT']['power']
     config.set('DEFAULT', 'starboard', request.form['starboard'])
     if starboard == 'on':
       job = manager.StartUnit('starboard.service', 'replace')
