@@ -3,6 +3,7 @@ from time import sleep
 import random
 import colorsys
 import configparser
+import os
 
 mode = 0
 maxdrops = 75
