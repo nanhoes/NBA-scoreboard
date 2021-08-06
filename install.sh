@@ -71,7 +71,6 @@ sudo systemctl start spreads
 sudo systemctl enable spreads
 echo "...done"
 
-
 echo "Creating render-client service:"
 sudo cp ./config/render-client.service /etc/systemd/system/
 sudo sed -i -e "/\[Service\]/a ExecStart=python ${install_path}/client/app.py &" /etc/systemd/system/render-client.service
