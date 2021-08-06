@@ -26,7 +26,6 @@ options.gpio_slowdown = int(config['DEFAULT']['gpio_slowdown'])
 options.brightness = int(config['DEFAULT']['brightness'])
 options.row_address_type = int(config['DEFAULT']['row_address_type'])
 options.pwm_bits = 11
-options.disable_hardware_pulsing = 0
 
 mode = 1
 
