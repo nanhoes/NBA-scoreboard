@@ -1,0 +1,14 @@
+[Unit]
+Description=NBA Data
+
+[Service]
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=data
+LimitRTPRIO=99
+Restart=always
+RestartSec=3
+EnvironmentFile=/etc/systemd/system/data.service.d/data_env.conf
+
+[Install]
+WantedBy=multi-user.target
