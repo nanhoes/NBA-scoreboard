@@ -19,7 +19,7 @@ config.read(filename)
 options = RGBMatrixOptions()
 options.rows = int(config['DEFAULT']['rows'])
 options.cols = int(config['DEFAULT']['columns'])
-options.chain = int(config['DEFAULT']['chain'])
+options.chain = int(config['DEFAULT']['chain_length'])
 options.parallel = int(config['DEFAULT']['parallel'])
 options.hardware_mapping = config['DEFAULT']['hardware_mapping']
 options.gpio_slowdown = int(config['DEFAULT']['gpio_slowdown'])
