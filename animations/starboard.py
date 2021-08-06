@@ -25,7 +25,6 @@ options.hardware_mapping = config['DEFAULT']['hardware_mapping']
 options.gpio_slowdown = int(config['DEFAULT']['gpio_slowdown'])
 options.brightness = int(config['DEFAULT']['brightness'])
 options.row_address_type = int(config['DEFAULT']['row_address_type'])
-options.drop_privileges = int(config['DEFAULT']['drop_privileges'])
 options.pwm_bits = 11
 
 mode = 1
