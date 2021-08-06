@@ -95,6 +95,15 @@
         <input {% if power=='off' %} disabled="disabled"{% endif %} type="submit" name="power" class="btn btn-danger" value="off"></input>
       </div>
     </form>
+    </form>
+    <form action="/starboard", method="POST">
+      <div class="form-group">
+        <label>Starboard</label>
+        <input {% if starboard=='on' %} disabled="disabled"{% endif %} type="submit" name="starboard" class="btn btn-success" value="on"></input>
+        <input {% if starboard=='off' %} disabled="disabled"{% endif %} type="submit" name="starboard" class="btn btn-danger" value="off"></input>
+      </div>
+    </form>
+
   </div>
 
 </main><!-- /.container -->
