@@ -53,6 +53,7 @@ class Render:
         except:
             print('Error loading game data.')
             game_data = {}
+            print(game_data)
         
         try:
             with open(self.path + 'NBASpreads.json', 'r') as file:
