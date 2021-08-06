@@ -20,7 +20,7 @@ options = RGBMatrixOptions()
 #options.gpio_slowdown = int(config['DEFAULT']['gpio_slowdown'])
 options.rows = int(config['DEFAULT']['rows'])
 options.cols = int(config['DEFAULT']['columns'])
-#options.drop_privileges = int(config['DEFAULT']['drop_privileges'])
+options.drop_privileges = int(config['DEFAULT']['drop_privileges'])
 #options.hardware_mapping = config['DEFAULT']['hardware_mapping']
 options.row_address_type = int(config['DEFAULT']['row_address_type'])
 #options.brightness = int(config['DEFAULT']['brightness'])
@@ -30,7 +30,7 @@ options.disable_hardware_pulsing = 0
 options.gpio_slowdown = 1
 options.brightness = 100
 options.pwm_bits = 11
-options.hardware_mapping="adafruit-hat-pwm"
+options.hardware_mapping="adafruit-hat"
 
 mode = 0
 
