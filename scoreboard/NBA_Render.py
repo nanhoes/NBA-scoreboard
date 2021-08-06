@@ -51,7 +51,7 @@ class Render:
                         game_data = json.load(file)
                 
         except:
-            print('Error loading spreads data.')
+            print('Error loading game data.')
             game_data = {}
         
         try:
