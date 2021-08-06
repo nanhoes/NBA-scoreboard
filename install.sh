@@ -49,7 +49,7 @@ echo "...done"
 
 echo "Creating render-client service:"
 sudo cp ./config/render-client.service /etc/systemd/system/
-sudo sed -i -e "/\[Service\]/a ExecStart=python3 ${install_path}/client/app.py &" /etc/systemd/system/render-client.service
+sudo sed -i -e "/\[Service\]/a ExecStart=python ${install_path}/client/app.py &" /etc/systemd/system/render-client.service
 sudo systemctl daemon-reload
 sudo systemctl start render-client
 sudo systemctl enable render-client
