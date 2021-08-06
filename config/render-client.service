@@ -4,7 +4,7 @@ Description=NBA-scoreboard web service
 [Service]
 StandardOutput=syslog
 StandardError=syslog
-SyslogIdentifier=spotipi-client
+SyslogIdentifier=render-client
 Restart=always
 RestartSec=3
 
