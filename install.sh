@@ -47,6 +47,31 @@ sudo systemctl start render
 sudo systemctl enable render
 echo "...done"
 
+echo "Creating data service:"
+sudo cp ./config/data.service /etc/systemd/system/
+sudo sed -i -e "/\[Service\]/a ExecStart=python3 ${install_path}/scoreboard/NBA_Data.py < /dev/zero &> /dev/null &" /etc/systemd/system/data.service
+sudo mkdir /etc/systemd/system/data.service.d
+data_env_path=/etc/systemd/system/data.service.d/data_env.conf
+sudo touch $data_env_path
+sudo echo "[Service]" >> $data_env_path
+sudo systemctl daemon-reload
+sudo systemctl start data
+sudo systemctl enable data
+echo "...done"
+
+echo "Creating spreads service:"
+sudo cp ./config/spreads.service /etc/systemd/system/
+sudo sed -i -e "/\[Service\]/a ExecStart=python3 ${install_path}/scoreboard/NBA_Spreads.py < /dev/zero &> /dev/null &" /etc/systemd/system/spreads.service
+sudo mkdir /etc/systemd/system/spreads.service.d
+spreads_env_path=/etc/systemd/system/spreads.service.d/spreads_env.conf
+sudo touch $spreads_env_path
+sudo echo "[Service]" >> $spreads_env_path
+sudo systemctl daemon-reload
+sudo systemctl start spreads
+sudo systemctl enable spreads
+echo "...done"
+
+
 echo "Creating render-client service:"
 sudo cp ./config/render-client.service /etc/systemd/system/
 sudo sed -i -e "/\[Service\]/a ExecStart=python ${install_path}/client/app.py &" /etc/systemd/system/render-client.service
