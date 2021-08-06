@@ -4,18 +4,29 @@ import json
 import datetime as dt
 import time
 import sys
-from PIL import Image
-from PIL import ImageChops
+import configparser
+import signal
 
 class Render:
-    def __init__(self):     
+    def __init__(self):  
+        # Configuration file    
+        dir = os.path.dirname(__file__)
+        filename = os.path.join(dir, '../config/matrix_options.ini')
+
+        # Configuration for the matrix
+        config = configparser.ConfigParser()
+        config.read(filename)
+
         self.options = RGBMatrixOptions()
-        self.options.hardware_mapping = 'regular'
-        self.options.gpio_slowdown = 3
-        self.options.rows = 32
-        self.options.cols = 64
-        self.options.drop_privileges = False
-                
+        self.options.rows = int(config['DEFAULT']['rows'])
+        self.options.cols = int(config['DEFAULT']['columns'])
+        self.options.chain_length = int(config['DEFAULT']['chain_length'])
+        self.options.parallel = int(config['DEFAULT']['parallel'])
+        self.options.hardware_mapping = config['DEFAULT']['hardware_mapping']
+        self.options.gpio_slowdown = int(config['DEFAULT']['gpio_slowdown'])
+        self.options.brightness = int(config['DEFAULT']['brightness'])
+        self.options.row_address_type = int(config['DEFAULT']['row_address_type'])
+       
         self.path = '/home/pi/NBA-scoreboard/scoreboard'
         
         self.font = graphics.Font()
