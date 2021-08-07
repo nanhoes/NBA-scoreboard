@@ -23,6 +23,9 @@ install_path=$(pwd)
 echo "Installing flask library:"
 pip install flask --upgrade
 
+echo "Installing config-parser"
+git clone https://gitlab.com/chilladx/config-parser.git
+
 echo "Removing render service if it exists:"
 sudo systemctl stop render
 sudo rm -rf /etc/systemd/system/render.*
@@ -80,6 +83,17 @@ sudo touch $starboard_env_path
 sudo echo "[Service]" >> $starboard_env_path
 sudo systemctl daemon-reload
 sudo systemctl disable starboard
+echo "...done"
+
+echo "Creating animation service:"
+sudo cp ./config/animation.service /etc/systemd/system/
+sudo sed -i -e "/\[Service\]/a ExecStart= source "${install_path}/config-parser/config-parser.sh" && config_parser "${install_path}/config/matrix_options.ini" && config.section.DEFAULT && sudo ${install_path}/rpi-rgb-led-matrix/examples-api-use/demo --led-rows=${rows} --led-cols=${columns} --led-chain=${chain_length} --led-parallel=${parallel} --led-gpio-mapping=${hardware_mapping} —led-slowdown-gpio=${slowdown_gpio} --led-brightness=${brightness} --led-row-addr-type=${row_address_type} --led-pwm-bits=10 -D 7 < /dev/zero &> /dev/null &" /etc/systemd/system/animation.service
+sudo mkdir /etc/systemd/system/animation.service.d
+animation_env_path=/etc/systemd/system/animation.service.d/animation_env.conf
+sudo touch $animation_env_path
+sudo echo "[Service]" >> $animation_env_path
+sudo systemctl daemon-reload
+sudo systemctl disable animation
 echo "...done"
 
 echo "Creating render-client service:"
