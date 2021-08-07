@@ -1,5 +1,5 @@
 #!/bin/bash
-install_path=${pwd}
+install_path=$(pwd)
 source ${install_path}/config-parser/config-parser.sh
 config_parser ${install_path}/config/matrix_options.ini
 config.section.DEFAULT
