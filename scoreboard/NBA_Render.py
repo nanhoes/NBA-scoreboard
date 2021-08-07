@@ -30,7 +30,7 @@ class Render:
         self.options.row_address_type = int(config['DEFAULT']['row_address_type'])
         self.options.drop_privileges = int(config['DEFAULT']['drop_privileges'])
 
-        self.path = '/home/pi/NBA-scoreboard/scoreboard'
+        self.path = '/home/pi/NBA-scoreboard/scoreboard/'
         
         self.font = graphics.Font()
         self.font.LoadFont("/home/pi/NBA-scoreboard/rpi-rgb-led-matrix/fonts/6x12.bdf")
