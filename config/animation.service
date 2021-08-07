@@ -9,6 +9,7 @@ LimitRTPRIO=99
 Restart=always
 RestartSec=3
 EnvironmentFile=/etc/systemd/system/animation.service.d/animation_env.conf
+RemainAfterExit=true
 
 [Install]
 WantedBy=multi-user.target
