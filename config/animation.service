@@ -2,7 +2,7 @@
 Description=Animations
 
 [Service]
-Type=simple
+Type=fork
 StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier=animation
