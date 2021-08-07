@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 from rgbmatrix import graphics, RGBMatrix, RGBMatrixOptions
 import os
 import json
@@ -46,14 +48,13 @@ class Render:
             for day in os.listdir(self.path):
                 if day=='.DS_Store':
                     continue
-                if day == 'DataTodayTest.json':
+                if day == 'DataToday.json':
                     with open(self.path + day) as file:
                         game_data = json.load(file)
                 
         except:
             print('Error loading game data.')
             game_data = {}
-            print(game_data)
         
         try:
             with open(self.path + 'NBASpreads.json', 'r') as file:
