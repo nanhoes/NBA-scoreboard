@@ -6,7 +6,7 @@ import configparser
 import os
 
 mode = 1
-maxdrops = 75
+maxdrops = 100
 
 # Configuration file    
 dir = os.path.dirname(__file__)
@@ -16,25 +16,16 @@ filename = os.path.join(dir, '../config/matrix_options.ini')
 config = configparser.ConfigParser()
 config.read(filename)
 
-#options = RGBMatrixOptions()
-#options.rows = int(config['DEFAULT']['rows'])
-#options.cols = int(config['DEFAULT']['columns'])
-#options.chain_length = int(config['DEFAULT']['chain_length'])
-#options.parallel = int(config['DEFAULT']['parallel'])
-#options.hardware_mapping = config['DEFAULT']['hardware_mapping']
-#options.gpio_slowdown = int(config['DEFAULT']['gpio_slowdown'])
-#options.brightness = int(config['DEFAULT']['brightness'])
-#options.row_address_type = int(config['DEFAULT']['row_address_type'])
-#options.pwm_bits = 11
-
 options = RGBMatrixOptions()
-options.rows = 32
-options.cols = 64
-options.disable_hardware_pulsing = 0
-options.gpio_slowdown = 1
-options.brightness = 100
+options.rows = int(config['DEFAULT']['rows'])
+options.cols = int(config['DEFAULT']['columns'])
+options.chain_length = int(config['DEFAULT']['chain_length'])
+options.parallel = int(config['DEFAULT']['parallel'])
+options.hardware_mapping = config['DEFAULT']['hardware_mapping']
+options.gpio_slowdown = int(config['DEFAULT']['gpio_slowdown'])
+options.brightness = int(config['DEFAULT']['brightness'])
+options.row_address_type = int(config['DEFAULT']['row_address_type'])
 options.pwm_bits = 11
-options.hardware_mapping="adafruit-hat-pwm"
 
 mode = 1
 
