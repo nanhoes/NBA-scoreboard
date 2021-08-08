@@ -102,15 +102,15 @@ def handle_starboard():
       job = manager.StopUnit('starboard.service', 'replace')
     return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, animation = animation)
 
-# handling NBA status
+# handling animation status
 @app.route("/animation", methods=["GET", "POST"])
 def handle_animation():
     animation = request.form['animation']
     brightness = int(config['DEFAULT']['brightness'])
     width = int(config['DEFAULT']['rows'])
     height = int(config['DEFAULT']['columns'])
+    NBA = config['DEFAULT']['NBA']
     starboard = config['DEFAULT']['starboard']
-    animation = config['DEFAULT']['animation']
     config.set('DEFAULT', 'animation', request.form['animation'])
     if animation == 'on':
       job = manager.StartUnit('animation.service', 'replace')
