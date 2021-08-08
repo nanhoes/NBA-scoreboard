@@ -82,6 +82,8 @@ def handle_NBA():
     config.set('DEFAULT', 'NBA', request.form['NBA'])
     if NBA == 'on':
       job = manager.StartUnit('render.service', 'replace')
+      job = manager.StopUnit('starboard.service', 'replace')
+      job = manager.StopUnit('animation.service', 'replace')
     else:
       job = manager.StopUnit('render.service', 'replace')
     return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, animation = animation)
@@ -98,6 +100,8 @@ def handle_starboard():
     config.set('DEFAULT', 'starboard', request.form['starboard'])
     if starboard == 'on':
       job = manager.StartUnit('starboard.service', 'replace')
+      job = manager.StopUnit('render.service', 'replace')
+      job = manager.StopUnit('animation.service', 'replace')
     else:
       job = manager.StopUnit('starboard.service', 'replace')
     return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, animation = animation)
@@ -114,6 +118,8 @@ def handle_animation():
     config.set('DEFAULT', 'animation', request.form['animation'])
     if animation == 'on':
       job = manager.StartUnit('animation.service', 'replace')
+      job = manager.StopUnit('render.service', 'replace')
+      job = manager.StopUnit('starboard.service', 'replace')
     else:
       job = manager.StopUnit('animation.service', 'replace')
     return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, animation = animation)
