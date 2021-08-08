@@ -54,6 +54,10 @@ def handle_brightness():
     height = int(config['DEFAULT']['columns'])
     NBA = config['DEFAULT']['NBA']
     starboard = config['DEFAULT']['starboard']
+    if NBA == 'on':
+        job = manager.RestartUnit('render.service', 'fail')
+    if starboard == 'on':
+        job = manager.RestartUnit('starboard.service', 'fail')
     with open(filename, 'wb') as configfile:
         config.write(configfile)
     return render_template('index.html', brightness = request.form['brightness'], width = width, height = height, NBA = NBA, starboard = starboard)
