@@ -84,6 +84,8 @@ def handle_NBA():
       job = manager.StartUnit('render.service', 'replace')
       job = manager.StopUnit('starboard.service', 'replace')
       job = manager.StopUnit('animation.service', 'replace')
+      starboard = request.form['starboard']   
+      animation = request.form['animation']
       config.set('DEFAULT', 'starboard', request.form['starboard'])
       config.set('DEFAULT', 'animation', request.form['animation'])    
     else:
