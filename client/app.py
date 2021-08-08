@@ -29,22 +29,8 @@ def saved_config():
     height = int(config['DEFAULT']['columns'])
     NBA = config['DEFAULT']['NBA']
     starboard = config['DEFAULT']['starboard']
-    return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard)
-
-# handling NBA status
-@app.route("/NBA", methods=["GET", "POST"])
-def handle_NBA():
-    NBA = request.form['NBA']
-    brightness = int(config['DEFAULT']['brightness'])
-    width = int(config['DEFAULT']['rows'])
-    height = int(config['DEFAULT']['columns'])
-    starboard = config['DEFAULT']['starboard']
-    config.set('DEFAULT', 'NBA', request.form['NBA'])
-    if NBA == 'on':
-      job = manager.StartUnit('render.service', 'replace')
-    else:
-      job = manager.StopUnit('render.service', 'replace')
-    return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard)
+    animation = config['DEFAULT']['animation']
+    return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, animation = animation)
 
 # handling form data
 @app.route('/brightness', methods=['POST'])
@@ -54,13 +40,16 @@ def handle_brightness():
     height = int(config['DEFAULT']['columns'])
     NBA = config['DEFAULT']['NBA']
     starboard = config['DEFAULT']['starboard']
+    animation = config['DEFAULT']['animation']
     if NBA == 'on':
         job = manager.RestartUnit('render.service', 'fail')
     if starboard == 'on':
         job = manager.RestartUnit('starboard.service', 'fail')
+    if animation == 'on':
+        job = manager.RestartUnit('animation.service', 'fail')
     with open(filename, 'wb') as configfile:
         config.write(configfile)
-    return render_template('index.html', brightness = request.form['brightness'], width = width, height = height, NBA = NBA, starboard = starboard)
+    return render_template('index.html', brightness = request.form['brightness'], width = width, height = height, NBA = NBA, starboard = starboard, animation = animation)
 
 # handling form data
 @app.route('/size', methods=['POST'])
@@ -70,9 +59,32 @@ def handle_size():
     brightness = int(config['DEFAULT']['brightness'])
     NBA = config['DEFAULT']['NBA']
     starboard = config['DEFAULT']['starboard']
+    animation = config['DEFAULT']['animation']
+    if NBA == 'on':
+        job = manager.RestartUnit('render.service', 'fail')
+    if starboard == 'on':
+        job = manager.RestartUnit('starboard.service', 'fail')
+    if animation == 'on':
+        job = manager.RestartUnit('animation.service', 'fail')
     with open(filename, 'wb') as configfile:
         config.write(configfile)
-    return render_template('index.html', brightness = brightness, width = int(request.form['width']), height = int(request.form['height']), NBA = NBA, starboard = starboard)
+    return render_template('index.html', brightness = brightness, width = int(request.form['width']), height = int(request.form['height']), NBA = NBA, starboard = starboard, animation = animation)
+
+# handling NBA status
+@app.route("/NBA", methods=["GET", "POST"])
+def handle_NBA():
+    NBA = request.form['NBA']
+    brightness = int(config['DEFAULT']['brightness'])
+    width = int(config['DEFAULT']['rows'])
+    height = int(config['DEFAULT']['columns'])
+    starboard = config['DEFAULT']['starboard']
+    animation = config['DEFAULT']['animation']
+    config.set('DEFAULT', 'NBA', request.form['NBA'])
+    if NBA == 'on':
+      job = manager.StartUnit('render.service', 'replace')
+    else:
+      job = manager.StopUnit('render.service', 'replace')
+    return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, animation = animation)
 
 # handling starboard status
 @app.route("/starboard", methods=["GET", "POST"])
@@ -82,11 +94,28 @@ def handle_starboard():
     width = int(config['DEFAULT']['rows'])
     height = int(config['DEFAULT']['columns'])
     NBA = config['DEFAULT']['NBA']
+    animation = config['DEFAULT']['animation']
     config.set('DEFAULT', 'starboard', request.form['starboard'])
     if starboard == 'on':
       job = manager.StartUnit('starboard.service', 'replace')
     else:
       job = manager.StopUnit('starboard.service', 'replace')
-    return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard)
+    return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, animation = animation)
+
+# handling NBA status
+@app.route("/animation", methods=["GET", "POST"])
+def handle_animation():
+    animation = request.form['animation']
+    brightness = int(config['DEFAULT']['brightness'])
+    width = int(config['DEFAULT']['rows'])
+    height = int(config['DEFAULT']['columns'])
+    starboard = config['DEFAULT']['starboard']
+    animation = config['DEFAULT']['animation']
+    config.set('DEFAULT', 'animation', request.form['animation'])
+    if animation == 'on':
+      job = manager.StartUnit('animation.service', 'replace')
+    else:
+      job = manager.StopUnit('animation.service', 'replace')
+    return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, animation = animation)
 
 app.run(host='0.0.0.0', port=80) 
