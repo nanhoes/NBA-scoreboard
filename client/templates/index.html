@@ -107,6 +107,14 @@
         <input {% if starboard=='off' %} disabled="disabled"{% endif %} type="submit" name="starboard" class="btn btn-danger" value="off"></input>
       </div>
     </form>
+    </form>
+    <form action="/animation", method="POST">
+      <div class="form-group">
+        <label>Animation</label>
+        <input {% if animation=='on' %} disabled="disabled"{% endif %} type="submit" name="animation" class="btn btn-success" value="on"></input>
+        <input {% if animation=='off' %} disabled="disabled"{% endif %} type="submit" name="animation" class="btn btn-danger" value="off"></input>
+      </div>
+    </form>
   </div>
 
 </main><!-- /.container -->
