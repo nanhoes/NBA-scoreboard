@@ -56,7 +56,6 @@ def handle_brightness():
     starboard = config['DEFAULT']['starboard']
     with open(filename, 'wb') as configfile:
         config.write(configfile)
-    job = manager.RestartUnit('render.service', 'fail')
     return render_template('index.html', brightness = request.form['brightness'], width = width, height = height, NBA = NBA, starboard = starboard)
 
 # handling form data
@@ -69,7 +68,6 @@ def handle_size():
     starboard = config['DEFAULT']['starboard']
     with open(filename, 'wb') as configfile:
         config.write(configfile)
-    job = manager.RestartUnit('render.service', 'fail')
     return render_template('index.html', brightness = brightness, width = int(request.form['width']), height = int(request.form['height']), NBA = NBA, starboard = starboard)
 
 # handling starboard status
