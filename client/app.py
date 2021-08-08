@@ -121,10 +121,6 @@ def handle_demo():
     NBA = config['DEFAULT']['NBA']
     starboard = config['DEFAULT']['starboard']
     animation = config['DEFAULT']['animation']
-    if NBA == 'on':
-        job = manager.RestartUnit('render.service', 'fail')
-    if starboard == 'on':
-        job = manager.RestartUnit('starboard.service', 'fail')
     if animation == 'on':
         job = manager.RestartUnit('animation.service', 'fail')
     with open(filename, 'wb') as configfile:
