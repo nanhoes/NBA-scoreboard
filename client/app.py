@@ -30,8 +30,8 @@ def saved_config():
     demo = int(config['DEFAULT']['demo'])
     NBA = config['DEFAULT']['NBA']
     starboard = config['DEFAULT']['starboard']
-    animation = config['DEFAULT']['animation']
-    return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, animation = animation, demo = demo)
+    conway = config['DEFAULT']['conway']
+    return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, demo = demo)
 
 # handling form data
 @app.route('/brightness', methods=['POST'])
@@ -42,16 +42,16 @@ def handle_brightness():
     demo = int(config['DEFAULT']['demo'])
     NBA = config['DEFAULT']['NBA']
     starboard = config['DEFAULT']['starboard']
-    animation = config['DEFAULT']['animation']
+    conway = config['DEFAULT']['conway']
     if NBA == 'on':
         job = manager.RestartUnit('render.service', 'fail')
     if starboard == 'on':
         job = manager.RestartUnit('starboard.service', 'fail')
-    if animation == 'on':
-        job = manager.RestartUnit('animation.service', 'fail')
+    if conway == 'on':
+        job = manager.RestartUnit('conway.service', 'fail')
     with open(filename, 'wb') as configfile:
         config.write(configfile)
-    return render_template('index.html', brightness = request.form['brightness'], width = width, height = height, NBA = NBA, starboard = starboard, animation = animation, demo = demo)
+    return render_template('index.html', brightness = request.form['brightness'], width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, demo = demo)
 
 # handling form data
 @app.route('/size', methods=['POST'])
@@ -62,16 +62,16 @@ def handle_size():
     demo = int(config['DEFAULT']['demo'])
     NBA = config['DEFAULT']['NBA']
     starboard = config['DEFAULT']['starboard']
-    animation = config['DEFAULT']['animation']
+    conway = config['DEFAULT']['conway']
     if NBA == 'on':
         job = manager.RestartUnit('render.service', 'fail')
     if starboard == 'on':
         job = manager.RestartUnit('starboard.service', 'fail')
-    if animation == 'on':
-        job = manager.RestartUnit('animation.service', 'fail')
+    if conway == 'on':
+        job = manager.RestartUnit('conway.service', 'fail')
     with open(filename, 'wb') as configfile:
         config.write(configfile)
-    return render_template('index.html', brightness = brightness, width = int(request.form['width']), height = int(request.form['height']), NBA = NBA, starboard = starboard, animation = animation, demo = demo)
+    return render_template('index.html', brightness = brightness, width = int(request.form['width']), height = int(request.form['height']), NBA = NBA, starboard = starboard, conway = conway, demo = demo)
 
 # handling NBA status
 @app.route("/NBA", methods=["GET", "POST"])
@@ -82,15 +82,15 @@ def handle_NBA():
     height = int(config['DEFAULT']['columns'])
     demo = int(config['DEFAULT']['demo'])
     starboard = config['DEFAULT']['starboard']
-    animation = config['DEFAULT']['animation']
+    conway = config['DEFAULT']['conway']
     config.set('DEFAULT', 'NBA', request.form['NBA'])
     if NBA == 'on':
       job = manager.StartUnit('render.service', 'replace')
       job = manager.StopUnit('starboard.service', 'replace')
-      job = manager.StopUnit('animation.service', 'replace')
+      job = manager.StopUnit('conway.service', 'replace')
     else:
       job = manager.StopUnit('render.service', 'replace')
-    return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, animation = animation, demo = demo)
+    return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, demo = demo)
 
 # handling starboard status
 @app.route("/starboard", methods=["GET", "POST"])
@@ -101,15 +101,15 @@ def handle_starboard():
     height = int(config['DEFAULT']['columns'])
     demo = int(config['DEFAULT']['demo'])
     NBA = config['DEFAULT']['NBA']
-    animation = config['DEFAULT']['animation']
+    conway = config['DEFAULT']['conway']
     config.set('DEFAULT', 'starboard', request.form['starboard'])
     if starboard == 'on':
       job = manager.StartUnit('starboard.service', 'replace')
       job = manager.StopUnit('render.service', 'replace')
-      job = manager.StopUnit('animation.service', 'replace')
+      job = manager.StopUnit('conway.service', 'replace')
     else:
       job = manager.StopUnit('starboard.service', 'replace')
-    return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, animation = animation, demo = demo)
+    return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, demo = demo)
 
 # handling form data
 @app.route('/demo', methods=['POST'])
@@ -120,31 +120,31 @@ def handle_demo():
     height = int(config['DEFAULT']['columns'])
     NBA = config['DEFAULT']['NBA']
     starboard = config['DEFAULT']['starboard']
-    animation = config['DEFAULT']['animation']
-    if animation == 'on':
-        job = manager.RestartUnit('animation.service', 'fail')
+    conway = config['DEFAULT']['conway']
+    if conway == 'on':
+        job = manager.RestartUnit('conway.service', 'fail')
     with open(filename, 'wb') as configfile:
         config.write(configfile)
-    return render_template('index.html', brightness = request.form['brightness'], width = width, height = height, NBA = NBA, starboard = starboard, animation = animation, demo = demo)
+    return render_template('index.html', brightness = request.form['brightness'], width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, demo = demo)
 
 
-# handling animation status
-@app.route("/animation", methods=["GET", "POST"])
-def handle_animation():
-    animation = request.form['animation']
+# handling conway status
+@app.route("/conway", methods=["GET", "POST"])
+def handle_conway():
+    conway = request.form['conway']
     brightness = int(config['DEFAULT']['brightness'])
     width = int(config['DEFAULT']['rows'])
     height = int(config['DEFAULT']['columns'])
     demo = int(config['DEFAULT']['demo'])
     NBA = config['DEFAULT']['NBA']
     starboard = config['DEFAULT']['starboard']
-    config.set('DEFAULT', 'animation', request.form['animation'])
-    if animation == 'on':
-      job = manager.StartUnit('animation.service', 'replace')
+    config.set('DEFAULT', 'conway', request.form['conway'])
+    if conway == 'on':
+      job = manager.StartUnit('conway.service', 'replace')
       job = manager.StopUnit('render.service', 'replace')
       job = manager.StopUnit('starboard.service', 'replace')
     else:
-      job = manager.StopUnit('animation.service', 'replace')
-    return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, animation = animation, demo = demo)
+      job = manager.StopUnit('conway.service', 'replace')
+    return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, demo = demo)
 
 app.run(host='0.0.0.0', port=80) 
