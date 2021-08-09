@@ -108,30 +108,12 @@
       </div>
     </form>
     </form>
-    <form action="/animation", method="POST">
+    <form action="/conway", method="POST">
       <div class="form-group">
-        <label>Animation</label>
-        <input {% if animation=='on' %} disabled="disabled"{% endif %} type="submit" name="animation" class="btn btn-success" value="on"></input>
-        <input {% if animation=='off' %} disabled="disabled"{% endif %} type="submit" name="animation" class="btn btn-danger" value="off"></input>
+        <label>Conway</label>
+        <input {% if conway=='on' %} disabled="disabled"{% endif %} type="submit" name="conway" class="btn btn-success" value="on"></input>
+        <input {% if conway=='off' %} disabled="disabled"{% endif %} type="submit" name="conway" class="btn btn-danger" value="off"></input>
       </div>
-    </form>
-    <form action="/demo", method="POST" class="form-row">
-      <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Demo</label>
-      <select name="demo" class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-        <option {% if demo==0 %} selected="selected"{% endif %} value="0">0</option>
-        <option {% if demo==1 %} selected="selected"{% endif %} value="1">1</option>
-        <option {% if demo==2 %} selected="selected"{% endif %} value="2">2</option>
-        <option {% if demo==3 %} selected="selected"{% endif %} value="3">3</option>
-        <option {% if demo==4 %} selected="selected"{% endif %} value="4">4</option>
-        <option {% if demo==5 %} selected="selected"{% endif %} value="5">5</option>
-        <option {% if demo==6 %} selected="selected"{% endif %} value="6">6</option>
-        <option {% if demo==7 %} selected="selected"{% endif %} value="7">7</option>
-        <option {% if demo==8 %} selected="selected"{% endif %} value="8">8</option>
-        <option {% if demo==9 %} selected="selected"{% endif %} value="9">9</option>
-        <option {% if demo==10 %} selected="selected"{% endif %} value="10">10</option>
-        <option {% if demo==11 %} selected="selected"{% endif %} value="11">11</option>
-      </select>
-      <button type="submit" class="btn btn-primary">Update</button>
     </form>
   </div>
 
