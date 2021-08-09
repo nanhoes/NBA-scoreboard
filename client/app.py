@@ -43,10 +43,13 @@ def handle_brightness():
     conway = config['DEFAULT']['conway']
     if NBA == 'on':
         job = manager.RestartUnit('render.service', 'fail')
+    else:
     if starboard == 'on':
         job = manager.RestartUnit('starboard.service', 'fail')
+    else:
     if conway == 'on':
         job = manager.RestartUnit('conway.service', 'fail')
+    else:
     with open(filename, 'wb') as configfile:
         config.write(configfile)
     return render_template('index.html', brightness = request.form['brightness'], width = width, height = height, NBA = NBA, starboard = starboard, conway = conway)
