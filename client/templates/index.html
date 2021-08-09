@@ -118,6 +118,7 @@
     <form action="/demo", method="POST" class="form-row">
       <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Demo</label>
       <select name="demo" class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+        <option {% if demo==0 %} selected="selected"{% endif %} value="0">0</option>
         <option {% if demo==1 %} selected="selected"{% endif %} value="1">1</option>
         <option {% if demo==2 %} selected="selected"{% endif %} value="2">2</option>
         <option {% if demo==3 %} selected="selected"{% endif %} value="3">3</option>
