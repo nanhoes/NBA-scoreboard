@@ -38,9 +38,9 @@ sudo rm -rf /etc/systemd/system/render-client.*
 sudo systemctl daemon-reload
 echo "...done"
 
-echo "Removing animation service if it exists:"
-sudo systemctl stop animation
-sudo rm -rf /etc/systemd/system/animation.*
+echo "Removing conway service if it exists:"
+sudo systemctl stop conway
+sudo rm -rf /etc/systemd/system/conway.*
 sudo systemctl daemon-reload
 echo "...done"
 
@@ -82,7 +82,7 @@ echo "...done"
 
 echo "Creating starboard service:"
 sudo cp ./config/starboard.service /etc/systemd/system/
-sudo sed -i -e "/\[Service\]/a ExecStart=python3 ${install_path}/animations/starboard.py < /dev/zero &> /dev/null &" /etc/systemd/system/starboard.service
+sudo sed -i -e "/\[Service\]/a ExecStart=python3 ${install_path}/conways/starboard.py < /dev/zero &> /dev/null &" /etc/systemd/system/starboard.service
 sudo mkdir /etc/systemd/system/starboard.service.d
 starboard_env_path=/etc/systemd/system/starboard.service.d/starboard_env.conf
 sudo touch $starboard_env_path
@@ -91,17 +91,17 @@ sudo systemctl daemon-reload
 sudo systemctl disable starboard
 echo "...done"
 
-echo "Creating animation service:"
-sudo cp ${install_path}/animation_start.sh /usr/bin
-sudo chmod +x /usr/bin/animation_start.sh
-sudo cp ./config/animation.service /etc/systemd/system/
-sudo sed -i -e "/\[Service\]/a ExecStart=/usr/bin/animation_start.sh < /dev/zero &> /dev/null &" /etc/systemd/system/animation.service
-sudo mkdir /etc/systemd/system/animation.service.d
-animation_env_path=/etc/systemd/system/animation.service.d/animation_env.conf
-sudo touch $animation_env_path
-sudo echo "[Service]" >> $animation_env_path
+echo "Creating conway service:"
+sudo cp ${install_path}/conway_start.sh /usr/bin
+sudo chmod +x /usr/bin/conway_start.sh
+sudo cp ./config/conway.service /etc/systemd/system/
+sudo sed -i -e "/\[Service\]/a ExecStart=/usr/bin/conway_start.sh < /dev/zero &> /dev/null &" /etc/systemd/system/conway.service
+sudo mkdir /etc/systemd/system/conway.service.d
+conway_env_path=/etc/systemd/system/conway.service.d/conway_env.conf
+sudo touch $conway_env_path
+sudo echo "[Service]" >> $conway_env_path
 sudo systemctl daemon-reload
-sudo systemctl disable animation
+sudo systemctl disable conway
 echo "...done"
 
 echo "Creating render-client service:"
