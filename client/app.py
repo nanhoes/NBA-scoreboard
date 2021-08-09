@@ -27,7 +27,6 @@ def saved_config():
     brightness = int(config['DEFAULT']['brightness'])
     width = int(config['DEFAULT']['rows'])
     height = int(config['DEFAULT']['columns'])
-    demo = int(config['DEFAULT']['demo'])
     NBA = config['DEFAULT']['NBA']
     starboard = config['DEFAULT']['starboard']
     conway = config['DEFAULT']['conway']
@@ -39,7 +38,6 @@ def handle_brightness():
     config.set('DEFAULT', 'brightness', request.form['brightness'])
     width = int(config['DEFAULT']['rows'])
     height = int(config['DEFAULT']['columns'])
-    demo = int(config['DEFAULT']['demo'])
     NBA = config['DEFAULT']['NBA']
     starboard = config['DEFAULT']['starboard']
     conway = config['DEFAULT']['conway']
@@ -51,7 +49,7 @@ def handle_brightness():
         job = manager.RestartUnit('conway.service', 'fail')
     with open(filename, 'wb') as configfile:
         config.write(configfile)
-    return render_template('index.html', brightness = request.form['brightness'], width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, demo = demo)
+    return render_template('index.html', brightness = request.form['brightness'], width = width, height = height, NBA = NBA, starboard = starboard, conway = conway)
 
 # handling form data
 @app.route('/size', methods=['POST'])
@@ -59,7 +57,6 @@ def handle_size():
     config.set('DEFAULT', 'rows', request.form['width'])
     config.set('DEFAULT', 'columns', request.form['height'])
     brightness = int(config['DEFAULT']['brightness'])
-    demo = int(config['DEFAULT']['demo'])
     NBA = config['DEFAULT']['NBA']
     starboard = config['DEFAULT']['starboard']
     conway = config['DEFAULT']['conway']
@@ -71,7 +68,7 @@ def handle_size():
         job = manager.RestartUnit('conway.service', 'fail')
     with open(filename, 'wb') as configfile:
         config.write(configfile)
-    return render_template('index.html', brightness = brightness, width = int(request.form['width']), height = int(request.form['height']), NBA = NBA, starboard = starboard, conway = conway, demo = demo)
+    return render_template('index.html', brightness = brightness, width = int(request.form['width']), height = int(request.form['height']), NBA = NBA, starboard = starboard, conway = conway)
 
 # handling NBA status
 @app.route("/NBA", methods=["GET", "POST"])
@@ -80,7 +77,6 @@ def handle_NBA():
     brightness = int(config['DEFAULT']['brightness'])
     width = int(config['DEFAULT']['rows'])
     height = int(config['DEFAULT']['columns'])
-    demo = int(config['DEFAULT']['demo'])
     starboard = config['DEFAULT']['starboard']
     conway = config['DEFAULT']['conway']
     config.set('DEFAULT', 'NBA', request.form['NBA'])
@@ -90,7 +86,7 @@ def handle_NBA():
       job = manager.StopUnit('conway.service', 'replace')
     else:
       job = manager.StopUnit('render.service', 'replace')
-    return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, demo = demo)
+    return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway)
 
 # handling starboard status
 @app.route("/starboard", methods=["GET", "POST"])
@@ -99,7 +95,6 @@ def handle_starboard():
     brightness = int(config['DEFAULT']['brightness'])
     width = int(config['DEFAULT']['rows'])
     height = int(config['DEFAULT']['columns'])
-    demo = int(config['DEFAULT']['demo'])
     NBA = config['DEFAULT']['NBA']
     conway = config['DEFAULT']['conway']
     config.set('DEFAULT', 'starboard', request.form['starboard'])
@@ -109,24 +104,7 @@ def handle_starboard():
       job = manager.StopUnit('conway.service', 'replace')
     else:
       job = manager.StopUnit('starboard.service', 'replace')
-    return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, demo = demo)
-
-# handling form data
-@app.route('/demo', methods=['POST'])
-def handle_demo():
-    config.set('DEFAULT', 'demo', request.form['demo'])
-    brightness = int(config['DEFAULT']['brightness'])
-    width = int(config['DEFAULT']['rows'])
-    height = int(config['DEFAULT']['columns'])
-    NBA = config['DEFAULT']['NBA']
-    starboard = config['DEFAULT']['starboard']
-    conway = config['DEFAULT']['conway']
-    if conway == 'on':
-        job = manager.RestartUnit('conway.service', 'fail')
-    with open(filename, 'wb') as configfile:
-        config.write(configfile)
-    return render_template('index.html', brightness = request.form['brightness'], width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, demo = demo)
-
+    return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway)
 
 # handling conway status
 @app.route("/conway", methods=["GET", "POST"])
@@ -135,7 +113,6 @@ def handle_conway():
     brightness = int(config['DEFAULT']['brightness'])
     width = int(config['DEFAULT']['rows'])
     height = int(config['DEFAULT']['columns'])
-    demo = int(config['DEFAULT']['demo'])
     NBA = config['DEFAULT']['NBA']
     starboard = config['DEFAULT']['starboard']
     config.set('DEFAULT', 'conway', request.form['conway'])
@@ -145,6 +122,6 @@ def handle_conway():
       job = manager.StopUnit('starboard.service', 'replace')
     else:
       job = manager.StopUnit('conway.service', 'replace')
-    return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, demo = demo)
+    return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway)
 
 app.run(host='0.0.0.0', port=80) 
