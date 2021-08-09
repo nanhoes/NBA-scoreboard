@@ -1,14 +1,14 @@
 [Unit]
-Description=Animations
+Description=Conway's Game of Life
 
 [Service]
 StandardOutput=syslog
 StandardError=syslog
-SyslogIdentifier=animation
+SyslogIdentifier=conway
 LimitRTPRIO=99
 Restart=always
 RestartSec=3
-EnvironmentFile=/etc/systemd/system/animation.service.d/animation_env.conf
+EnvironmentFile=/etc/systemd/system/conway.service.d/conway_env.conf
 
 [Install]
 WantedBy=multi-user.target
