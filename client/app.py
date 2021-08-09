@@ -30,7 +30,7 @@ def saved_config():
     NBA = config['DEFAULT']['NBA']
     starboard = config['DEFAULT']['starboard']
     conway = config['DEFAULT']['conway']
-    return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, demo = demo)
+    return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway)
 
 # handling form data
 @app.route('/brightness', methods=['POST'])
