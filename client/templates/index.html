@@ -83,9 +83,10 @@
 			<div class="card bg-light mb-3" style="max-width: 18rem;">
   			<div class="card-header">
           <div class="form-check form-switch" >
-            <input class="form-check-input" {% if NBA=='on' %} type="checkbox" id="flexSwitchCheckDefault" name="NBA" value="on" {% endif %} {% if NBA=='off' %} id="flexSwitchCheckChecked" name="NBA" value="off" {% endif %}>
-        		<label class="form-check-label" {% if NBA=='on' %} for="flexSwitchCheckDefault" {% endif %} {% if NBA=='off' %} for="flexSwitchCheckChecked" {% endif %}><b> &nbsp; NBA Scores&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="NBA" {% if NBA=="on" %} checked {% endif %} value="on">
+        		<label class="form-check-label" for="flexSwitchCheckDefault"><b> &nbsp; NBA Scores&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
         		<button type="submit" class="btn btn-success btn-sm">Update</button>
+
 
 
           </div>
