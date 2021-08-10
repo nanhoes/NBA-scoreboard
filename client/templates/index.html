@@ -11,7 +11,7 @@
 
     <!-- Replace the Bootstrap CSS with the
          Bootstrap-Dark Variant CSS -->
-    <link href="/static/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.1.0/cyborg/bootstrap.min.css" rel="stylesheet">
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -82,44 +82,38 @@
     <div class="col">
 			<div class="card bg-light mb-3" style="max-width: 18rem;">
   			<div class="card-header">
-          <div class="form-check form-switch" >
-            <input class="form-check-input" type="checkbox" {% if NBA=="on" %} id="flexSwitchCheckChecked" checked name="NBA" value="on" {% endif %} {% if NBA=="off" %} id="flexSwitchCheckChecked" name="NBA" value="on" {% endif %}>
-        		<label class="form-check-label" {% if NBA=="on" %} for="flexSwitchCheckChecked" {% endif %}><b> &nbsp; NBA Scores&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-
-
-        		<button type="submit" class="btn btn-success btn-sm">Update</button>
-
-
-
-          </div>
-          <div>
-	        </div>
+          <label class="form-check-label" for="flexSwitchCheckChecked"><b> &nbsp; NBA Scores&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+						<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+ 					 		<input type="radio" class="btn-check" name="NBA" id="btnradio1" autocomplete="off" checked="" value="on">
+              <label class="btn btn-outline-secondary btn-sm" for="btnradio1">on</label>
+  						<input type="radio" class="btn-check" name="NBA" id="btnradio3" autocomplete="off" checked="" value="off">
+              <label class="btn btn-outline-secondary btn-sm" for="btnradio3">off</label>
+						</div>          
         </div>
-  			<div class="card-body">
-   				<div class="text-center">
-  					<img src="https://i.ibb.co/gt8cDY7/Scoreboard-image.png" class="rounded" alt="...">
-					</div>
-    		</div>
-      </div>        
+      </div>
+      <div class="card-body">
+        <div class="text-center">
+          <img src="https://i.ibb.co/gt8cDY7/Scoreboard-image.png" class="rounded" alt="...">
+        </div>
+      </div>
     </div>
-    </form>   <!-- 1X2 -->
+    </form>
+    <!-- 1X2 -->
     <div class="col">
 			<div class="card bg-light mb-3" style="max-width: 18rem;">
   			<div class="card-header">
-          <div class="form-check form-switch" >
-            <input class="form-check-input" type="checkbox" {% if NBA=='off' %} id="flexSwitchCheckDefault" name="NBA" value="on" {% endif %} {% if NBA=='on' %} id="flexSwitchCheckChecked" name="NBA" value="off" {% endif %} onChange="this.form.submit()">
-        		<label class="form-check-label" {% if NBA=='off' %} for="flexSwitchCheckDefault" {% endif %} {% if NBA=='on' %} for="flexSwitchCheckChecked" {% endif %}><b> &nbsp; NBA Scores</b></label>
-
-      		</div>
-				</div>
-  			<div class="card-body">
-   				<div class="text-center">
+           <div class="form-check form-switch" >
+            <input class="form-check-input" type="checkbox" {% if NBA=="on" %} id="flexSwitchCheckChecked" checked name="NBA" value="on" {% endif %} {% if NBA=="off" %} id="flexSwitchCheckChecked" name="NBA" value="off" {% endif %}>
+        		<label class="form-check-label" for="flexSwitchCheckChecked"><b> &nbsp; NBA Scores&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+        		<button type="submit" class="btn btn-success btn-sm">Update</button>
+          </div>			</div>
+    	<div class="card-body">
+        	<div class="text-center">
   					<img src="https://i.ibb.co/gt8cDY7/Scoreboard-image.png" class="rounded" alt="...">
-					</div>
-    		</div>
-      </div>        
-    </div>
-    <!-- 1X3 -->
+        </div>
+    	</div>  
+      </div>   
+    </div>    <!-- 1X3 -->
     <div class="col">
 			<div class="card bg-light mb-3" style="max-width: 18rem;">
   			<div class="card-header">
@@ -147,9 +141,8 @@
   />
     <form action="/NBA", method="POST">
       <div class="form-group">
-        <label>NBA </label>
-        <input {% if NBA=='on' %} disabled="disabled"{% endif %} type="submit" name="NBA" class="btn btn-success" value="on"></input>
-        <input {% if NBA=='off' %} disabled="disabled"{% endif %} type="submit" name="NBA" class="btn btn-danger" value="off"></input>
+        <input {% if NBA=='on' %} disabled="disabled"{% endif %} type="submit" name="NBA" class="btn btn-success btn-sm" value="on"></input>
+        <input {% if NBA=='off' %} disabled="disabled"{% endif %} type="submit" name="NBA" class="btn btn-danger btn-sm" value="off"></input>
       </div>
     </form>
     </form>
