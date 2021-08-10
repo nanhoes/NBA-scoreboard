@@ -79,13 +79,13 @@ def handle_size():
 # handling NBA status
 @app.route("/NBA", methods=["GET", "POST"])
 def handle_NBA():
-    NBA = request.form.get('NBA', False)
+    NBA = request.form['NBA']
     brightness = int(config['DEFAULT']['brightness'])
     width = int(config['DEFAULT']['rows'])
     height = int(config['DEFAULT']['columns'])
     starboard = config['DEFAULT']['starboard']
     conway = config['DEFAULT']['conway']
-    config.set('DEFAULT', 'NBA', request.form.get('NBA', False))
+    config.set('DEFAULT', 'NBA', request.form['NBA'])
     if NBA == 'on':
       job = manager.StartUnit('render.service', 'replace')
       job = manager.StopUnit('starboard.service', 'replace')
