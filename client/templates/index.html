@@ -67,7 +67,7 @@
     <h1>Settings</h1>
     <form action="/brightness" method="POST">
       <div class="form-group">
-        <label for="formControlRange">Brightness</label>
+        <label for="formControlRange">Brightness </label>
         <input min="10" type="range" class="form-control-range" id="formControlRange" step="10" name="brightness" value="{{ brightness }}">
         <button type="submit" class="btn btn-primary">Update</button>
       </div>
@@ -80,7 +80,7 @@
   />
     <form action="/NBA", method="POST">
       <div class="form-group">
-        <label>NBA</label>
+        <label>NBA </label>
         <input {% if NBA=='on' %} disabled="disabled"{% endif %} type="submit" name="NBA" class="btn btn-success" value="on"></input>
         <input {% if NBA=='off' %} disabled="disabled"{% endif %} type="submit" name="NBA" class="btn btn-danger" value="off"></input>
       </div>
@@ -88,7 +88,7 @@
     </form>
     <form action="/starboard", method="POST">
       <div class="form-group">
-        <label>Starboard</label>
+        <label>Starboard </label>
         <input {% if starboard=='on' %} disabled="disabled"{% endif %} type="submit" name="starboard" class="btn btn-success" value="on"></input>
         <input {% if starboard=='off' %} disabled="disabled"{% endif %} type="submit" name="starboard" class="btn btn-danger" value="off"></input>
       </div>
@@ -96,7 +96,7 @@
     </form>
     <form action="/conway", method="POST">
       <div class="form-group">
-        <label>Conway's</label>
+        <label>Conway's </label>
         <input {% if conway=='on' %} disabled="disabled"{% endif %} type="submit" name="conway" class="btn btn-success" value="on"></input>
         <input {% if conway=='off' %} disabled="disabled"{% endif %} type="submit" name="conway" class="btn btn-danger" value="off"></input>
       </div>
