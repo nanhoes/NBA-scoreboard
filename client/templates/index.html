@@ -68,7 +68,7 @@
       <div class="form-group">
         <label for="formControlRange">Brightness </label>
         <input min="10" type="range" class="form-control-range" id="formControlRange" step="10" name="brightness" value="{{ brightness }}">
-        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="submit" class="btn btn-success btn-sm">Update</button>
       </div>
     </form>
     
@@ -83,8 +83,10 @@
 			<div class="card bg-light mb-3" style="max-width: 18rem;">
   			<div class="card-header">
           <div class="form-check form-switch" >
-            <input {% if NBA=='on' %} class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="NBA" value="on" onChange="this.form.submit()"{% endif %} {% if NBA=='off' %} class="form-check-input" id="flexSwitchCheckChecked" name="NBA" value="off" onChange="this.form.submit()"{% endif %}>
-        		<label {% if NBA=='on' %} class="form-check-label" for="flexSwitchCheckDefault" {% endif %} {% if NBA=='off' %} class="form-check-label" for="flexSwitchCheckChecked" {% endif %}><b> &nbsp; NBA Scores</b></label>
+            <input class="form-check-input" {% if NBA=='on' %} type="checkbox" id="flexSwitchCheckDefault" name="NBA" value="on" {% endif %} {% if NBA=='off' %} id="flexSwitchCheckChecked" name="NBA" value="off" {% endif %}>
+        		<label class="form-check-label" {% if NBA=='on' %} for="flexSwitchCheckDefault" {% endif %} {% if NBA=='off' %} for="flexSwitchCheckChecked" {% endif %}><b> &nbsp; NBA Scores&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+        		<button type="submit" class="btn btn-success btn-sm">Update</button>
+
 
           </div>
           <div>
