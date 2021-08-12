@@ -83,12 +83,8 @@
 			<div class="card bg-light mb-3" style="max-width: 18rem;">
   			<div class="card-header">
           <label class="form-check-label" for="flexSwitchCheckChecked"><b> &nbsp; NBA Scores&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-						<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
- 					 		<input type="radio" class="btn-check" name="NBA" id="btnradio1" autocomplete="off" checked="" value="on" onChange="this.form.submit()">
-              <label class="btn btn-outline-secondary btn-sm" for="btnradio1">on</label>
-  						<input type="radio" class="btn-check" name="NBA" id="btnradio3" autocomplete="off" checked="" value="off" onChange="this.form.submit()">
-              <label class="btn btn-outline-secondary btn-sm" for="btnradio3">off</label>
-						</div>          
+        <input {% if NBA=='on' %} disabled="disabled"{% endif %} type="submit" name="NBA" class="btn btn-secondary btn-sm" value="on"></input>
+        <input {% if NBA=='off' %} disabled="disabled"{% endif %} type="submit" name="NBA" class="btn btn-secondary btn-sm" value="off"></input>
         </div>
       <div class="card-body">
         <div class="text-center">
