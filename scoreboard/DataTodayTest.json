@@ -17,7 +17,7 @@
            "teamTricode": "BKN",
            "wins": 17,
            "losses": 16,
-           "score": 127,
+           "score": 111,
            "inBonus": null,
            "timeoutsRemaining": 1,
            "periods": [
@@ -125,7 +125,7 @@
           "teamTricode": "MIL",
           "wins": 13,
           "losses": 19,
-          "score": 140,
+          "score": 125,
           "inBonus": null,
           "timeoutsRemaining": 0,
           "periods": [
@@ -215,7 +215,7 @@
         }
       },{
          "gameId": "0022000536",
-         "gameCode": "20210302/PHXMIA",
+         "gameCode": "20210302/PHXUTA",
          "gameStatus": 1,
          "gameStatusText": "10:00 pm ET   ",
          "period": 1,
@@ -227,11 +227,11 @@
          "seriesText": "",
          "homeTeam": {
            "teamId": 1610612764,
-           "teamName": "Heat",
-           "teamCity": "Miami",
-           "teamTricode": "MIA",
+           "teamName": "Jazz",
+           "teamCity": "Utah",
+           "teamTricode": "UTA",
            "wins": 13,
-           "losses": 19,
+           "losses": 4,
            "score": 0,
            "inBonus": null,
            "timeoutsRemaining": 0,
@@ -264,7 +264,7 @@
            "teamCity": "Phoenix",
            "teamTricode": "PHX",
            "wins": 15,
-           "losses": 15,
+           "losses": 5,
            "score": 0,
            "inBonus": null,
            "timeoutsRemaining": 0,
