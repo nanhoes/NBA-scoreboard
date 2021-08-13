@@ -62,7 +62,7 @@
 
   <div class="starter-template py-5 px-3">
     <h1>Settings</h1>
-    
+
         <!-- BRIGHTNESS -->
     <form action="/brightness" method="POST">
       <div class="form-group">
@@ -71,84 +71,64 @@
         <button type="submit" class="btn btn-success btn-sm">Update</button>
       </div>
     </form>
-    
-    
-    
-       <!-- COLUMNS -->
-<div class="container">
-  <div class="row align-items-start">
-    <!-- 1X1 -->
-    <form action="/NBA", method="POST">
-    <div class="col">
-			<div class="card bg-light mb-3" style="max-width: 18rem;">
-  			<div class="card-header">
-         <label class="form-check-label" for="flexSwitchCheckChecked"><b> &nbsp; NBA Scores&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-        <input {% if NBA=='on' %} disabled="disabled"{% endif %} type="submit" name="NBA" class="btn btn-secondary btn-sm" value="ON"></input>
-        <input {% if NBA=='off' %} disabled="disabled"{% endif %} type="submit" name="NBA" class="btn btn-secondary btn-sm" value="off"></input>
+
+
+ <!-- COLUMNS -->
+   <div class="d-flex align-items-start bg-light mb-3" style="height: 100px;">
+       <form action="/NBA", method="POST">
+         <div class="col">
+           <div class="card bg-light mb-3" style="max-width: 20rem;">
+             <div class="card-header">
+               <label class="form-check-label" for="flexSwitchCheckChecked"><b>NBA Scores&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+                 <input {% if NBA=='on' %} disabled="disabled"{% endif %} type="submit" name="NBA" class="btn btn-success btn-sm" value="ON"></input>
+                 <input {% if NBA=='off' %} disabled="disabled"{% endif %} type="submit" name="NBA" class="btn btn-secondary btn-sm" value="OFF"></input>
+             </div>
+           <div class="card-body">
+             <div class="text-center">
+               <img src="https://i.ibb.co/swvLczb/scoreboard.gif" class="rounded" alt="...">
+             </div>
+   		    </div>    
+           </div>
          </div>
-      <div class="card-body">
-        <div class="text-center">
-          <img src="https://i.ibb.co/gt8cDY7/Scoreboard-image.png" class="rounded" alt="...">
+       </form>       
+       <div class="d-flex align-items-start bg-light mb-3" style="height: 100px;">
+           <form action="/conway", method="POST">
+             <div class="col">
+               <div class="card bg-light mb-3" style="max-width: 20rem;">
+                 <div class="card-header">
+                   <label class="form-check-label" for="flexSwitchCheckChecked"><b>Conway's&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+                     <input {% if conway=='on' %} disabled="disabled"{% endif %} type="submit" name="conway" class="btn btn-success btn-sm" value="ON"></input>
+                     <input {% if conway=='off' %} disabled="disabled"{% endif %} type="submit" name="conway" class="btn btn-secondary btn-sm" value="OFF"></input>
+                 </div>
+               <div class="card-body">
+                 <div class="text-center">
+                   <img src="https://i.ibb.co/kHVqdj0/conwayboard.gif" class="rounded" alt="...">
+                 </div>
+       		    </div>    
+               </div>
+             </div>
+           </form>    
+           <div class="d-flex align-items-start bg-light mb-3" style="height: 100px;">
+               <form action="/starboard", method="POST">
+                 <div class="col">
+                   <div class="card bg-light mb-3" style="max-width: 20rem;">
+                     <div class="card-header">
+                       <label class="form-check-label" for="flexSwitchCheckChecked"><b>Starboard&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+                         <input {% if starboard=='on' %} disabled="disabled"{% endif %} type="submit" name="starboard" class="btn btn-success btn-sm" value="ON"></input>
+                         <input {% if starboard=='off' %} disabled="disabled"{% endif %} type="submit" name="starboard" class="btn btn-secondary btn-sm" value="OFF"></input>
+                     </div>
+                   <div class="card-body">
+                     <div class="text-center">
+                       <img src="https://i.ibb.co/gWtRwWG/starboard.gif" class="rounded" alt="...">
+                     </div>
+           		    </div>    
+                   </div>
+                 </div>
+               </form>    
+              </div>
+            </div>
+          </div>
         </div>
- 			</div>
-    </div>
-    </form>    <!-- 1X2 -->
-    <div class="col">
-			<div class="card bg-light mb-3" style="max-width: 18rem;">
-  			<div class="card-header">
-           <div class="form-check form-switch" >
-            <input class="form-check-input" type="checkbox" {% if NBA=="on" %} id="flexSwitchCheckChecked" checked name="NBA" value="on" {% endif %} {% if NBA=="off" %} id="flexSwitchCheckChecked" name="NBA" value="off" {% endif %}>
-        		<label class="form-check-label" for="flexSwitchCheckChecked"><b> &nbsp; NBA Scores&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-        		<button type="submit" class="btn btn-success btn-sm">Update</button>
-          </div>			</div>
-    	<div class="card-body">
-        	<div class="text-center">
-  					<img src="https://i.ibb.co/gt8cDY7/Scoreboard-image.png" class="rounded" alt="...">
-        </div>
-    	</div>  
-      </div>   
-    </div>    <!-- 1X3 -->
-	    <form action="/NBA", method="POST">
-
-     <div class="col">
-			<button type="submit" name="NBA" value="on">
-        <img src="https://i.ibb.co/gt8cDY7/Scoreboard-image.png" class="rounded" alt="...">
-      </button>
-  	</div>
-		        </form>
-
-  </div>
-</div>
-    
-    
-    
-  <img
-    src="https://i.ibb.co/gt8cDY7/Scoreboard-image.png"
-    class="img-fluid shadow-2-strong"
-    alt="..."
-  />
-    <form action="/NBA", method="POST">
-      <div class="form-group">
-        <input {% if NBA=='on' %} disabled="disabled"{% endif %} type="submit" name="NBA" class="btn btn-success btn-sm" value="on"></input>
-        <input {% if NBA=='off' %} disabled="disabled"{% endif %} type="submit" name="NBA" class="btn btn-danger btn-sm" value="off"></input>
-      </div>
-    </form>
-    </form>
-    <form action="/starboard", method="POST">
-      <div class="form-group">
-        <label>Starboard </label>
-        <input {% if starboard=='on' %} disabled="disabled"{% endif %} type="submit" name="starboard" class="btn btn-success" value="on"></input>
-        <input {% if starboard=='off' %} disabled="disabled"{% endif %} type="submit" name="starboard" class="btn btn-danger" value="off"></input>
-      </div>
-    </form>
-    </form>
-    <form action="/conway", method="POST">
-      <div class="form-group">
-        <label>Conway's </label>
-        <input {% if conway=='on' %} disabled="disabled"{% endif %} type="submit" name="conway" class="btn btn-success" value="on"></input>
-        <input {% if conway=='off' %} disabled="disabled"{% endif %} type="submit" name="conway" class="btn btn-danger" value="off"></input>
-      </div>
-    </form>
   </div>
 
 </main><!-- /.container -->
@@ -162,3 +142,4 @@
 
   </body>
 </html>
+
