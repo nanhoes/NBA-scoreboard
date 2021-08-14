@@ -60,65 +60,58 @@
 
 <main class="container">
 
-  <div class="starter-template py-5 px-3">
     <h1><center>Boards</center></h1>
 <div class="container">&nbsp;
  <!-- COLUMNS -->
 <center>
+  <!-- NBA -->
   <div class="row align-items-start">
      <form action="/NBA", method="POST">
        <div class="col">
-         <div class="card bg-light mb-3" style="max-width: 20rem;">
-           <div class="card-header">
-             <label><b>NBA Scores&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-               <input {% if NBA=='ON' and (conway=='OFF' or starboard=='OFF') %} disabled="disabled"{% endif %} type="submit" name="NBA" class="btn btn-dark btn-sm" value="ON"></input>
-               <input {% if NBA=='OFF' and (conway=='ON' or starboard=='ON') %} disabled="disabled"{% endif %} type="submit" name="NBA" class="btn btn-dark btn-sm" value="OFF"></input>
-           </div>
+         <div {% if NBA=='ON' %} class="card border-white mb-3" {% else %} class="card bg-light mb-3" {% endif %} style="max-width: 20rem;">
          <div class="card-body">
            <div class="text-center">
              <input type="image" src="https://i.ibb.co/swvLczb/scoreboard.gif" class="rounded" alt="..." name="NBA" value="ON">
            </div>
- 		    </div>    
+           <label><b>NBA Scores</b></label>
+ 		      </div>    
          </div>
        </div>
      </form>  
    </div>
+
+   <!--Conway's-->
    <div class="row align-items-center">
      <form action="/conway", method="POST">
        <div class="col">
-         <div class="card bg-light mb-3" style="max-width: 20rem;">
-           <div class="card-header">
-             <label><b>Conway's&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-               <input {% if conway=='ON' and (NBA=='OFF' or starboard=='OFF') %} disabled="disabled"{% endif %} type="submit" name="conway" class="btn btn-dark btn-sm" value="ON"></input>
-               <input {% if conway=='OFF' and (NBA=='ON' or starboard =='ON')%} disabled="disabled"{% endif %} type="submit" name="conway" class="btn btn-dark btn-sm" value="OFF"></input>
-           </div>
+         <div {% if conway=='ON' %} class="card border-white mb-3" {% else %} class="card bg-light mb-3" {% endif %} style="max-width: 20rem;">
          <div class="card-body">
            <div class="text-center">
-             <img src="https://i.ibb.co/kHVqdj0/conwayboard.gif" class="rounded" alt="...">
+             <input type="image" src="https://i.ibb.co/kHVqdj0/conwayboard.gif" class="rounded" alt="..." name="conway" value="ON">
            </div>
- 		    </div>    
+           <label><b>Conway's</b></label>
+ 		      </div>    
          </div>
        </div>
      </form>    
    </div>
+   
+   <!-- STARBOARD -->
    <div class="row align-items-center">
      <form action="/starboard", method="POST">
        <div class="col">
-         <div class="card bg-light mb-3" style="max-width: 20rem;">
-           <div class="card-header">
-             <label><b>Starboard&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-               <input {% if starboard=='ON' and (NBA =='OFF' or conway=='OFF') %} disabled="disabled"{% endif %} type="submit" name="starboard" class="btn btn-dark btn-sm" value="ON"></input>
-               <input {% if starboard=='OFF' and (NBA =='ON' or conway=='ON') %} disabled="disabled"{% endif %} type="submit" name="starboard" class="btn btn-dark btn-sm" value="OFF"></input>
-           </div>
+         <div {% if starboard=='ON' %} class="card border-white mb-3" {% else %} class="card bg-light mb-3" {% endif %} style="max-width: 20rem;">
          <div class="card-body">
            <div class="text-center">
-             <img src="https://i.ibb.co/gWtRwWG/starboard.gif" class="rounded" alt="...">
+             <input type="image" src="https://i.ibb.co/gWtRwWG/starboard.gif" alt="..." name="starboard" value="ON">
            </div>
+           <label><b>Starboard</b></label>
  		    </div>    
-         </div>
+        </div>
        </div>
      </form>    
     </div>
+   
     <!-- BRIGHTNESS -->
     <div class="row align-items-start">
       <form action="/brightness" method="POST">
@@ -129,7 +122,6 @@
         </div>
       </form>
     </div>
-  </div>
 </div>
 </div>
 </div>
