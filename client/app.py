@@ -83,8 +83,6 @@ def handle_NBA():
     brightness = int(config['DEFAULT']['brightness'])
     width = int(config['DEFAULT']['rows'])
     height = int(config['DEFAULT']['columns'])
-    starboard = 'OFF'
-    conway = 'OFF'
     config.set('DEFAULT', 'NBA', request.form['NBA'])
     if NBA == 'ON':
       job = manager.StartUnit('render.service', 'replace')
@@ -94,7 +92,7 @@ def handle_NBA():
       conway = 'OFF'
     else:
       job = manager.StopUnit('render.service', 'replace')
-    return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway)
+    return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = 'OFF', conway = 'OFF')
 
 # handling starboard status
 @app.route("/starboard", methods=["GET", "POST"])
