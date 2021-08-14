@@ -92,7 +92,9 @@ def handle_NBA():
       conway = 'OFF'
     else:
       job = manager.StopUnit('render.service', 'replace')
-    return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = 'OFF', conway = 'OFF')
+    with open(filename, 'wb') as configfile:
+        config.write(configfile)
+    return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway)
 
 # handling starboard status
 @app.route("/starboard", methods=["GET", "POST"])
@@ -101,8 +103,6 @@ def handle_starboard():
     brightness = int(config['DEFAULT']['brightness'])
     width = int(config['DEFAULT']['rows'])
     height = int(config['DEFAULT']['columns'])
-    NBA = config['DEFAULT']['NBA']
-    conway = config['DEFAULT']['conway']
     config.set('DEFAULT', 'starboard', request.form['starboard'])
     if starboard == 'ON':
       job = manager.StartUnit('starboard.service', 'replace')
@@ -112,6 +112,8 @@ def handle_starboard():
       conway = 'OFF'
     else:
       job = manager.StopUnit('starboard.service', 'replace')
+    with open(filename, 'wb') as configfile:
+        config.write(configfile)
     return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway)
 
 # handling conway status
@@ -121,8 +123,6 @@ def handle_conway():
     brightness = int(config['DEFAULT']['brightness'])
     width = int(config['DEFAULT']['rows'])
     height = int(config['DEFAULT']['columns'])
-    NBA = config['DEFAULT']['NBA']
-    starboard = config['DEFAULT']['starboard']
     config.set('DEFAULT', 'conway', request.form['conway'])
     if conway == 'ON':
       job = manager.StartUnit('conway.service', 'replace')
@@ -132,6 +132,8 @@ def handle_conway():
       starboard = 'OFF'
     else:
       job = manager.StopUnit('conway.service', 'replace')
+    with open(filename, 'wb') as configfile:
+        config.write(configfile)
     return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway)
 
 app.run(host='0.0.0.0', port=80) 
