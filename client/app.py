@@ -83,6 +83,8 @@ def handle_NBA():
     brightness = int(config['DEFAULT']['brightness'])
     width = int(config['DEFAULT']['rows'])
     height = int(config['DEFAULT']['columns'])
+    starboard = config['DEFAULT']['starboard']
+    conway = config['DEFAULT']['conway']
     config.set('DEFAULT', 'NBA', request.form['NBA'])
     if NBA == 'ON':
       job = manager.StartUnit('render.service', 'replace')
@@ -99,6 +101,8 @@ def handle_starboard():
     brightness = int(config['DEFAULT']['brightness'])
     width = int(config['DEFAULT']['rows'])
     height = int(config['DEFAULT']['columns'])
+    NBA = config['DEFAULT']['NBA']
+    conway = config['DEFAULT']['conway']
     config.set('DEFAULT', 'starboard', request.form['starboard'])
     if starboard == 'ON':
       job = manager.StartUnit('starboard.service', 'replace')
@@ -115,6 +119,8 @@ def handle_conway():
     brightness = int(config['DEFAULT']['brightness'])
     width = int(config['DEFAULT']['rows'])
     height = int(config['DEFAULT']['columns'])
+    NBA = config['DEFAULT']['NBA']
+    starboard = config['DEFAULT']['starboard']
     config.set('DEFAULT', 'conway', request.form['conway'])
     if conway == 'ON':
       job = manager.StartUnit('conway.service', 'replace')
