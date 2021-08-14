@@ -67,7 +67,7 @@
 
 <div class="container">
  <!-- COLUMNS -->
-
+<center>
  <!-- BRIGHTNESS -->
  <div class="row align-items-start">
    <form action="/brightness" method="POST">
@@ -85,7 +85,7 @@
          <div class="card bg-light mb-3" style="max-width: 20rem;">
            <div class="card-header">
              <label class="form-check-label" for="flexSwitchCheckChecked"><b>NBA Scores&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-               <input {% if NBA=='ON' %} disabled="disabled"{% endif %} type="submit" name="NBA" class="btn btn-success btn-sm" value="ON"></input>
+               <input {% if NBA=='ON' and conway=='OFF' and starboard=='OFF' %} disabled="disabled"{% endif %} type="submit" name="NBA" class="btn btn-success btn-sm" value="ON"></input>
                <input {% if NBA=='OFF' or conway =='ON' or starboard=='ON' %} disabled="disabled"{% endif %} type="submit" name="NBA" class="btn btn-dark btn-sm" value="OFF"></input>
            </div>
          <div class="card-body">
@@ -103,7 +103,7 @@
          <div class="card bg-light mb-3" style="max-width: 20rem;">
            <div class="card-header">
              <label class="form-check-label" for="flexSwitchCheckChecked"><b>Conway's&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-               <input {% if conway=='ON' %} disabled="disabled"{% endif %} type="submit" name="conway" class="btn btn-dark btn-sm" value="ON"></input>
+               <input {% if conway=='ON' and NBA=='OFF' and starboard=='OFF' %} disabled="disabled"{% endif %} type="submit" name="conway" class="btn btn-dark btn-sm" value="ON"></input>
                <input {% if conway=='OFF' or NBA=='ON' or starboard=='ON' %} disabled="disabled"{% endif %} type="submit" name="conway" class="btn btn-dark btn-sm" value="OFF"></input>
            </div>
          <div class="card-body">
@@ -121,7 +121,7 @@
          <div class="card bg-light mb-3" style="max-width: 20rem;">
            <div class="card-header">
              <label class="form-check-label" for="flexSwitchCheckChecked"><b>Starboard&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-               <input {% if starboard=='ON' %} disabled="disabled"{% endif %} type="submit" name="starboard" class="btn btn-success btn-sm" value="ON"></input>
+               <input {% if starboard=='ON' and NBA =='OFF' and conway=='OFF' %} disabled="disabled"{% endif %} type="submit" name="starboard" class="btn btn-success btn-sm" value="ON"></input>
                <input {% if starboard=='OFF' or NBA=='ON' or conway=='ON' %} disabled="disabled"{% endif %} type="submit" name="starboard" class="btn btn-danger btn-sm" value="OFF"></input>
            </div>
          <div class="card-body">
@@ -137,7 +137,7 @@
 </div>
 </div>
 </div>
-
+</center>
 </main><!-- /.container -->
 
     <!-- ////////////// -->
