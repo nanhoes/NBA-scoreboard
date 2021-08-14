@@ -41,15 +41,15 @@ def handle_brightness():
     NBA = config['DEFAULT']['NBA']
     starboard = config['DEFAULT']['starboard']
     conway = config['DEFAULT']['conway']
-    if NBA == 'on':
+    if NBA == 'ON':
         job = manager.RestartUnit('render.service', 'fail')
     else:
         pass
-    if starboard == 'on':
+    if starboard == 'ON':
         job = manager.RestartUnit('starboard.service', 'fail')
     else:
         pass
-    if conway == 'on':
+    if conway == 'ON':
         job = manager.RestartUnit('conway.service', 'fail')
     else:
         pass
@@ -66,11 +66,11 @@ def handle_size():
     NBA = config['DEFAULT']['NBA']
     starboard = config['DEFAULT']['starboard']
     conway = config['DEFAULT']['conway']
-    if NBA == 'on':
+    if NBA == 'ON':
         job = manager.RestartUnit('render.service', 'fail')
-    if starboard == 'on':
+    if starboard == 'ON':
         job = manager.RestartUnit('starboard.service', 'fail')
-    if conway == 'on':
+    if conway == 'ON':
         job = manager.RestartUnit('conway.service', 'fail')
     with open(filename, 'wb') as configfile:
         config.write(configfile)
@@ -86,7 +86,7 @@ def handle_NBA():
     starboard = config['DEFAULT']['starboard']
     conway = config['DEFAULT']['conway']
     config.set('DEFAULT', 'NBA', request.form['NBA'])
-    if NBA == 'on':
+    if NBA == 'ON':
       job = manager.StartUnit('render.service', 'replace')
       job = manager.StopUnit('starboard.service', 'replace')
       job = manager.StopUnit('conway.service', 'replace')
@@ -104,7 +104,7 @@ def handle_starboard():
     NBA = config['DEFAULT']['NBA']
     conway = config['DEFAULT']['conway']
     config.set('DEFAULT', 'starboard', request.form['starboard'])
-    if starboard == 'on':
+    if starboard == 'ON':
       job = manager.StartUnit('starboard.service', 'replace')
       job = manager.StopUnit('render.service', 'replace')
       job = manager.StopUnit('conway.service', 'replace')
@@ -122,7 +122,7 @@ def handle_conway():
     NBA = config['DEFAULT']['NBA']
     starboard = config['DEFAULT']['starboard']
     config.set('DEFAULT', 'conway', request.form['conway'])
-    if conway == 'on':
+    if conway == 'ON':
       job = manager.StartUnit('conway.service', 'replace')
       job = manager.StopUnit('render.service', 'replace')
       job = manager.StopUnit('starboard.service', 'replace')
