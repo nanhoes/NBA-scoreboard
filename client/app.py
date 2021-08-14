@@ -84,16 +84,14 @@ def handle_NBA():
     width = int(config['DEFAULT']['rows'])
     height = int(config['DEFAULT']['columns'])
     config.set('DEFAULT', 'NBA', request.form['NBA'])
+    conway = config['DEFAULT']['conway']
+    starboard = config['DEFAULT']['starboard']
     if NBA == 'ON':
       job = manager.StartUnit('render.service', 'replace')
       job = manager.StopUnit('starboard.service', 'replace')
       job = manager.StopUnit('conway.service', 'replace')
-      starboard = 'OFF'
-      conway = 'OFF'
     else:
       job = manager.StopUnit('render.service', 'replace')
-    with open(filename, 'wb') as configfile:
-        config.write(configfile)
     return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway)
 
 # handling starboard status
@@ -104,16 +102,14 @@ def handle_starboard():
     width = int(config['DEFAULT']['rows'])
     height = int(config['DEFAULT']['columns'])
     config.set('DEFAULT', 'starboard', request.form['starboard'])
+    NBA = config['DEFAULT']['NBA']
+    conway = config['DEFAULT']['conway']
     if starboard == 'ON':
       job = manager.StartUnit('starboard.service', 'replace')
       job = manager.StopUnit('render.service', 'replace')
       job = manager.StopUnit('conway.service', 'replace')
-      NBA = 'OFF'
-      conway = 'OFF'
     else:
       job = manager.StopUnit('starboard.service', 'replace')
-    with open(filename, 'wb') as configfile:
-        config.write(configfile)
     return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway)
 
 # handling conway status
@@ -124,16 +120,14 @@ def handle_conway():
     width = int(config['DEFAULT']['rows'])
     height = int(config['DEFAULT']['columns'])
     config.set('DEFAULT', 'conway', request.form['conway'])
+    NBA = config['DEFAULT']['NBA']
+    starboard = config['DEFAULT']['starboard']
     if conway == 'ON':
       job = manager.StartUnit('conway.service', 'replace')
       job = manager.StopUnit('render.service', 'replace')
       job = manager.StopUnit('starboard.service', 'replace')
-      NBA = 'OFF'
-      starboard = 'OFF'
     else:
       job = manager.StopUnit('conway.service', 'replace')
-    with open(filename, 'wb') as configfile:
-        config.write(configfile)
     return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway)
 
 app.run(host='0.0.0.0', port=80) 
