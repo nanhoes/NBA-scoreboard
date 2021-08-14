@@ -90,6 +90,8 @@ def handle_NBA():
       job = manager.StartUnit('render.service', 'replace')
       job = manager.StopUnit('starboard.service', 'replace')
       job = manager.StopUnit('conway.service', 'replace')
+      starboard = 'OFF'
+      conway = 'OFF'
     else:
       job = manager.StopUnit('render.service', 'replace')
     return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway)
@@ -108,6 +110,8 @@ def handle_starboard():
       job = manager.StartUnit('starboard.service', 'replace')
       job = manager.StopUnit('render.service', 'replace')
       job = manager.StopUnit('conway.service', 'replace')
+      NBA = 'OFF'
+      conway = 'OFF'
     else:
       job = manager.StopUnit('starboard.service', 'replace')
     return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway)
@@ -126,6 +130,8 @@ def handle_conway():
       job = manager.StartUnit('conway.service', 'replace')
       job = manager.StopUnit('render.service', 'replace')
       job = manager.StopUnit('starboard.service', 'replace')
+      NBA = 'OFF'
+      starboard = 'OFF'
     else:
       job = manager.StopUnit('conway.service', 'replace')
     return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway)
