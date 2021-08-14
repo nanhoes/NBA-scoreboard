@@ -62,19 +62,23 @@
 
   <div class="starter-template py-5 px-3">
     <h1>Settings</h1>
-
-        <!-- BRIGHTNESS -->
-    <form action="/brightness" method="POST">
-      <div class="form-group">
-        <label for="formControlRange">Brightness </label>
-        <input min="10" type="range" class="form-control-range" id="formControlRange" step="10" name="brightness" value="{{ brightness }}">
-        <button type="submit" class="btn btn-success btn-sm">Update</button>
-      </div>
-    </form>
+  </div>
 
 
 <div class="container">
  <!-- COLUMNS -->
+
+ <!-- BRIGHTNESS -->
+ <div class="row align-items-start">
+   <form action="/brightness" method="POST">
+     <div class="form-group">
+       <label for="formControlRange">Brightness&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+       <input min="10" type="range" class="form-control-range" id="formControlRange" step="10" name="brightness" value="{{ brightness }}">
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-success btn-sm">Update</button>
+     </div>
+   </form>
+ </div>
+
   <div class="row align-items-start">
      <form action="/NBA", method="POST">
        <div class="col">
@@ -111,7 +115,7 @@
        </div>
      </form>    
    </div>
-   <div class="row align-items-end">
+   <div class="row align-items-center">
      <form action="/starboard", method="POST">
        <div class="col">
          <div class="card bg-light mb-3" style="max-width: 20rem;">
