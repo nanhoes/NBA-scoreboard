@@ -113,6 +113,24 @@
      </form>    
     </div>
 
+    <!-- LEVERAGE -->
+    <div class="row align-items-center">
+      <form action="/starboard", method="POST">
+        <div class="col">
+          <div {% if starboard=='ON' %} class="card bg-light mb-3" {% else %} class="card bg-light mb-3" {% endif %} style="max-width: 20rem;">
+          <div class="card-body">
+            <div class="text-center">
+              <a class="ripple" href="#!">
+                <input type="image" src="https://i.ibb.co/Y736qS1/Leverage-World3-D10-Dark-Crop.gif" class="rounded" alt="..." name="starboard" value="ON">
+              </a>
+            </div>
+            <label><b>Leverage</b></label>
+  		    </div>    
+         </div>
+        </div>
+      </form>    
+     </div>
+
   <!-- OFF -->
     <form action="/off", method="POST">
       <div class="form-group">
