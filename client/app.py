@@ -130,4 +130,18 @@ def handle_conway():
       job = manager.StopUnit('conway.service', 'replace')
     return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway)
 
+# handling power status
+@app.route("/off", methods=["GET", "POST"])
+def handle_off():
+    brightness = int(config['DEFAULT']['brightness'])
+    width = int(config['DEFAULT']['rows'])
+    height = int(config['DEFAULT']['columns'])
+    NBA = config['DEFAULT']['NBA']
+    starboard = config['DEFAULT']['starboard']
+    conway = config['DEFAULT']['conway']
+    job = manager.StopUnit('render.service', 'replace')    
+    job = manager.StopUnit('starboard.service', 'replace')
+    job = manager.StopUnit('conway.service', 'replace')
+    return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway)
+
 app.run(host='0.0.0.0', port=80) 
