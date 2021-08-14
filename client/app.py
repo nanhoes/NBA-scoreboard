@@ -86,8 +86,6 @@ def handle_NBA():
     starboard = request.form['starboard']
     conway = request.form['conway']
     config.set('DEFAULT', 'NBA', request.form['NBA'])
-    config.set('DEFAULT', 'conway', request.form['conway'])
-    config.set('DEFAULT', 'starboard', request.form['starboard'])
     if NBA == 'ON':
       job = manager.StartUnit('render.service', 'replace')
       job = manager.StopUnit('starboard.service', 'replace')
@@ -106,8 +104,6 @@ def handle_starboard():
     NBA = request.form['NBA']
     conway = request.form['conway']
     config.set('DEFAULT', 'starboard', request.form['starboard'])
-    config.set('DEFAULT', 'NBA', request.form['NBA'])
-    config.set('DEFAULT', 'conway', request.form['conway'])
     if starboard == 'ON':
       job = manager.StartUnit('starboard.service', 'replace')
       job = manager.StopUnit('render.service', 'replace')
@@ -126,8 +122,6 @@ def handle_conway():
     NBA = request.form['NBA']
     starboard = request.form['starboard']
     config.set('DEFAULT', 'conway', request.form['conway'])
-    config.set('DEFAULT', 'NBA', request.form['NBA'])
-    config.set('DEFAULT', 'starboard', request.form['starboard'])
     if conway == 'ON':
       job = manager.StartUnit('conway.service', 'replace')
       job = manager.StopUnit('render.service', 'replace')
