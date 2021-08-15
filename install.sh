@@ -44,6 +44,12 @@ sudo rm -rf /etc/systemd/system/render-client.*
 sudo systemctl daemon-reload
 echo "...done"
 
+echo "Removing starboard service if it exists:"
+sudo systemctl stop starboard
+sudo rm -rf /etc/systemd/system/starboard.*
+sudo systemctl daemon-reload
+echo "...done"
+
 echo "Removing conway service if it exists:"
 sudo systemctl stop conway
 sudo rm -rf /etc/systemd/system/conway.*
