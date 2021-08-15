@@ -12,6 +12,12 @@ make build-python PYTHON=$(which python3)
 sudo make install-python PYTHON=$(which python3)
 sudo apt-get install python3-bs4
 
+echo "Creating image-viewer:"
+cd utils
+sudo apt-get update
+sudo apt-get install libgraphicsmagick++-dev libwebp-dev -y
+sudo make led-image-viewer
+
 echo "Installing font dependencies:"
 cd
 sudo apt-get install otf2bdf
@@ -82,7 +88,7 @@ echo "...done"
 
 echo "Creating starboard service:"
 sudo cp ./config/starboard.service /etc/systemd/system/
-sudo sed -i -e "/\[Service\]/a ExecStart=python3 ${install_path}/conways/starboard.py < /dev/zero &> /dev/null &" /etc/systemd/system/starboard.service
+sudo sed -i -e "/\[Service\]/a ExecStart=python3 ${install_path}/animations/starboard.py < /dev/zero &> /dev/null &" /etc/systemd/system/starboard.service
 sudo mkdir /etc/systemd/system/starboard.service.d
 starboard_env_path=/etc/systemd/system/starboard.service.d/starboard_env.conf
 sudo touch $starboard_env_path
@@ -102,6 +108,19 @@ sudo touch $conway_env_path
 sudo echo "[Service]" >> $conway_env_path
 sudo systemctl daemon-reload
 sudo systemctl disable conway
+echo "...done"
+
+echo "Creating gif service:"
+sudo cp ${install_path}/gif_start.sh /usr/bin
+sudo chmod +x /usr/bin/gif_start.sh
+sudo cp ./config/gif.service /etc/systemd/system/
+sudo sed -i -e "/\[Service\]/a ExecStart=/usr/bin/gif_start.sh < /dev/zero &> /dev/null &" /etc/systemd/system/gif.service
+sudo mkdir /etc/systemd/system/gif.service.d
+gif_env_path=/etc/systemd/system/gif.service.d/gif_env.conf
+sudo touch $gif_env_path
+sudo echo "[Service]" >> $gif_env_path
+sudo systemctl daemon-reload
+sudo systemctl disable gif
 echo "...done"
 
 echo "Creating render-client service:"
