@@ -50,6 +50,12 @@ sudo rm -rf /etc/systemd/system/conway.*
 sudo systemctl daemon-reload
 echo "...done"
 
+echo "Removing gif service if it exists:"
+sudo systemctl stop gif
+sudo rm -rf /etc/systemd/system/gif.*
+sudo systemctl daemon-reload
+echo "...done"
+
 echo "Creating render service:"
 sudo cp ./config/render.service /etc/systemd/system/
 sudo sed -i -e "/\[Service\]/a ExecStart=python3 ${install_path}/scoreboard/NBA_Render.py < /dev/zero &> /dev/null &" /etc/systemd/system/render.service
