@@ -67,7 +67,7 @@
   <div class="row align-items-start">
      <form action="/NBA", method="POST">
        <div class="col">
-         <div {% if NBA=='ON' %} class="card bg-light mb-3" {% else %} class="card bg-light mb-3" {% endif %} style="max-width: 20rem;">
+         <div class="card bg-light mb-3" style="max-width: 20rem;">
          <div class="card-body">
            <div class="text-center">
              <input type="image" src="https://i.ibb.co/swvLczb/scoreboard.gif" class="rounded" alt="..." name="NBA" value="ON">
@@ -83,7 +83,7 @@
    <div class="row align-items-center">
      <form action="/conway", method="POST">
        <div class="col">
-         <div {% if conway=='ON' %} class="card bg-light mb-3" {% else %} class="card bg-light mb-3" {% endif %} style="max-width: 20rem;">
+         <div class="card bg-light mb-3" style="max-width: 20rem;">
          <div class="card-body">
            <div class="text-center">
              <input type="image" src="https://i.ibb.co/kHVqdj0/conwayboard.gif" class="rounded" alt="..." name="conway" value="ON">
@@ -99,37 +99,81 @@
    <div class="row align-items-center">
      <form action="/starboard", method="POST">
        <div class="col">
-         <div {% if starboard=='ON' %} class="card bg-light mb-3" {% else %} class="card bg-light mb-3" {% endif %} style="max-width: 20rem;">
+         <div class="card bg-light mb-3" style="max-width: 20rem;">
          <div class="card-body">
            <div class="text-center">
-             <a class="ripple" href="#!">
-               <input type="image" src="https://i.ibb.co/gWtRwWG/starboard.gif" class="rounded" alt="..." name="starboard" value="ON">
-             </a>
+             <input type="image" src="https://i.ibb.co/gWtRwWG/starboard.gif" class="rounded" alt="..." name="starboard" value="ON">
            </div>
-           <label><b>Galactic</b></label>
+           <label><b>Stars</b></label>
  		    </div>    
         </div>
        </div>
      </form>    
     </div>
 
-    <!-- LEVERAGE -->
+    <!-- Fire -->
     <div class="row align-items-center">
-      <form action="/starboard", method="POST">
+      <form action="/gif", method="POST">
         <div class="col">
-          <div {% if starboard=='ON' %} class="card bg-light mb-3" {% else %} class="card bg-light mb-3" {% endif %} style="max-width: 20rem;">
+          <div class="card bg-light mb-3" style="max-width: 20rem;">
           <div class="card-body">
             <div class="text-center">
-              <a class="ripple" href="#!">
-                <input type="image" src="https://i.ibb.co/Y736qS1/Leverage-World3-D10-Dark-Crop.gif" class="rounded" alt="..." name="starboard" value="ON">
-              </a>
+              <input type="image" src="https://i.ibb.co/s18rBY5/Fire.gif" class="rounded" alt="..." name="gif" value="fire">
             </div>
-            <label><b>Leverage</b></label>
+            <label><b>Fire</b></label>
   		    </div>    
          </div>
         </div>
       </form>    
      </div>
+
+     <!-- Tech -->
+     <div class="row align-items-center">
+       <form action="/gif", method="POST">
+         <div class="col">
+           <div class="card bg-light mb-3" style="max-width: 20rem;">
+           <div class="card-body">
+             <div class="text-center">
+               <input type="image" src="https://i.ibb.co/RQhXv2m/Tech.gif" class="rounded" alt="..." name="gif" value="tech">
+             </div>
+             <label><b>Tech</b></label>
+          </div>    
+          </div>
+         </div>
+       </form>    
+      </div>
+
+      <!-- Galactic -->
+      <div class="row align-items-center">
+        <form action="/gif", method="POST">
+          <div class="col">
+            <div class="card bg-light mb-3" style="max-width: 20rem;">
+            <div class="card-body">
+              <div class="text-center">
+                <input type="image" src="https://i.ibb.co/kSjfpCJ/Galactic.gif" class="rounded" alt="..." name="gif" value="galactic">
+              </div>
+              <label><b>Galactic</b></label>
+           </div>    
+           </div>
+          </div>
+        </form>    
+       </div>
+
+       <!-- Luna -->
+       <div class="row align-items-center">
+         <form action="/gif", method="POST">
+           <div class="col">
+             <div class="card bg-light mb-3" style="max-width: 20rem;">
+             <div class="card-body">
+               <div class="text-center">
+                 <input type="image" src="https://i.ibb.co/qgfVxNX/Luna.gif" class="rounded" alt="..." name="gif" value="luna">
+               </div>
+               <label><b>Luna</b></label>
+            </div>    
+            </div>
+           </div>
+         </form>    
+        </div>
 
   <!-- OFF -->
     <form action="/off", method="POST">
