@@ -154,7 +154,7 @@ def handle_gif():
     NBA = config['DEFAULT']['NBA']
     starboard = config['DEFAULT']['starboard']
     conway = config['DEFAULT']['conway']
-    job = manager.StartUnit('gif.service', 'replace')
+    job = manager.RestartUnit('gif.service', 'replace')
     job = manager.StopUnit('render.service', 'replace')
     job = manager.StopUnit('starboard.service', 'replace')
     job = manager.StopUnit('conway.service', 'replace')
