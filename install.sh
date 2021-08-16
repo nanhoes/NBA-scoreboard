@@ -56,9 +56,9 @@ sudo rm -rf /etc/systemd/system/conway.*
 sudo systemctl daemon-reload
 echo "...done"
 
-echo "Removing gif service if it exists:"
-sudo systemctl stop gif
-sudo rm -rf /etc/systemd/system/gif.*
+echo "Removing gifviewer service if it exists:"
+sudo systemctl stop gifviewer
+sudo rm -rf /etc/systemd/system/gifviewer.*
 sudo systemctl daemon-reload
 echo "...done"
 
