@@ -4,11 +4,11 @@ Description=Gif viewer
 [Service]
 StandardOutput=syslog
 StandardError=syslog
-SyslogIdentifier=gif
+SyslogIdentifier=gifviewer
 LimitRTPRIO=99
 Restart=always
 RestartSec=3
-EnvironmentFile=/etc/systemd/system/gif.service.d/gif_env.conf
+EnvironmentFile=/etc/systemd/system/gifviewer.service.d/gifviewer_env.conf
 
 [Install]
 WantedBy=multi-user.target
