@@ -122,17 +122,17 @@ sudo systemctl daemon-reload
 sudo systemctl disable conway
 echo "...done"
 
-echo "Creating gif service:"
-sudo cp ${install_path}/gif_start.sh /usr/bin
-sudo chmod +x /usr/bin/gif_start.sh
-sudo cp ./config/gif.service /etc/systemd/system/
-sudo sed -i -e "/\[Service\]/a ExecStart=/usr/bin/gif_start.sh < /dev/zero &> /dev/null &" /etc/systemd/system/gif.service
-sudo mkdir /etc/systemd/system/gif.service.d
-gif_env_path=/etc/systemd/system/gif.service.d/gif_env.conf
-sudo touch $gif_env_path
-sudo echo "[Service]" >> $gif_env_path
+echo "Creating gifviewer service:"
+sudo cp ${install_path}/gifviewer_start.sh /usr/bin
+sudo chmod +x /usr/bin/gifviewer_start.sh
+sudo cp ./config/gifviewer.service /etc/systemd/system/
+sudo sed -i -e "/\[Service\]/a ExecStart=/usr/bin/gifviewer_start.sh < /dev/zero &> /dev/null &" /etc/systemd/system/gifviewer.service
+sudo mkdir /etc/systemd/system/gifviewer.service.d
+gifviewer_env_path=/etc/systemd/system/gifviewer.service.d/gifviewer_env.conf
+sudo touch $gifviewer_env_path
+sudo echo "[Service]" >> $gifviewer_env_path
 sudo systemctl daemon-reload
-sudo systemctl disable gif
+sudo systemctl disable gifviewer
 echo "...done"
 
 echo "Creating render-client service:"
