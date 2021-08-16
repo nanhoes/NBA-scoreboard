@@ -158,6 +158,8 @@ def handle_gif():
     job = manager.StopUnit('render.service', 'replace')
     job = manager.StopUnit('starboard.service', 'replace')
     job = manager.StopUnit('conway.service', 'replace')
+    with open(filename, 'wb') as configfile:
+        config.write(configfile)
     return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif)
 
 
