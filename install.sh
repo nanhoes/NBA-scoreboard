@@ -32,9 +32,9 @@ pip install flask --upgrade
 echo "Installing config-parser"
 git clone https://gitlab.com/chilladx/config-parser.git
 
-echo "Removing render service if it exists:"
-sudo systemctl stop render
-sudo rm -rf /etc/systemd/system/render.*
+echo "Removing NBA service if it exists:"
+sudo systemctl stop NBA
+sudo rm -rf /etc/systemd/system/NBA.*
 sudo systemctl daemon-reload
 echo "...done"
 
@@ -62,16 +62,16 @@ sudo rm -rf /etc/systemd/system/gif.*
 sudo systemctl daemon-reload
 echo "...done"
 
-echo "Creating render service:"
-sudo cp ./config/render.service /etc/systemd/system/
-sudo sed -i -e "/\[Service\]/a ExecStart=python3 ${install_path}/scoreboard/NBA_Render.py < /dev/zero &> /dev/null &" /etc/systemd/system/render.service
-sudo mkdir /etc/systemd/system/render.service.d
-render_env_path=/etc/systemd/system/render.service.d/render_env.conf
-sudo touch $render_env_path
-sudo echo "[Service]" >> $render_env_path
+echo "Creating NBA service:"
+sudo cp ./config/NBA.service /etc/systemd/system/
+sudo sed -i -e "/\[Service\]/a ExecStart=python3 ${install_path}/scoreboard/NBA_Render.py < /dev/zero &> /dev/null &" /etc/systemd/system/NBA.service
+sudo mkdir /etc/systemd/system/NBA.service.d
+NBA_env_path=/etc/systemd/system/NBA.service.d/NBA_env.conf
+sudo touch $NBA_env_path
+sudo echo "[Service]" >> $NBA_env_path
 sudo systemctl daemon-reload
-sudo systemctl start render
-sudo systemctl enable render
+sudo systemctl start NBA
+sudo systemctl enable NBA
 echo "...done"
 
 echo "Creating data service:"
