@@ -6,7 +6,7 @@ import configparser
 import os
 
 mode = 1
-maxdrops = 100
+maxdrops = 75
 
 # Configuration file    
 dir = os.path.dirname(__file__)
