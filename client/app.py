@@ -44,7 +44,7 @@ def handle_brightness():
     conway = config['DEFAULT']['conway']
     gif = config['DEFAULT']['gif']
     if NBA == 'ON':
-        job = manager.RestartUnit('render.service', 'fail')
+        job = manager.RestartUnit('NBA.service', 'fail')
     else:
         pass
     if starboard == 'ON':
@@ -72,7 +72,7 @@ def handle_size():
     conway = config['DEFAULT']['conway']
     gif = config['DEFAULT']['gif']
     if NBA == 'ON':
-        job = manager.RestartUnit('render.service', 'fail')
+        job = manager.RestartUnit('NBA.service', 'fail')
     if starboard == 'ON':
         job = manager.RestartUnit('starboard.service', 'fail')
     if conway == 'ON':
@@ -95,12 +95,12 @@ def handle_NBA():
     gif = config['DEFAULT']['gif']
     starboard = config['DEFAULT']['starboard']
     if NBA == 'ON':
-      job = manager.StartUnit('render.service', 'replace')
+      job = manager.StartUnit('NBA.service', 'replace')
       job = manager.StopUnit('starboard.service', 'replace')
       job = manager.StopUnit('conway.service', 'replace')
       job = manager.StopUnit('gif.service', 'replace')
     else:
-      job = manager.StopUnit('render.service', 'replace')
+      job = manager.StopUnit('NBA.service', 'replace')
     return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif)
 
 # handling starboard status
@@ -116,7 +116,7 @@ def handle_starboard():
     gif = config['DEFAULT']['gif']
     if starboard == 'ON':
       job = manager.StartUnit('starboard.service', 'replace')
-      job = manager.StopUnit('render.service', 'replace')
+      job = manager.StopUnit('NBA.service', 'replace')
       job = manager.StopUnit('conway.service', 'replace')
       job = manager.StopUnit('gif.service', 'replace')
     else:
@@ -136,7 +136,7 @@ def handle_conway():
     gif = config['DEFAULT']['gif']
     if conway == 'ON':
       job = manager.StartUnit('conway.service', 'replace')
-      job = manager.StopUnit('render.service', 'replace')
+      job = manager.StopUnit('NBA.service', 'replace')
       job = manager.StopUnit('starboard.service', 'replace')
       job = manager.StopUnit('gif.service', 'replace')
     else:
@@ -155,7 +155,7 @@ def handle_gif():
     starboard = config['DEFAULT']['starboard']
     conway = config['DEFAULT']['conway']
     job = manager.RestartUnit('gif.service', 'replace')
-    job = manager.StopUnit('render.service', 'replace')
+    job = manager.StopUnit('NBA.service', 'replace')
     job = manager.StopUnit('starboard.service', 'replace')
     job = manager.StopUnit('conway.service', 'replace')
     with open(filename, 'wb') as configfile:
@@ -174,7 +174,7 @@ def handle_off():
     gif = config['DEFAULT']['gif']
     starboard = config['DEFAULT']['starboard']
     job = manager.StopUnit('conway.service', 'replace')
-    job = manager.StopUnit('render.service', 'replace')
+    job = manager.StopUnit('NBA.service', 'replace')
     job = manager.StopUnit('starboard.service', 'replace')
     job = manager.StopUnit('gif.service', 'replace')    
     return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif)
