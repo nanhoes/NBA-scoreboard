@@ -1,5 +1,4 @@
-![Image of Web App]
-(https://i.ibb.co/Ny0fKQB/webapp.png)
+![webapp](https://user-images.githubusercontent.com/68497310/130024141-b315110f-ed17-4a01-ac90-8415fe8fc219.png)
 
 ## Raspberry Pi Setup
 1. Download the [BerryLan flavoured Raspbian image](https://downloads.nymea.io/images/berrylan/)
