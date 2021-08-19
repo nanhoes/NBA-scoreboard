@@ -1,5 +1,5 @@
 ![Image of Web App]
-(https://github.com/nanhoes/NBA-scoreboard/blob/main/images/webapp.png)
+(https://i.ibb.co/Ny0fKQB/webapp.png)
 
 ## Raspberry Pi Setup
 1. Download the [BerryLan flavoured Raspbian image](https://downloads.nymea.io/images/berrylan/)
