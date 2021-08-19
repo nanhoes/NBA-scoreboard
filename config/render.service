@@ -4,11 +4,11 @@ Description=NBA Render
 [Service]
 StandardOutput=syslog
 StandardError=syslog
-SyslogIdentifier=render
+SyslogIdentifier=NBA
 LimitRTPRIO=99
 Restart=always
 RestartSec=3
-EnvironmentFile=/etc/systemd/system/render.service.d/render_env.conf
+EnvironmentFile=/etc/systemd/system/NBA.service.d/NBA_env.conf
 
 [Install]
 WantedBy=multi-user.target
