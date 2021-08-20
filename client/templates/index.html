@@ -1,6 +1,18 @@
 <!doctype html>
 <html lang="en">
   <head>
+
+    <script type="text/javascript">
+      var a=document.getElementsByTagName("a");
+      for(var i=0;i<a.length;i++) {
+          if(!a[i].onclick && a[i].getAttribute("target") != "_blank") {
+              a[i].onclick=function() {
+                  window.location=this.getAttribute("href");
+                  return false; 
+              }
+          }
+      }
+    </script>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +23,7 @@
     <!-- Replace the Bootstrap CSS with the
          Bootstrap-Dark Variant CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.1.0/cyborg/bootstrap.min.css" rel="stylesheet">
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="/manifest.json"/>
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
