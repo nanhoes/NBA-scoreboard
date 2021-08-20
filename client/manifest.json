@@ -2,4 +2,5 @@
   "name": "NBA Scoreboard",
   "short_name": "NBA Scoreboard",
   "display": "standalone",
+  "start_url": "/templates/index.html"
 }
