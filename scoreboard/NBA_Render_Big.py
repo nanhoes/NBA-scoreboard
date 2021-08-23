@@ -6,6 +6,8 @@ import json
 import datetime as dt
 import time
 import sys
+import signal
+import configparser
 
 class Render:
     def __init__(self):
