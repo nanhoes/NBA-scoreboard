@@ -11,16 +11,25 @@ import configparser
 
 class Render:
     def __init__(self):
-        self.options = RGBMatrixOptions()
-        self.options.gpio_slowdown = 3
-        self.options.rows = 32
-        self.options.cols = 64
-        self.options.drop_privileges = False
-        self.options.chain_length = 2
-        self.options.parallel = 2
-        self.options.disable_hardware_pulsing = False
+        # Configuration file    
+        dir = os.path.dirname(__file__)
+        filename = os.path.join(dir, '../config/matrix_options.ini')
 
-        
+        # Configuration for the matrix
+        config = configparser.ConfigParser()
+        config.read(filename)
+
+        self.options = RGBMatrixOptions()
+        self.options.rows = int(config['DEFAULT']['rows'])
+        self.options.cols = int(config['DEFAULT']['columns'])
+        self.options.chain_length = int(config['DEFAULT']['chain_length'])
+        self.options.parallel = int(config['DEFAULT']['parallel'])
+        self.options.hardware_mapping = config['DEFAULT']['hardware_mapping']
+        self.options.gpio_slowdown = 3
+        self.options.brightness = int(config['DEFAULT']['brightness'])
+        self.options.row_address_type = int(config['DEFAULT']['row_address_type'])
+        self.options.drop_privileges = int(config['DEFAULT']['drop_privileges'])
+
         self.path = '/home/pi/NBA-scoreboard/scoreboard/'
         
         self.font = graphics.Font()
