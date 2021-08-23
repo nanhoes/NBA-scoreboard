@@ -64,7 +64,7 @@ echo "...done"
 
 echo "Creating NBA service:"
 sudo cp ./config/NBA.service /etc/systemd/system/
-sudo sed -i -e "/\[Service\]/a ExecStart=python3 ${install_path}/scoreboard/NBA_Render.py < /dev/zero &> /dev/null &" /etc/systemd/system/NBA.service
+sudo sed -i -e "/\[Service\]/a ExecStart=python3 ${install_path}/scoreboard/NBA_Render_Big.py < /dev/zero &> /dev/null &" /etc/systemd/system/NBA.service
 sudo mkdir /etc/systemd/system/NBA.service.d
 NBA_env_path=/etc/systemd/system/NBA.service.d/NBA_env.conf
 sudo touch $NBA_env_path
