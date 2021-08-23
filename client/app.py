@@ -35,7 +35,7 @@ def saved_config():
 
 # handling form data
 @app.route('/brightness', methods=['POST'])
-def handle_brightness():
+def brightness():
     config.set('DEFAULT', 'brightness', request.form['brightness'])
     width = int(config['DEFAULT']['rows'])
     height = int(config['DEFAULT']['columns'])
@@ -63,7 +63,7 @@ def handle_brightness():
 
 # handling form data
 @app.route('/size', methods=['POST'])
-def handle_size():
+def size():
     config.set('DEFAULT', 'rows', request.form['width'])
     config.set('DEFAULT', 'columns', request.form['height'])
     brightness = int(config['DEFAULT']['brightness'])
@@ -85,72 +85,65 @@ def handle_size():
 
 # handling NBA status
 @app.route("/NBA", methods=["GET", "POST"])
-def handle_NBA():
+def NBA():
     NBA = request.form['NBA']
+    config.set('DEFAULT', 'NBA', request.form['NBA'])
     brightness = int(config['DEFAULT']['brightness'])
     width = int(config['DEFAULT']['rows'])
     height = int(config['DEFAULT']['columns'])
-    config.set('DEFAULT', 'NBA', request.form['NBA'])
     conway = config['DEFAULT']['conway']
     gif = config['DEFAULT']['gif']
     starboard = config['DEFAULT']['starboard']
-    if NBA == 'ON':
-      job = manager.StartUnit('NBA.service', 'replace')
-      job = manager.StopUnit('starboard.service', 'replace')
-      job = manager.StopUnit('conway.service', 'replace')
-      job = manager.StopUnit('gif.service', 'replace')
-    else:
-      job = manager.StopUnit('NBA.service', 'replace')
+    job = manager.StartUnit('NBA.service', 'replace')
+    job = manager.StopUnit('starboard.service', 'replace')
+    job = manager.StopUnit('conway.service', 'replace')
+    job = manager.StopUnit('gif.service', 'replace')
     return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif)
 
 # handling starboard status
 @app.route("/starboard", methods=["GET", "POST"])
-def handle_starboard():
+def starboard():
     starboard = request.form['starboard']
+    config.set('DEFAULT', 'starboard', request.form['starboard'])
     brightness = int(config['DEFAULT']['brightness'])
     width = int(config['DEFAULT']['rows'])
     height = int(config['DEFAULT']['columns'])
-    config.set('DEFAULT', 'starboard', request.form['starboard'])
     NBA = config['DEFAULT']['NBA']
     conway = config['DEFAULT']['conway']
     gif = config['DEFAULT']['gif']
-    if starboard == 'ON':
-      job = manager.StartUnit('starboard.service', 'replace')
-      job = manager.StopUnit('NBA.service', 'replace')
-      job = manager.StopUnit('conway.service', 'replace')
-      job = manager.StopUnit('gif.service', 'replace')
-    else:
-      job = manager.StopUnit('starboard.service', 'replace')
+    job = manager.StartUnit('starboard.service', 'replace')
+    job = manager.StopUnit('NBA.service', 'replace')
+    job = manager.StopUnit('conway.service', 'replace')
+    job = manager.StopUnit('gif.service', 'replace')
     return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif)
 
 # handling conway status
 @app.route("/conway", methods=["GET", "POST"])
-def handle_conway():
+def conway():
     conway = request.form['conway']
+    config.set('DEFAULT', 'conway', request.form['conway'])
     brightness = int(config['DEFAULT']['brightness'])
     width = int(config['DEFAULT']['rows'])
     height = int(config['DEFAULT']['columns'])
-    config.set('DEFAULT', 'conway', request.form['conway'])
-    NBA = config['DEFAULT']['NBA']
-    starboard = config['DEFAULT']['starboard']
+    NBA = request.form['NBA']
+    config.set('DEFAULT', 'NBA', request.form['NBA'])
+    starboard = request.form['starboard']
+    config.set('DEFAULT', 'starboard', request.form['starboard'])
     gif = config['DEFAULT']['gif']
-    if conway == 'ON':
-      job = manager.StartUnit('conway.service', 'replace')
-      job = manager.StopUnit('NBA.service', 'replace')
-      job = manager.StopUnit('starboard.service', 'replace')
-      job = manager.StopUnit('gif.service', 'replace')
-    else:
-      job = manager.StopUnit('conway.service', 'replace')
+    job = manager.StartUnit('conway.service', 'replace')
+    job = manager.StopUnit('NBA.service', 'replace')
+    job = manager.StopUnit('starboard.service', 'replace')
+    job = manager.StopUnit('gif.service', 'replace')
     return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif)
 
 # handling gif status
 @app.route("/gif", methods=["GET", "POST"])
-def handle_gif():
+def gif():
     gif = request.form['gif']
+    config.set('DEFAULT', 'gif', request.form['gif'])
     brightness = int(config['DEFAULT']['brightness'])
     width = int(config['DEFAULT']['rows'])
     height = int(config['DEFAULT']['columns'])
-    config.set('DEFAULT', 'gif', request.form['gif'])
     NBA = config['DEFAULT']['NBA']
     starboard = config['DEFAULT']['starboard']
     conway = config['DEFAULT']['conway']
@@ -165,7 +158,7 @@ def handle_gif():
 
 # handling power status
 @app.route("/off", methods=["GET", "POST"])
-def handle_off():
+def off():
     conway = config['DEFAULT']['conway']
     brightness = int(config['DEFAULT']['brightness'])
     width = int(config['DEFAULT']['rows'])
@@ -176,7 +169,7 @@ def handle_off():
     job = manager.StopUnit('conway.service', 'replace')
     job = manager.StopUnit('NBA.service', 'replace')
     job = manager.StopUnit('starboard.service', 'replace')
-    job = manager.StopUnit('gif.service', 'replace')    
+    job = manager.StopUnit('gif.service', 'replace')
     return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif)
 
-app.run(host='0.0.0.0', port=80) 
+app.run(host='0.0.0.0', port=80)
