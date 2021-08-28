@@ -11,8 +11,7 @@
 3. Open Etcher, plug SD card into computer, install raspbian image download from file.
 4. Insert the SD Card and power on your Raspberry Pi.
 5. Install the BerryLan iOS or Android App and follow the instructions.
-6. SSH into pi, run `sudo nano /boot/config.txt` set dtparam=audio=off, run `sudo raspi-config`, set network at boot on: *System Options > Network at Boot > Yes*, pick timezone: *Localisation Options > Timezone*, change hostname and password: *System Options > hostname, password*, reboot raspberry pi.
-7. Create NBAlog.txt file: `mkdir Documents && sudo touch /home/pi/Documents/NBAlog.txt && cd`
+6. SSH into pi, change hostname and password: *System Options > hostname, password*, reboot raspberry pi.
 
 ## Installation
       sudo apt-get update &&
@@ -20,7 +19,7 @@
       git clone https://github.com/nanhoes/NBA-scoreboard &&
       cd NBA-scoreboard &&
       sudo bash install.sh
-                
+
 ## Crontab (run 'sudo crontab -e', paste this crontab below ▼ at end of file)
       58 8 * * * sudo python3 /home/pi/My-NBA-scoreboard/Spreads_New_Day.py
       0 */2 * * * sudo python3 /home/pi/My-NBA-scoreboard/Spreads_Update.py
