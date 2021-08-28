@@ -3,6 +3,23 @@
 echo "Installing rpi-rgb-led-matrix:"
 git clone https://github.com/hzeller/rpi-rgb-led-matrix.git
 
+reconfig() {
+	grep $2 $1 >/dev/null
+	if [ $? -eq 0 ]; then
+		# Pattern found; replace in file
+		sed -i "s/$2/$3/g" $1 >/dev/null
+	else
+		# Not found; append (silently)
+		echo $3 | sudo tee -a $1 >/dev/null
+	fi
+}
+
+reconfig /boot/config.txt "^.*dtparam=audio.*$" "dtparam=audio=off"
+
+cd
+mkdir Documents
+sudo touch /home/pi/Documents/NBAlog.txt
+
 cd
 cd /home/pi/NBA-scoreboard/rpi-rgb-led-matrix
 
@@ -31,6 +48,9 @@ pip install flask --upgrade
 
 echo "Installing config-parser"
 git clone https://gitlab.com/chilladx/config-parser.git
+
+read -n 1 -r -s -p $'PLEASE CONFIGURE YOUR MATRIX PROFILE NOW\nCopy your profile and paste under "[DEFAULT]"\nChange gpio-mapping to your mapping: regular, adafruit-hat, adafruit-hat-pwm, or complete-module\nPRESS ANY KEY TO CONTINUE...\n'
+sudo nano config/matrix_options.ini
 
 echo "Removing NBA service if it exists:"
 sudo systemctl stop NBA
@@ -63,14 +83,15 @@ sudo systemctl daemon-reload
 echo "...done"
 
 echo "Creating NBA service:"
+sudo cp ${install_path}/NBA_start.sh /usr/bin
+sudo chmod +x /usr/bin/NBA_start.sh
 sudo cp ./config/NBA.service /etc/systemd/system/
-sudo sed -i -e "/\[Service\]/a ExecStart=python3 ${install_path}/scoreboard/NBA_Render_Big.py < /dev/zero &> /dev/null &" /etc/systemd/system/NBA.service
+sudo sed -i -e "/\[Service\]/a ExecStart=/usr/bin/NBA_start.sh < /dev/zero &> /dev/null &" /etc/systemd/system/NBA.service
 sudo mkdir /etc/systemd/system/NBA.service.d
 NBA_env_path=/etc/systemd/system/NBA.service.d/NBA_env.conf
 sudo touch $NBA_env_path
 sudo echo "[Service]" >> $NBA_env_path
 sudo systemctl daemon-reload
-sudo systemctl start NBA
 sudo systemctl enable NBA
 echo "...done"
 
