@@ -83,7 +83,7 @@ sudo systemctl daemon-reload
 echo "...done"
 
 echo "Creating NBA service:"
-sudo cp ${install_path}/NBA_start.sh /usr/bin
+sudo cp ${install_path}/service_scripts/NBA_start.sh /usr/bin
 sudo chmod +x /usr/bin/NBA_start.sh
 sudo cp ./config/NBA.service /etc/systemd/system/
 sudo sed -i -e "/\[Service\]/a ExecStart=/usr/bin/NBA_start.sh < /dev/zero &> /dev/null &" /etc/systemd/system/NBA.service
@@ -131,7 +131,7 @@ sudo systemctl disable starboard
 echo "...done"
 
 echo "Creating conway service:"
-sudo cp ${install_path}/conway_start.sh /usr/bin
+sudo cp ${install_path}/service_scripts/conway_start.sh /usr/bin
 sudo chmod +x /usr/bin/conway_start.sh
 sudo cp ./config/conway.service /etc/systemd/system/
 sudo sed -i -e "/\[Service\]/a ExecStart=/usr/bin/conway_start.sh < /dev/zero &> /dev/null &" /etc/systemd/system/conway.service
@@ -144,7 +144,7 @@ sudo systemctl disable conway
 echo "...done"
 
 echo "Creating gif service:"
-sudo cp ${install_path}/gif_start.sh /usr/bin
+sudo cp ${install_path}/service_scripts/gif_start.sh /usr/bin
 sudo chmod +x /usr/bin/gif_start.sh
 sudo cp ./config/gif.service /etc/systemd/system/
 sudo sed -i -e "/\[Service\]/a ExecStart=/usr/bin/gif_start.sh < /dev/zero &> /dev/null &" /etc/systemd/system/gif.service
