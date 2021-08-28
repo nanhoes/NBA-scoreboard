@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#HELLO
+
 echo "Installing rpi-rgb-led-matrix:"
 git clone https://github.com/hzeller/rpi-rgb-led-matrix.git
 
