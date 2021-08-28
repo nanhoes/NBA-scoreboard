@@ -6,9 +6,9 @@ import configparser
 import os
 
 mode = 1
-maxdrops = 75
+maxdrops = random.randint(20, 150)
 
-# Configuration file    
+# Configuration file
 dir = os.path.dirname(__file__)
 filename = os.path.join(dir, '../config/matrix_options.ini')
 
@@ -33,10 +33,10 @@ class Drop:
     def __init__(self):
         global mode
         self.x = 0
-        self.y = random.randint(0, 31)
+        self.y = random.randint(0, options.rows*options.parallel - 1)
         self.r = self.b = self.g = 0
         self.generateColor()
-        self.speed = 1 + (random.random() * 4)
+        self.speed = 1 + (random.random() * 3)
         self.strength = random.randint(40, 100)/100.0
     def generateColor(self):
         (r, g, b) = colorsys.hsv_to_rgb(random.random(), 1, 1)
@@ -56,12 +56,12 @@ class Drop:
         self.altb = int(b * 255)
         if (random.random() > .01 and mode == 3):
             self.r = self.g = self.b = random.randint(0, 255)
-        
+
     def tick(self):
         self.erase()
         self.x += (self.speed / 2.0)
-        if self.x > 127:
-            self.x = 127
+        if self.x > options.cols*options.chain_length - 1:
+            self.x = options.cols*options.chain_length - 1
             self.strength = 0
         self.strength = self.strength * .977
         if (self.strength < 0):
