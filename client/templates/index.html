@@ -1,18 +1,14 @@
 <!doctype html>
 <html lang="en">
+
   <head>
 
     <!-- META TAGS -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
-
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.1.0/cyborg/bootstrap.min.css" rel="stylesheet">
-    <link rel="manifest" href="/static/manifest.json"/>
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+    <link href="/static/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <style>
       .bd-placeholder-img {
@@ -28,21 +24,36 @@
           font-size: 3.5rem;
         }
       }
+
       body {
         padding-top: 5rem;
         -webkit-user-select: none;
         -webkit-tap-highlight-color: transparent;
         -webkit-touch-callout: none;
         -webkit-appearance: none;
+        touch-action: pan-y;
+        font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, Roboto, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
       }
 
       form {
         margin-bottom: 2rem;
       }
 
-      .element::-webkit-scrollbar { width: 0 !important }
+      .my-element {
+        display: inline-block;
+        margin: 0 0.5rem;
 
-      .card_animation {
+        animation: bounce;
+        /* referring directly to the animation's @keyframe declaration */
+        animation-duration: 2s;
+        /* don't forget to set a duration! */
+      }
+
+      .element::-webkit-scrollbar {
+        width: 0 !important
+      }
+
+      .card_border_radius {
         outline: none;
         color: none;
         background-color: none;
@@ -67,7 +78,7 @@
         text-align: center;
       }
 
-      .on_button:active {
+      .on_button:hover {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -82,26 +93,27 @@
         cursor: pointer;
         border-radius: 15px;
         text-align: center;
-        box-shadow: 0 0 8px #999;
       }
 
       /* Ripple effect */
       .on_ripple {
         background-position: center;
-        transition: background 0.3s;
+        transition: background 0.8s;
       }
+
       .on_ripple:hover {
-        background: #47474700 radial-gradient(circle, transparent 1%, #000000 1%) center/15000%;
+        background: #47474700
       }
+
       .on_ripple:active {
-        background-color: #a6a6a6;
+        background-color: #171717;
         background-size: 100%;
         transition: background 0s;
       }
 
       .off_button {
-        width:60px;
-        padding:8px;
+        width: 60px;
+        padding: 8px;
         font-size: 14px;
         text-align: center;
         cursor: pointer;
@@ -118,9 +130,11 @@
         background-position: center;
         transition: background 0.8s;
       }
+
       .off_ripple:hover {
         background: #cc0000 radial-gradient(circle, transparent 1%, #cc0000 1%) center/15000%;
       }
+
       .off_ripple:active {
         background-color: #ffffff;
         background-size: 100%;
@@ -130,311 +144,345 @@
     </style>
 
     <title>NBA Scoreboard</title>
-    <link rel="apple-touch-icon" sizes="128x128" href="https://appiconmaker.co/home/appicon/e6a57129-8323-4638-994f-7e6f873aa02b?size=128">
+    <link rel="apple-touch-icon" sizes="128x128" href="/static/icons/Icon-128.png">
 
-    <link href="/splashscreens/iphone5_splash.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
-    <link href="/splashscreens/iphone6_splash.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
-    <link href="/splashscreens/iphoneplus_splash.png" media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
-    <link href="/splashscreens/iphonex_splash.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
-    <link href="/splashscreens/iphonexr_splash.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
-    <link href="/splashscreens/iphonexsmax_splash.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
-    <link href="/splashscreens/ipad_splash.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
-    <link href="/splashscreens/ipadpro1_splash.png" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
-    <link href="/splashscreens/ipadpro3_splash.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
-    <link href="/splashscreens/ipadpro2_splash.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="/static/splashscreens/iphone5_splash.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="/static/splashscreens/iphone6_splash.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="/static/splashscreens/iphoneplus_splash.png" media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+    <link href="/static/splashscreens/iphonex_splash.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+    <link href="/static/splashscreens/iphonexr_splash.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="/static/splashscreens/iphonexsmax_splash.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+    <link href="/static/splashscreens/ipad_splash.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="/static/splashscreens/ipadpro1_splash.png" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="/static/splashscreens/ipadpro3_splash.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="/static/splashscreens/ipadpro2_splash.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
 
 
   </head>
+
   <body class="bg-black">
 
-<nav class="navbar navbar-expand-md navbar-dark bg-black fixed-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <img src="https://appiconmaker.co/home/appicon/e6a57129-8323-4638-994f-7e6f873aa02b?size=29" width="29" height="29" class="rounded d-inline-block align-top" alt="">
-      &nbsp;
-      NBA Scoreboard
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <nav class="navbar navbar-expand-md navbar-dark bg-black fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="/static/icons/Icon-29.png" width="29" height="29" class="rounded d-inline-block align-top" alt="">
+          &nbsp;
+          NBA Scoreboard
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-      <ul class="navbar-nav me-auto mb-2 mb-md-0">
-        <li class="nav-item active">
-          <a class="nav-link" aria-current="page" href="#">Boards</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://github.com/nanhoes/NBA-scoreboard">Github</a>
-        </li>
-    </div>
-  </div>
-</nav>
-
-<main class="container">
-
-<div class="container">
- <!-- COLUMNS -->
-<center>
-  <!--NBA-->
-  <div class="row align-items-center">
-    <form action="/NBA", method="POST" id="NBA">
-      <div class="col">
-        <div class="card border-light bg-black mb-3 card_animation" style="max-width: 20rem;">
-        <div class="card-body">
-          <img src="https://i.ibb.co/swvLczb/scoreboard.gif" class="rounded" alt="...">
-          <input type="submit" class="on_button on_ripple"></input>
-       </div>
-        <div class="card-footer">NBA</div>
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item active">
+              <a class="nav-link" aria-current="page" href="#">Boards</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/nanhoes/NBA-scoreboard">Github</a>
+            </li>
         </div>
       </div>
-    </form>
-  </div>
-  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-   <script type="text/javascript">
-    $(document).on('submit','#NBA',function(e)
-          {
-    console.log('hello');
-    e.preventDefault();
-    $.ajax({
-      type:'POST',
-      url:'/NBA',
-      data:{
-        NBA:'ON'
-      },
-      success:function()
-      {
-      }
-    })
-    });
-   </script>
+    </nav>
 
-   <!--CONWAY-->
-   <div class="row align-items-center">
-     <form action="/conway", method="POST" id="CONWAY">
-       <div class="col">
-         <div class="card border-light bg-black mb-3 card_animation" style="max-width: 20rem;">
-         <div class="card-body">
-           <img src="https://i.ibb.co/kHVqdj0/conwayboard.gif" class="rounded" alt="...">
-           <input type="submit" class="on_button"></input>
-        </div>
-         <div class="card-footer">Conway</div>
-         </div>
-       </div>
-     </form>
-   </div>
+    <main class="container">
 
-    <script type="text/javascript">
-     $(document).on('submit','#CONWAY',function(e)
-           {
-     console.log('hello');
-     e.preventDefault();
-     $.ajax({
-       type:'POST',
-       url:'/conway',
-       data:{
-         conway:'ON',
-         NBA: 'OFF',
-         starboard: 'OFF'
-       },
-       success:function()
-       {
-       }
-     })
-     });
-    </script>
-
-    <!--STARBOARD-->
-    <div class="row align-items-center">
-      <form action="/starboard", method="POST" id="STARBOARD">
-        <div class="col">
-          <div class="card border-light bg-black mb-3 card_animation" style="max-width: 20rem;">
-          <div class="card-body">
-            <img src="https://i.ibb.co/gWtRwWG/starboard.gif" class="rounded" alt="...">
-            <input type="submit" class="on_button"></input>
-         </div>
-          <div class="card-footer">Starboard</div>
-          </div>
-        </div>
-      </form>
-    </div>
-
-     <script type="text/javascript">
-      $(document).on('submit','#STARBOARD',function(e)
-            {
-      console.log('hello');
-      e.preventDefault();
-      $.ajax({
-        type:'POST',
-        url:'/starboard',
-        data:{
-          starboard:'ON'
-        },
-        success:function()
-        {
-        }
-      })
-      });
-     </script>
-
-     <!--FIRE-->
-     <div class="row align-items-center">
-       <form action="/gif", method="POST" id="FIRE">
-         <div class="col">
-           <div class="card border-light bg-black mb-3 card_animation" style="max-width: 20rem;">
-           <div class="card-body">
-             <img src="https://i.ibb.co/s18rBY5/Fire.gif" class="rounded" alt="...">
-             <input type="submit" class="on_button"></input>
- 		      </div>
-           <div class="card-footer">Fire</div>
-           </div>
-         </div>
-       </form>
-     </div>
-
-      <script type="text/javascript">
-       $(document).on('submit','#FIRE',function(e)
-             {
-       console.log('hello');
-       e.preventDefault();
-       $.ajax({
-         type:'POST',
-         url:'/gif',
-         data:{
-           gif:'fire.gif'
-         },
-         success:function()
-         {
-         }
-       })
-       });
-      </script>
-
-      <!--TECH-->
-      <div class="row align-items-center">
-        <form action="/gif", method="POST" id="TECH">
-          <div class="col">
-            <div class="card border-light bg-black mb-3 card_animation" style="max-width: 20rem;">
-            <div class="card-body">
-              <img src="https://i.ibb.co/RQhXv2m/Tech.gif" class="rounded" alt="...">
-              <input type="submit" class="on_button"></input>
-  		      </div>
-            <div class="card-footer">Tech</div>
-            </div>
-          </div>
-        </form>
-      </div>
-
-       <script type="text/javascript">
-        $(document).on('submit','#TECH',function(e)
-              {
-        console.log('hello');
-        e.preventDefault();
-        $.ajax({
-          type:'POST',
-          url:'/gif',
-          data:{
-            gif:'tech.gif'
-          },
-          success:function()
-          {
-          }
-        })
-        });
-       </script>
-
-       <!--GALACTIC-->
-       <div class="row align-items-center">
-         <form action="/gif", method="POST" id="GALACTIC">
-           <div class="col">
-             <div class="card border-light bg-black mb-3 card_animation" style="max-width: 20rem;">
-             <div class="card-body">
-               <img src="https://i.ibb.co/kSjfpCJ/Galactic.gif" class="rounded" alt="...">
-               <input type="submit" class="on_button"></input>
-   		      </div>
-             <div class="card-footer">Galactic</div>
-             </div>
-           </div>
-         </form>
-       </div>
-
-        <script type="text/javascript">
-         $(document).on('submit','#GALACTIC',function(e)
-               {
-         console.log('hello');
-         e.preventDefault();
-         $.ajax({
-           type:'POST',
-           url:'/gif',
-           data:{
-             gif:'galactic.gif'
-           },
-           success:function()
-           {
-           }
-         })
-         });
-        </script>
-
-        <!--Luna-->
-        <div class="row align-items-center">
-          <form action="/gif", method="POST" id="Luna">
-            <div class="col">
-              <div class="card border-light bg-black mb-3 card_animation" style="max-width: 20rem;">
-              <div class="card-body">
-                <img src="https://i.ibb.co/qgfVxNX/Luna.gif" class="rounded" alt="...">
-                <input type="submit" class="on_button"></input>
-    		      </div>
-              <div class="card-footer">Luna</div>
+      <div class="container">
+        <!-- COLUMNS -->
+        <center>
+          <!--NBA-->
+          <div class="row align-items-center">
+            <form action="/NBA" , method="POST" id="NBA">
+              <div class="col">
+                <div class="card border-dark bg-black mb-3 card_border_radius" style="max-width: 20rem;">
+                  <div class="card-body">
+                    <img src="/static/app_images/NBA.gif" class="rounded" alt="...">
+                    <input type="submit" class="on_button on_ripple"></input>
+                  </div>
+                  <div class="card-footer bg-transparent">
+                    NBA
+                  </div>
+                </div>
               </div>
+            </form>
+          </div>
+          <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+          <script type="text/javascript">
+            $(document).on('submit', '#NBA', function(e) {
+              console.log('hello');
+              e.preventDefault();
+              $.ajax({
+                type: 'POST',
+                url: '/NBA',
+                data: {
+                  NBA: 'ON'
+                },
+                success: function() {}
+              })
+            });
+
+          </script>
+
+          <!--CONWAY-->
+          <div class="row align-items-center">
+            <form action="/conway" , method="POST" id="CONWAY">
+              <div class="col">
+                <div class="card border-dark bg-black mb-3 card_border_radius" style="max-width: 20rem;">
+                  <div class="card-body">
+                    <img src="/static/app_images/conway.gif" class="rounded" alt="...">
+                    <input type="submit" class="on_button on_ripple"></input>
+                  </div>
+                  <div class="card-footer bg-transparent">
+                    Conway
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <script type="text/javascript">
+            $(document).on('submit', '#CONWAY', function(e) {
+              console.log('hello');
+              e.preventDefault();
+              $.ajax({
+                type: 'POST',
+                url: '/conway',
+                data: {
+                  conway: 'ON',
+                },
+                success: function() {}
+              })
+            });
+
+          </script>
+
+          <!--STARBOARD-->
+          <div class="row align-items-center">
+            <form action="/starboard" , method="POST" id="STARBOARD">
+              <div class="col">
+                <div class="card border-dark bg-black mb-3 card_border_radius" style="max-width: 20rem;">
+                  <div class="card-body">
+                    <img src="/static/app_images/starboard.gif" class="rounded" alt="...">
+                    <input type="submit" class="on_button on_ripple"></input>
+                  </div>
+                  <div class="card-footer bg-transparent">
+                    Stars
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <script type="text/javascript">
+            $(document).on('submit', '#STARBOARD', function(e) {
+              console.log('hello');
+              e.preventDefault();
+              $.ajax({
+                type: 'POST',
+                url: '/starboard',
+                data: {
+                  starboard: 'ON'
+                },
+                success: function() {}
+              })
+            });
+
+          </script>
+
+          <!--FIRE-->
+          <div class="row align-items-center">
+            <form action="/gif" , method="POST" id="FIRE">
+              <div class="col">
+                <div class="card border-dark bg-black mb-3 card_border_radius" style="max-width: 20rem;">
+                  <div class="card-body">
+                    <img src="/static/app_images/fire.gif" class="rounded" alt="...">
+                    <input type="submit" class="on_button on_ripple"></input>
+                  </div>
+                  <div class="card-footer bg-transparent">
+                    Fire
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <script type="text/javascript">
+            $(document).on('submit', '#FIRE', function(e) {
+              console.log('hello');
+              e.preventDefault();
+              $.ajax({
+                type: 'POST',
+                url: '/gif',
+                data: {
+                  gif: 'fire.gif',
+                  conway: 'OFF',
+                  starboard: 'OFF',
+                  NBA: 'OFF'
+                },
+                success: function() {}
+              })
+            });
+
+          </script>
+
+          <!--LEVERAGE-->
+          <div class="row align-items-center">
+            <form action="/gif" , method="POST" id="LEVERAGE">
+              <div class="col">
+                <div class="card border-dark bg-black mb-3 card_border_radius" style="max-width: 20rem;">
+                  <div class="card-body">
+                    <img src="/static/app_images/leverage.gif" class="rounded" alt="...">
+                    <input type="submit" class="on_button on_ripple"></input>
+                  </div>
+                  <div class="card-footer bg-transparent">
+                    Leverage
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <script type="text/javascript">
+            $(document).on('submit', '#LEVERAGE', function(e) {
+              console.log('hello');
+              e.preventDefault();
+              $.ajax({
+                type: 'POST',
+                url: '/gif',
+                data: {
+                  gif: 'leverage.gif'
+                },
+                success: function() {}
+              })
+            });
+
+          </script>
+
+          <!--TECH-->
+          <div class="row align-items-center">
+            <form action="/gif" , method="POST" id="TECH">
+              <div class="col">
+                <div class="card border-dark bg-black mb-3 card_border_radius" style="max-width: 20rem;">
+                  <div class="card-body">
+                    <img src="/static/app_images/tech.gif" class="rounded" alt="...">
+                    <input type="submit" class="on_button on_ripple"></input>
+                  </div>
+                  <div class="card-footer bg-transparent">
+                    Tech
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <script type="text/javascript">
+            $(document).on('submit', '#TECH', function(e) {
+              console.log('hello');
+              e.preventDefault();
+              $.ajax({
+                type: 'POST',
+                url: '/gif',
+                data: {
+                  gif: 'tech.gif'
+                },
+                success: function() {}
+              })
+            });
+
+          </script>
+
+          <!--GALACTIC-->
+          <div class="row align-items-center">
+            <form action="/gif" , method="POST" id="GALACTIC">
+              <div class="col">
+                <div class="card border-dark bg-black mb-3 card_border_radius" style="max-width: 20rem;">
+                  <div class="card-body">
+                    <img src="/static/app_images/galactic.gif" class="rounded" alt="...">
+                    <input type="submit" class="on_button on_ripple"></input>
+                  </div>
+                  <div class="card-footer bg-transparent">
+                    Galactic
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <script type="text/javascript">
+            $(document).on('submit', '#GALACTIC', function(e) {
+              console.log('hello');
+              e.preventDefault();
+              $.ajax({
+                type: 'POST',
+                url: '/gif',
+                data: {
+                  gif: 'galactic.gif'
+                },
+                success: function() {}
+              })
+            });
+
+          </script>
+
+          <!--Luna-->
+          <div class="row align-items-center">
+            <form action="/gif" , method="POST" id="Luna">
+              <div class="col">
+                <div class="card border-dark bg-black mb-3 card_border_radius" style="max-width: 20rem;">
+                  <div class="card-body">
+                    <img src="/static/app_images/luna.gif" class="rounded" alt="...">
+                    <input type="submit" class="on_button on_ripple"></input>
+                  </div>
+                  <div class="card-footer bg-transparent">
+                    Luna
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <script type="text/javascript">
+            $(document).on('submit', '#Luna', function(e) {
+              console.log('hello');
+              e.preventDefault();
+              $.ajax({
+                type: 'POST',
+                url: '/gif',
+                data: {
+                  gif: 'luna.gif'
+                },
+                success: function() {}
+              })
+            });
+
+          </script>
+
+          <!-- OFF -->
+          <form action="/off" , method="POST" id="OFF">
+            <div class="form-group">
+              <input type="submit" class="off_ripple off_button" value="OFF" id="OFF"></input>
             </div>
           </form>
-        </div>
 
-         <script type="text/javascript">
-          $(document).on('submit','#Luna',function(e)
-                {
-          console.log('hello');
-          e.preventDefault();
-          $.ajax({
-            type:'POST',
-            url:'/gif',
-            data:{
-              gif:'luna.gif'
-            },
-            success:function()
-            {
-            }
-          })
-          });
-         </script>
+          <script type="text/javascript">
+            $(document).on('submit', '#OFF', function(e) {
+              console.log('hello');
+              e.preventDefault();
+              $.ajax({
+                type: 'POST',
+                url: '/off',
+                data: {
+                  OFF: $("#OFF").val()
+                },
+                success: function() {}
+              })
+            });
 
-      <!-- OFF -->
-        <form action="/off", method="POST" id="OFF">
-          <div class="form-group">
-            <input type="submit" class="off_ripple off_button" value="OFF" id="OFF"></input>
-          </div>
-        </form>
+          </script>
 
-        <script type="text/javascript">
-          $(document).on('submit','#OFF',function(e)
-                {
-          console.log('hello');
-          e.preventDefault();
-          $.ajax({
-            type:'POST',
-            url:'/off',
-            data:{
-            OFF:$("#OFF").val()
-            },
-            success:function()
-            {
-            }
-          })
-          });
-        </script>
+  </body>
 
-    </body>
-    </html>
+</html>
 
 </div>
 </center>
@@ -445,8 +493,9 @@
 &nbsp;
 &nbsp;
 
-    <!-- Bootstrap JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<!-- Bootstrap JavaScript -->
+<script src="/static/bootstrap.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-  </body>
+</body>
+
 </html>
