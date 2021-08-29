@@ -12,6 +12,7 @@
 4. Insert the SD Card and power on your Raspberry Pi.
 5. Install the BerryLan iOS or Android App and follow the instructions.
 6. SSH into pi, change hostname and password: *System Options > hostname, password*, reboot raspberry pi.
+7. Create NBAlog.txt file: mkdir Documents && sudo touch /home/pi/Documents/NBAlog.txt && cd
 
 ## Installation
       sudo apt-get update &&
