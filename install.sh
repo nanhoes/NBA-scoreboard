@@ -51,7 +51,7 @@ pip install flask --upgrade
 echo "Installing config-parser"
 git clone https://gitlab.com/chilladx/config-parser.git
 
-read -n 1 -r -s -p $'PLEASE CONFIGURE YOUR MATRIX PROFILE NOW\nCopy your profile and paste under "[DEFAULT]"\nChange gpio-mapping to your mapping: regular, adafruit-hat, adafruit-hat-pwm, or complete-module\nPRESS ANY KEY TO CONTINUE...\n'
+read -n 1 -r -s -p $'\n----------------------------------\nPLEASE CONFIGURE YOUR MATRIX PROFILE NOW\nCopy your profile and paste under "[DEFAULT]"\nChange gpio-mapping to your mapping: regular, adafruit-hat, adafruit-hat-pwm, or complete-module\nPRESS ANY KEY TO CONTINUE...\n'
 sudo nano config/matrix_options.ini
 
 echo "Removing NBA service if it exists:"
