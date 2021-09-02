@@ -1,0 +1,12 @@
+[Unit]
+Description=Gunicorn instance to serve app
+After=network.target
+
+[Service]
+User=pi
+Group=www-data
+WorkingDirectory=/home/pi/NBA-scoreboard/client
+Environment="PATH=/home/pi/NBA-scoreboard/client/NBA-scoreboard-venv/bin"
+
+[Install]
+WantedBy=multi-user.target
