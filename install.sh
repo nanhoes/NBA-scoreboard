@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#HELLO
-
 echo "Installing rpi-rgb-led-matrix:"
 git clone https://github.com/hzeller/rpi-rgb-led-matrix.git
 
@@ -26,7 +24,7 @@ cd
 cd /home/pi/NBA-scoreboard/rpi-rgb-led-matrix
 
 echo "Installing python3:"
-sudo apt-get update && sudo apt-get install python3-dev python3-pillow -y
+sudo apt-get update && sudo apt-get install python3-pip python3-dev python3-pillow -y
 make build-python PYTHON=$(which python3)
 sudo make install-python PYTHON=$(which python3)
 sudo apt-get install python3-bs4
@@ -42,11 +40,39 @@ cd
 sudo apt-get install otf2bdf
 cd /home/pi/NBA-scoreboard
 otf2bdf -v -o Minimal-Mono-Bold.bdf -r 72 -p 18 /home/pi/NBA-scoreboard/Minimal-Mono-Bold.otf
-cd /home/pi/NBA-scoreboard
 
+cd /home/pi/NBA-scoreboard/client
+
+echo "Installing nginx:"
+sudo apt-get nginx
+
+echo "Creating virtual environment:"
+python3 -m venv NBA-scoreboard-venv
+source NBA-scoreboard-venv/bin/activate
+
+echo "Installing flask and gunicorn:"
+pip install gunicorn flask
+
+deactivate
+
+echo "Removing client service if it exists:"
+sudo systemctl stop client
+sudo rm -rf /etc/systemd/system/client.*
+sudo systemctl daemon-reload
+echo "...done"
+
+echo "Creating client service:"
+sudo cp ./config/client.service /etc/systemd/system/
+sudo sed -i -e "/\[Service\]/a ExecStart=/home/pi/.local/bin/gunicorn --workers 3 --bind unix:app.sock -m 007 wsgi:app &" /etc/systemd/system/client.service
+sudo systemctl daemon-reload
+sudo systemctl start client
+sudo systemctl enable client
+echo "...done"
+
+cd /etc/nginx/
+
+cd /home/pi/NBA-scoreboard
 install_path=$(pwd)
-echo "Installing flask library:"
-pip install flask --upgrade
 
 echo "Installing config-parser"
 git clone https://gitlab.com/chilladx/config-parser.git
@@ -57,12 +83,6 @@ sudo nano config/matrix_options.ini
 echo "Removing NBA service if it exists:"
 sudo systemctl stop NBA
 sudo rm -rf /etc/systemd/system/NBA.*
-sudo systemctl daemon-reload
-echo "...done"
-
-echo "Removing render-client service if it exists:"
-sudo systemctl stop render-client
-sudo rm -rf /etc/systemd/system/render-client.*
 sudo systemctl daemon-reload
 echo "...done"
 
@@ -156,14 +176,6 @@ sudo touch $gif_env_path
 sudo echo "[Service]" >> $gif_env_path
 sudo systemctl daemon-reload
 sudo systemctl disable gif
-echo "...done"
-
-echo "Creating render-client service:"
-sudo cp ./config/render-client.service /etc/systemd/system/
-sudo sed -i -e "/\[Service\]/a ExecStart=python ${install_path}/client/app.py &" /etc/systemd/system/render-client.service
-sudo systemctl daemon-reload
-sudo systemctl start render-client
-sudo systemctl enable render-client
 echo "...done"
 
 echo -n "In order to finish setup a reboot is necessary..."
