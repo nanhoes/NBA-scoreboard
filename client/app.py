@@ -164,4 +164,5 @@ def off():
     job = manager.StopUnit('gif.service', 'replace')
     return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif)
 
-app.run(host='0.0.0.0', port=80)
+if __name__ == "__main__":
+    app.run(host='0.0.0.0')
