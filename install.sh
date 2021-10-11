@@ -39,7 +39,9 @@ echo "Installing font dependencies:"
 cd
 sudo apt-get install otf2bdf
 cd /home/pi/NBA-scoreboard
-otf2bdf -v -o Minimal-Mono-Bold.bdf -r 72 -p 18 /home/pi/NBA-scoreboard/Minimal-Mono-Bold.otf
+otf2bdf -v -o Minimal-Mono-Bold-15.bdf -r 72 -p 15 /home/pi/NBA-scoreboard/Minimal-Mono-Bold.otf
+otf2bdf -v -o Minimal-Mono-Bold-19.bdf -r 72 -p 19 /home/pi/NBA-scoreboard/Minimal-Mono-Bold.otf
+otf2bdf -v -o Minimal-Mono-Bold-28.bdf -r 72 -p 28 /home/pi/NBA-scoreboard/Minimal-Mono-Bold.otf
 
 cd /home/pi/NBA-scoreboard/client
 
@@ -127,18 +129,6 @@ sudo echo "[Service]" >> $data_env_path
 sudo systemctl daemon-reload
 sudo systemctl start data
 sudo systemctl enable data
-echo "...done"
-
-echo "Creating spreads service:"
-sudo cp ./config/spreads.service /etc/systemd/system/
-sudo sed -i -e "/\[Service\]/a ExecStart=python3 ${install_path}/scoreboard/NBA_Spreads.py < /dev/zero &> /dev/null &" /etc/systemd/system/spreads.service
-sudo mkdir /etc/systemd/system/spreads.service.d
-spreads_env_path=/etc/systemd/system/spreads.service.d/spreads_env.conf
-sudo touch $spreads_env_path
-sudo echo "[Service]" >> $spreads_env_path
-sudo systemctl daemon-reload
-sudo systemctl start spreads
-sudo systemctl enable spreads
 echo "...done"
 
 echo "Creating starboard service:"
