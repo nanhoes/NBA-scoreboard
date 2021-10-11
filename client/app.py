@@ -139,6 +139,9 @@ def conway():
 def gif():
     gif = request.form['gif']
     config.set('DEFAULT', 'gif', request.form['gif'])
+    brightness = int(config['DEFAULT']['brightness'])
+    width = int(config['DEFAULT']['rows'])
+    height = int(config['DEFAULT']['columns'])
     job = manager.StopUnit('NBA.service', 'replace')
     job = manager.StopUnit('starboard.service', 'replace')
     job = manager.StopUnit('conway.service', 'replace')
