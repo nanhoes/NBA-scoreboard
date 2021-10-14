@@ -23,8 +23,8 @@ class Render:
         self.options = RGBMatrixOptions()
         self.options.rows = int(config['DEFAULT']['rows'])
         self.options.cols = int(config['DEFAULT']['columns'])
-        self.options.chain_length = int(config['DEFAULT']['chain_length'])
-        self.options.parallel = int(config['DEFAULT']['parallel'])
+        self.options.chain_length = 3
+        self.options.parallel = 3
         self.options.hardware_mapping = config['DEFAULT']['hardware_mapping']
         self.options.gpio_slowdown = 3
         self.options.brightness = int(config['DEFAULT']['brightness'])
@@ -36,23 +36,23 @@ class Render:
         self.path = '/home/pi/NBA-scoreboard/scoreboard/'
 
         self.font = graphics.Font()
-        self.font.LoadFont("/home/pi/NBA-scoreboard/Minimal-Mono-Bold.bdf")
+        self.font.LoadFont("/home/pi/NBA-scoreboard/Minimal-Mono-Bold-28.bdf") # TEAM NAME AND SCORES
         self.font2 = graphics.Font()
         self.font2.LoadFont(
-            "/home/pi/NBA-scoreboard/rpi-rgb-led-matrix/fonts/8x13B.bdf")
+            "/home/pi/NBA-scoreboard/Minimal-Mono-Bold-15.bdf") # RECORDS & ODDS
         self.font3 = graphics.Font()
         self.font3.LoadFont(
-            "/home/pi/NBA-scoreboard/rpi-rgb-led-matrix/fonts/9x18B.bdf")
+            "/home/pi/NBA-scoreboard/Minimal-Mono-Bold-19.bdf") # TIME
         self.font4 = graphics.Font()
         self.font4.LoadFont(
-            "/home/pi/NBA-scoreboard/rpi-rgb-led-matrix/fonts/5x8.bdf")
+            "/home/pi/NBA-scoreboard/rpi-rgb-led-matrix/fonts/8x13B.bdf") # STATLINE
         self.team_colors = {'ATL': [[225, 58, 62], [255, 255, 255]], 'BOS': [[0, 131, 72], [255, 205, 112]], 'BKN': [[100, 100, 100], [0, 0, 0]], 'CHA': [[29, 17, 96], [0, 140, 168]], 'CHI': [[206, 17, 65], [0, 0, 0]], 'CLE': [[134, 0, 56], [253, 187, 48]], 'DAL': [[0, 125, 197], [196, 206, 211]], 'DEN': [[77, 144, 205], [253, 185, 39]], 'DET': [[237, 23, 76], [0, 107, 182]], 'GSW': [[253, 185, 39], [0, 107, 182]], 'HOU': [[206, 17, 65], [196, 206, 211]], 'LAL': [[253, 185, 39], [85, 37, 130]], 'MEM': [[15, 88, 108], [190, 212, 233]], 'MIA': [[152, 0, 46], [0, 0, 0]], 'MIL': [[0, 71, 27], [
             240, 235, 210]], 'MIN': [[0, 80, 131], [0, 169, 79]], 'NOP': [[0, 43, 92], [227, 24, 55]], 'NYK': [[0, 107, 182], [245, 132, 38]], 'OKC': [[0, 125, 195], [240, 81, 51]], 'ORL': [[0, 125, 197], [0, 0, 0]], 'PHI': [[237, 23, 76], [0, 107, 182]], 'PHX': [[229, 96, 32], [29, 17, 96]], 'POR': [[224, 58, 62], [186, 195, 201]], 'SAC': [[114, 76, 159], [200, 200, 200]], 'SAS': [[186, 195, 201], [0, 0, 0]], 'TOR': [[206, 17, 65], [0, 0, 0]], 'UTA': [[0, 43, 92], [249, 160, 27]], 'WAS': [[0, 43, 92], [227, 24, 55]], 'IND': [[255, 198, 51], [0, 39, 93]], 'LAC': [[237, 23, 76], [0, 107, 182]]}
 
     def Render_Games(self, printer=False):
         matrix = RGBMatrix(options=self.options)
         date_range = []
-        disp_live_odds = True
+        disp_live_odds = False
         try:
             for day in os.listdir(self.path):
                 if day == '.DS_Store':
@@ -147,65 +147,104 @@ class Render:
 
             posx = 5
             len1 = 0
-            while True:
-                for line in range(0, 64):
-                    graphics.DrawLine(canvas, 0, line, 128, line, graphics.Color(
-                        0, 0, 0))  # clearing matrix
+            x_offset_stats = 0
+            y_offset_stats = 0
+            x_offset_no_stats = 0
+            y_offset_no_stats = 11
 
-                for line in range(20, 38):  # team color square
-                    graphics.DrawLine(canvas, 0, line, 38, line, graphics.Color(
+            while True:
+                # CLEARING MATRIX
+                for line in range(0, 96):
+                    graphics.DrawLine(canvas, 0, line, 192, line, graphics.Color(
+                        0, 0, 0))
+
+                # TEAM COLOR SQUARE
+                for line in range(31, 61):
+                    graphics.DrawLine(canvas, 0, line, 64, line, graphics.Color(
                         self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]))
-                for line in range(0, 18):  # team color square
-                    graphics.DrawLine(canvas, 0, line, 38, line, graphics.Color(
+                for line in range(0, 30):
+                    graphics.DrawLine(canvas, 0, line, 64, line, graphics.Color(
                         self.team_colors[awayteam][0][0], self.team_colors[awayteam][0][1], self.team_colors[awayteam][0][2]))
 
-                if game['gameStatus'] != 1:  # white square for score
-                    for line in range(20, 38):
-                        graphics.DrawLine(canvas, 39, line, 77,
-                                          line, graphics.Color(255, 255, 255))
-                    for line in range(0, 18):
-                        graphics.DrawLine(canvas, 39, line, 77,
-                                          line, graphics.Color(255, 255, 255))
-
-                    # NBA Logo
-                    for line in range(38, 52):
-                        graphics.DrawLine(canvas, 116, line,
-                                          119, line, graphics.Color(0, 0, 255))
-                        graphics.DrawLine(canvas, 120, line,
-                                          121, line, graphics.Color(255, 0, 0))
-                    for line in range(41, 45):
-                        graphics.DrawLine(
-                            canvas, 116, line, 116, line, graphics.Color(255, 255, 255))
-                    for line in range(40, 46):
-                        graphics.DrawLine(
-                            canvas, 117, line, 117, line, graphics.Color(255, 255, 255))
-                    for line in range(39, 47):
-                        graphics.DrawLine(
-                            canvas, 118, line, 118, line, graphics.Color(255, 255, 255))
-                    for line in range(38, 49):
-                        graphics.DrawLine(
-                            canvas, 119, line, 119, line, graphics.Color(255, 255, 255))
-                    for line in range(43, 44):
-                        graphics.DrawLine(canvas, 119, line,
-                                          119, line, graphics.Color(255, 0, 0))
-                    for line in range(41, 46):
-                        graphics.DrawLine(
-                            canvas, 120, line, 120, line, graphics.Color(255, 255, 255))
-                    for line in range(48, 52):
-                        graphics.DrawLine(
-                            canvas, 120, line, 120, line, graphics.Color(255, 255, 255))
-                    for line in range(45, 46):
-                        graphics.DrawLine(
-                            canvas, 121, line, 121, line, graphics.Color(255, 255, 255))
-
-                graphics.DrawText(canvas, self.font2, 127 - len(str(over_under))
-                                  * 8, 14, graphics.Color(0, 0, 255), over_under)
-                graphics.DrawText(canvas, self.font2, 127 - len(str(spread))
-                                  * 8, 34, graphics.Color(0, 0, 255), spread)
-                graphics.DrawText(canvas, self.font, 2, 36, graphics.Color(
+                # TEAM NAMES
+                graphics.DrawText(canvas, self.font, 4, 57, graphics.Color(
                     self.team_colors[hometeam][1][0], self.team_colors[hometeam][1][1], self.team_colors[hometeam][1][2]), hometeam)
-                graphics.DrawText(canvas, self.font, 2, 16, graphics.Color(
+                graphics.DrawText(canvas, self.font, 4, 26, graphics.Color(
                     self.team_colors[awayteam][1][0], self.team_colors[awayteam][1][1], self.team_colors[awayteam][1][2]), awayteam)
+
+                # BETTING ODDS
+                graphics.DrawText(canvas, self.font2, 177 - len(str(over_under))
+                                  * 8, 21, graphics.Color(0, 0, 255), over_under)
+                graphics.DrawText(canvas, self.font2, 177 - len(str(spread))
+                                  * 8, 51, graphics.Color(0, 0, 255), spread)
+
+                if game['gameStatus'] != 1:  # WHITE SQUARE FOR SCORE
+                    for line in range(31, 61):
+                        graphics.DrawLine(canvas, 65, line, 129,
+                                          line, graphics.Color(255, 255, 255))
+                    for line in range(0, 30):
+                        graphics.DrawLine(canvas, 65, line, 129,
+                                          line, graphics.Color(255, 255, 255))
+                    # NBA Logo
+                    for line in range(55+y_offset_stats, 80+y_offset_stats):
+                        graphics.DrawLine(canvas, 178+x_offset_stats, line,
+                                          188+x_offset_stats, line, graphics.Color(0, 0, 255))
+                        graphics.DrawLine(canvas, 188+x_offset_stats, line,
+                                          188+x_offset_stats, line, graphics.Color(255, 0, 0))
+                    for line in range(55+y_offset_stats, 76+y_offset_stats):
+                        graphics.DrawLine(canvas, 185+x_offset_stats, line,
+                                          187+x_offset_stats, line, graphics.Color(255, 0, 0))
+                    for line in range(63+y_offset_stats, 66+y_offset_stats):
+                        graphics.DrawLine(canvas, 178+x_offset_stats, line,
+                                          178+x_offset_stats, line, graphics.Color(255, 255, 255))
+                    for line in range(60+y_offset_stats, 69+y_offset_stats):
+                        graphics.DrawLine(canvas, 179+x_offset_stats, line,
+                                          179+x_offset_stats, line, graphics.Color(255, 255, 255))
+                    for line in range(59+y_offset_stats, 71+y_offset_stats):
+                        graphics.DrawLine(canvas, 180+x_offset_stats, line,
+                                          180+x_offset_stats, line, graphics.Color(255, 255, 255))
+                    for line in range(59+y_offset_stats, 72+y_offset_stats):
+                        graphics.DrawLine(canvas, 181+x_offset_stats, line,
+                                          181+x_offset_stats, line, graphics.Color(255, 255, 255))
+                    for line in range(58+y_offset_stats, 73+y_offset_stats):
+                        graphics.DrawLine(canvas, 182+x_offset_stats, line,
+                                          182+x_offset_stats, line, graphics.Color(255, 255, 255))
+                    for line in range(55+y_offset_stats, 74+y_offset_stats):
+                        graphics.DrawLine(canvas, 183+x_offset_stats, line,
+                                          183+x_offset_stats, line, graphics.Color(255, 255, 255))
+                    for line in range(55+y_offset_stats, 64+y_offset_stats):
+                        graphics.DrawLine(canvas, 184+x_offset_stats, line,
+                                          184+x_offset_stats, line, graphics.Color(255, 255, 255))
+                    for line in range(64+y_offset_stats, 66+y_offset_stats):
+                        graphics.DrawLine(canvas, 184+x_offset_stats, line,
+                                          184+x_offset_stats, line, graphics.Color(255, 0, 0))
+                    for line in range(66+y_offset_stats, 75+y_offset_stats):
+                        graphics.DrawLine(canvas, 184+x_offset_stats, line,
+                                          184+x_offset_stats, line, graphics.Color(255, 255, 255))
+                    for line in range(59+y_offset_stats, 64+y_offset_stats):
+                        graphics.DrawLine(canvas, 185+x_offset_stats, line,
+                                          185+x_offset_stats, line, graphics.Color(255, 255, 255))
+                    for line in range(71+y_offset_stats, 77+y_offset_stats):
+                        graphics.DrawLine(canvas, 185+x_offset_stats, line,
+                                          185+x_offset_stats, line, graphics.Color(255, 255, 255))
+                    for line in range(72+y_offset_stats, 78+y_offset_stats):
+                        graphics.DrawLine(canvas, 186+x_offset_stats, line,
+                                          186+x_offset_stats, line, graphics.Color(255, 255, 255))
+                    for line in range(60+y_offset_stats, 66+y_offset_stats):
+                        graphics.DrawLine(canvas, 186+x_offset_stats, line,
+                                          186+x_offset_stats, line, graphics.Color(255, 255, 255))
+                    for line in range(67+y_offset_stats, 70+y_offset_stats):
+                        graphics.DrawLine(canvas, 186+x_offset_stats, line,
+                                          186+x_offset_stats, line, graphics.Color(255, 255, 255))
+                    for line in range(63+y_offset_stats, 70+y_offset_stats):
+                        graphics.DrawLine(canvas, 187+x_offset_stats, line,
+                                          187+x_offset_stats, line, graphics.Color(255, 255, 255))
+                    for line in range(75+y_offset_stats, 80+y_offset_stats):
+                        graphics.DrawLine(canvas, 187+x_offset_stats, line,
+                                          187+x_offset_stats, line, graphics.Color(255, 255, 255))
+                    for line in range(67+y_offset_stats, 70+y_offset_stats):
+                        graphics.DrawLine(canvas, 188+x_offset_stats, line,
+                                          188+x_offset_stats, line, graphics.Color(255, 255, 255))
 
                 homescore = game['homeTeam']['score']
                 awayscore = game['awayTeam']['score']
@@ -236,99 +275,130 @@ class Render:
                 timeremaining = timeremaining.upper()
 
                 if game['gameStatus'] == 2:  # GAME IS LIVE
-                    graphics.DrawText(canvas, self.font, 74 - len(str(awayscore))
-                                      * 11, 16, graphics.Color(0, 0, 0), str(awayscore))
-                    graphics.DrawText(canvas, self.font, 74 - len(str(homescore))
-                                      * 11, 36, graphics.Color(0, 0, 0), str(homescore))
+                    graphics.DrawText(canvas, self.font, 126 - len(str(awayscore))
+                                      * 19, 26, graphics.Color(0, 0, 0), str(awayscore))
+                    graphics.DrawText(canvas, self.font, 126 - len(str(homescore))
+                                      * 19, 57, graphics.Color(0, 0, 0), str(homescore))
                     # Q4 or OT < 5min remaining
                     if (game['gameStatusText'][0] == 'Q' and game['gameStatusText'][1] >= '4') and (game['gameStatusText'][3] == '0' and game['gameStatusText'][4] <= '4'):
                         if homescore > awayscore:
                             if (homescore - awayscore) <= 10:  # close game
-                                graphics.DrawText(canvas, self.font3, 2, 51, graphics.Color(
+                                graphics.DrawText(canvas, self.font3, 4, 79, graphics.Color(
                                     255, 255, 255), timeremaining)  # bright quarter and time remaining
-                                for line in range(54, 56):
-                                    graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(
+                                for line in range(82, 84):
+                                    graphics.DrawLine(canvas, 0, line, 191, line, graphics.Color(
                                         255, 0, 0))  # red line at bottom of screen
                             else:
-                                graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(
+                                graphics.DrawText(canvas, self.font3, 4, 81, graphics.Color(
                                     200, 200, 200), timeremaining)
                         else:
                             if (awayscore - homescore) <= 10:  # close game
-                                graphics.DrawText(canvas, self.font3, 2, 51, graphics.Color(
+                                graphics.DrawText(canvas, self.font3, 4, 79, graphics.Color(
                                     255, 255, 255), timeremaining)  # bright quarter and time remaining
-                                for line in range(54, 56):
-                                    graphics.DrawLine(canvas, 0, line, 127, line, graphics.Color(
+                                for line in range(82, 84):
+                                    graphics.DrawLine(canvas, 0, line, 191, line, graphics.Color(
                                         255, 0, 0))  # red line at bottom of screen
                             else:
-                                graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(
+                                graphics.DrawText(canvas, self.font3, 4, 81, graphics.Color(
                                     200, 200, 200), timeremaining)
                     else:  # not a close game or not under 4min
-                        graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(
+                        graphics.DrawText(canvas, self.font3, 4, 81, graphics.Color(
                             200, 200, 200), timeremaining)  # 2
 
                 if game['gameStatus'] == 3:  # GAME IS FINISHED
                     if homescore < awayscore:
-                        for line in range(20, 38):
+                        for line in range(31, 61):
                             graphics.DrawLine(
-                                canvas, 39, line, 77, line, graphics.Color(75, 75, 75))
+                                canvas, 65, line, 129, line, graphics.Color(75, 75, 75))
                     else:
-                        for line in range(0, 18):
+                        for line in range(0, 30):
                             graphics.DrawLine(
-                                canvas, 39, line, 77, line, graphics.Color(75, 75, 75))
+                                canvas, 65, line, 129, line, graphics.Color(75, 75, 75))
 
-                    graphics.DrawText(canvas, self.font3, 2, 52, graphics.Color(
+                    graphics.DrawText(canvas, self.font3, 4, 80, graphics.Color(
                         200, 200, 200), game['gameStatusText'].upper())  # 56
-                    graphics.DrawText(canvas, self.font, 74 - len(str(awayscore))
-                                      * 11, 16, graphics.Color(0, 0, 0), str(awayscore))
-                    graphics.DrawText(canvas, self.font, 74 - len(str(homescore))
-                                      * 11, 36, graphics.Color(0, 0, 0), str(homescore))
+
+                    graphics.DrawText(canvas, self.font, 126 - len(str(awayscore))
+                                      * 19, 26, graphics.Color(0, 0, 0), str(awayscore))
+                    graphics.DrawText(canvas, self.font, 126 - len(str(homescore))
+                                      * 19, 57, graphics.Color(0, 0, 0), str(homescore))
 
                 if game['gameStatus'] == 1:  # GAME IS UPCOMING
                     awayrecord = str(game['awayTeam']['wins']) + \
                         '-' + str(game['awayTeam']['losses'])
                     homerecord = str(game['homeTeam']['wins']) + \
                         '-' + str(game['homeTeam']['losses'])
-                    graphics.DrawText(canvas, self.font2, 41, 14, graphics.Color(
+                    graphics.DrawText(canvas, self.font2, 71, 21, graphics.Color(
                         200, 200, 200), awayrecord)  # away team record
-                    graphics.DrawText(canvas, self.font2, 41, 34, graphics.Color(
+                    graphics.DrawText(canvas, self.font2, 71, 51, graphics.Color(
                         200, 200, 200), homerecord)  # home team record
                     if game['gameStatusText'] != 'PPD':  # upcoming game
-                        graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(
+                        graphics.DrawText(canvas, self.font3, 4, 86, graphics.Color(
                             200, 200, 200), game['gameStatusText'][0:game['gameStatusText'].find('ET')].upper() + 'ET')
                     if game['gameStatusText'] == 'PPD':  # postponed game
-                        graphics.DrawText(canvas, self.font3, 2, 56, graphics.Color(
+                        graphics.DrawText(canvas, self.font3, 4, 86, graphics.Color(
                             200, 200, 200), 'POSTPONED')
 
                     # NBA Logo
-                    for line in range(44, 58):
-                        graphics.DrawLine(canvas, 116, line,
-                                          119, line, graphics.Color(0, 0, 255))
-                        graphics.DrawLine(canvas, 120, line,
-                                          121, line, graphics.Color(255, 0, 0))
-                    for line in range(47, 51):
-                        graphics.DrawLine(
-                            canvas, 116, line, 116, line, graphics.Color(255, 255, 255))
-                    for line in range(46, 52):
-                        graphics.DrawLine(
-                            canvas, 117, line, 117, line, graphics.Color(255, 255, 255))
-                    for line in range(45, 53):
-                        graphics.DrawLine(
-                            canvas, 118, line, 118, line, graphics.Color(255, 255, 255))
-                    for line in range(44, 55):
-                        graphics.DrawLine(
-                            canvas, 119, line, 119, line, graphics.Color(255, 255, 255))
-                    for line in range(49, 50):
-                        graphics.DrawLine(canvas, 119, line,
-                                          119, line, graphics.Color(255, 0, 0))
-                    for line in range(47, 52):
-                        graphics.DrawLine(
-                            canvas, 120, line, 120, line, graphics.Color(255, 255, 255))
-                    for line in range(54, 58):
-                        graphics.DrawLine(
-                            canvas, 120, line, 120, line, graphics.Color(255, 255, 255))
-                    for line in range(51, 52):
-                        graphics.DrawLine(
-                            canvas, 121, line, 121, line, graphics.Color(255, 255, 255))
+                    for line in range(55+y_offset_no_stats, 80+y_offset_no_stats):
+                        graphics.DrawLine(canvas, 178+x_offset_no_stats, line,
+                                          188+x_offset_no_stats, line, graphics.Color(0, 0, 255))
+                        graphics.DrawLine(canvas, 188+x_offset_no_stats, line,
+                                          188+x_offset_no_stats, line, graphics.Color(255, 0, 0))
+                    for line in range(55+y_offset_no_stats, 76+y_offset_no_stats):
+                        graphics.DrawLine(canvas, 185+x_offset_no_stats, line,
+                                          187+x_offset_no_stats, line, graphics.Color(255, 0, 0))
+                    for line in range(63+y_offset_no_stats, 66+y_offset_no_stats):
+                        graphics.DrawLine(canvas, 178+x_offset_no_stats, line,
+                                          178+x_offset_no_stats, line, graphics.Color(255, 255, 255))
+                    for line in range(60+y_offset_no_stats, 69+y_offset_no_stats):
+                        graphics.DrawLine(canvas, 179+x_offset_no_stats, line,
+                                          179+x_offset_no_stats, line, graphics.Color(255, 255, 255))
+                    for line in range(59+y_offset_no_stats, 71+y_offset_no_stats):
+                        graphics.DrawLine(canvas, 180+x_offset_no_stats, line,
+                                          180+x_offset_no_stats, line, graphics.Color(255, 255, 255))
+                    for line in range(59+y_offset_no_stats, 72+y_offset_no_stats):
+                        graphics.DrawLine(canvas, 181+x_offset_no_stats, line,
+                                          181+x_offset_no_stats, line, graphics.Color(255, 255, 255))
+                    for line in range(58+y_offset_no_stats, 73+y_offset_no_stats):
+                        graphics.DrawLine(canvas, 182+x_offset_no_stats, line,
+                                          182+x_offset_no_stats, line, graphics.Color(255, 255, 255))
+                    for line in range(55+y_offset_no_stats, 74+y_offset_no_stats):
+                        graphics.DrawLine(canvas, 183+x_offset_no_stats, line,
+                                          183+x_offset_no_stats, line, graphics.Color(255, 255, 255))
+                    for line in range(55+y_offset_no_stats, 64+y_offset_no_stats):
+                        graphics.DrawLine(canvas, 184+x_offset_no_stats, line,
+                                          184+x_offset_no_stats, line, graphics.Color(255, 255, 255))
+                    for line in range(64+y_offset_no_stats, 66+y_offset_no_stats):
+                        graphics.DrawLine(canvas, 184+x_offset_no_stats, line,
+                                          184+x_offset_no_stats, line, graphics.Color(255, 0, 0))
+                    for line in range(66+y_offset_no_stats, 75+y_offset_no_stats):
+                        graphics.DrawLine(canvas, 184+x_offset_no_stats, line,
+                                          184+x_offset_no_stats, line, graphics.Color(255, 255, 255))
+                    for line in range(59+y_offset_no_stats, 64+y_offset_no_stats):
+                        graphics.DrawLine(canvas, 185+x_offset_no_stats, line,
+                                          185+x_offset_no_stats, line, graphics.Color(255, 255, 255))
+                    for line in range(71+y_offset_no_stats, 77+y_offset_no_stats):
+                        graphics.DrawLine(canvas, 185+x_offset_no_stats, line,
+                                          185+x_offset_no_stats, line, graphics.Color(255, 255, 255))
+                    for line in range(72+y_offset_no_stats, 78+y_offset_no_stats):
+                        graphics.DrawLine(canvas, 186+x_offset_no_stats, line,
+                                          186+x_offset_no_stats, line, graphics.Color(255, 255, 255))
+                    for line in range(60+y_offset_no_stats, 66+y_offset_no_stats):
+                        graphics.DrawLine(canvas, 186+x_offset_no_stats, line,
+                                          186+x_offset_no_stats, line, graphics.Color(255, 255, 255))
+                    for line in range(67+y_offset_no_stats, 70+y_offset_no_stats):
+                        graphics.DrawLine(canvas, 186+x_offset_no_stats, line,
+                                          186+x_offset_no_stats, line, graphics.Color(255, 255, 255))
+                    for line in range(63+y_offset_no_stats, 70+y_offset_no_stats):
+                        graphics.DrawLine(canvas, 187+x_offset_no_stats, line,
+                                          187+x_offset_no_stats, line, graphics.Color(255, 255, 255))
+                    for line in range(75+y_offset_no_stats, 80+y_offset_no_stats):
+                        graphics.DrawLine(canvas, 187+x_offset_no_stats, line,
+                                          187+x_offset_no_stats, line, graphics.Color(255, 255, 255))
+                    for line in range(67+y_offset_no_stats, 70+y_offset_no_stats):
+                        graphics.DrawLine(canvas, 188+x_offset_no_stats, line,
+                                          188+x_offset_no_stats, line, graphics.Color(255, 255, 255))
 
                 homeleadername = game['gameLeaders']['homeLeaders']['name']
                 awayleadername = game['gameLeaders']['awayLeaders']['name']
@@ -357,11 +427,11 @@ class Render:
                     awaystatline = awayleadername[0] + '.' + str(awayleaderlastname) + ' ' + str(
                         awayleaderpoints) + '-' + str(awayleaderrebounds) + '-' + str(awayleaderassists)
 
-                    for line in range(56, 64):  # statline background
-                        graphics.DrawLine(canvas, 0, line, 127,
+                    for line in range(84, 96):  # statline background
+                        graphics.DrawLine(canvas, 0, line, 191,
                                           line, graphics.Color(255, 255, 255))
 
-                    len1 = graphics.DrawText(canvas, self.font4, posx, 63, graphics.Color(
+                    len1 = graphics.DrawText(canvas, self.font4, posx, 95, graphics.Color(
                         0, 0, 0), awaystatline.upper() + '  ' + homestatline.upper())
                     if len1 <= canvas.width:
                         break
