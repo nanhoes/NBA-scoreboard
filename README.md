@@ -1,5 +1,3 @@
-![webapp](https://user-images.githubusercontent.com/68497310/130024986-6a3f3b1d-88f5-49bd-8cd6-c8388bac1d7a.png)
-
 ## Supported Matrices
       P2 128x64
       P4 64x32
