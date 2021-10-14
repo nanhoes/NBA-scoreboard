@@ -1,7 +1,8 @@
 ## Supported Matrices
-      P2 128x64
-      P4 64x32
-      Four P4 64x32 chained together (2x2)
+      P2 128x64 (NBA_Render_P2.py)
+      P4 64x32 (NBA_Render.py)
+      Four P5 64x32 chained together (NBA_Render_2x2.py)
+      Nine P5 64x32 chained together (NBA_Render_Big.py) (3x3)
 
 ## Raspberry Pi Setup
 1. Download the [BerryLan flavoured Raspbian image](https://downloads.nymea.io/images/berrylan/)
