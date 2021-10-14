@@ -1,0 +1,13 @@
+[Unit]
+Description=Gunicorn instance to serve app
+After=network.target
+
+[Service]
+User=pi
+Group=www-data
+WorkingDirectory=/home/pi/NBA-scoreboard/client
+Environment="PATH=/home/pi/NBA-scoreboard/client/NBA-scoreboard-venv/bin"
+ExecStart=/home/pi/.local/bin/gunicorn --workers 3 --bind unix:app.sock -m 007 wsgi:app
+
+[Install]
+WantedBy=multi-user.target
