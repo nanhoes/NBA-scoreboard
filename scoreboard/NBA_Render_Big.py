@@ -77,41 +77,76 @@ class Render:
 
         canvas = matrix.CreateFrameCanvas()
 
+        x_offset_stats = 0
+        y_offset_stats = 0
+        x_offset_no_stats = 0
+        y_offset_no_stats = 11
+
         if game_data == []:
             print('no games')
-            graphics.DrawText(canvas, self.font, 12, 28, graphics.Color(150, 150, 150), 'NO GAMES')
-            graphics.DrawText(canvas, self.font, 31, 50, graphics.Color(150, 150, 150), 'TODAY')
+            graphics.DrawText(canvas, self.font, 192/2-21*8/2+2, 40, graphics.Color(150, 150, 150), 'NO GAMES')
+            graphics.DrawText(canvas, self.font, 192/2-21*5/2, 96-18, graphics.Color(150, 150, 150), 'TODAY')
 
             # NBA Logo
-            for line in range(44, 58):
-                graphics.DrawLine(canvas, 116, line,
-                                  119, line, graphics.Color(0, 0, 255))
-                graphics.DrawLine(canvas, 120, line,
-                                  121, line, graphics.Color(255, 0, 0))
-            for line in range(47, 51):
-                graphics.DrawLine(
-                    canvas, 116, line, 116, line, graphics.Color(255, 255, 255))
-            for line in range(46, 52):
-                graphics.DrawLine(
-                    canvas, 117, line, 117, line, graphics.Color(255, 255, 255))
-            for line in range(45, 53):
-                graphics.DrawLine(
-                    canvas, 118, line, 118, line, graphics.Color(255, 255, 255))
-            for line in range(44, 55):
-                graphics.DrawLine(
-                    canvas, 119, line, 119, line, graphics.Color(255, 255, 255))
-            for line in range(49, 50):
-                graphics.DrawLine(canvas, 119, line,
-                                  119, line, graphics.Color(255, 0, 0))
-            for line in range(47, 52):
-                graphics.DrawLine(
-                    canvas, 120, line, 120, line, graphics.Color(255, 255, 255))
-            for line in range(54, 58):
-                graphics.DrawLine(
-                    canvas, 120, line, 120, line, graphics.Color(255, 255, 255))
-            for line in range(51, 52):
-                graphics.DrawLine(
-                    canvas, 121, line, 121, line, graphics.Color(255, 255, 255))
+            for line in range(55+y_offset_no_stats, 80+y_offset_no_stats):
+                graphics.DrawLine(canvas, 178+x_offset_no_stats, line,
+                                  188+x_offset_no_stats, line, graphics.Color(0, 0, 255))
+                graphics.DrawLine(canvas, 188+x_offset_no_stats, line,
+                                  188+x_offset_no_stats, line, graphics.Color(255, 0, 0))
+            for line in range(55+y_offset_no_stats, 76+y_offset_no_stats):
+                graphics.DrawLine(canvas, 185+x_offset_no_stats, line,
+                                  187+x_offset_no_stats, line, graphics.Color(255, 0, 0))
+            for line in range(63+y_offset_no_stats, 66+y_offset_no_stats):
+                graphics.DrawLine(canvas, 178+x_offset_no_stats, line,
+                                  178+x_offset_no_stats, line, graphics.Color(255, 255, 255))
+            for line in range(60+y_offset_no_stats, 69+y_offset_no_stats):
+                graphics.DrawLine(canvas, 179+x_offset_no_stats, line,
+                                  179+x_offset_no_stats, line, graphics.Color(255, 255, 255))
+            for line in range(59+y_offset_no_stats, 71+y_offset_no_stats):
+                graphics.DrawLine(canvas, 180+x_offset_no_stats, line,
+                                  180+x_offset_no_stats, line, graphics.Color(255, 255, 255))
+            for line in range(59+y_offset_no_stats, 72+y_offset_no_stats):
+                graphics.DrawLine(canvas, 181+x_offset_no_stats, line,
+                                  181+x_offset_no_stats, line, graphics.Color(255, 255, 255))
+            for line in range(58+y_offset_no_stats, 73+y_offset_no_stats):
+                graphics.DrawLine(canvas, 182+x_offset_no_stats, line,
+                                  182+x_offset_no_stats, line, graphics.Color(255, 255, 255))
+            for line in range(55+y_offset_no_stats, 74+y_offset_no_stats):
+                graphics.DrawLine(canvas, 183+x_offset_no_stats, line,
+                                  183+x_offset_no_stats, line, graphics.Color(255, 255, 255))
+            for line in range(55+y_offset_no_stats, 64+y_offset_no_stats):
+                graphics.DrawLine(canvas, 184+x_offset_no_stats, line,
+                                  184+x_offset_no_stats, line, graphics.Color(255, 255, 255))
+            for line in range(64+y_offset_no_stats, 66+y_offset_no_stats):
+                graphics.DrawLine(canvas, 184+x_offset_no_stats, line,
+                                  184+x_offset_no_stats, line, graphics.Color(255, 0, 0))
+            for line in range(66+y_offset_no_stats, 75+y_offset_no_stats):
+                graphics.DrawLine(canvas, 184+x_offset_no_stats, line,
+                                  184+x_offset_no_stats, line, graphics.Color(255, 255, 255))
+            for line in range(59+y_offset_no_stats, 64+y_offset_no_stats):
+                graphics.DrawLine(canvas, 185+x_offset_no_stats, line,
+                                  185+x_offset_no_stats, line, graphics.Color(255, 255, 255))
+            for line in range(71+y_offset_no_stats, 77+y_offset_no_stats):
+                graphics.DrawLine(canvas, 185+x_offset_no_stats, line,
+                                  185+x_offset_no_stats, line, graphics.Color(255, 255, 255))
+            for line in range(72+y_offset_no_stats, 78+y_offset_no_stats):
+                graphics.DrawLine(canvas, 186+x_offset_no_stats, line,
+                                  186+x_offset_no_stats, line, graphics.Color(255, 255, 255))
+            for line in range(60+y_offset_no_stats, 66+y_offset_no_stats):
+                graphics.DrawLine(canvas, 186+x_offset_no_stats, line,
+                                  186+x_offset_no_stats, line, graphics.Color(255, 255, 255))
+            for line in range(67+y_offset_no_stats, 70+y_offset_no_stats):
+                graphics.DrawLine(canvas, 186+x_offset_no_stats, line,
+                                  186+x_offset_no_stats, line, graphics.Color(255, 255, 255))
+            for line in range(63+y_offset_no_stats, 70+y_offset_no_stats):
+                graphics.DrawLine(canvas, 187+x_offset_no_stats, line,
+                                  187+x_offset_no_stats, line, graphics.Color(255, 255, 255))
+            for line in range(75+y_offset_no_stats, 80+y_offset_no_stats):
+                graphics.DrawLine(canvas, 187+x_offset_no_stats, line,
+                                  187+x_offset_no_stats, line, graphics.Color(255, 255, 255))
+            for line in range(67+y_offset_no_stats, 70+y_offset_no_stats):
+                graphics.DrawLine(canvas, 188+x_offset_no_stats, line,
+                                  188+x_offset_no_stats, line, graphics.Color(255, 255, 255))
 
             canvas = matrix.SwapOnVSync(canvas)
             time.sleep(120)
@@ -147,10 +182,6 @@ class Render:
 
             posx = 5
             len1 = 0
-            x_offset_stats = 0
-            y_offset_stats = 0
-            x_offset_no_stats = 0
-            y_offset_no_stats = 11
 
             while True:
                 # CLEARING MATRIX
