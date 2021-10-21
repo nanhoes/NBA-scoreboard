@@ -204,10 +204,20 @@ class Render:
                     self.team_colors[awayteam][1][0], self.team_colors[awayteam][1][1], self.team_colors[awayteam][1][2]), awayteam)
 
                 # BETTING ODDS
-                graphics.DrawText(canvas, self.font2, 177 - len(str(over_under))
-                                  * 8, 21, graphics.Color(0, 0, 255), over_under)
-                graphics.DrawText(canvas, self.font2, 177 - len(str(spread))
-                                  * 8, 51, graphics.Color(0, 0, 255), spread)
+                homescore = game['homeTeam']['score']
+                awayscore = game['awayTeam']['score']
+
+                if (homescore-awayscore) >= float(spread)*(-1):
+                    graphics.DrawText(canvas, self.font2, 177 - len(str(over_under))
+                                      * 8, 21, graphics.Color(0, 0, 255), over_under)
+                    graphics.DrawText(canvas, self.font2, 177 - len(str(spread))
+                                      * 8, 51, graphics.Color(0, 0, 255), spread)
+                else:
+                    away_spread = float(spread)*(-1)
+                    graphics.DrawText(canvas, self.font2, 177 - len(str(over_under))
+                                      * 8, 51, graphics.Color(0, 0, 255), over_under)
+                    graphics.DrawText(canvas, self.font2, 177 - len(str(away_spread))
+                                      * 8, 21, graphics.Color(0, 0, 255), str(away_spread))
 
                 if game['gameStatus'] != 1:  # WHITE SQUARE FOR SCORE
                     for line in range(31, 61):
@@ -277,8 +287,6 @@ class Render:
                         graphics.DrawLine(canvas, 188+x_offset_stats, line,
                                           188+x_offset_stats, line, graphics.Color(255, 255, 255))
 
-                homescore = game['homeTeam']['score']
-                awayscore = game['awayTeam']['score']
                 timeremaining = game['gameStatusText']
                 if timeremaining[0] == 'Q' and timeremaining[3] == '0':
                     timeremaining = timeremaining[:3] + timeremaining[4:]
