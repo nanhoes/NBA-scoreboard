@@ -28,8 +28,11 @@ class NBA_Spreads:
                 data[gamelink] = {}
                 data[gamelink]['hometeam'] = game['competitors'][0]['name']
                 data[gamelink]['awayteam'] = game['competitors'][1]['name']
-                data[gamelink]['spread'] = game['displayGroups'][0]['markets'][1]['outcomes'][1]['price']['handicap']
-                data[gamelink]['over_under'] = game['displayGroups'][0]['markets'][2]['outcomes'][1]['price']['handicap']
+                for i in range(0,3):
+                    if game['displayGroups'][0]['markets'][i]['description'] == "Point Spread":
+                        data[gamelink]['spread'] = game['displayGroups'][0]['markets'][i]['outcomes'][1]['price']['handicap']
+                    if game['displayGroups'][0]['markets'][i]['description'] == "Total":
+                        data[gamelink]['over_under'] = game['displayGroups'][0]['markets'][i]['outcomes'][1]['price']['handicap']
             except:
                 print('Error gathering new day data')
         with open(self.path, 'w') as file:
@@ -61,8 +64,11 @@ class NBA_Spreads:
                 data[gamelink] = {}
                 data[gamelink]['hometeam'] = game['competitors'][0]['name']
                 data[gamelink]['awayteam'] = game['competitors'][1]['name']
-                data[gamelink]['spread'] = game['displayGroups'][0]['markets'][1]['outcomes'][1]['price']['handicap']
-                data[gamelink]['over_under'] = game['displayGroups'][0]['markets'][2]['outcomes'][1]['price']['handicap']
+                for i in range(0,3):
+                    if game['displayGroups'][0]['markets'][i]['description'] == "Point Spread":
+                        data[gamelink]['spread'] = game['displayGroups'][0]['markets'][i]['outcomes'][1]['price']['handicap']
+                    if game['displayGroups'][0]['markets'][i]['description'] == "Total":
+                        data[gamelink]['over_under'] = game['displayGroups'][0]['markets'][i]['outcomes'][1]['price']['handicap']
             except:
                 print('Error gathering data')
 
@@ -84,8 +90,11 @@ class NBA_Spreads:
                 data_live[gamelink] = {}
                 data_live[gamelink]['hometeam'] = game['competitors'][0]['name']
                 data_live[gamelink]['awayteam'] = game['competitors'][1]['name']
-                data_live[gamelink]['spread'] = game['displayGroups'][0]['markets'][1]['outcomes'][1]['price']['handicap']
-                data_live[gamelink]['over_under'] = game['displayGroups'][0]['markets'][2]['outcomes'][1]['price']['handicap']
+                for i in range(0,3):
+                    if game['displayGroups'][0]['markets'][i]['description'] == "Point Spread":
+                        data[gamelink]['spread'] = game['displayGroups'][0]['markets'][i]['outcomes'][1]['price']['handicap']
+                    if game['displayGroups'][0]['markets'][i]['description'] == "Total":
+                        data[gamelink]['over_under'] = game['displayGroups'][0]['markets'][i]['outcomes'][1]['price']['handicap']
             except:
                 print('Error gathering live data')
         with open(self.path_live, 'w') as file:

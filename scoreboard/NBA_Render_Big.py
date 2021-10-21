@@ -207,7 +207,7 @@ class Render:
                 homescore = game['homeTeam']['score']
                 awayscore = game['awayTeam']['score']
 
-                if (homescore-awayscore) >= float(spread)*(-1):
+                if ((homescore-awayscore) >= float(spread)*(-1)) or game['gameStatus'] == 1:
                     graphics.DrawText(canvas, self.font2, 177 - len(str(over_under))
                                       * 8, 21, graphics.Color(0, 0, 255), over_under)
                     graphics.DrawText(canvas, self.font2, 177 - len(str(spread))
