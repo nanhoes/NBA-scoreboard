@@ -52,7 +52,7 @@ class Render:
     def Render_Games(self, printer=False):
         matrix = RGBMatrix(options=self.options)
         date_range = []
-        disp_live_odds = False
+        disp_live_odds = True
         try:
             for day in os.listdir(self.path):
                 if day == '.DS_Store':
@@ -166,12 +166,11 @@ class Render:
 
             gamelink = r'/basketball/nba/{0}-{1}-{2}'.format(
                 away, home, game['gameCode'][0:game['gameCode'].find(r'/')])
-            print(gamelink)
-
             try:
                 if disp_live_odds == True and game['gameStatus'] == 2 and spreads_data_live is not None:
                     spread = spreads_data_live[gamelink]['spread']
                     over_under = spreads_data_live[gamelink]['over_under']
+
                 else:
                     spread = spreads_data[gamelink]['spread']
                     over_under = spreads_data[gamelink]['over_under']
@@ -179,6 +178,7 @@ class Render:
             except KeyError:
                 spread = ''
                 over_under = ''
+                print("Error")
 
             posx = 5
             len1 = 0
