@@ -92,9 +92,9 @@ class NBA_Spreads:
                 data_live[gamelink]['awayteam'] = game['competitors'][1]['name']
                 for i in range(0,3):
                     if game['displayGroups'][0]['markets'][i]['description'] == "Point Spread":
-                        data[gamelink]['spread'] = game['displayGroups'][0]['markets'][i]['outcomes'][1]['price']['handicap']
+                        data_live[gamelink]['spread'] = game['displayGroups'][0]['markets'][i]['outcomes'][1]['price']['handicap']
                     if game['displayGroups'][0]['markets'][i]['description'] == "Total":
-                        data[gamelink]['over_under'] = game['displayGroups'][0]['markets'][i]['outcomes'][1]['price']['handicap']
+                        data_live[gamelink]['over_under'] = game['displayGroups'][0]['markets'][i]['outcomes'][1]['price']['handicap']
             except:
                 print('Error gathering live data')
         with open(self.path_live, 'w') as file:
