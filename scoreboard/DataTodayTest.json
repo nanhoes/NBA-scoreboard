@@ -1,0 +1,322 @@
+[{      "gameId": "0022000566",
+         "gameCode": "20210310/LALBKN",
+         "gameStatus": 3,
+         "gameStatusText": "Final",
+         "period": 4,
+         "gameClock": "",
+         "gameTimeUTC": "2021-03-11T01:00:00Z",
+         "gameEt": "2021-03-10T20:00:00Z",
+         "regulationPeriods": 4,
+         "seriesGameNumber": "",
+         "seriesText": "",
+         "homeTeam": {
+           "teamId": 1610612763,
+           "teamName": "Nets",
+           "teamCity": "Brooklyn",
+           "teamTricode": "BKN",
+           "wins": 17,
+           "losses": 16,
+           "score": 111,
+           "inBonus": null,
+           "timeoutsRemaining": 1,
+           "periods": [
+             {
+               "period": 1,
+               "periodType": "REGULAR",
+               "score": 35
+             },
+             {
+               "period": 2,
+               "periodType": "REGULAR",
+               "score": 32
+             },
+             {
+               "period": 3,
+               "periodType": "REGULAR",
+               "score": 27
+             },
+             {
+               "period": 4,
+               "periodType": "REGULAR",
+               "score": 33
+             }
+           ]
+         },
+         "awayTeam": {
+           "teamId": 1610612764,
+           "teamName": "Lakers",
+           "teamCity": "Los Angeles",
+           "teamTricode": "LAL",
+           "wins": 14,
+           "losses": 21,
+           "score": 112,
+           "inBonus": null,
+           "timeoutsRemaining": 1,
+           "periods": [
+             {
+               "period": 1,
+               "periodType": "REGULAR",
+               "score": 26
+             },
+             {
+               "period": 2,
+               "periodType": "REGULAR",
+               "score": 36
+             },
+             {
+               "period": 3,
+               "periodType": "REGULAR",
+               "score": 23
+             },
+             {
+               "period": 4,
+               "periodType": "REGULAR",
+               "score": 27
+             }
+           ]
+         },
+         "gameLeaders": {
+           "homeLeaders": {
+             "personId": 202685,
+             "name": "Jonas Valanciunas",
+             "jerseyNum": "17",
+             "position": "C",
+             "teamTricode": "MEM",
+             "playerSlug": null,
+             "points": 29,
+             "rebounds": 20,
+             "assists": 3
+           },
+           "awayLeaders": {
+             "personId": 201566,
+             "name": "Russell Westbrook",
+             "jerseyNum": "4",
+             "position": "G",
+             "teamTricode": "WAS",
+             "playerSlug": null,
+             "points": 20,
+             "rebounds": 5,
+             "assists": 10
+           }
+         },
+         "pbOdds": {
+           "team": null,
+           "odds": 0.0,
+           "suspended": 1
+         }
+       },
+     {
+        "gameId": "0022000536",
+        "gameCode": "20210302/GSWMIL",
+        "gameStatus": 2,
+        "gameStatusText": "Q4 03:22",
+        "period": 4,
+        "gameClock": "",
+        "gameTimeUTC": "2021-03-03T00:00:00Z",
+        "gameEt": "2021-03-02T19:00:00Z",
+        "regulationPeriods": 4,
+        "seriesGameNumber": "",
+        "seriesText": "",
+        "homeTeam": {
+          "teamId": 1610612764,
+          "teamName": "Bucks",
+          "teamCity": "Milwaukee",
+          "teamTricode": "MIL",
+          "wins": 13,
+          "losses": 19,
+          "score": 125,
+          "inBonus": null,
+          "timeoutsRemaining": 0,
+          "periods": [
+            {
+              "period": 1,
+              "periodType": "REGULAR",
+              "score": 0
+            },
+            {
+              "period": 2,
+              "periodType": "REGULAR",
+              "score": 0
+            },
+            {
+              "period": 3,
+              "periodType": "REGULAR",
+              "score": 0
+            },
+            {
+              "period": 4,
+              "periodType": "REGULAR",
+              "score": 0
+            }
+          ]
+        },
+        "awayTeam": {
+          "teamId": 1610612763,
+          "teamName": "Warriors",
+          "teamCity": "Golden State",
+          "teamTricode": "GSW",
+          "wins": 15,
+          "losses": 15,
+          "score": 130,
+          "inBonus": null,
+          "timeoutsRemaining": 0,
+          "periods": [
+            {
+              "period": 1,
+              "periodType": "REGULAR",
+              "score": 0
+            },
+            {
+              "period": 2,
+              "periodType": "REGULAR",
+              "score": 0
+            },
+            {
+              "period": 3,
+              "periodType": "REGULAR",
+              "score": 0
+            },
+            {
+              "period": 4,
+              "periodType": "REGULAR",
+              "score": 0
+            }
+          ]
+        },
+        "gameLeaders": {
+          "homeLeaders": {
+            "personId": 0,
+            "name": "Nickeil Alexander-Walker",
+            "jerseyNum": "",
+            "position": "",
+            "teamTricode": "WAS",
+            "playerSlug": null,
+            "points": 50,
+            "rebounds": 15,
+            "assists": 5
+          },
+          "awayLeaders": {
+            "personId": 0,
+            "name": "Cathy Nguyen",
+            "jerseyNum": "",
+            "position": "",
+            "teamTricode": "MEM",
+            "playerSlug": null,
+            "points": 60,
+            "rebounds": 20,
+            "assists": 30
+          }
+        },
+        "pbOdds": {
+          "team": null,
+          "odds": 0.0,
+          "suspended": 1
+        }
+      },{
+         "gameId": "0022000536",
+         "gameCode": "20210302/PHXUTA",
+         "gameStatus": 1,
+         "gameStatusText": "10:00 pm ET   ",
+         "period": 1,
+         "gameClock": "",
+         "gameTimeUTC": "2021-03-03T00:00:00Z",
+         "gameEt": "2021-03-02T19:00:00Z",
+         "regulationPeriods": 4,
+         "seriesGameNumber": "",
+         "seriesText": "",
+         "homeTeam": {
+           "teamId": 1610612764,
+           "teamName": "Jazz",
+           "teamCity": "Utah",
+           "teamTricode": "UTA",
+           "wins": 11,
+           "losses": 11,
+           "score": 0,
+           "inBonus": null,
+           "timeoutsRemaining": 0,
+           "periods": [
+             {
+               "period": 1,
+               "periodType": "REGULAR",
+               "score": 0
+             },
+             {
+               "period": 2,
+               "periodType": "REGULAR",
+               "score": 0
+             },
+             {
+               "period": 3,
+               "periodType": "REGULAR",
+               "score": 0
+             },
+             {
+               "period": 4,
+               "periodType": "REGULAR",
+               "score": 0
+             }
+           ]
+         },
+         "awayTeam": {
+           "teamId": 1610612763,
+           "teamName": "Suns",
+           "teamCity": "Phoenix",
+           "teamTricode": "PHX",
+           "wins": 1,
+           "losses": 5,
+           "score": 0,
+           "inBonus": null,
+           "timeoutsRemaining": 0,
+           "periods": [
+             {
+               "period": 1,
+               "periodType": "REGULAR",
+               "score": 0
+             },
+             {
+               "period": 2,
+               "periodType": "REGULAR",
+               "score": 0
+             },
+             {
+               "period": 3,
+               "periodType": "REGULAR",
+               "score": 0
+             },
+             {
+               "period": 4,
+               "periodType": "REGULAR",
+               "score": 0
+             }
+           ]
+         },
+         "gameLeaders": {
+           "homeLeaders": {
+             "personId": 0,
+             "name": "Nickeil Alexander-Walker",
+             "jerseyNum": "",
+             "position": "",
+             "teamTricode": "WAS",
+             "playerSlug": null,
+             "points": 50,
+             "rebounds": 15,
+             "assists": 10
+           },
+           "awayLeaders": {
+             "personId": 0,
+             "name": "Cathy Nguyen",
+             "jerseyNum": "",
+             "position": "",
+             "teamTricode": "MEM",
+             "playerSlug": null,
+             "points": 60,
+             "rebounds": 20,
+             "assists": 30
+           }
+         },
+         "pbOdds": {
+           "team": null,
+           "odds": 0.0,
+           "suspended": 1
+         }
+       }]
