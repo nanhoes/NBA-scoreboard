@@ -170,7 +170,6 @@ class Render:
                 if disp_live_odds == True and game['gameStatus'] == 2 and spreads_data_live is not None:
                     spread = spreads_data_live[gamelink]['spread']
                     over_under = spreads_data_live[gamelink]['over_under']
-
                 else:
                     spread = spreads_data[gamelink]['spread']
                     over_under = spreads_data[gamelink]['over_under']
@@ -206,18 +205,24 @@ class Render:
                 # BETTING ODDS
                 homescore = game['homeTeam']['score']
                 awayscore = game['awayTeam']['score']
-
-                if ((homescore-awayscore) >= float(spread)*(-1)) or game['gameStatus'] == 1:
+                print(spread)
+                try:
+                    if ((homescore-awayscore) >= float(spread)*(-1)) or game['gameStatus'] == 1:
+                        graphics.DrawText(canvas, self.font2, 177 - len(str(over_under))
+                                          * 8, 21, graphics.Color(0, 0, 255), over_under)
+                        graphics.DrawText(canvas, self.font2, 177 - len(str(spread))
+                                          * 8, 51, graphics.Color(0, 0, 255), spread)
+                    else:
+                        away_spread = float(spread)*(-1)
+                        graphics.DrawText(canvas, self.font2, 177 - len(str(over_under))
+                                          * 8, 51, graphics.Color(0, 0, 255), over_under)
+                        graphics.DrawText(canvas, self.font2, 177 - len(str(away_spread))
+                                          * 8, 21, graphics.Color(0, 0, 255), str(away_spread))
+                except:
                     graphics.DrawText(canvas, self.font2, 177 - len(str(over_under))
                                       * 8, 21, graphics.Color(0, 0, 255), over_under)
                     graphics.DrawText(canvas, self.font2, 177 - len(str(spread))
                                       * 8, 51, graphics.Color(0, 0, 255), spread)
-                else:
-                    away_spread = float(spread)*(-1)
-                    graphics.DrawText(canvas, self.font2, 177 - len(str(over_under))
-                                      * 8, 51, graphics.Color(0, 0, 255), over_under)
-                    graphics.DrawText(canvas, self.font2, 177 - len(str(away_spread))
-                                      * 8, 21, graphics.Color(0, 0, 255), str(away_spread))
 
                 if game['gameStatus'] != 1:  # WHITE SQUARE FOR SCORE
                     for line in range(31, 61):
