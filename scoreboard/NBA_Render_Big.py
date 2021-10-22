@@ -205,26 +205,25 @@ class Render:
                 # BETTING ODDS
                 homescore = game['homeTeam']['score']
                 awayscore = game['awayTeam']['score']
-                print(spread)
-                try:
-                    if ((homescore-awayscore) >= float(spread)*(-1)) or game['gameStatus'] == 1:
+                if game['gameStatus'] != 1:
+                    try:
+                        if ((homescore-awayscore) >= float(spread)*(-1)):
+                            graphics.DrawText(canvas, self.font2, 177 - len(str(over_under))
+                                              * 8, 21, graphics.Color(0, 0, 255), over_under)
+                            graphics.DrawText(canvas, self.font2, 177 - len(str(spread))
+                                              * 8, 51, graphics.Color(0, 0, 255), spread)
+                        else:
+                            away_spread = float(spread)*(-1)
+                            graphics.DrawText(canvas, self.font2, 177 - len(str(over_under))
+                                              * 8, 51, graphics.Color(0, 0, 255), over_under)
+                            graphics.DrawText(canvas, self.font2, 177 - len(str(away_spread))
+                                              * 8, 21, graphics.Color(0, 0, 255), str(away_spread))
+                    except:
                         graphics.DrawText(canvas, self.font2, 177 - len(str(over_under))
                                           * 8, 21, graphics.Color(0, 0, 255), over_under)
                         graphics.DrawText(canvas, self.font2, 177 - len(str(spread))
                                           * 8, 51, graphics.Color(0, 0, 255), spread)
-                    else:
-                        away_spread = float(spread)*(-1)
-                        graphics.DrawText(canvas, self.font2, 177 - len(str(over_under))
-                                          * 8, 51, graphics.Color(0, 0, 255), over_under)
-                        graphics.DrawText(canvas, self.font2, 177 - len(str(away_spread))
-                                          * 8, 21, graphics.Color(0, 0, 255), str(away_spread))
-                except:
-                    graphics.DrawText(canvas, self.font2, 177 - len(str(over_under))
-                                      * 8, 21, graphics.Color(0, 0, 255), over_under)
-                    graphics.DrawText(canvas, self.font2, 177 - len(str(spread))
-                                      * 8, 51, graphics.Color(0, 0, 255), spread)
 
-                if game['gameStatus'] != 1:  # WHITE SQUARE FOR SCORE
                     for line in range(31, 61):
                         graphics.DrawLine(canvas, 65, line, 129,
                                           line, graphics.Color(255, 255, 255))
@@ -291,6 +290,12 @@ class Render:
                     for line in range(67+y_offset_stats, 70+y_offset_stats):
                         graphics.DrawLine(canvas, 188+x_offset_stats, line,
                                           188+x_offset_stats, line, graphics.Color(255, 255, 255))
+
+                else:
+                    graphics.DrawText(canvas, self.font2, 177 - len(str(over_under))
+                                      * 8, 21, graphics.Color(0, 0, 255), over_under)
+                    graphics.DrawText(canvas, self.font2, 177 - len(str(spread))
+                                      * 8, 51, graphics.Color(0, 0, 255), spread)
 
                 timeremaining = game['gameStatusText']
                 if timeremaining[0] == 'Q' and timeremaining[3] == '0':

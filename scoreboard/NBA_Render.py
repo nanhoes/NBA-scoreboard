@@ -122,22 +122,25 @@ class Render:
             for line in range(0,9):
                 graphics.DrawLine(canvas, 0, line, 18, line, graphics.Color(self.team_colors[awayteam][0][0], self.team_colors[awayteam][0][1], self.team_colors[awayteam][0][2]))
 
+            homescore = game['homeTeam']['score']
+            awayscore = game['awayTeam']['score']
+
             if game['gameStatus'] != 1: #finished game
                 for line in range(10,19):
                     graphics.DrawLine(canvas, 19, line, 38, line, graphics.Color(255, 255, 255))
                 for line in range(0,9):
                     graphics.DrawLine(canvas, 19, line, 38, line, graphics.Color(255, 255, 255))
 
-            homescore = game['homeTeam']['score']
-            awayscore = game['awayTeam']['score']
-
-            if (homescore-awayscore) >= float(spread)*(-1):
+                if (homescore-awayscore) >= float(spread)*(-1):
+                    graphics.DrawText(canvas, self.font2, 64 - len(str(over_under))*4, 7, graphics.Color(0, 0, 255), over_under)
+                    graphics.DrawText(canvas, self.font2, 64 - len(str(spread))*4, 17, graphics.Color(0, 0, 255), spread)
+                else:
+                    away_spread = float(spread)*(-1)
+                    graphics.DrawText(canvas, self.font2, 64 - len(str(over_under))*4, 17, graphics.Color(0, 0, 255), over_under)
+                    graphics.DrawText(canvas, self.font2, 64 - len(str(away_spread))*4, 7, graphics.Color(0, 0, 255), str(away_spread))
+            else:
                 graphics.DrawText(canvas, self.font2, 64 - len(str(over_under))*4, 7, graphics.Color(0, 0, 255), over_under)
                 graphics.DrawText(canvas, self.font2, 64 - len(str(spread))*4, 17, graphics.Color(0, 0, 255), spread)
-            else:
-                away_spread = float(spread)*(-1)
-                graphics.DrawText(canvas, self.font2, 64 - len(str(over_under))*4, 17, graphics.Color(0, 0, 255), over_under)
-                graphics.DrawText(canvas, self.font2, 64 - len(str(away_spread))*4, 7, graphics.Color(0, 0, 255), str(away_spread))
 
             graphics.DrawText(canvas, self.font, 1, 18, graphics.Color(self.team_colors[hometeam][1][0], self.team_colors[hometeam][1][1], self.team_colors[hometeam][1][2]), hometeam)
             graphics.DrawText(canvas, self.font, 1, 8, graphics.Color(self.team_colors[awayteam][1][0], self.team_colors[awayteam][1][1], self.team_colors[awayteam][1][2]), awayteam)
