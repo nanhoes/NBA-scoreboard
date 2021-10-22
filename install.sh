@@ -84,6 +84,8 @@ git clone https://gitlab.com/chilladx/config-parser.git
 read -n 1 -r -s -p $'\n----------------------------------\nPLEASE CONFIGURE YOUR MATRIX PROFILE NOW\nCopy your profile and paste under "[DEFAULT]"\nChange gpio-mapping to your mapping: regular, adafruit-hat, adafruit-hat-pwm, or complete-module\nPRESS ANY KEY TO CONTINUE...\n'
 sudo nano config/matrix_options.ini
 
+git update-index --assume-unchanged scoreboard/DataToday.json scoreboard/NBASpreads.json scoreboard/NBASpreadsLive.json config/matrix_options.ini
+
 echo "Removing NBA service if it exists:"
 sudo systemctl stop NBA
 sudo rm -rf /etc/systemd/system/NBA.*
