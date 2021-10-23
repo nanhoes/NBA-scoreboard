@@ -1,0 +1,13 @@
+[Unit]
+Description=Pull update from Github
+
+[Service]
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=update
+LimitRTPRIO=99
+Restart=no
+EnvironmentFile=/etc/systemd/system/update.service.d/update_env.conf
+
+[Install]
+WantedBy=multi-user.target
