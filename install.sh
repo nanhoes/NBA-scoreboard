@@ -110,6 +110,12 @@ sudo rm -rf /etc/systemd/system/gif.*
 sudo systemctl daemon-reload
 echo "...done"
 
+echo "Removing update service if it exists:"
+sudo systemctl stop update
+sudo rm -rf /etc/systemd/system/update.*
+sudo systemctl daemon-reload
+echo "...done"
+
 echo "Creating NBA service:"
 sudo cp ${install_path}/service_scripts/NBA_start.sh /usr/bin
 sudo chmod +x /usr/bin/NBA_start.sh
@@ -170,6 +176,19 @@ sudo touch $gif_env_path
 sudo echo "[Service]" >> $gif_env_path
 sudo systemctl daemon-reload
 sudo systemctl disable gif
+echo "...done"
+
+echo "Creating update service:"
+sudo cp ${install_path}/service_scripts/update_start.sh /usr/bin
+sudo chmod +x /usr/bin/update_start.sh
+sudo cp ./config/update.service /etc/systemd/system/
+sudo sed -i -e "/\[Service\]/a ExecStart=/usr/bin/update_start.sh < /dev/zero &> /dev/null &" /etc/systemd/system/update.service
+sudo mkdir /etc/systemd/system/update.service.d
+update_env_path=/etc/systemd/system/update.service.d/update_env.conf
+sudo touch $update_env_path
+sudo echo "[Service]" >> $update_env_path
+sudo systemctl daemon-reload
+sudo systemctl disable update
 echo "...done"
 
 echo -n "In order to finish setup a reboot is necessary..."

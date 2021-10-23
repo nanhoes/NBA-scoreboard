@@ -213,6 +213,7 @@ def update():
     job = manager.StopUnit('NBA.service', 'replace')
     job = manager.StopUnit('starboard.service', 'replace')
     job = manager.StopUnit('gif.service', 'replace')
+    job = manager.StartUnit('update.service', 'replace')
     if update == "YES":
         return render_template('index_update.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update)
     else:
