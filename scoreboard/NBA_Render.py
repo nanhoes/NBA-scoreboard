@@ -125,19 +125,23 @@ class Render:
             homescore = game['homeTeam']['score']
             awayscore = game['awayTeam']['score']
 
-            if game['gameStatus'] != 1: #finished game
+            if game['gameStatus'] != 1: #not upcoming game
                 for line in range(10,19):
                     graphics.DrawLine(canvas, 19, line, 38, line, graphics.Color(255, 255, 255))
                 for line in range(0,9):
                     graphics.DrawLine(canvas, 19, line, 38, line, graphics.Color(255, 255, 255))
-
-                if (homescore-awayscore) >= float(spread)*(-1):
+                print("spread:"+spread)
+                if spread != "":
+                    if (homescore-awayscore) >= float(spread)*(-1):
+                        graphics.DrawText(canvas, self.font2, 64 - len(str(over_under))*4, 7, graphics.Color(0, 0, 255), over_under)
+                        graphics.DrawText(canvas, self.font2, 64 - len(str(spread))*4, 17, graphics.Color(0, 0, 255), spread)
+                    else:
+                        away_spread = float(spread)*(-1)
+                        graphics.DrawText(canvas, self.font2, 64 - len(str(over_under))*4, 17, graphics.Color(0, 0, 255), over_under)
+                        graphics.DrawText(canvas, self.font2, 64 - len(str(away_spread))*4, 7, graphics.Color(0, 0, 255), str(away_spread))
+                else:
                     graphics.DrawText(canvas, self.font2, 64 - len(str(over_under))*4, 7, graphics.Color(0, 0, 255), over_under)
                     graphics.DrawText(canvas, self.font2, 64 - len(str(spread))*4, 17, graphics.Color(0, 0, 255), spread)
-                else:
-                    away_spread = float(spread)*(-1)
-                    graphics.DrawText(canvas, self.font2, 64 - len(str(over_under))*4, 17, graphics.Color(0, 0, 255), over_under)
-                    graphics.DrawText(canvas, self.font2, 64 - len(str(away_spread))*4, 7, graphics.Color(0, 0, 255), str(away_spread))
             else:
                 graphics.DrawText(canvas, self.font2, 64 - len(str(over_under))*4, 7, graphics.Color(0, 0, 255), over_under)
                 graphics.DrawText(canvas, self.font2, 64 - len(str(spread))*4, 17, graphics.Color(0, 0, 255), spread)

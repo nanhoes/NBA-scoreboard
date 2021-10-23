@@ -135,14 +135,18 @@ class Render:
                         graphics.DrawLine(canvas, 120, line, 120, line, graphics.Color(255, 255, 255))
                     for line in range(45,46):
                         graphics.DrawLine(canvas, 121, line, 121, line, graphics.Color(255, 255, 255))
+                    if spread != "":
+                        if (homescore-awayscore) >= float(spread)*(-1):
+                            graphics.DrawText(canvas, self.font2, 127 - len(str(over_under))*8, 14, graphics.Color(0, 0, 255), over_under)
+                            graphics.DrawText(canvas, self.font2, 127 - len(str(spread))*8, 34, graphics.Color(0, 0, 255), spread)
+                        else:
+                            away_spread = float(spread)*(-1)
+                            graphics.DrawText(canvas, self.font2, 127 - len(str(over_under))*8, 34, graphics.Color(0, 0, 255), over_under)
+                            graphics.DrawText(canvas, self.font2, 127 - len(str(away_spread))*8, 14, graphics.Color(0, 0, 255), str(away_spread))
 
-                    if (homescore-awayscore) >= float(spread)*(-1):
+                    else:
                         graphics.DrawText(canvas, self.font2, 127 - len(str(over_under))*8, 14, graphics.Color(0, 0, 255), over_under)
                         graphics.DrawText(canvas, self.font2, 127 - len(str(spread))*8, 34, graphics.Color(0, 0, 255), spread)
-                    else:
-                        away_spread = float(spread)*(-1)
-                        graphics.DrawText(canvas, self.font2, 127 - len(str(over_under))*8, 34, graphics.Color(0, 0, 255), over_under)
-                        graphics.DrawText(canvas, self.font2, 127 - len(str(away_spread))*8, 14, graphics.Color(0, 0, 255), str(away_spread))
 
                 else:
                     graphics.DrawText(canvas, self.font2, 127 - len(str(over_under))*8, 14, graphics.Color(0, 0, 255), over_under)
