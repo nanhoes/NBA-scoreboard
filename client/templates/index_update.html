@@ -136,8 +136,8 @@
       }
 
       .update_button {
-        width: 94px;
-        padding: 5px;
+        width: 90px;
+        padding: 4px;
         font-size: 14px;
         text-align: center;
         cursor: pointer;
@@ -156,14 +156,13 @@
       }
 
       .update_ripple:hover {
-        background: #00000000 radial-gradient(circle, transparent 1%, #00000000 1%) center/15000%;
+        background: blue radial-gradient(circle, transparent 1%, blue 1%) center/15000%;
       }
 
       .update_ripple:active {
         background-color: #171717;
         background-size: 100%;
         transition: background 0s;
-        border-radius: 8px;
       }
 
       .navbar-form {
@@ -173,10 +172,26 @@
 
       .alert {
         width: 318px;
-        height: 125px;
+        height: 110px;
+      }
+
+      .toast {
+        margin-top: 0px;
+        width: 318px;
+        height: 110px;
+        margin-bottom: 32px;
       }
 
     </style>
+
+    <script>
+      $(document).ready(function() {
+        $("#UPDATE").click(function() {
+          $("#myToast").toast("show");
+        });
+      });
+
+    </script>
 
     <title>NBA Scoreboard</title>
 
@@ -247,16 +262,16 @@
 
       <!-- COLUMNS -->
       <center>
-        <form action="/update" , method="POST" id="UPDATE">
-          <div {% if update == 'YES' %} class="alert alert-dismissible alert-success">
+        <form action="/update" method="POST" id="UPDATE">
+          <div {% if update == 'YES' %} class="alert alert-dismissible alert-dark" role="alert">
             <button type="button" class="btn-xs btn-close" data-bs-dismiss="alert"></button>
-            <h6><strong>New update available!</strong> Scoreboard will reboot after update.</h6>
-            <footer>
-              <input type="submit" class="update_ripple update_button" value="Update now"></input>
-            </footer>
+            <h6 class="alert-heading"><strong>New update available!</strong></h6>
+            <hr>
+            <input type="submit" class="update_ripple update_button" value="Update now" id="UPDATE"></input>
           </div {% endif %}>
         </form>
-        <script type="text/javascript">
+
+        <script type=" text/javascript">
           $(document).on('submit', '#UPDATE', function(e) {
             console.log('hello');
             e.preventDefault();
@@ -264,13 +279,27 @@
               type: 'POST',
               url: '/update',
               data: {
-                update: 'NO'
+                UPDATE: $("#UPDATE").val()
               },
               success: function() {}
             })
           });
 
         </script>
+
+        <div class="toast-container">
+          <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" id="myToast">
+            <div class="toast-header">
+              <img src="/static/icons/Icon-29.png" width="22" height="22" class="rounded me-2 d-inline-block align-top" alt="...">
+              <strong class="me-auto">NBA Scoreboard</strong>
+              <small class="text-muted">just now</small>
+              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+              Update in progress! Scoreboard will now reboot, please kill the app.
+
+            </div>
+          </div>
       </center>
 
       <center>
