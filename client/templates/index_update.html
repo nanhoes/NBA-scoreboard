@@ -136,6 +136,7 @@
       }
 
       .update_button {
+        margin-top: 4px;
         width: 90px;
         padding: 4px;
         font-size: 14px;
@@ -173,6 +174,7 @@
       .alert {
         width: 318px;
         height: 110px;
+        margin-bottom: 30px;
       }
 
       .toast {
@@ -262,14 +264,14 @@
 
       <!-- COLUMNS -->
       <center>
-        <form action="/update" method="POST" id="UPDATE">
-          <div {% if update == 'YES' %} class="alert alert-dismissible alert-dark" role="alert">
-            <button type="button" class="btn-xs btn-close" data-bs-dismiss="alert"></button>
-            <h6 class="alert-heading"><strong>New update available!</strong></h6>
-            <hr>
+        <div {% if update == 'YES' %} class="alert alert-dismissible alert-dark" role="alert">
+          <button type="button" class="btn-xs btn-close" data-bs-dismiss="alert"></button>
+          <h6><strong>New update available!</strong>
+            See <a href="https://github.com/nanhoes/NBA-scoreboard" class="alert-link">Github</a> for changelog.</h6>
+          <form action="/update" method="POST" id="UPDATE">
             <input type="submit" class="update_ripple update_button" value="Update now" id="UPDATE"></input>
-          </div {% endif %}>
-        </form>
+          </form>
+        </div {% endif %}>
 
         <script type=" text/javascript">
           $(document).on('submit', '#UPDATE', function(e) {
@@ -288,7 +290,7 @@
         </script>
 
         <div class="toast-container">
-          <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" id="myToast">
+          <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" id="myToast" data-bs-animation="true">
             <div class="toast-header">
               <img src="/static/icons/Icon-29.png" width="22" height="22" class="rounded me-2 d-inline-block align-top" alt="...">
               <strong class="me-auto">NBA Scoreboard</strong>
