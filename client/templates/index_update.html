@@ -53,6 +53,10 @@
         border-radius: 15px;
       }
 
+      p.small {
+        line-height: 0;
+      }
+
       .on_button {
         position: absolute;
         top: 50%;
@@ -266,8 +270,9 @@
       <center>
         <div {% if update == 'YES' %} class="alert alert-dismissible alert-dark" role="alert">
           <button type="button" class="btn-xs btn-close" data-bs-dismiss="alert"></button>
-          <h6><strong>New update available!</strong>
-            See <a href="https://github.com/nanhoes/NBA-scoreboard" class="alert-link">Github</a> for changelog.</h6>
+          <h6><strong><i class="fas fa-cloud-download-alt  fa-fw"></i>&nbsp; New update available!</strong><br>
+            <i class="fab fa-github fa-fw"></i> &nbsp;See <a href="https://github.com/nanhoes/NBA-scoreboard" class="alert-link">Github</a> for changelog.
+          </h6>
           <form action="/update" method="POST" id="UPDATE">
             <input type="submit" class="update_ripple update_button" value="Update now" id="UPDATE"></input>
           </form>
