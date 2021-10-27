@@ -21,5 +21,9 @@
       sudo bash install.sh
 
 ## Crontab (run 'sudo crontab -e', paste this crontab below ▼ at end of file)
-      58 8 * * * sudo python3 /home/pi/My-NBA-scoreboard/Spreads_New_Day.py
-      0 */2 * * * sudo python3 /home/pi/My-NBA-scoreboard/Spreads_Update.py
+
+    0 9 * * * sudo python3 /home/pi/NBA-scoreboard/scoreboard/Spreads_New_Day.py
+
+    1 9 * * * bash /home/pi/NBA-scoreboard/update_handling/check_for_update.sh
+
+    0 */2 * * * sudo python3 /home/pi/NBA-scoreboard/scoreboard/Spreads_Update.py
