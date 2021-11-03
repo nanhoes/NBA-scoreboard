@@ -1,0 +1,13 @@
+[Unit]
+Description=Shutdown RPi
+
+[Service]
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=shutdown
+LimitRTPRIO=99
+Restart=no
+EnvironmentFile=/etc/systemd/system/shutdown.service.d/shutdown_env.conf
+
+[Install]
+WantedBy=multi-user.target
