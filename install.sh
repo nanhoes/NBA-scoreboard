@@ -70,7 +70,7 @@ sudo cp ./config/org.freedesktop.systemd1.pkla /etc/polkit-1/localauthority/50-l
 
 echo "Creating client service:"
 sudo cp ./config/client.service /etc/systemd/system/
-sudo sed -i -e "/\[Service\]/a ExecStart=/home/pi/.local/bin/gunicorn --workers 3 --bind unix:app.sock -m 007 wsgi:app &" /etc/systemd/system/client.service
+sudo sed -i -e "/\[Service\]/a ExecStart=/usr/local/bin/gunicorn --workers 3 --bind unix:app.sock -m 007 wsgi:app &" /etc/systemd/system/client.service
 sudo systemctl daemon-reload
 sudo systemctl start client
 sudo systemctl enable client
