@@ -49,7 +49,8 @@ echo "Installing nginx:"
 sudo apt install nginx
 
 echo "Creating virtual environment:"
-python3 -m venv NBA-scoreboard-venv
+sudo apt-get install python3-venv
+sudo python3 -m venv NBA-scoreboard-venv
 source NBA-scoreboard-venv/bin/activate
 
 echo "Installing flask and gunicorn:"
