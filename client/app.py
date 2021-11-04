@@ -23,7 +23,6 @@ manager = dbus.Interface(systemd1, 'org.freedesktop.systemd1.Manager')
 # home route
 @app.route("/")
 def saved_config():
-    # Brightness from config file
     brightness = int(config['DEFAULT']['brightness'])
     width = int(config['DEFAULT']['rows'])
     height = int(config['DEFAULT']['columns'])
@@ -32,10 +31,11 @@ def saved_config():
     conway = config['DEFAULT']['conway']
     gif = config['DEFAULT']['gif']
     update = config['DEFAULT']['update']
+    custom_logo = config['DEFAULT']['custom_logo']
     if update == "YES":
-        return render_template('index_update.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update)
+        return render_template('index_update.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update, custom_logo = custom_logo)
     else:
-        return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update)
+        return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update, custom_logo = custom_logo)
 
 # handling form data
 @app.route('/brightness', methods=['POST'])
@@ -48,6 +48,7 @@ def brightness():
     starboard = config['DEFAULT']['starboard']
     conway = config['DEFAULT']['conway']
     gif = config['DEFAULT']['gif']
+    custom_logo = config['DEFAULT']['custom_logo']
     if NBA == 'ON':
         job = manager.RestartUnit('NBA.service', 'fail')
     else:
@@ -65,35 +66,9 @@ def brightness():
     with open(filename, 'wb') as configfile:
         config.write(configfile)
     if update == "YES":
-        return render_template('index_update.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update)
+        return render_template('index_update.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update, custom_logo = custom_logo)
     else:
-        return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update)
-
-# handling form data
-@app.route('/size', methods=['POST'])
-def size():
-    update = config['DEFAULT']['update']
-    config.set('DEFAULT', 'rows', request.form['width'])
-    config.set('DEFAULT', 'columns', request.form['height'])
-    brightness = int(config['DEFAULT']['brightness'])
-    NBA = config['DEFAULT']['NBA']
-    starboard = config['DEFAULT']['starboard']
-    conway = config['DEFAULT']['conway']
-    gif = config['DEFAULT']['gif']
-    if NBA == 'ON':
-        job = manager.RestartUnit('NBA.service', 'fail')
-    if starboard == 'ON':
-        job = manager.RestartUnit('starboard.service', 'fail')
-    if conway == 'ON':
-        job = manager.RestartUnit('conway.service', 'fail')
-    if gif == 'ON':
-        job = manager.RestartUnit('gif.service', 'fail')
-    with open(filename, 'wb') as configfile:
-        config.write(configfile)
-    if update == "YES":
-        return render_template('index_update.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update)
-    else:
-        return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update)
+        return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update, custom_logo = custom_logo)
 
 # handling NBA status
 @app.route("/NBA", methods=["GET", "POST"])
@@ -107,14 +82,15 @@ def NBA():
     conway = config['DEFAULT']['conway']
     gif = config['DEFAULT']['gif']
     starboard = config['DEFAULT']['starboard']
+    custom_logo = config['DEFAULT']['custom_logo']
     job = manager.RestartUnit('NBA.service', 'replace')
     job = manager.StopUnit('starboard.service', 'replace')
     job = manager.StopUnit('conway.service', 'replace')
     job = manager.StopUnit('gif.service', 'replace')
     if update == "YES":
-        return render_template('index_update.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update)
+        return render_template('index_update.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update, custom_logo = custom_logo)
     else:
-        return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update)
+        return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update, custom_logo = custom_logo)
 
 # handling starboard status
 @app.route("/starboard", methods=["GET", "POST"])
@@ -128,14 +104,15 @@ def starboard():
     NBA = config['DEFAULT']['NBA']
     conway = config['DEFAULT']['conway']
     gif = config['DEFAULT']['gif']
+    custom_logo = config['DEFAULT']['custom_logo']
     job = manager.RestartUnit('starboard.service', 'replace')
     job = manager.StopUnit('NBA.service', 'replace')
     job = manager.StopUnit('conway.service', 'replace')
     job = manager.StopUnit('gif.service', 'replace')
     if update == "YES":
-        return render_template('index_update.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update)
+        return render_template('index_update.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update, custom_logo = custom_logo)
     else:
-        return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update)
+        return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update, custom_logo = custom_logo)
 
 # handling conway status
 @app.route("/conway", methods=["GET", "POST"])
@@ -153,10 +130,11 @@ def conway():
     job = manager.StopUnit('NBA.service', 'replace')
     job = manager.StopUnit('starboard.service', 'replace')
     job = manager.StopUnit('gif.service', 'replace')
+    custom_logo = config['DEFAULT']['custom_logo']
     if update == "YES":
-        return render_template('index_update.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update)
+        return render_template('index_update.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update, custom_logo = custom_logo)
     else:
-        return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update)
+        return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update, custom_logo = custom_logo)
 
 # handling gif status
 @app.route("/gif", methods=["GET", "POST"])
@@ -167,6 +145,7 @@ def gif():
     brightness = int(config['DEFAULT']['brightness'])
     width = int(config['DEFAULT']['rows'])
     height = int(config['DEFAULT']['columns'])
+    custom_logo = config['DEFAULT']['custom_logo']
     job = manager.StopUnit('NBA.service', 'replace')
     job = manager.StopUnit('starboard.service', 'replace')
     job = manager.StopUnit('conway.service', 'replace')
@@ -174,9 +153,9 @@ def gif():
         config.write(configfile)
     job = manager.RestartUnit('gif.service', 'replace')
     if update == "YES":
-        return render_template('index_update.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update)
+        return render_template('index_update.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update, custom_logo = custom_logo)
     else:
-        return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update)
+        return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update, custom_logo = custom_logo)
 
 # handling power status
 @app.route("/off", methods=["GET", "POST"])
@@ -189,14 +168,15 @@ def off():
     NBA = config['DEFAULT']['NBA']
     gif = config['DEFAULT']['gif']
     starboard = config['DEFAULT']['starboard']
+    custom_logo = config['DEFAULT']['custom_logo']
     job = manager.StopUnit('conway.service', 'replace')
     job = manager.StopUnit('NBA.service', 'replace')
     job = manager.StopUnit('starboard.service', 'replace')
     job = manager.StopUnit('gif.service', 'replace')
     if update == "YES":
-        return render_template('index_update.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update)
+        return render_template('index_update.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update, custom_logo = custom_logo)
     else:
-        return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update)
+        return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update, custom_logo = custom_logo)
 
 # handling update
 @app.route("/update", methods=["GET", "POST"])
@@ -209,19 +189,50 @@ def update():
     NBA = config['DEFAULT']['NBA']
     gif = config['DEFAULT']['gif']
     starboard = config['DEFAULT']['starboard']
+    custom_logo = config['DEFAULT']['custom_logo']
     job = manager.StopUnit('conway.service', 'replace')
     job = manager.StopUnit('NBA.service', 'replace')
     job = manager.StopUnit('starboard.service', 'replace')
     job = manager.StopUnit('gif.service', 'replace')
     job = manager.StartUnit('update.service', 'replace')
     if update == "YES":
-        return render_template('index_update.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update)
+        return render_template('index_update.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update, custom_logo = custom_logo)
     else:
-        return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update)
+        return render_template('index.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update, custom_logo = custom_logo)
 
-@app.errorhandler(400)
+@app.route("/shutdown", methods=["GET", "POST"])
+def shutdown():
+    update = config['DEFAULT']['update']
+    conway = config['DEFAULT']['conway']
+    brightness = int(config['DEFAULT']['brightness'])
+    width = int(config['DEFAULT']['rows'])
+    height = int(config['DEFAULT']['columns'])
+    NBA = config['DEFAULT']['NBA']
+    gif = config['DEFAULT']['gif']
+    starboard = config['DEFAULT']['starboard']
+    custom_logo = config['DEFAULT']['custom_logo']
+    job = manager.StopUnit('conway.service', 'replace')
+    job = manager.StopUnit('NBA.service', 'replace')
+    job = manager.StopUnit('starboard.service', 'replace')
+    job = manager.StopUnit('gif.service', 'replace')
+    return render_template('indextest.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update, custom_logo = custom_logo)
+    job = manager.StartUnit('shutdown.service', 'replace')
+
+@app.errorhandler(404)
 def not_found(e):
-  return render_template('indextest.html'), 400
+  return render_template('404.html'), 404
+
+@app.errorhandler(403)
+def forbidden(e):
+  return render_template('403.html'), 403
+
+@app.errorhandler(410)
+def gone(e):
+  return render_template('410.html'), 410
+
+@app.errorhandler(500)
+def int_server_error(e):
+  return render_template('500.html'), 500
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
