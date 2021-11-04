@@ -484,7 +484,7 @@
           </script>
 
           <!--LEVERAGE-->
-          <div class="row align-items-center">
+          <div {% if custom_logo == 'LEVERAGE' %} class="row align-items-center">
             <form action="/gif" , method="POST" id="LEVERAGE">
               <div class="col">
                 <div class="card bg-black mb-3 card_border_radius" style="max-width: 20rem;">
@@ -498,7 +498,7 @@
                 </div>
               </div>
             </form>
-          </div>
+          </div {% endif %}>
 
           <script type="text/javascript">
             $(document).on('submit', '#LEVERAGE', function(e) {
