@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+
+    <!-- META TAGS -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#000000">
+    <link href="/static/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/49efea02db.js" crossorigin="anonymous"></script>
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      body {
+        padding-top: 5rem;
+        -webkit-user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-appearance: none;
+        touch-action: pan-y;
+        font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, Roboto, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+      }
+
+      form {
+        margin-bottom: 2rem;
+      }
+
+      .card_border_radius {
+        outline: none;
+        color: none;
+        background-color: none;
+        border: light;
+        border-radius: 15px;
+      }
+
+      .on_button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        background-color: #00000000;
+        color: transparent;
+        font-size: 16px;
+        width: 318px;
+        height: 218px;
+        border: none;
+        cursor: pointer;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 0 20px #2b2a2a;
+      }
+
+      .on_button:hover {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        background-color: #00000000;
+        color: transparent;
+        font-size: 16px;
+        width: 318px;
+        height: 218px;
+        border: none;
+        cursor: pointer;
+        border-radius: 15px;
+        text-align: center;
+      }
+
+      /* Ripple effect */
+      .on_ripple {
+        background-position: center;
+        transition: background 0.8s;
+      }
+
+      .on_ripple:hover {
+        background: #47474700
+      }
+
+      .on_ripple:active {
+        background-color: #171717;
+        background-size: 100%;
+        transition: background 0s;
+      }
+
+      .off_button {
+        width: 30px;
+        padding: 0px;
+        font-size: 19px;
+        text-align: center;
+        cursor: pointer;
+        outline: none;
+        color: red;
+        background-color: black;
+        border: none;
+        border-radius: 100%;
+        box-shadow: 0 0 20px #2b2a2a;
+      }
+
+      /* Ripple effect */
+      .off_ripple {
+        background-position: center;
+        transition: background 0.8s;
+      }
+
+      .off_ripple:hover {
+        background: #47474700 radial-gradient(circle, transparent 1%, #47474700 1%) center/15000%;
+      }
+
+      .off_ripple:active {
+        background-color: #171717;
+        background-size: 50%;
+        transition: background 0s;
+      }
+
+      .update_button {
+        width: 159px;
+        padding: 8px;
+        font-size: 14px;
+        text-align: center;
+        cursor: pointer;
+        outline: none;
+        color: #fff;
+        background-color: #00000000;
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0 0 20px #2b2a2a;
+      }
+
+      /* Ripple effect */
+      .update_ripple {
+        background-position: center;
+        transition: background 0.8s;
+      }
+
+      .update_ripple:hover {
+        background: #00000000 radial-gradient(circle, transparent 1%, #00000000 1%) center/15000%;
+      }
+
+      .update_ripple:active {
+        background-color: #171717;
+        background-size: 100%;
+        transition: background 0s;
+        border-radius: 8px;
+      }
+
+      .navbar-form {
+        margin-top: 0px;
+        margin-bottom: 0px;
+      }
+
+      .alert {
+        width: 318px;
+        height: 142px;
+        margin: 0 auto;
+      }
+
+    </style>
+
+    <title>NBA Scoreboard</title>
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/icons/favicon-16x16.png">
+    <link rel="manifest" href="/static/icons/site.webmanifest">
+    <meta name="apple-mobile-web-app-title" content="NBA Scoreboard">
+    <meta name="application-name" content="NBA Scoreboard">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Splashscreens -->
+    <link href="/static/splashscreens/iphone5_splash.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="/static/splashscreens/iphone6_splash.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="/static/splashscreens/iphoneplus_splash.png" media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+    <link href="/static/splashscreens/iphonex_splash.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+    <link href="/static/splashscreens/iphonexr_splash.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="/static/splashscreens/iphonexsmax_splash.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+    <link href="/static/splashscreens/iphone12promax_splash.png" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+    <link href="/static/splashscreens/iphone12_splash.png" media="(device-width: 390px) and (device-height: 844) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+    <link href="/static/splashscreens/ipad_splash.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="/static/splashscreens/ipadpro1_splash.png" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="/static/splashscreens/ipadpro3_splash.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link href="/static/splashscreens/ipadpro2_splash.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+
+  </head>
+
+  <body class="bg-black">
+    <div class="alert alert-dismissible alert-danger">
+      <button type="button" class="btn-close"></button>
+      <h4 class="alert-heading">Error 403</h4>
+      <p class="mb-0">Make sure you are connected to the same network as your scoreboard, then kill the app.</p>
+    </div>
+  </body>
+
+</html>
+
+</div>
+</center>
+</main>
+
+<!-- Bootstrap JavaScript -->
+<script src="/static/bootstrap.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</html>
