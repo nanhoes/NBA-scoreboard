@@ -58,6 +58,8 @@ sudo pip install gunicorn flask
 
 deactivate
 
+cd /home/pi/NBA-scoreboard
+
 echo "Removing client service if it exists:"
 sudo systemctl stop client
 sudo rm -rf /etc/systemd/system/client.*
