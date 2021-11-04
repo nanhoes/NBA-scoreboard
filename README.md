@@ -16,7 +16,7 @@
 ## Installation
       sudo apt-get update &&
       sudo apt-get install git python-pip &&
-      git clone -b experimental https://github.com/nanhoes/NBA-scoreboard &&
+      git clone -b master https://github.com/nanhoes/NBA-scoreboard &&
       cd NBA-scoreboard &&
       sudo bash install.sh
 
