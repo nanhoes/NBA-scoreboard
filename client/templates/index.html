@@ -167,6 +167,30 @@
         margin-bottom: 0px;
       }
 
+      .modal-backdrop {
+        z-index: 1020;
+      }
+
+      .modal-header {
+        border-bottom: 0 none;
+      }
+
+      .modal-footer {
+        border-top: 0 none;
+      }
+
+      .modal-content {
+        border: 0 none;
+        border-radius: 15px;
+        box-shadow: 0 0 20px #2b2a2a;
+        width: 318px;
+        margin: 0 auto;
+      }
+
+      .modal-backdrop {
+        background-color: rgba(0, 0, 0, 0.9);
+      }
+
     </style>
 
     <title>NBA Scoreboard</title>
@@ -210,27 +234,75 @@
             <b>NBA Scoreboard</b>
           </a>
 
-          <!-- OFF -->
-          <form action="/off" class="navbar-form" method="POST" id="OFF">
-            <input type="submit" class="off_ripple off_button" value="&#9211;" id="OFF"></input>
-          </form>
+          <!-- Button trigger modal -->
+          <button type="button" class="off_button off_ripple" data-bs-toggle="modal" data-bs-target="#myModal">
+            &#9211;
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-backdrop">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content bg-black">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                      <b>Power off options</b>
+                    </h5>
+                    <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="modal"></button>
+                  </div>
+                  <div class="modal-body">
+                    Only shutdown if you are unplugging the scoreboard. Kill app after reboot.
+                  </div>
+                  <div class="modal-footer">
+                    <form action="/off" class="navbar-form" method="POST" id="OFF">
+                      <input type="submit" class="btn btn-secondary btn-sm" value="Turn off screen" id="OFF" data-bs-dismiss="modal"></input>
+                    </form>
+
+                    <script type="text/javascript">
+                      $(document).on('submit', '#OFF', function(e) {
+                        console.log('hello');
+                        e.preventDefault();
+                        $.ajax({
+                          type: 'POST',
+                          url: '/off',
+                          data: {
+                            OFF: $("#OFF").val()
+                          },
+                          success: function() {}
+                        })
+                      });
+
+                    </script>
+
+                    <form action="/shutdown" class="navbar-form" method="POST" id="SHUTDOWN">
+                      <input type="submit" class="btn btn-danger btn-sm" value="Shutdown" id="SHUTDOWN" data-bs-dismiss="modal"></input>
+                    </form>
+
+                    <script type="text/javascript">
+                      $(document).on('submit', '#SHUTDOWN', function(e) {
+                        console.log('hello');
+                        e.preventDefault();
+                        $.ajax({
+                          type: 'POST',
+                          url: '/shutdown',
+                          data: {
+                            SHUTDOWN: $("#SHUTDOWN").val()
+                          },
+                          success: function() {}
+                        })
+                      });
+
+                    </script>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <script type="text/javascript">
-            $(document).on('submit', '#OFF', function(e) {
-              console.log('hello');
-              e.preventDefault();
-              $.ajax({
-                type: 'POST',
-                url: '/off',
-                data: {
-                  OFF: $("#OFF").val()
-                },
-                success: function() {}
-              })
-            });
+            $('#myModal').modal(options)
 
           </script>
-
         </div>
       </nav>
     </header>

@@ -116,6 +116,12 @@ sudo rm -rf /etc/systemd/system/update.*
 sudo systemctl daemon-reload
 echo "...done"
 
+echo "Removing shudown service if it exists:"
+sudo systemctl stop shudown
+sudo rm -rf /etc/systemd/system/shudown.*
+sudo systemctl daemon-reload
+echo "...done"
+
 echo "Creating NBA service:"
 sudo cp ${install_path}/service_scripts/NBA_start.sh /usr/bin
 sudo chmod +x /usr/bin/NBA_start.sh
@@ -189,6 +195,19 @@ sudo touch $update_env_path
 sudo echo "[Service]" >> $update_env_path
 sudo systemctl daemon-reload
 sudo systemctl disable update
+echo "...done"
+
+echo "Creating shutdown service:"
+sudo cp ${install_path}/service_scripts/shutdown.sh /usr/bin
+sudo chmod +x /usr/bin/shutdown.sh
+sudo cp ./config/shutdown.service /etc/systemd/system/
+sudo sed -i -e "/\[Service\]/a ExecStart=/usr/bin/shutdown.sh < /dev/zero &> /dev/null &" /etc/systemd/system/shutdown.service
+sudo mkdir /etc/systemd/system/shutdown.service.d
+shutdown_env_path=/etc/systemd/system/shutdown.service.d/shutdown_env.conf
+sudo touch $shutdown_env_path
+sudo echo "[Service]" >> $shutdown_env_path
+sudo systemctl daemon-reload
+sudo systemctl disable shutdown
 echo "...done"
 
 echo -n "In order to finish setup a reboot is necessary..."
