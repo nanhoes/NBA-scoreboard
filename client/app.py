@@ -215,6 +215,7 @@ def shutdown():
     job = manager.StopUnit('NBA.service', 'replace')
     job = manager.StopUnit('starboard.service', 'replace')
     job = manager.StopUnit('gif.service', 'replace')
+    job = manager.StartUnit('shutdown.service', 'replace')
     return render_template('indextest.html', brightness = brightness, width = width, height = height, NBA = NBA, starboard = starboard, conway = conway, gif = gif, update = update, custom_logo = custom_logo)
     job = manager.StartUnit('shutdown.service', 'replace')
 
