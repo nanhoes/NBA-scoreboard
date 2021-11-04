@@ -76,7 +76,10 @@ sudo systemctl start client
 sudo systemctl enable client
 echo "...done"
 
-cd /etc/nginx/
+sudo rm /etc/nginx/sites-available/default
+sudo rm /etc/nginx/sites-enabled/default
+sudo nginx -t
+sudo systemctl reload nginx
 
 cd /home/pi/NBA-scoreboard
 install_path=$(pwd)
