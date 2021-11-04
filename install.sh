@@ -46,7 +46,7 @@ otf2bdf -v -o Minimal-Mono-Bold-28.bdf -r 72 -p 28 /home/pi/NBA-scoreboard/Minim
 cd /home/pi/NBA-scoreboard/client
 
 echo "Installing nginx:"
-sudo apt-get nginx
+sudo apt install nginx
 
 echo "Creating virtual environment:"
 python3 -m venv NBA-scoreboard-venv
