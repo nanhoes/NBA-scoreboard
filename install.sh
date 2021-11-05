@@ -216,6 +216,10 @@ sudo systemctl daemon-reload
 sudo systemctl disable shutdown
 echo "...done"
 
+echo "Gathering spreads data for the day..."
+sudo python3 /home/pi/NBA-scoreboard/scoreboard/Spreads_New_Day.py
+echo "...done"
+
 echo -n "In order to finish setup a reboot is necessary..."
 echo -n "REBOOT NOW? [y/N] "
 read
