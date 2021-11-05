@@ -67,6 +67,11 @@ sudo systemctl daemon-reload
 echo "...done"
 
 sudo cp ./config/org.freedesktop.systemd1.pkla /etc/polkit-1/localauthority/50-local.d/org.freedesktop.systemd1.pkla
+sudo cp ./config/app /etc/nginx/sites-available/
+sudo ln -s /etc/nginx/sites-available/app /etc/nginx/sites-enabled
+sudo rm /etc/nginx/sites-available/default
+sudo rm /etc/nginx/sites-enabled/default
+sudo systemctl restart nginx
 
 echo "Creating client service:"
 sudo cp ./config/client.service /etc/systemd/system/
@@ -75,11 +80,6 @@ sudo systemctl daemon-reload
 sudo systemctl start client
 sudo systemctl enable client
 echo "...done"
-
-sudo rm /etc/nginx/sites-available/default
-sudo rm /etc/nginx/sites-enabled/default
-sudo nginx -t
-sudo systemctl reload nginx
 
 cd /home/pi/NBA-scoreboard
 install_path=$(pwd)
