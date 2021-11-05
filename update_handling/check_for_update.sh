@@ -1,10 +1,16 @@
-#!/bin/bash
-cd /home/pi/NBA-scoreboard
-if [[ `git status -uno --porcelain` ]]; then
-  echo "Update available!"
-  sudo python3 update_handling/update.py
-  sudo systemctl daemon-reload && sudo systemctl restart client
+#!/bin/sh
+
+UPSTREAM=${1:-'@{u}'}
+LOCAL=$(git rev-parse @)
+REMOTE=$(git rev-parse "$UPSTREAM")
+BASE=$(git merge-base @ "$UPSTREAM")
+
+if [ $LOCAL = $REMOTE ]; then
+    echo "Up-to-date"
+elif [ $LOCAL = $BASE ]; then
+    echo "Need to pull"
+elif [ $REMOTE = $BASE ]; then
+    echo "Need to push"
 else
-  echo "Already up to date."
-  sudo python3 update_handling/no_update.py
+    echo "Diverged"
 fi
