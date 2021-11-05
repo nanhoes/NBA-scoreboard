@@ -14,10 +14,10 @@
 7. Set local timezone: ***Localisation Options** > timezone*, reboot raspberry pi.
 
 ## Installation
-      sudo apt-get update
-      sudo apt-get install git python-pip
-      git clone -b master https://github.com/nanhoes/NBA-scoreboard
-      cd NBA-scoreboard
+      sudo apt-get update &&
+      sudo apt-get install git python-pip &&
+      git clone -b master https://github.com/nanhoes/NBA-scoreboard &&
+      cd NBA-scoreboard &&
       sudo bash install.sh
 
 ## Crontab (run 'sudo crontab -e', paste this crontab below ▼ at end of file)
