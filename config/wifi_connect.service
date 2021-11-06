@@ -9,7 +9,7 @@ RestartSec=3
 StandardOutput=syslog
 SyslogIdentifier=wifi_connect
 Type=idle
-User=root
+User=pi
 EnvironmentFile=/etc/systemd/system/wifi_connect.service.d/wifi_connect_env.conf
 
 [Install]
