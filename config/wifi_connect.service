@@ -1,0 +1,15 @@
+[Unit]
+Description=Balena wifi connect service
+After=NetworkManager.service
+
+[Service]
+Type=simple
+Restart=on-failure
+StandardOutput=syslog
+SyslogIdentifier=wifi_connect
+Type=idle
+User=root
+EnvironmentFile=/etc/systemd/system/wifi_connect.service.d/wifi_connect_env.conf
+
+[Install]
+WantedBy=multi-user.target
