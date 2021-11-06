@@ -20,7 +20,7 @@ reconfig() {
 reconfig /boot/config.txt "^.*dtparam=audio.*$" "dtparam=audio=off"
 
 cd
-mkdir Documents
+mkdir -p Documents
 sudo touch /home/pi/Documents/NBAlog.txt
 
 cd
