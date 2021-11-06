@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo "Installing balena-os wifi-connect"
+git clone https://github.com/balena-os/wifi-connect.git
+
 echo "Installing rpi-rgb-led-matrix:"
 git clone https://github.com/hzeller/rpi-rgb-led-matrix.git
 
@@ -59,6 +62,20 @@ sudo pip install gunicorn flask
 deactivate
 
 cd /home/pi/NBA-scoreboard
+
+echo "Removing wifi_connect service if it exists:"
+sudo systemctl stop wifi_connect
+sudo rm -rf /etc/systemd/system/wifi_connect.*
+sudo systemctl daemon-reload
+echo "...done"
+
+echo "Creating wifi_connect service:"
+sudo cp ./config/wifi_connect.service /etc/systemd/system/
+sudo sed -i -e "/\[Service\]/a ExecStart=/home/pi/NBA-scoreboard/wifi-connect/scripts/start.sh" /etc/systemd/system/wifi_connect.service
+sudo systemctl daemon-reload
+sudo systemctl start wifi_connect
+sudo systemctl enable wifi_connect
+echo "...done"
 
 echo "Removing client service if it exists:"
 sudo systemctl stop client
