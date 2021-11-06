@@ -9,7 +9,7 @@
 2. Download [Etcher](https://www.balena.io/etcher/)
 3. Open Etcher, plug SD card into computer, install raspbian image download from file.
 4. Insert the SD Card and power on your Raspberry Pi.
-5. Install the BerryLan iOS or Android App and follow the instructions.
+5. Install the [BerryLan iOS or Android App](https://berrylan.org/) and follow the instructions.
 6. SSH into pi, change hostname and password: ***System Options** > hostname, password*
 7. Set local timezone: ***Localisation Options** > timezone*, reboot raspberry pi.
 
