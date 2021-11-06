@@ -3,12 +3,11 @@ Description=Balena wifi connect service
 After=NetworkManager.service
 
 [Service]
-Type=simple
-Restart=on-failure
-RestartSec=3
 StandardOutput=syslog
-SyslogIdentifier=wifi_connect
-Type=idle
+StandardError=syslog
+SyslogIdentifier=NBA
+LimitRTPRIO=99
+Restart=always
 User=pi
 EnvironmentFile=/etc/systemd/system/wifi_connect.service.d/wifi_connect_env.conf
 
