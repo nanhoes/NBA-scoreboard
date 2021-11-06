@@ -223,6 +223,9 @@ echo "Gathering spreads data for the day..."
 sudo python3 /home/pi/NBA-scoreboard/scoreboard/Spreads_New_Day.py
 echo "...done"
 
+read -n 1 -r -s -p $'\n----------------------------------\nPlease paste crontab from github now... PRESS ANY BUTTON TO CONTINUE...\n'
+sudo crontab -e
+
 echo -n "In order to finish setup a reboot is necessary..."
 echo -n "REBOOT NOW? [y/N] "
 read
