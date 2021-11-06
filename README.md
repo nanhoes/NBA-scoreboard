@@ -27,5 +27,3 @@
     1 9 * * * bash /home/pi/NBA-scoreboard/update_handling/check_for_update.sh
 
     0 */2 * * * sudo python3 /home/pi/NBA-scoreboard/scoreboard/Spreads_Update.py
-    
-    @reboot /home/pi/NBA-scoreboard/wifi-connect/scripts/start.sh
