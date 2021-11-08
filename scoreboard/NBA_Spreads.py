@@ -90,11 +90,22 @@ class NBA_Spreads:
                 data_live[gamelink] = {}
                 data_live[gamelink]['hometeam'] = game['competitors'][0]['name']
                 data_live[gamelink]['awayteam'] = game['competitors'][1]['name']
-                for i in range(0,3):
+                for i in range(0,12):
                     if game['displayGroups'][0]['markets'][i]['description'] == "Point Spread":
-                        data_live[gamelink]['spread'] = game['displayGroups'][0]['markets'][i]['outcomes'][1]['price']['handicap']
+                        if game['displayGroups'][0]['markets'][i]['period']['description'] == "Second Half":
+                            data_live[gamelink]['spread'] = game['displayGroups'][0]['markets'][i]['outcomes'][1]['price']['handicap']
+                            game_spread = data_live[gamelink]['spread']
+                        else:
+                            if game['displayGroups'][0]['markets'][i]['period']['description'] == "Live Game":
+                                data_live[gamelink]['spread'] = game['displayGroups'][0]['markets'][i]['outcomes'][1]['price']['handicap']
+                                second_spread = data_live[gamelink]['spread']
                     if game['displayGroups'][0]['markets'][i]['description'] == "Total":
-                        data_live[gamelink]['over_under'] = game['displayGroups'][0]['markets'][i]['outcomes'][1]['price']['handicap']
+                        if game['displayGroups'][0]['markets'][i]['period']['description'] == "Second Half":
+                            data_live[gamelink]['over_under'] = game['displayGroups'][0]['markets'][i]['outcomes'][1]['price']['handicap']
+                        else:
+                            if game['displayGroups'][0]['markets'][i]['period']['description'] == "Live Game":
+                                data_live[gamelink]['over_under'] = game['displayGroups'][0]['markets'][i]['outcomes'][1]['price']['handicap']
+
             except:
                 print('Error gathering live data')
         with open(self.path_live, 'w') as file:
