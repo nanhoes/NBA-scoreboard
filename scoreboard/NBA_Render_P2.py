@@ -95,7 +95,7 @@ class Render:
             for line in range(45+10,46+10):
                 graphics.DrawLine(canvas, 121+4, line, 121+4, line, graphics.Color(150, 150, 150))
             canvas = matrix.SwapOnVSync(canvas)
-            time.sleep(120)
+            time.sleep(3600*2)
         for game in game_data:
             hometeam = game['homeTeam']['teamTricode']
             awayteam = game['awayTeam']['teamTricode']
@@ -161,7 +161,7 @@ class Render:
                         graphics.DrawLine(canvas, 120, line, 120, line, graphics.Color(255, 255, 255))
                     for line in range(45,46):
                         graphics.DrawLine(canvas, 121, line, 121, line, graphics.Color(255, 255, 255))
-                        
+
                     if spread != "":
                         if (homescore-awayscore) >= float(spread)*(-1):
                             graphics.DrawText(canvas, self.font2, 127 - len(str(over_under))*8, 14, graphics.Color(0, 0, 255), over_under)

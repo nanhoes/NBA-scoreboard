@@ -149,7 +149,7 @@ class Render:
                                   188+x_offset_no_stats, line, graphics.Color(255, 255, 255))
 
             canvas = matrix.SwapOnVSync(canvas)
-            time.sleep(120)
+            time.sleep(3600*2)
 
         for game in game_data:
             hometeam = game['homeTeam']['teamTricode']
