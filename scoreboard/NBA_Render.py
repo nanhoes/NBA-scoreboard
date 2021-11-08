@@ -25,8 +25,8 @@ class Render:
         self.options.chain_length = int(config['DEFAULT']['chain_length'])
         self.options.parallel = int(config['DEFAULT']['parallel'])
         self.options.hardware_mapping = config['DEFAULT']['hardware_mapping']
-        self.options.gpio_slowdown = 3
-        self.options.brightness = int(config['DEFAULT']['brightness'])
+        self.options.gpio_slowdown = int(config['DEFAULT']['gpio_slowdown'])
+        #self.options.brightness = int(config['DEFAULT']['brightness'])
         self.options.row_address_type = int(config['DEFAULT']['row_address_type'])
         self.options.drop_privileges = int(config['DEFAULT']['drop_privileges'])
 
@@ -67,6 +67,7 @@ class Render:
             spreads_data = {}
 
         canvas = matrix.CreateFrameCanvas()
+        canvas2 = matrix.CreateFrameCanvas()
 
         if game_data == []:
             print('no games')
@@ -86,7 +87,7 @@ class Render:
                 graphics.DrawLine(canvas, 61, line, 61, line, graphics.Color(255, 255, 255))
 
             canvas = matrix.SwapOnVSync(canvas)
-            time.sleep(120)
+            time.sleep(3600*2)
 
         for game in game_data:
             hometeam = game['homeTeam']['teamTricode']
@@ -100,7 +101,7 @@ class Render:
                 away = 'l-a-clippers'
 
             gamelink = r'/basketball/nba/{0}-{1}-{2}'.format(away, home, game['gameCode'][0:game['gameCode'].find(r'/')])
-            print(gamelink)
+            print(awayteam,"@",hometeam)
 
             try:
                 if disp_live_odds == True and game['gameStatus'] == 2 and spreads_data_live is not None:
@@ -130,7 +131,6 @@ class Render:
                     graphics.DrawLine(canvas, 19, line, 38, line, graphics.Color(255, 255, 255))
                 for line in range(0,9):
                     graphics.DrawLine(canvas, 19, line, 38, line, graphics.Color(255, 255, 255))
-                print("spread:"+spread)
                 if spread != "":
                     if (homescore-awayscore) >= float(spread)*(-1):
                         graphics.DrawText(canvas, self.font2, 64 - len(str(over_under))*4, 7, graphics.Color(0, 0, 255), over_under)
@@ -193,14 +193,55 @@ class Render:
                 if (game['gameStatusText'][0] == 'Q' and game['gameStatusText'][1] >= '4') and (game['gameStatusText'][3] == '0' and game['gameStatusText'][4] <= '4'): #Q4 or OT < 5min remaining
                     if homescore > awayscore:
                         if (homescore - awayscore) <= 10: #close game
-                            graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(255, 255, 255), timeremaining) #bright quarter and time remaining
-                            graphics.DrawLine(canvas, 0, 31, 63, 31, graphics.Color(255, 0, 0)) #red line at bottom of screen
+                            start_time = time.time()
+                            seconds = 5
+                            while True:
+                                current_time = time.time()
+                                elapsed_time = current_time - start_time
+                                i = 50
+                                for line in range(0,100):
+                                    i += 2
+                                    graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(i, i, i), timeremaining) #bright quarter and time remaining
+                                    graphics.DrawLine(canvas2, 0, 31, line, 31, graphics.Color(255, 0, 0)) #red line at bottom of screen
+                                    canvas2 = matrix.SwapOnVSync(canvas)
+                                    time.sleep(.008)
+                                for line2 in range(0,100):
+                                    i -= 2
+                                    graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(i, i, i), timeremaining) #bright quarter and time remaining
+                                    graphics.DrawLine(canvas2, 0, 31, line2, 31, graphics.Color(0, 0, 0)) #red line at bottom of screen
+                                    canvas2 = matrix.SwapOnVSync(canvas)
+                                    time.sleep(.008)
+                                if elapsed_time > seconds:
+                                    break
+                            continue
                         else:
-                            graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(200, 200, 200), timeremaining)
+                            if timeremaining[0] == '1':
+                                graphics.DrawText(canvas, self.font3, 1, 28, graphics.Color(200, 200, 200), timeremaining)
+                            else:
+                                graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(200, 200, 200), timeremaining)
                     else:
                         if (awayscore - homescore) <= 10: #close game
-                            graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(255, 255, 255), timeremaining) #bright quarter and time remaining
-                            graphics.DrawLine(canvas, 0, 31, 63, 31, graphics.Color(255, 0, 0)) #red line at bottom of screen
+                            start_time = time.time()
+                            seconds = 5
+                            while True:
+                                current_time = time.time()
+                                elapsed_time = current_time - start_time
+                                i = 50
+                                for line in range(0,100):
+                                    i += 2
+                                    graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(i, i, i), timeremaining) #bright quarter and time remaining
+                                    graphics.DrawLine(canvas2, 0, 31, line, 31, graphics.Color(255, 0, 0)) #red line at bottom of screen
+                                    canvas2 = matrix.SwapOnVSync(canvas)
+                                    time.sleep(.008)
+                                for line2 in range(0,100):
+                                    i -= 2
+                                    graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(i, i, i), timeremaining) #bright quarter and time remaining
+                                    graphics.DrawLine(canvas2, 0, 31, line2, 31, graphics.Color(0, 0, 0)) #red line at bottom of screen
+                                    canvas2 = matrix.SwapOnVSync(canvas)
+                                    time.sleep(.008)
+                                if elapsed_time > seconds:
+                                    break
+                            continue
                         else:
                             if timeremaining[0] == '1':
                                 graphics.DrawText(canvas, self.font3, 1, 28, graphics.Color(200, 200, 200), timeremaining)
