@@ -18,12 +18,13 @@ class NBA_Spreads:
             if game['type'] != 'GAMEEVENT' or game['live'] == True:
                 #print('Not a game.')
                 continue
-
-            gamelink = game['link'][0:len(game['link'])-4]
-            if dt.datetime.strftime(dt.datetime.now(), '%Y%m%d') != gamelink[len(gamelink)-8:len(gamelink)]:
-                #print(gamelink[len(gamelink)-9:-1])
-
-                continue
+            try:
+                gamelink = game['link'][0:len(game['link'])-4]
+                if dt.datetime.strftime(dt.datetime.now(), '%Y%m%d') != gamelink[len(gamelink)-8:len(gamelink)]:
+                    #print(gamelink[len(gamelink)-9:-1])
+                    continue
+            except:
+                print('Error gathering live data')
             try:
                 data[gamelink] = {}
                 data[gamelink]['hometeam'] = game['competitors'][0]['name']
@@ -43,7 +44,6 @@ class NBA_Spreads:
 
     def Spreads_Update(self):
         url = 'https://www.bovada.lv/services/sports/event/v2/events/A/description/basketball/nba'
-
         response = requests.get(url).json()
 
         with open(self.path, 'r') as file:
@@ -56,10 +56,12 @@ class NBA_Spreads:
 
             if game['type'] != 'GAMEEVENT' or game['live'] == True:
                 continue
-
-            gamelink = game['link'][0:len(game['link'])-4]
-            if dt.datetime.strftime(dt.datetime.now(), '%Y%m%d') != gamelink[len(gamelink)-8:len(gamelink)]:
-                continue
+            try:
+                gamelink = game['link'][0:len(game['link'])-4]
+                if dt.datetime.strftime(dt.datetime.now(), '%Y%m%d') != gamelink[len(gamelink)-8:len(gamelink)]:
+                    continue
+            except:
+                print('Error gathering data')
             try:
                 data[gamelink] = {}
                 data[gamelink]['hometeam'] = game['competitors'][0]['name']
@@ -76,38 +78,43 @@ class NBA_Spreads:
             json.dump(data, file)
 
         data_live = {}
+        a = []
         for game in response[0]['events']:
 
             if game['type'] != 'GAMEEVENT' or game['live'] != True:
                 #print('Not a game.')
                 continue
-
-            gamelink = game['link'][0:len(game['link'])-4]
-            if dt.datetime.strftime(dt.datetime.now(), '%Y%m%d') != gamelink[len(gamelink)-8:len(gamelink)]:
-                #print(gamelink[len(gamelink)-8:-1])
-                continue
+            try:
+                gamelink = game['link'][0:len(game['link'])-4]
+                if dt.datetime.strftime(dt.datetime.now(), '%Y%m%d') != gamelink[len(gamelink)-8:len(gamelink)]:
+                    #print(gamelink[len(gamelink)-8:-1])
+                    continue
+            except:
+                print('Error gathering live data')
             try:
                 data_live[gamelink] = {}
                 data_live[gamelink]['hometeam'] = game['competitors'][0]['name']
                 data_live[gamelink]['awayteam'] = game['competitors'][1]['name']
                 for i in range(0,12):
-                    if game['displayGroups'][0]['markets'][i]['description'] == "Point Spread":
-                        if game['displayGroups'][0]['markets'][i]['period']['description'] == "Second Half":
-                            data_live[gamelink]['spread'] = game['displayGroups'][0]['markets'][i]['outcomes'][1]['price']['handicap']
-                            game_spread = data_live[gamelink]['spread']
-                        else:
-                            if game['displayGroups'][0]['markets'][i]['period']['description'] == "Live Game":
+                    if not game['displayGroups'][0]['markets'][i]['outcomes']:
+                        print("Nothing here")
+                        continue
+                    else:
+                        if game['displayGroups'][0]['markets'][i]['description'] == "Point Spread":
+                            if game['displayGroups'][0]['markets'][i]['period']['description'] == "Live Game" or game['displayGroups'][0]['markets'][i]['period']['description'] == "Second Half":
                                 data_live[gamelink]['spread'] = game['displayGroups'][0]['markets'][i]['outcomes'][1]['price']['handicap']
-                                second_spread = data_live[gamelink]['spread']
-                    if game['displayGroups'][0]['markets'][i]['description'] == "Total":
-                        if game['displayGroups'][0]['markets'][i]['period']['description'] == "Second Half":
-                            data_live[gamelink]['over_under'] = game['displayGroups'][0]['markets'][i]['outcomes'][1]['price']['handicap']
-                        else:
-                            if game['displayGroups'][0]['markets'][i]['period']['description'] == "Live Game":
+                                print(data_live[gamelink]['hometeam'],data_live[gamelink]['spread'])
+                                continue
+                        if game['displayGroups'][0]['markets'][i]['description'] == "Total":
+                            if game['displayGroups'][0]['markets'][i]['period']['description'] == "Live Game" or game['displayGroups'][0]['markets'][i]['period']['description'] == "Second Half":
                                 data_live[gamelink]['over_under'] = game['displayGroups'][0]['markets'][i]['outcomes'][1]['price']['handicap']
+                                print(data_live[gamelink]['hometeam'],data_live[gamelink]['over_under'])
+                                continue
+                        if game['displayGroups'][0]['markets'][i]['description'] == "Moneyline":
+                            continue
 
             except:
-                print('Error gathering live data')
+                print("Error gathering data")
         with open(self.path_live, 'w') as file:
             json.dump(data_live, file)
 

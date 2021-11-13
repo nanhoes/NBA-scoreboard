@@ -112,7 +112,7 @@ class Render:
                     over_under = spreads_data[gamelink]['over_under']
 
             except KeyError:
-                #print('No spreads for this game.')
+                print('No spreads for this game.')
                 spread = ''
                 over_under = ''
 
