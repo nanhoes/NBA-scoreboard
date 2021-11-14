@@ -1,4 +1,4 @@
-![image](https://user-images.githubusercontent.com/68497310/141670068-cf3633fb-49e6-40e7-b4aa-7bcb382c4502.jpeg)
+[Uploading Note (8).pdf…]()
 
 ## Supported Matrices
       P2 128x64 (NBA_Render_P2.py)
