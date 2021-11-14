@@ -1,4 +1,5 @@
-[Uploading Note (8).pdf…]()
+[NBA_Scoreboard_Instructions.pdf](https://github.com/nanhoes/NBA-scoreboard/files/7533295/NBA_Scoreboard_Instructions.pdf)
+
 
 ## Supported Matrices
       P2 128x64 (NBA_Render_P2.py)
