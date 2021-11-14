@@ -1,4 +1,4 @@
-[NBA_Scoreboard_Instructions.pdf](https://github.com/nanhoes/NBA-scoreboard/files/7533295/NBA_Scoreboard_Instructions.pdf)
+![NBA_Scoreboard_Instructions](https://user-images.githubusercontent.com/68497310/141670725-f411f4ae-9988-46f0-97ef-bbaea6599347.jpg)
 
 
 ## Supported Matrices
