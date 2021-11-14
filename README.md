@@ -27,6 +27,6 @@
 
     0 9 * * * sudo python3 /home/pi/NBA-scoreboard/scoreboard/Spreads_New_Day.py
 
-    1 9 * * * bash /home/pi/NBA-scoreboard/update_handling/check_for_update.sh
+    1 9 * * * cd NBA-scoreboard && bash /home/pi/NBA-scoreboard/update_handling/check_for_update.sh
 
     0 */2 * * * sudo python3 /home/pi/NBA-scoreboard/scoreboard/Spreads_Update.py
