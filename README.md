@@ -1,4 +1,4 @@
-![NBA_Scoreboard_Instructions](https://user-images.githubusercontent.com/68497310/141670725-f411f4ae-9988-46f0-97ef-bbaea6599347.jpg)
+![NBA_Scoreboard_Instructions](https://user-images.githubusercontent.com/68497310/141670770-196df201-b265-48fc-a18c-703578bb09ed.jpeg)
 
 
 ## Supported Matrices
