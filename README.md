@@ -1,3 +1,6 @@
+![NBA_Scoreboard_Instructions](https://user-images.githubusercontent.com/68497310/141670770-196df201-b265-48fc-a18c-703578bb09ed.jpeg)
+
+
 ## Supported Matrices
       P2 128x64 (NBA_Render_P2.py)
       P4 64x32 (NBA_Render.py)
@@ -24,6 +27,6 @@
 
     0 9 * * * sudo python3 /home/pi/NBA-scoreboard/scoreboard/Spreads_New_Day.py
 
-    1 9 * * * bash /home/pi/NBA-scoreboard/update_handling/check_for_update.sh
+    1 9 * * * cd NBA-scoreboard && bash /home/pi/NBA-scoreboard/update_handling/check_for_update.sh
 
     0 */2 * * * sudo python3 /home/pi/NBA-scoreboard/scoreboard/Spreads_Update.py
