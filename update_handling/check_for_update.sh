@@ -1,7 +1,6 @@
 #!/bin/sh
 
 cd /home/pi/NBA-scoreboard
-
 git remote update
 
 UPSTREAM=${1:-'@{u}'}
