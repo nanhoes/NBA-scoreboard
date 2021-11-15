@@ -229,13 +229,13 @@ class Render:
                                 i = 50
                                 for line in range(0,100):
                                     i += 2
-                                    graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(i, i, i), timeremaining) #bright quarter and time remaining
+                                    graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(i, i, i), timeremaining) #pulse time remaining
                                     graphics.DrawLine(canvas2, 0, 31, line, 31, graphics.Color(255, 0, 0)) #red line at bottom of screen
                                     canvas2 = matrix.SwapOnVSync(canvas)
                                     time.sleep(.008)
                                 for line2 in range(0,100):
                                     i -= 2
-                                    graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(i, i, i), timeremaining) #bright quarter and time remaining
+                                    graphics.DrawText(canvas, self.font3, 2, 28, graphics.Color(i, i, i), timeremaining) #pulse time remaining
                                     graphics.DrawLine(canvas2, 0, 31, line2, 31, graphics.Color(0, 0, 0)) #red line at bottom of screen
                                     canvas2 = matrix.SwapOnVSync(canvas)
                                     time.sleep(.008)
