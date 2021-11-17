@@ -1,8 +1,5 @@
 #!/bin/bash
 
-echo "Installing balena-os wifi-connect"
-git clone https://github.com/balena-os/wifi-connect.git
-
 echo "Installing rpi-rgb-led-matrix:"
 git clone https://github.com/hzeller/rpi-rgb-led-matrix.git
 
