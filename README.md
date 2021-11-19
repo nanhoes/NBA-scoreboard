@@ -1,26 +1,26 @@
-![NBA_Scoreboard_Instructions](https://user-images.githubusercontent.com/68497310/141670770-196df201-b265-48fc-a18c-703578bb09ed.jpeg)
-
-
 ## Supported Matrices
       P2 128x64 (NBA_Render_P2.py)
       P4 64x32 (NBA_Render.py)
       Four P5 64x32 chained together (NBA_Render_2x2.py)
       Nine P5 64x32 chained together (NBA_Render_Big.py) (3x3)
 
-## Raspberry Pi Setup
-1. Download the [BerryLan flavoured Raspbian image](https://downloads.nymea.io/images/berrylan/)
-2. Download [Etcher](https://www.balena.io/etcher/)
-3. Open Etcher, plug SD card into computer, install raspbian image download from file.
-4. Insert the SD Card and power on your Raspberry Pi.
-5. Install the [BerryLan iOS or Android App](https://berrylan.org/) and follow the instructions.
-6. SSH into pi, change hostname and password: ***System Options** > hostname, password*
-7. Set local timezone: ***Localisation Options** > timezone*, reboot raspberry pi.
-
-## Installation
+## Update Raspberry Pi
+      sudo apt-get update &&
+      sudo apt-get install git python-pip &&
+      
+## Clone Repo, [Install Balena WiFi Connect](https://github.com/balena-os/wifi-connect)
       sudo apt-get update &&
       sudo apt-get install git python-pip &&
       git clone -b master https://github.com/nanhoes/NBA-scoreboard &&
       cd NBA-scoreboard &&
+      chmod +x service_scripts/install-wifi-connect.sh
+      nohup bash service_scripts/install-wifi-connect.sh & tail -f nohup.out
+      
+## Setup WiFI
+1. Connect to "NBA_Setup_WiFi" from your phone.
+2. Enter your wifi credentials (2.4 gHz only).
+
+## Install NBA-Scoreboard
       sudo bash install.sh
 
 ## Crontab (run 'sudo crontab -e', paste this crontab below ▼ at end of file)
