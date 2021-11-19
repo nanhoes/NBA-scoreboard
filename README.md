@@ -18,7 +18,7 @@
       
 ## Setup WiFI
 1. Connect to "NBA_Setup_WiFi" from your phone.
-2. Enter your wifi credentials (2.4 gHz only).
+2. Enter your wifi credentials (2.4 gHz network only).
 
 ## Install NBA-Scoreboard
       sudo bash install.sh
