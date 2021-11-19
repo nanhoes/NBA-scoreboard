@@ -6,14 +6,14 @@
 
 ## Update Raspberry Pi
       sudo apt-get update &&
-      sudo apt-get install git python-pip &&
+      sudo apt-get install git python-pip
       
 ## Clone Repo, [Install Balena WiFi Connect](https://github.com/balena-os/wifi-connect)
       sudo apt-get update &&
       sudo apt-get install git python-pip &&
       git clone -b master https://github.com/nanhoes/NBA-scoreboard &&
       cd NBA-scoreboard &&
-      chmod +x service_scripts/install-wifi-connect.sh
+      chmod +x service_scripts/install-wifi-connect.sh &&
       nohup bash service_scripts/install-wifi-connect.sh & tail -f nohup.out
       
 ## Setup WiFI
