@@ -9,12 +9,12 @@
       sudo apt-get install git python-pip &&
       git clone -b master https://github.com/nanhoes/NBA-scoreboard &&
       cd NBA-scoreboard &&
-      chmod +x service_scripts/install-wifi-connect.sh &&
-      nohup bash service_scripts/install-wifi-connect.sh & tail -f nohup.out
+      chmod +x service_scripts/install-wifi-connect.sh
       
 ## Setup WiFI
-1. Connect to "NBA_Setup_WiFi" from your phone.
-2. Enter your wifi credentials (2.4 gHz network only).
+1. Start WiFi Connect `nohup bash service_scripts/install-wifi-connect.sh & tail -f nohup.out`
+2. Connect to "NBA_Setup_WiFi" from your phone.
+3. Enter your wifi credentials (2.4 gHz network only).
 
 ## Install NBA-Scoreboard
       sudo bash install.sh
