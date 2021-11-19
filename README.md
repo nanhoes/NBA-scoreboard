@@ -3,10 +3,6 @@
       P4 64x32 (NBA_Render.py)
       Four P5 64x32 chained together (NBA_Render_2x2.py)
       Nine P5 64x32 chained together (NBA_Render_Big.py) (3x3)
-
-## Update Raspberry Pi
-      sudo apt-get update &&
-      sudo apt-get install git python-pip
       
 ## Clone Repo, Install [Balena WiFi Connect](https://github.com/balena-os/wifi-connect)
       sudo apt-get update &&
