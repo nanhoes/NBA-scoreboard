@@ -32,4 +32,4 @@
     0 */2 * * * sudo python3 /home/pi/NBA-scoreboard/scoreboard/Spreads_Update.py
     
 ## Web App
-Access the web app at 'hostname.local', where hostname is your raspberry pi's hostname.
+Access the web app at `hostname.local`, where hostname is your raspberry pi's hostname.
