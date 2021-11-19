@@ -8,7 +8,7 @@
       sudo apt-get update &&
       sudo apt-get install git python-pip
       
-## Clone Repo, [Install Balena WiFi Connect](https://github.com/balena-os/wifi-connect)
+## Clone Repo, Install [Balena WiFi Connect](https://github.com/balena-os/wifi-connect)
       sudo apt-get update &&
       sudo apt-get install git python-pip &&
       git clone -b master https://github.com/nanhoes/NBA-scoreboard &&
