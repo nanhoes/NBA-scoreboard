@@ -23,7 +23,7 @@
 ## Install NBA-Scoreboard
       sudo bash install.sh
 
-## Crontab (run 'sudo crontab -e', paste this crontab below ▼ at end of file)
+## Crontab
 
     0 9 * * * sudo python3 /home/pi/NBA-scoreboard/scoreboard/Spreads_New_Day.py
 
