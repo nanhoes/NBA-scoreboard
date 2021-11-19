@@ -4,20 +4,20 @@
       Four P5 64x32 chained together (NBA_Render_2x2.py)
       Nine P5 64x32 chained together (NBA_Render_Big.py) (3x3)
       
-## Clone Repo, Install [Balena WiFi Connect](https://github.com/balena-os/wifi-connect)
+## Clone Repo
       sudo apt-get update &&
       sudo apt-get install git python-pip &&
-      git clone -b master https://github.com/nanhoes/NBA-scoreboard &&
-      cd NBA-scoreboard &&
-      chmod +x service_scripts/install-wifi-connect.sh
+      git clone -b master https://github.com/nanhoes/NBA-scoreboard
       
+## Install [Balena WiFi Connect](https://github.com/balena-os/wifi-connect)
+      cd NBA-scoreboard && chmod +x service_scripts/install-wifi-connect.sh && nohup bash service_scripts/install-wifi-connect.sh & tail -f nohup.out
+
 ## Setup WiFI
-1. Start WiFi Connect `nohup bash service_scripts/install-wifi-connect.sh & tail -f nohup.out`
-2. Connect to "NBA_Setup_WiFi" from your phone.
-3. Enter your wifi credentials (2.4 gHz network only).
+1. Connect to "NBA_Setup_WiFi" from your phone.
+2. Enter your wifi credentials (2.4 gHz network only).
 
 ## Install NBA-Scoreboard
-      sudo bash install.sh
+      cd NBA-scoreboard && sudo bash install.sh
 
 ## Crontab
 
