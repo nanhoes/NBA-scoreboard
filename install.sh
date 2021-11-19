@@ -98,6 +98,12 @@ sudo rm -rf /etc/systemd/system/NBA.*
 sudo systemctl daemon-reload
 echo "...done"
 
+echo "Removing data service if it exists:"
+sudo systemctl stop data
+sudo rm -rf /etc/systemd/system/data.*
+sudo systemctl daemon-reload
+echo "...done"
+
 echo "Removing starboard service if it exists:"
 sudo systemctl stop starboard
 sudo rm -rf /etc/systemd/system/starboard.*
