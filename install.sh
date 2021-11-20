@@ -228,6 +228,13 @@ echo "...done"
 read -n 1 -r -s -p $'\n----------------------------------\nPlease paste crontab from github now... PRESS ANY BUTTON TO CONTINUE...\n'
 sudo crontab -e
 
-echo "Installing wifi-connect... Will reboot after install..."
-chmod +x service_scripts/start-wifi-connect.sh && chmod +x service_scripts/install-wifi-connect.sh && nohup bash service_scripts/install-wifi-connect.sh & tail -F nohup.out
-
+echo -n "In order to finish setup a reboot is necessary..."
+echo -n "REBOOT NOW? [y/N] "
+read
+if [[ ! "$REPLY" =~ ^(yes|y|Y)$ ]]; then
+        echo "Exiting without reboot."
+        exit 0
+fi
+echo "Reboot started..."
+reboot
+sleep infinity
