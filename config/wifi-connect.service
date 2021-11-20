@@ -4,7 +4,6 @@ After=NetworkManager.service
 
 [Service]
 Type=simple
-ExecStart=/home/pi/NBA-scoreboard/service_scripts/start-wifi-connect.sh
 Restart=on-failure
 StandardOutput=syslog
 SyslogIdentifier=wifi-connect
