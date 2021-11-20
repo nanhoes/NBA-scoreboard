@@ -19,9 +19,7 @@
     1 9 * * * cd NBA-scoreboard && bash /home/pi/NBA-scoreboard/update_handling/check_for_update.sh
 
     0 */2 * * * sudo python3 /home/pi/NBA-scoreboard/scoreboard/Spreads_Update.py
-    
-    @reboot sudo bash /home/pi/NBA-scoreboard/service_scripts/start-wifi-connect.sh
-    
+        
 ## Setup WiFI
 1. Connect to "NBA_Setup_WiFi" from your phone.
 2. Enter your wifi credentials (2.4 gHz network only).
