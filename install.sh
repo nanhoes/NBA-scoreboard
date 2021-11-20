@@ -144,7 +144,6 @@ NBA_env_path=/etc/systemd/system/NBA.service.d/NBA_env.conf
 sudo touch $NBA_env_path
 sudo echo "[Service]" >> $NBA_env_path
 sudo systemctl daemon-reload
-sudo systemctl enable NBA
 echo "...done"
 
 echo "Creating data service:"
@@ -228,6 +227,9 @@ echo "...done"
 
 read -n 1 -r -s -p $'\n----------------------------------\nPlease paste crontab from github now... PRESS ANY BUTTON TO CONTINUE...\n'
 sudo crontab -e
+
+echo "Installing wifi-connect"
+cd NBA-scoreboard && chmod +x service_scripts/install-wifi-connect.sh && nohup bash service_scripts/install-wifi-connect.sh & tail -f nohup.out
 
 echo -n "In order to finish setup a reboot is necessary..."
 echo -n "REBOOT NOW? [y/N] "
