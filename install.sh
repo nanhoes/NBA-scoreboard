@@ -229,7 +229,7 @@ read -n 1 -r -s -p $'\n----------------------------------\nPlease paste crontab 
 sudo crontab -e
 
 echo "Installing wifi-connect"
-cd NBA-scoreboard && chmod +x service_scripts/install-wifi-connect.sh && nohup bash service_scripts/install-wifi-connect.sh & tail -f nohup.out
+cd NBA-scoreboard && chmod +x service_scripts/start-wifi-connect.sh && chmod +x service_scripts/install-wifi-connect.sh && nohup bash service_scripts/install-wifi-connect.sh & tail -f nohup.out
 
 echo -n "In order to finish setup a reboot is necessary..."
 echo -n "REBOOT NOW? [y/N] "
