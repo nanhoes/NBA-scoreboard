@@ -24,14 +24,12 @@ iwgetid -r
 
 if [ $? -eq 0 ]; then
     printf 'Skipping WiFi Connect\n'
-    #sudo systemctl start NBA
 else
     printf 'Starting WiFi Connect\n'
-    #sudo systemctl start starboard
     sudo wifi-connect -s NBA-WiFi-Setup
 fi
 
 #sudo systemctl stop starboard
-#sudo systemctl start NBA
+sudo systemctl start NBA
 
 sleep infinity
