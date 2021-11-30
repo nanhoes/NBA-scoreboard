@@ -134,6 +134,12 @@ sudo rm -rf /etc/systemd/system/shudown.*
 sudo systemctl daemon-reload
 echo "...done"
 
+echo "Removing wifi-connect service if it exists:"
+sudo systemctl stop wifi-connect
+sudo rm -rf /etc/systemd/system/wifi-connect.*
+sudo systemctl daemon-reload
+echo "...done"
+
 echo "Creating NBA service:"
 sudo cp ${install_path}/service_scripts/NBA_start.sh /usr/bin
 sudo chmod +x /usr/bin/NBA_start.sh
@@ -221,12 +227,29 @@ sudo systemctl daemon-reload
 sudo systemctl disable shutdown
 echo "...done"
 
+echo "Creating wifi-connect service:"
+sudo cp ${install_path}/service_scripts/start-wifi-connect.sh /usr/bin
+sudo chmod +x /usr/bin/start-wifi-connect.sh
+sudo cp ./config/wifi-connect.service /etc/systemd/system/
+sudo sed -i -e "/\[Service\]/a ExecStart=/usr/bin/start-wifi-connect.sh < /dev/zero &> /dev/null &" /etc/systemd/system/wifi-connect.service
+sudo sed -i -e "/\[Service\]/a ExecStartPre=/bin/sleep 30" /etc/systemd/system/wifi-connect.service
+sudo mkdir /etc/systemd/system/wifi-connect.service.d
+wifi-connect_env_path=/etc/systemd/system/wifi-connect.service.d/wifi-connect_env.conf
+sudo touch $wifi-connect_env_path
+sudo echo "[Service]" >> $wifi-connect_env_path
+sudo systemctl daemon-reload
+sudo systemctl enable wifi-connect
+echo "...done"
+
 echo "Gathering spreads data for the day..."
 sudo python3 /home/pi/NBA-scoreboard/scoreboard/Spreads_New_Day.py
 echo "...done"
 
 read -n 1 -r -s -p $'\n----------------------------------\nPlease paste crontab from github now... PRESS ANY BUTTON TO CONTINUE...\n'
 sudo crontab -e
+
+sudo chmod +x /home/pi/NBA-scoreboard/service_scripts/install-wifi-connect.sh
+nohup bash /home/pi/NBA-scoreboard/service_scripts/install-wifi-connect.sh & tail -F nohup.out
 
 echo -n "In order to finish setup a reboot is necessary..."
 echo -n "REBOOT NOW? [y/N] "
