@@ -136,9 +136,9 @@ sudo rm -rf /etc/systemd/system/shudown.*
 sudo systemctl daemon-reload
 echo "...done"
 
-echo "Removing wifi-connect service if it exists:"
-sudo systemctl stop wifi-connect
-sudo rm -rf /etc/systemd/system/wifi-connect.*
+echo "Removing wifi_connect service if it exists:"
+sudo systemctl stop wifi_connect
+sudo rm -rf /etc/systemd/system/wifi_connect.*
 sudo systemctl daemon-reload
 echo "...done"
 
@@ -229,15 +229,15 @@ sudo systemctl daemon-reload
 sudo systemctl disable shutdown
 echo "...done"
 
-echo "Creating wifi-connect service:"
-sudo cp ${install_path}/service_scripts/start-wifi-connect.sh /usr/bin
-sudo chmod +x /usr/bin/start-wifi-connect.sh
-sudo cp ./config/wifi-connect.service /etc/systemd/system/
-sudo sed -i -e "/\[Service\]/a ExecStart=/usr/bin/start-wifi-connect.sh < /dev/zero &> /dev/null &" /etc/systemd/system/wifi-connect.service
-sudo sed -i -e "/\[Service\]/a ExecStartPre=/bin/sleep 30" /etc/systemd/system/wifi-connect.service
-sudo mkdir /etc/systemd/system/wifi-connect.service.d
+echo "Creating wifi_connect service:"
+sudo cp ${install_path}/service_scripts/start-wifi_connect.sh /usr/bin
+sudo chmod +x /usr/bin/start-wifi_connect.sh
+sudo cp ./config/wifi_connect.service /etc/systemd/system/
+sudo sed -i -e "/\[Service\]/a ExecStart=/usr/bin/start-wifi_connect.sh < /dev/zero &> /dev/null &" /etc/systemd/system/wifi-connect.service
+sudo sed -i -e "/\[Service\]/a ExecStartPre=/bin/sleep 30" /etc/systemd/system/wifi_connect.service
+sudo mkdir /etc/systemd/system/wifi_connect.service.d
 sudo systemctl daemon-reload
-sudo systemctl enable wifi-connect
+sudo systemctl enable wifi_connect
 echo "...done"
 
 echo "Gathering spreads data for the day..."
