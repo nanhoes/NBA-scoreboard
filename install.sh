@@ -94,6 +94,7 @@ git update-index --assume-unchanged scoreboard/DataToday.json scoreboard/NBASpre
 echo "Removing NBA service if it exists:"
 sudo systemctl stop NBA
 sudo rm -rf /etc/systemd/system/NBA.*
+sudo rm -rf /usr/bin/NBA_start.*
 sudo systemctl daemon-reload
 echo "...done"
 
@@ -112,30 +113,35 @@ echo "...done"
 echo "Removing conway service if it exists:"
 sudo systemctl stop conway
 sudo rm -rf /etc/systemd/system/conway.*
+sudo rm -rf /usr/bin/conway_start.*
 sudo systemctl daemon-reload
 echo "...done"
 
 echo "Removing gif service if it exists:"
 sudo systemctl stop gif
 sudo rm -rf /etc/systemd/system/gif.*
+sudo rm -rf /usr/bin/gif_start.*
 sudo systemctl daemon-reload
 echo "...done"
 
 echo "Removing update service if it exists:"
 sudo systemctl stop update
 sudo rm -rf /etc/systemd/system/update.*
+sudo rm -rf /usr/bin/update_start.*
 sudo systemctl daemon-reload
 echo "...done"
 
 echo "Removing shudown service if it exists:"
 sudo systemctl stop shudown
 sudo rm -rf /etc/systemd/system/shudown.*
+sudo rm -rf /usr/bin/shutdown.*
 sudo systemctl daemon-reload
 echo "...done"
 
 echo "Removing wifi_connect service if it exists:"
 sudo systemctl stop wifi_connect
 sudo rm -rf /etc/systemd/system/wifi_connect.*
+sudo rm -rf /usr/bin/start-wifi_connect.*
 sudo systemctl daemon-reload
 echo "...done"
 
