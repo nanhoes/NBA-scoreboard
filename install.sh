@@ -237,7 +237,6 @@ sudo cp ${install_path}/service_scripts/start-wifi_connect.sh /usr/bin
 sudo chmod +x /usr/bin/start-wifi_connect.sh
 sudo cp ./config/wifi_connect.service /etc/systemd/system/
 sudo sed -i -e "/\[Service\]/a ExecStart=/usr/bin/start-wifi_connect.sh < /dev/zero &> /dev/null &" /etc/systemd/system/wifi_connect.service
-sudo sed -i -e "/\[Service\]/a ExecStartPre=/bin/sleep 30" /etc/systemd/system/wifi_connect.service
 sudo mkdir /etc/systemd/system/wifi_connect.service.d
 sudo systemctl daemon-reload
 sudo systemctl enable wifi_connect
