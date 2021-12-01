@@ -131,7 +131,7 @@ sudo rm -rf /usr/bin/update_start.*
 sudo systemctl daemon-reload
 echo "...done"
 
-echo "Removing shudown service if it exists:"
+echo "Removing shutdown service if it exists:"
 sudo systemctl stop shudown
 sudo rm -rf /etc/systemd/system/shudown.*
 sudo rm -rf /usr/bin/shutdown.*
