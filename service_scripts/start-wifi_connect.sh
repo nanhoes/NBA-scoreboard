@@ -27,15 +27,17 @@ if [ $? -eq 0 ]; then
 
 else
     printf 'Starting WiFi Connect\n'
-    sudo python3 /home/pi/NBA-scoreboard/wifi_connecting/Wifi_Not_Connected.py
     sudo systemctl stop client
+    sudo python3 /home/pi/NBA-scoreboard/wifi_connecting/Wifi_Not_Connected.py
     sudo wifi-connect -s NBA-WiFi-Setup
+    sudo python3 /home/pi/NBA-scoreboard/wifi_connecting/Wifi_Connected.py
+    sleep 20
+    sudo pkill -f /home/pi/NBA-scoreboard/wifi_connecting/Wifi_Connected.py
 
 fi
 
 sudo systemctl start client
 sudo pkill -f /home/pi/NBA-scoreboard/wifi_connecting/Wifi_Not_Connected.py
-sudo python3 /home/pi/NBA-scoreboard/wifi_connecting/Wifi_Connected.py
 sudo systemctl start NBA
 
 sleep infinity
