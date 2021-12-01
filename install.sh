@@ -77,7 +77,6 @@ echo "Creating client service:"
 sudo cp ./config/client.service /etc/systemd/system/
 sudo sed -i -e "/\[Service\]/a ExecStart=/usr/local/bin/gunicorn --workers 3 --bind unix:app.sock -m 007 wsgi:app &" /etc/systemd/system/client.service
 sudo systemctl daemon-reload
-sudo systemctl start client
 sudo systemctl enable client
 echo "...done"
 
@@ -245,8 +244,8 @@ echo "...done"
 read -n 1 -r -s -p $'\n----------------------------------\nPlease paste crontab from github now... PRESS ANY BUTTON TO CONTINUE...\n'
 sudo crontab -e
 
-#sudo chmod +x /home/pi/NBA-scoreboard/service_scripts/install-wifi-connect.sh
-#nohup bash /home/pi/NBA-scoreboard/service_scripts/install-wifi-connect.sh & tail -F nohup.out
+sudo chmod +x /home/pi/NBA-scoreboard/service_scripts/install-wifi-connect.sh
+nohup bash /home/pi/NBA-scoreboard/service_scripts/install-wifi-connect.sh & tail -F nohup.out
 
 echo -n "In order to finish setup a reboot is necessary..."
 echo -n "REBOOT NOW? [y/N] "
