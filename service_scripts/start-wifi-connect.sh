@@ -24,37 +24,16 @@ iwgetid -r
 
 if [ $? -eq 0 ]; then
     printf 'Skipping WiFi Connect\n'
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 else
     printf 'Starting WiFi Connect\n'
     sudo python3 Wifi_Not_Connected.py
-=======
-else
-    printf 'Starting WiFi Connect\n'
->>>>>>> ab3d565afa88d4625eba37a96c77b8b496eedd4a
-=======
-
-else
-    printf 'Starting WiFi Connect\n'
-    sudo python3 Wifi_Not_Connected.py
->>>>>>> d41a4a85722827f37919dbb028724b4c000858a0
     sudo wifi-connect -s NBA-WiFi-Setup
 
 fi
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 sudo pkill -f Wifi_Not_Connected.py
 sudo python3 Wifi_Connected.py
-=======
-#sudo systemctl stop starboard
->>>>>>> ab3d565afa88d4625eba37a96c77b8b496eedd4a
-=======
-sudo pkill -f Wifi_Not_Connected.py
-sudo python3 Wifi_Connected.py
->>>>>>> d41a4a85722827f37919dbb028724b4c000858a0
 sudo systemctl start NBA
 
 sleep infinity
