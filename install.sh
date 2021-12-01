@@ -1,8 +1,5 @@
 #!/bin/bash
 
-sudo chmod +x /home/pi/NBA-scoreboard/service_scripts/install-wifi-connect.sh
-nohup bash /home/pi/NBA-scoreboard/service_scripts/install-wifi-connect.sh & tail -F nohup.out
-
 echo "Installing rpi-rgb-led-matrix:"
 git clone https://github.com/hzeller/rpi-rgb-led-matrix.git
 
