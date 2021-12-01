@@ -234,9 +234,6 @@ sudo cp ./config/wifi-connect.service /etc/systemd/system/
 sudo sed -i -e "/\[Service\]/a ExecStart=/usr/bin/start-wifi-connect.sh < /dev/zero &> /dev/null &" /etc/systemd/system/wifi-connect.service
 sudo sed -i -e "/\[Service\]/a ExecStartPre=/bin/sleep 30" /etc/systemd/system/wifi-connect.service
 sudo mkdir /etc/systemd/system/wifi-connect.service.d
-wifi-connect_env_path=/etc/systemd/system/wifi-connect.service.d/wifi-connect_env.conf
-sudo touch $wifi-connect_env_path
-sudo echo "[Service]" >> $wifi-connect_env_path
 sudo systemctl daemon-reload
 sudo systemctl enable wifi-connect
 echo "...done"
