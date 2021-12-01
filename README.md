@@ -5,9 +5,9 @@
       Nine P5 64x32 chained together (NBA_Render_Big.py) (3x3)
       
 ## Install NBA-Scoreboard
-      sudo apt update &&
-      sudo apt-get update --allow-releaseinfo-change &&
-      sudo apt-get install git python-pip &&
+      sudo apt update
+      sudo apt-get update --allow-releaseinfo-change
+      sudo apt-get install git python-pip
       git clone -b master https://github.com/nanhoes/NBA-scoreboard
       cd NBA-scoreboard && 
       sudo bash install.sh
