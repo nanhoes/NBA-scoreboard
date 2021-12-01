@@ -245,8 +245,8 @@ echo "...done"
 read -n 1 -r -s -p $'\n----------------------------------\nPlease paste crontab from github now... PRESS ANY BUTTON TO CONTINUE...\n'
 sudo crontab -e
 
-sudo chmod +x /home/pi/NBA-scoreboard/service_scripts/install-wifi-connect.sh
-nohup bash /home/pi/NBA-scoreboard/service_scripts/install-wifi-connect.sh & tail -F nohup.out
+#sudo chmod +x /home/pi/NBA-scoreboard/service_scripts/install-wifi-connect.sh
+#nohup bash /home/pi/NBA-scoreboard/service_scripts/install-wifi-connect.sh & tail -F nohup.out
 
 echo -n "In order to finish setup a reboot is necessary..."
 echo -n "REBOOT NOW? [y/N] "
