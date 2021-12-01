@@ -6,7 +6,7 @@ After=NetworkManager.service
 Type=simple
 Restart=on-failure
 StandardOutput=syslog
-SyslogIdentifier=wifi-connect
+SyslogIdentifier=wifi_connect
 Type=idle
 User=root
 
