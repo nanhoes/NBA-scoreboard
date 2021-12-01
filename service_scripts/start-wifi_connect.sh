@@ -36,6 +36,7 @@ else
 
 fi
 
+printf 'Starting NBA Render\n'
 sudo systemctl start client
 sudo pkill -f /home/pi/NBA-scoreboard/wifi_connecting/Wifi_Not_Connected.py
 sudo systemctl start NBA
