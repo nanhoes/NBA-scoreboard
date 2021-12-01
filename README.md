@@ -9,7 +9,7 @@
       sudo apt-get update --allow-releaseinfo-change
       sudo apt-get install git python-pip
       git clone -b master https://github.com/nanhoes/NBA-scoreboard
-      cd NBA-scoreboard && 
+      cd NBA-scoreboard
       sudo bash install.sh
 
 ## Crontab
