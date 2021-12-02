@@ -40,6 +40,7 @@ cd
 sudo apt-get install otf2bdf
 cd /home/pi/NBA-scoreboard
 otf2bdf -v -o Minimal-Mono-Bold-15.bdf -r 72 -p 15 /home/pi/NBA-scoreboard/Minimal-Mono-Bold.otf
+otf2bdf -v -o Minimal-Mono-Bold-18.bdf -r 72 -p 18 /home/pi/NBA-scoreboard/Minimal-Mono-Bold.otf
 otf2bdf -v -o Minimal-Mono-Bold-19.bdf -r 72 -p 19 /home/pi/NBA-scoreboard/Minimal-Mono-Bold.otf
 otf2bdf -v -o Minimal-Mono-Bold-28.bdf -r 72 -p 28 /home/pi/NBA-scoreboard/Minimal-Mono-Bold.otf
 
