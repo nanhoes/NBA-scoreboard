@@ -22,7 +22,8 @@ sleep 15
 # 4. Is there an active WiFi connection?
 iwgetid -r
 
-if [ $? -eq 0 ]; then
+if [ $? -eq 0 ]
+then
     printf 'Skipping WiFi Connect\n'
 
 else
@@ -30,15 +31,17 @@ else
     sudo systemctl stop client
     sudo python3 /home/pi/NBA-scoreboard/wifi_connecting/Wifi_Not_Connected.py & 
     sudo wifi-connect -s NBA-WiFi-Setup
-    while true; do    
+    while true
+    do    
         iwgetid -r
-        if [ $? -eq 0 ]; then
+        if [ $? -eq 0 ]
+        then
             sudo pkill -f /home/pi/NBA-scoreboard/wifi_connecting/Wifi_Not_Connected.py
             sudo python3 /home/pi/NBA-scoreboard/wifi_connecting/Wifi_Connected.py
         else
             continue
         fi
-        break
+    done
 fi
 printf 'Starting NBA Render\n'
 sudo systemctl start client
