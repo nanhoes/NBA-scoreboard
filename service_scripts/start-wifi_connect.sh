@@ -29,12 +29,17 @@ else
     printf 'Starting WiFi Connect\n'
     sudo systemctl stop client
     sudo python3 /home/pi/NBA-scoreboard/wifi_connecting/Wifi_Not_Connected.py & 
-    sudo wifi-connect -s NBA-WiFi-Setup -a 10
-    sudo pkill -f /home/pi/NBA-scoreboard/wifi_connecting/Wifi_Not_Connected.py
-    sudo python3 /home/pi/NBA-scoreboard/wifi_connecting/Wifi_Connected.py
-
+    sudo wifi-connect -s NBA-WiFi-Setup
+    while true; do    
+        iwgetid -r
+        if [ $? -eq 0 ]; then
+            sudo pkill -f /home/pi/NBA-scoreboard/wifi_connecting/Wifi_Not_Connected.py
+            sudo python3 /home/pi/NBA-scoreboard/wifi_connecting/Wifi_Connected.py
+        else
+            continue
+        fi
+        break
 fi
-
 printf 'Starting NBA Render\n'
 sudo systemctl start client
 sudo systemctl start NBA
