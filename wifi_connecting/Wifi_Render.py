@@ -43,12 +43,8 @@ class Render:
         text1 = "CONNECT TO NETWORK "
         text2 = "NBA-WIFI-SETUP"
         text3 = " FROM YOUR PHONE"
-        x = 30 # x-offset
-        y = 5 # y-offset
         image_file1 = '/home/pi/NBA-scoreboard/board_images/nba.png'
         image_file2 = '/home/pi/NBA-scoreboard/board_images/wifi.png'
-        size = 16, 16
-        count = 0
 
         while True:
             self.image = Image.open(image_file1).convert('RGB')
@@ -67,9 +63,6 @@ class Render:
             pos -= 1
             if (pos + length < 0):
                 pos = canvas1.width
-                count += 1
-                if count == 2:
-                    break
 
             canvas1 = matrix.SwapOnVSync(canvas1)
             time.sleep(0.04)
@@ -84,12 +77,8 @@ class Render:
         text1 = "CONNECTED! GO TO "
         text2 = hname.upper() + ".LOCAL"
         text3 = " AND ADD SITE TO YOUR HOME SCREEN"
-        x = 30 # x-offset
-        y = 5 # y-offset
         image_file1 = '/home/pi/NBA-scoreboard/board_images/nba.png'
         image_file2 = '/home/pi/NBA-scoreboard/board_images/wifi_green.png'
-        size = 16, 16
-        count = 0
 
         while True:
             self.image = Image.open(image_file1).convert('RGB')
@@ -108,9 +97,6 @@ class Render:
             pos -= 1
             if (pos + length < 0):
                 pos = canvas1.width
-                count += 1
-                if count == 2:
-                    break
 
             canvas1 = matrix.SwapOnVSync(canvas1)
             time.sleep(0.04)
