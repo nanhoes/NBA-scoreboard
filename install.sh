@@ -173,6 +173,7 @@ echo "...done"
 
 echo "Creating starboard service:"
 sudo cp ./config/starboard.service /etc/systemd/system/
+sudo sed -i -e "/\[Service\]/a ExecStartPre=pkill -f ${install_path}/wifi_connecting/Wifi_Connected.py" /etc/systemd/system/NBA.service
 sudo sed -i -e "/\[Service\]/a ExecStart=python3 ${install_path}/animations/starboard.py < /dev/zero &> /dev/null &" /etc/systemd/system/starboard.service
 sudo mkdir /etc/systemd/system/starboard.service.d
 starboard_env_path=/etc/systemd/system/starboard.service.d/starboard_env.conf
@@ -186,6 +187,7 @@ echo "Creating conway service:"
 sudo cp ${install_path}/service_scripts/conway_start.sh /usr/bin
 sudo chmod +x /usr/bin/conway_start.sh
 sudo cp ./config/conway.service /etc/systemd/system/
+sudo sed -i -e "/\[Service\]/a ExecStartPre=pkill -f ${install_path}/wifi_connecting/Wifi_Connected.py" /etc/systemd/system/NBA.service
 sudo sed -i -e "/\[Service\]/a ExecStart=/usr/bin/conway_start.sh < /dev/zero &> /dev/null &" /etc/systemd/system/conway.service
 sudo mkdir /etc/systemd/system/conway.service.d
 conway_env_path=/etc/systemd/system/conway.service.d/conway_env.conf
@@ -199,6 +201,7 @@ echo "Creating gif service:"
 sudo cp ${install_path}/service_scripts/gif_start.sh /usr/bin
 sudo chmod +x /usr/bin/gif_start.sh
 sudo cp ./config/gif.service /etc/systemd/system/
+sudo sed -i -e "/\[Service\]/a ExecStartPre=pkill -f ${install_path}/wifi_connecting/Wifi_Connected.py" /etc/systemd/system/NBA.service
 sudo sed -i -e "/\[Service\]/a ExecStart=/usr/bin/gif_start.sh < /dev/zero &> /dev/null &" /etc/systemd/system/gif.service
 sudo mkdir /etc/systemd/system/gif.service.d
 gif_env_path=/etc/systemd/system/gif.service.d/gif_env.conf
