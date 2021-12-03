@@ -30,9 +30,9 @@ else
     printf 'Starting WiFi Connect\n'
     sudo systemctl stop client
     sudo python3 /home/pi/NBA-scoreboard/wifi_connecting/Wifi_Not_Connected.py & 
-    sudo wifi-connect -s NBA-WiFi-Setup
     while true
     do    
+        sudo python3 /home/pi/NBA-scoreboard/wifi_connecting/Start_Hotspot.py
         iwgetid -r
         if [ $? -eq 0 ]
         then
