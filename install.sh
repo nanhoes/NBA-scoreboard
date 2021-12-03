@@ -150,6 +150,7 @@ echo "Creating NBA service:"
 sudo cp ${install_path}/service_scripts/NBA_start.sh /usr/bin
 sudo chmod +x /usr/bin/NBA_start.sh
 sudo cp ./config/NBA.service /etc/systemd/system/
+sudo sed -i -e "/\[Service\]/a ExecStartPre=pkill -f ${install_path}/wifi_connecting/Wifi_Connected.py < /dev/zero &> /dev/null &" /etc/systemd/system/NBA.service
 sudo sed -i -e "/\[Service\]/a ExecStart=/usr/bin/NBA_start.sh < /dev/zero &> /dev/null &" /etc/systemd/system/NBA.service
 sudo mkdir /etc/systemd/system/NBA.service.d
 NBA_env_path=/etc/systemd/system/NBA.service.d/NBA_env.conf
