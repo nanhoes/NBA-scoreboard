@@ -19,8 +19,8 @@ def getHotspotName():
 
 def runHotspot():
     # remove old hotspotconnection, to make sure it won't conflict with the new hotspot
-    os.system('sudo nmcli connection down id "+getHotspotName()+" || true')
-    os.system('sudo nmcli connection delete id "+getHotspotName()+" || true')
+    os.system('sudo nmcli connection down id '+getHotspotName()+' || true')
+    os.system('sudo nmcli connection delete id '+getHotspotName()+' || true')
     os.system('sudo nmcli device wifi rescan')
 
     # we need to use pseudoterminal since wifi-connect outputs to tty, thus we can't read stdout
