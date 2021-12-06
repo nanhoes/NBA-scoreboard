@@ -13,20 +13,19 @@ maxHotspotRetries = 5
 hotspotFailedCounter = 0
 
 
-def getHotspotName():
-    return "NBA-Wifi-Setup"
+hotspot_name = 'NBA-Wifi-Setup'
 
 
 def runHotspot():
     # remove old hotspotconnection, to make sure it won't conflict with the new hotspot
-    os.system('sudo nmcli connection down id '+getHotspotName()+' || true')
-    os.system('sudo nmcli connection delete id '+getHotspotName()+' || true')
+    os.system('sudo nmcli connection down id NBA-Wifi-Setup || true')
+    os.system('sudo nmcli connection delete id NBA-Wifi-Setup || true')
     os.system('sudo nmcli device wifi rescan')
 
     # we need to use pseudoterminal since wifi-connect outputs to tty, thus we can't read stdout
     # -> READ THIS: https://stackoverflow.com/a/42008071
     master, slave = pty.openpty()
-    hotspotProcess = subprocess.Popen(["/usr/local/sbin/wifi-connect", "-s", getHotspotName()], stdin=subprocess.PIPE,
+    hotspotProcess = subprocess.Popen(["/usr/local/sbin/wifi-connect", "-s", hotspot_name], stdin=subprocess.PIPE,
                                       stdout=slave, stderr=slave, close_fds=True)
     # the code above duplicates the slaveFD for use with the hotspotProcess, so both slaves need to be closed to make s$
     os.close(slave)
