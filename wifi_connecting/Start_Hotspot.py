@@ -21,8 +21,8 @@ def runHotspot():
     # remove old hotspotconnection, to make sure it won't conflict with the new hotspot
     os.system('nmcli connection down id "'+getHotspotName()+'" || true')
     os.system('nmcli connection delete id "'+getHotspotName()+'" || true')
-    os.system("nmcli con show | grep wifi |  awk '{print $2}' | while read line; do nmcli con down uuid $line && nmcli con delete uuid $line;    done")
-
+    os.system('nmcli connection down id "searching.. ...." || true')
+    os.system('nmcli connection delete id "searching.. ...." || true')
 
     # we need to use pseudoterminal since wifi-connect outputs to tty, thus we can't read stdout
     # -> READ THIS: https://stackoverflow.com/a/42008071
