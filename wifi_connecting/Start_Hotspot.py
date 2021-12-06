@@ -18,7 +18,6 @@ hotspot_name = 'NBA-Wifi-Setup'
 
 def runHotspot():
     # remove old hotspotconnection, to make sure it won't conflict with the new hotspot
-    os.system('sudo nmcli connection down id NBA-Wifi-Setup || true')
     os.system('sudo nmcli connection delete id NBA-Wifi-Setup || true')
     os.system('sudo nmcli device wifi rescan')
 
