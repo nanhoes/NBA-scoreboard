@@ -3,11 +3,6 @@
 echo "Installing rpi-rgb-led-matrix:"
 git clone https://github.com/hzeller/rpi-rgb-led-matrix.git
 
-echo "Installing RaspiWiFi:"
-git clone https://github.com/rwbr/RaspiWiFi.git
-cd RaspiWiFi
-sudo python3 initial_setup.py
-
 reconfig() {
 	grep $2 $1 >/dev/null
 	if [ $? -eq 0 ]; then
@@ -144,6 +139,13 @@ sudo rm -rf /usr/bin/shutdown.*
 sudo systemctl daemon-reload
 echo "...done"
 
+echo "Removing wifi_connect service if it exists:"
+sudo systemctl stop wifi_connect
+sudo rm -rf /etc/systemd/system/wifi_connect.*
+sudo rm -rf /usr/bin/start-wifi_connect.*
+sudo systemctl daemon-reload
+echo "...done"
+ 
 echo "Creating NBA service:"
 sudo cp ${install_path}/service_scripts/NBA_start.sh /usr/bin
 sudo chmod +x /usr/bin/NBA_start.sh
@@ -235,6 +237,16 @@ sudo systemctl daemon-reload
 sudo systemctl disable shutdown
 echo "...done"
 
+echo "Creating wifi_connect service:"
+sudo cp ${install_path}/service_scripts/start-wifi_connect.sh /usr/bin
+sudo chmod +x /usr/bin/start-wifi_connect.sh
+sudo cp ./config/wifi_connect.service /etc/systemd/system/
+sudo sed -i -e "/\[Service\]/a ExecStart=/usr/bin/start-wifi_connect.sh < /dev/zero &> /dev/null &" /etc/systemd/system/wifi_connect.service
+sudo mkdir /etc/systemd/system/wifi_connect.service.d
+sudo systemctl daemon-reload
+sudo systemctl enable wifi_connect
+echo "...done"
+ 
 echo "Gathering spreads data for the day..."
 sudo python3 /home/pi/NBA-scoreboard/scoreboard/Spreads_New_Day.py
 echo "...done"
