@@ -3,6 +3,11 @@
 echo "Installing rpi-rgb-led-matrix:"
 git clone https://github.com/hzeller/rpi-rgb-led-matrix.git
 
+echo "Installing RaspiWiFi:"
+git clone https://github.com/rwbr/RaspiWiFi.git
+cd RaspiWiFi
+sudo python3 initial_setup.py
+
 reconfig() {
 	grep $2 $1 >/dev/null
 	if [ $? -eq 0 ]; then
