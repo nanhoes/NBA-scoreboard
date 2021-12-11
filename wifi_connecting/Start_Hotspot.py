@@ -19,7 +19,6 @@ hotspot_name = 'NBA-Wifi-Setup'
 def runHotspot():
     # remove old hotspotconnection, to make sure it won't conflict with the new hotspot
     os.system('sudo nmcli connection delete id NBA-Wifi-Setup || true')
-    os.system('sudo nmcli device wifi rescan')
 
     # we need to use pseudoterminal since wifi-connect outputs to tty, thus we can't read stdout
     # -> READ THIS: https://stackoverflow.com/a/42008071
