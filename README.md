@@ -7,7 +7,7 @@
 ## Clone NBA-Scoreboard
       sudo apt update
       sudo apt-get update --allow-releaseinfo-change
-      sudo apt-get install git python-pip
+      sudo apt-get install git python3-pip
       git clone -b master https://github.com/nanhoes/NBA-scoreboard
       
 ## Install NBA-scoreboard
