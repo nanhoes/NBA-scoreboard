@@ -6,7 +6,7 @@ export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 # sometimes. In this case, following checks will fail and wifi-connect
 # will be launched even if the device will be able to connect to a WiFi network.
 # If this is your case, you can wait for a while and then check for the connection.
-sleep 30
+sleep 15
 
 # Choose a condition for running WiFi Connect according to your use case:
 
@@ -28,7 +28,6 @@ then
 
 else
     printf 'Starting WiFi Connect\n'
-    sudo systemctl stop client
     sudo python3 /home/pi/NBA-scoreboard/wifi_connecting/Wifi_Not_Connected.py & 
     sudo python3 /home/pi/NBA-scoreboard/wifi_connecting/Start_Hotspot.py
     iwgetid -r
@@ -39,7 +38,6 @@ else
     fi
 fi
 printf 'Starting NBA Render\n'
-sudo systemctl start client
 sudo systemctl start NBA
 
 sleep infinity
