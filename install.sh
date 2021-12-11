@@ -139,13 +139,6 @@ sudo rm -rf /usr/bin/shutdown.*
 sudo systemctl daemon-reload
 echo "...done"
 
-echo "Removing wifi_connect service if it exists:"
-sudo systemctl stop wifi_connect
-sudo rm -rf /etc/systemd/system/wifi_connect.*
-sudo rm -rf /usr/bin/start-wifi_connect.*
-sudo systemctl daemon-reload
-echo "...done"
-
 echo "Creating NBA service:"
 sudo cp ${install_path}/service_scripts/NBA_start.sh /usr/bin
 sudo chmod +x /usr/bin/NBA_start.sh
@@ -235,16 +228,6 @@ sudo touch $shutdown_env_path
 sudo echo "[Service]" >> $shutdown_env_path
 sudo systemctl daemon-reload
 sudo systemctl disable shutdown
-echo "...done"
-
-echo "Creating wifi_connect service:"
-sudo cp ${install_path}/service_scripts/start-wifi_connect.sh /usr/bin
-sudo chmod +x /usr/bin/start-wifi_connect.sh
-sudo cp ./config/wifi_connect.service /etc/systemd/system/
-sudo sed -i -e "/\[Service\]/a ExecStart=/usr/bin/start-wifi_connect.sh < /dev/zero &> /dev/null &" /etc/systemd/system/wifi_connect.service
-sudo mkdir /etc/systemd/system/wifi_connect.service.d
-sudo systemctl daemon-reload
-sudo systemctl enable wifi_connect
 echo "...done"
 
 echo "Gathering spreads data for the day..."
