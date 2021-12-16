@@ -47,8 +47,8 @@ class Render:
         text1 = "CONNECT TO NETWORK "
         text2 = "NBA-WIFI-SETUP"
         text3 = " FROM YOUR PHONE"
-        image_file1 = '/home/pi/NBA-scoreboard/board_images/nba.png'
-        image_file2 = '/home/pi/NBA-scoreboard/board_images/wifi.png'
+        image_file1 = '/Users/nanhoes/NBAscoreboard02/home/pi/NBA-scoreboard/board_images/nba.png'
+        image_file2 = '/Users/nanhoes/NBAscoreboard02/home/pi/NBA-scoreboard/board_images/wifi.png'
 
         while True:
             self.image = Image.open(image_file1).convert('RGB')
@@ -81,8 +81,8 @@ class Render:
         text1 = "CONNECTED! GO TO "
         text2 = hname.upper() + ".LOCAL:6969"
         text3 = " AND ADD SITE TO YOUR HOME SCREEN"
-        image_file1 = '/home/pi/NBA-scoreboard/board_images/nba.png'
-        image_file2 = '/home/pi/NBA-scoreboard/board_images/wifi_green.png'
+        image_file1 = '/Users/nanhoes/NBAscoreboard02/home/pi/NBA-scoreboard/board_images/nba.png'
+        image_file2 = '/Users/nanhoes/NBAscoreboard02/home/pi/NBA-scoreboard/board_images/wifi_green.png'
 
         while True:
             self.image = Image.open(image_file1).convert('RGB')
