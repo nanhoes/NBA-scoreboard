@@ -55,7 +55,7 @@ sudo python3 -m venv NBA-scoreboard-venv
 source NBA-scoreboard-venv/bin/activate
 
 echo "Installing flask and gunicorn:"
-sudo pip install gunicorn flask
+sudo pip3 install gunicorn flask
 
 deactivate
 
