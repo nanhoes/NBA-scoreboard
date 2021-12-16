@@ -148,9 +148,11 @@ echo "...done"
  
 echo "Creating NBA service:"
 sudo cp ${install_path}/service_scripts/NBA_start.sh /usr/bin
+sudo cp ${install_path}/service_scripts/kill_wifi_render.sh /usr/bin
 sudo chmod +x /usr/bin/NBA_start.sh
+sudo chmod +x /usr/bin/kill_wifi_render.sh
 sudo cp ./config/NBA.service /etc/systemd/system/
-sudo sed -i -e "/\[Service\]/a ExecStartPre=pkill -f Wifi_Connected.py" /etc/systemd/system/NBA.service
+sudo sed -i -e "/\[Service\]/a ExecStartPre=/usr/bin/kill_wifi_render.sh < /dev/zero &> /dev/null &" /etc/systemd/system/NBA.service
 sudo sed -i -e "/\[Service\]/a ExecStart=/usr/bin/NBA_start.sh < /dev/zero &> /dev/null &" /etc/systemd/system/NBA.service
 sudo mkdir /etc/systemd/system/NBA.service.d
 NBA_env_path=/etc/systemd/system/NBA.service.d/NBA_env.conf
