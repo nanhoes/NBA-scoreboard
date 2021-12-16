@@ -104,4 +104,3 @@ class Render:
 if __name__=='__main__':
     while True:
         Render().Wifi_Not_Connected()
-        Render().Wifi_Connected()
