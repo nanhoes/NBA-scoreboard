@@ -27,16 +27,15 @@ class Render:
         self.options.rows = 32
         self.options.cols = 64
         self.options.drop_privileges = False
-        self.path = '/home/pi/NBA-scoreboard/scoreboard/'
 
-        self.path = '/Users/nanhoes/NBAscoreboard02/scoreboard/'
+        self.path = '/Users/nanhoes/NBAscoreboard02/home/pi/NBAscoreboard/'
 
         self.font = graphics.Font()
-        self.font.LoadFont("/Users/nanhoes/NBAscoreboard02/rpi-rgb-led-matrix/fonts/6x12.bdf")
+        self.font.LoadFont("/Users/nanhoes/NBAscoreboard02/home/pi/NBAscoreboard/rpi-rgb-led-matrix/fonts/6x12.bdf")
         self.font2 = graphics.Font()
-        self.font2.LoadFont("/Users/nanhoes/NBAscoreboard02/rpi-rgb-led-matrix/fonts/4x6.bdf")
+        self.font2.LoadFont("/Users/nanhoes/NBAscoreboard02/home/pi/NBAscoreboard/rpi-rgb-led-matrix/fonts/4x6.bdf")
         self.font3 = graphics.Font()
-        self.font3.LoadFont("/Users/nanhoes/NBAscoreboard02/rpi-rgb-led-matrix/fonts/5x8.bdf")
+        self.font3.LoadFont("/Users/nanhoes/NBAscoreboard02/home/pi/NBAscoreboard/rpi-rgb-led-matrix/fonts/5x8.bdf")
 
 
     def Wifi_Not_Connected(self, printer=False):
