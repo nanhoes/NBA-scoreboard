@@ -5,6 +5,7 @@
       Nine P5 64x32 chained together (NBA_Render_Big.py) (3x3)
       
 ## Clone NBA-Scoreboard
+      sudo apt-get update
       sudo apt-get install git python3-pip
       git clone -b master https://github.com/nanhoes/NBA-scoreboard
       
