@@ -75,7 +75,7 @@ class Render:
         pos = canvas1.width
         hname = socket.gethostname()
         text1 = "CONNECTED! GO TO "
-        text2 = hname.upper() + ".LOCAL"
+        text2 = hname.upper() + ".LOCAL:6969"
         text3 = " AND ADD SITE TO YOUR HOME SCREEN"
         image_file1 = '/home/pi/NBA-scoreboard/board_images/nba.png'
         image_file2 = '/home/pi/NBA-scoreboard/board_images/wifi_green.png'
