@@ -10,8 +10,8 @@
       git clone -b master https://github.com/nanhoes/NBA-scoreboard
       
 ## Start wifi-connect
-       sudo chmod +x /home/pi/NBA-scoreboard/service_scripts/install-wifi-connect.sh
-       nohup bash /home/pi/NBA-scoreboard/service_scripts/install-wifi-connect.sh & tail -F nohup.out
+      sudo chmod +x /home/pi/NBA-scoreboard/service_scripts/install-wifi-connect.sh
+      nohup bash /home/pi/NBA-scoreboard/service_scripts/install-wifi-connect.sh & tail -F nohup.out
       
 ## Install NBA-scoreboard
       cd NBA-scoreboard
