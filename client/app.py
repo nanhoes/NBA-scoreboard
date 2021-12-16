@@ -149,7 +149,7 @@ def gif():
     job = manager.StopUnit('NBA.service', 'replace')
     job = manager.StopUnit('starboard.service', 'replace')
     job = manager.StopUnit('conway.service', 'replace')
-    with open(filename, 'wb') as configfile:
+    with open(filename, 'w') as configfile:
         config.write(configfile)
     job = manager.RestartUnit('gif.service', 'replace')
     if update == "YES":
