@@ -161,7 +161,7 @@ echo "...done"
 
 echo "Creating data service:"
 sudo cp ./config/data.service /etc/systemd/system/
-sudo sed -i -e "/\[Service\]/a ExecStart=python3 ${install_path}/scoreboard/NBA_Data.py < /dev/zero &> /dev/null &" /etc/systemd/system/data.service
+sudo sed -i -e "/\[Service\]/a ExecStart=/usr/bin/python3 ${install_path}/scoreboard/NBA_Data.py < /dev/zero &> /dev/null &" /etc/systemd/system/data.service
 sudo mkdir /etc/systemd/system/data.service.d
 data_env_path=/etc/systemd/system/data.service.d/data_env.conf
 sudo touch $data_env_path
@@ -174,7 +174,7 @@ echo "...done"
 echo "Creating starboard service:"
 sudo cp ./config/starboard.service /etc/systemd/system/
 sudo sed -i -e "/\[Service\]/a ExecStartPre=pkill -f Wifi_Connected.py" /etc/systemd/system/starboard.service
-sudo sed -i -e "/\[Service\]/a ExecStart=python3 ${install_path}/animations/starboard.py < /dev/zero &> /dev/null &" /etc/systemd/system/starboard.service
+sudo sed -i -e "/\[Service\]/a ExecStart=/usr/bin/python3 ${install_path}/animations/starboard.py < /dev/zero &> /dev/null &" /etc/systemd/system/starboard.service
 sudo mkdir /etc/systemd/system/starboard.service.d
 starboard_env_path=/etc/systemd/system/starboard.service.d/starboard_env.conf
 sudo touch $starboard_env_path
