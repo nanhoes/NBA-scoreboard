@@ -65,7 +65,7 @@ class Render:
                 pos = canvas1.width
 
             canvas1 = matrix.SwapOnVSync(canvas1)
-            time.sleep(0.04)
+            time.sleep(0.03)
 
     def Wifi_Connected(self, printer=False):
         matrix = RGBMatrix(options=self.options)
@@ -99,7 +99,7 @@ class Render:
                 pos = canvas1.width
 
             canvas1 = matrix.SwapOnVSync(canvas1)
-            time.sleep(0.04)
+            time.sleep(0.03)
 
 if __name__=='__main__':
     while True:
