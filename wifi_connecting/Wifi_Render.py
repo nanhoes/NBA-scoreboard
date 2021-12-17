@@ -12,7 +12,7 @@ from PIL import Image, ImageChops
 
 class Render:
     def __init__(self):
-        
+
         # Configuration file
         dir = os.path.dirname(__file__)
         filename = os.path.join(dir, '/home/pi/NBA-scoreboard/config/matrix_options.ini')
@@ -25,6 +25,8 @@ class Render:
         self.options.gpio_slowdown = int(config['DEFAULT']['gpio_slowdown'])
         self.options.rows = int(config['DEFAULT']['rows'])
         self.options.cols = int(config['DEFAULT']['columns'])
+        self.options.chain_length = int(config['DEFAULT']['chain_length'])
+        self.options.parallel = int(config['DEFAULT']['parallel'])
         self.options.drop_privileges = int(config['DEFAULT']['drop_privileges'])
         self.options.hardware_mapping = config['DEFAULT']['hardware_mapping']
         self.options.row_address_type = int(config['DEFAULT']['row_address_type'])
@@ -33,6 +35,8 @@ class Render:
 
         self.font = graphics.Font()
         self.font.LoadFont("/home/pi/NBA-scoreboard/rpi-rgb-led-matrix/fonts/5x8.bdf")
+        self.font2 = graphics.Font()
+        self.font2.LoadFont("/home/pi/NBA-scoreboard/rpi-rgb-led-matrix/fonts/10x20.bdf") # STATLINE
 
     def Wifi_Not_Connected(self, printer=False):
         matrix = RGBMatrix(options=self.options)
@@ -44,28 +48,50 @@ class Render:
         text2 = "NBA-WIFI-SETUP"
         text3 = " FROM YOUR PHONE"
         image_file1 = '/home/pi/NBA-scoreboard/board_images/nba.png'
-        image_file2 = '/home/pi/NBA-scoreboard/board_images/wifi.png'
+        image_file2 = '/home/pi/NBA-scoreboard/board_images/wifired.png'
 
         while True:
-            self.image = Image.open(image_file1).convert('RGB')
-            self.image.thumbnail((18, 18), Image.ANTIALIAS)
-            canvas1.SetImage(self.image, 18, 4)
+            if self.options.chain_length == 1:
+                self.image = Image.open(image_file1).convert('RGB')
+                self.image.thumbnail((18, 18), Image.ANTIALIAS)
+                canvas1.SetImage(self.image, 18, 4)
 
-            self.image = Image.open(image_file2).convert('RGB')
-            self.image.thumbnail((20, 20), Image.ANTIALIAS)
-            canvas1.SetImage(self.image, 33, 5)
+                self.image = Image.open(image_file2).convert('RGB')
+                self.image.thumbnail((20, 20), Image.ANTIALIAS)
+                canvas1.SetImage(self.image, 33, 5)
 
-            # Clear scrolling text
-            for line in range(0,64):
-                graphics.DrawLine(canvas1, line, 21, line, 31, graphics.Color(0, 0, 0))
+                # Clear scrolling text
+                for line in range(0,64):
+                    graphics.DrawLine(canvas1, line, 21, line, 31, graphics.Color(0, 0, 0))
 
-            length = graphics.DrawText(canvas1, self.font, pos, 31, textColor1, text1) + graphics.DrawText(canvas1, self.font, pos+len(text1)*5, 31, textColor2, text2) + graphics.DrawText(canvas1, self.font, pos+len(text2+text1)*5, 31, textColor1, text3)
-            pos -= 1
-            if (pos + length < 0):
-                pos = canvas1.width
+                length = graphics.DrawText(canvas1, self.font, pos, 31, textColor1, text1) + graphics.DrawText(canvas1, self.font, pos+len(text1)*5, 31, textColor2, text2) + graphics.DrawText(canvas1, self.font, pos+len(text2+text1)*5, 31, textColor1, text3)
+                pos -= 1
+                if (pos + length < 0):
+                    pos = canvas1.width
 
-            canvas1 = matrix.SwapOnVSync(canvas1)
-            time.sleep(0.03)
+                canvas1 = matrix.SwapOnVSync(canvas1)
+                time.sleep(0.03)
+
+            if self.options.chain_length == 3:
+                self.image = Image.open(image_file1).convert('RGB')
+                self.image.thumbnail((50, 50), Image.ANTIALIAS)
+                canvas1.SetImage(self.image, 58, 16)
+
+                self.image = Image.open(image_file2).convert('RGB')
+                self.image.thumbnail((60, 60), Image.ANTIALIAS)
+                canvas1.SetImage(self.image, 100, 13)
+
+                # Clear scrolling text
+                for line in range(0,192):
+                    graphics.DrawLine(canvas1, line, 80, line, 95, graphics.Color(0, 0, 0))
+
+                length = graphics.DrawText(canvas1, self.font2, pos, 95, textColor1, text1) + graphics.DrawText(canvas1, self.font2, pos+len(text1)*10, 95, textColor2, text2) + graphics.DrawText(canvas1, self.font2, pos+len(text2+text1)*10, 95, textColor1, text3)
+                pos -= 1
+                if (pos + length < 0):
+                    pos = canvas1.width
+
+                canvas1 = matrix.SwapOnVSync(canvas1)
+                time.sleep(0.01)
 
     def Wifi_Connected(self, printer=False):
         matrix = RGBMatrix(options=self.options)
