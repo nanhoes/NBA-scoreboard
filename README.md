@@ -1,8 +1,8 @@
 ## Supported Matrices
-      P2 128x64 (NBA_Render_P2.py)
       P4 64x32 (NBA_Render.py)
-      Four P5 64x32 chained together (NBA_Render_2x2.py)
       Nine P5 64x32 chained together (NBA_Render_Big.py) (3x3)
+      P2 128x64 (NBA_Render_P2.py) (partial support)
+      Four P5 64x32 chained together (NBA_Render_2x2.py) (partial support)
       
 ## Prerequisites
       sudo apt-get update
