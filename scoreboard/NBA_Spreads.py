@@ -9,7 +9,7 @@ class NBA_Spreads:
         self.path_live = '/home/pi/NBA-scoreboard/scoreboard/NBASpreadsLive.json'
 
     def New_Day(self):
-        url = 'https://www.bovada.lv/services/sports/event/v2/events/A/description/basketball'
+        url = 'https://www.bovada.lv/services/sports/event/v2/events/A/description/basketball/nba'
 
         response = requests.get(url).json()
         data = {}
