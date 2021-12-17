@@ -4,9 +4,11 @@
       Four P5 64x32 chained together (NBA_Render_2x2.py)
       Nine P5 64x32 chained together (NBA_Render_Big.py) (3x3)
       
-## Clone NBA-Scoreboard
+## Prerequisites
       sudo apt-get update
       sudo apt-get install git python3-pip
+      
+## Clone NBA-Scoreboard
       git clone -b master https://github.com/nanhoes/NBA-scoreboard
       
 ## Start wifi-connect
