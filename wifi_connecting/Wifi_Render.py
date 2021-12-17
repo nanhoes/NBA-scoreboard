@@ -48,7 +48,7 @@ class Render:
         text2 = "NBA-WIFI-SETUP"
         text3 = " FROM YOUR PHONE"
         image_file1 = '/home/pi/NBA-scoreboard/board_images/nba.png'
-        image_file2 = '/home/pi/NBA-scoreboard/board_images/wifired.png'
+        image_file2 = '/home/pi/NBA-scoreboard/board_images/wifi.png'
 
         while True:
             if self.options.chain_length == 1:
