@@ -107,25 +107,45 @@ class Render:
         image_file2 = '/home/pi/NBA-scoreboard/board_images/wifi_green.png'
 
         while True:
-            self.image = Image.open(image_file1).convert('RGB')
-            self.image.thumbnail((18, 18), Image.ANTIALIAS)
-            canvas1.SetImage(self.image, 18, 4)
+            if self.options.chain_length == 1:
+                self.image = Image.open(image_file1).convert('RGB')
+                self.image.thumbnail((18, 18), Image.ANTIALIAS)
+                canvas1.SetImage(self.image, 18, 4)
 
-            self.image = Image.open(image_file2).convert('RGB')
-            self.image.thumbnail((20, 20), Image.ANTIALIAS)
-            canvas1.SetImage(self.image, 33, 5)
+                self.image = Image.open(image_file2).convert('RGB')
+                self.image.thumbnail((20, 20), Image.ANTIALIAS)
+                canvas1.SetImage(self.image, 33, 5)
 
-            # Clear scrolling text
-            for line in range(0,64):
-                graphics.DrawLine(canvas1, line, 21, line, 31, graphics.Color(0, 0, 0))
+                # Clear scrolling text
+                for line in range(0,64):
+                    graphics.DrawLine(canvas1, line, 21, line, 31, graphics.Color(0, 0, 0))
 
-            length = graphics.DrawText(canvas1, self.font, pos, 31, textColor1, text1) + graphics.DrawText(canvas1, self.font, pos+len(text1)*5, 31, textColor2, text2) + graphics.DrawText(canvas1, self.font, pos+len(text1+text2)*5, 31, textColor1, text3)
-            pos -= 1
-            if (pos + length < 0):
-                pos = canvas1.width
+                length = graphics.DrawText(canvas1, self.font, pos, 31, textColor1, text1) + graphics.DrawText(canvas1, self.font, pos+len(text1)*5, 31, textColor2, text2) + graphics.DrawText(canvas1, self.font, pos+len(text1+text2)*5, 31, textColor1, text3)
+                pos -= 1
+                if (pos + length < 0):
+                    pos = canvas1.width
 
-            canvas1 = matrix.SwapOnVSync(canvas1)
-            time.sleep(0.03)
+                canvas1 = matrix.SwapOnVSync(canvas1)
+                time.sleep(0.03)
+            if self.options.chain_length == 3:
+                self.image = Image.open(image_file1).convert('RGB')
+                self.image.thumbnail((50, 50), Image.ANTIALIAS)
+                canvas1.SetImage(self.image, 58, 16)
+
+                self.image = Image.open(image_file2).convert('RGB')
+                self.image.thumbnail((60, 60), Image.ANTIALIAS)
+                canvas1.SetImage(self.image, 100, 13)
+
+                for line in range(0,192):
+                    graphics.DrawLine(canvas1, line, 80, line, 95, graphics.Color(0, 0, 0))
+
+                length = graphics.DrawText(canvas1, self.font2, pos, 95, textColor1, text1) + graphics.DrawText(canvas1, self.font2, pos+len(text1)*10, 95, textColor2, text2) + graphics.DrawText(canvas1, self.font2, pos+len(text2+text1)*10, 95, textColor1, text3)
+                pos -= 1
+                if (pos + length < 0):
+                    pos = canvas1.width
+
+                canvas1 = matrix.SwapOnVSync(canvas1)
+                time.sleep(0.01)
 
 if __name__=='__main__':
     while True:
