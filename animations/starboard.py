@@ -5,9 +5,6 @@ import colorsys
 import configparser
 import os
 
-mode = 1
-maxdrops = random.randint(20, 150)
-
 # Configuration file
 dir = os.path.dirname(__file__)
 filename = os.path.join(dir, '../config/matrix_options.ini')
@@ -28,6 +25,10 @@ options.row_address_type = int(config['DEFAULT']['row_address_type'])
 options.pwm_bits = 11
 
 mode = 1
+if options.chain_length == 3:
+    maxdrops = random.randint(100, 200) # Amount of stars
+else:
+    maxdrops = random.randint(20, 75) # Amount of stars
 
 class Drop:
     def __init__(self):
@@ -36,7 +37,10 @@ class Drop:
         self.y = random.randint(0, options.rows*options.parallel - 1)
         self.r = self.b = self.g = 0
         self.generateColor()
-        self.speed = 1 + (random.random() * 3)
+        if options.chain_length == 3:
+            self.speed = 1 + (random.random() * 2)
+        else:
+            self.speed = 1 + (random.random() * .5)
         self.strength = random.randint(40, 100)/100.0
     def generateColor(self):
         (r, g, b) = colorsys.hsv_to_rgb(random.random(), 1, 1)
