@@ -161,27 +161,32 @@ class Render:
             for line in range(24,26):
                 graphics.DrawLine(canvas, 61, line, 61, line, graphics.Color(255, 255, 255))
 
+            period = game['period']
             timeremaining = game['gameStatusText']
-            if timeremaining[0] == 'Q' and timeremaining[3] == '0':
+            if period <= 5 and timeremaining[3] == '0':
                 timeremaining = timeremaining[:3] + timeremaining[4:]
-                if timeremaining[0] == 'Q' and timeremaining[3] == '0':
+                if timeremaining[3] == '0':
                     timeremaining = timeremaining[:3] + timeremaining[4:]
-            if timeremaining[1] == '1':
+            if period > 5 and timeremaining[4] == '0':
+                timeremaining = timeremaining[:4] + timeremaining[5:]
+                if timeremaining[4] == '0':
+                    timeremaining = timeremaining[:4] + timeremaining[5:]
+            if period == 1:
                 timeremaining = '1ST' + timeremaining[2:]
-            if timeremaining[1] == '2':
+            if period == 2:
                 timeremaining = '2ND' + timeremaining[2:]
-            if timeremaining[1] == '3':
+            if period == 3:
                 timeremaining = '3RD' + timeremaining[2:]
-            if timeremaining[1] == '4':
+            if period == 4:
                 timeremaining = '4TH' + timeremaining[2:]
-            if timeremaining[1] == '5':
-                timeremaining = 'OT' + timeremaining[2:]
-            if timeremaining[1] == '6':
-                timeremaining = 'OT2' + timeremaining[2:]
-            if timeremaining[1] == '7':
-                timeremaining = 'OT3' + timeremaining[2:]
-            if timeremaining[1] == '8':
-                timeremaining = 'OT4' + timeremaining[2:]
+            if period == 5:
+                timeremaining = 'OT' + timeremaining[3:]
+            if period == 6:
+                timeremaining = 'OT2' + timeremaining[3:]
+            if period == 7:
+                timeremaining = 'OT3' + timeremaining[3:]
+            if period == 8:
+                timeremaining = 'OT4' + timeremaining[3:]
             if timeremaining == 'Half':
                 timeremaining = 'HALFTIME'
 
