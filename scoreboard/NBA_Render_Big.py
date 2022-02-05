@@ -482,11 +482,11 @@ class Render:
                     awaystatline = awayleadername[0] + '.' + str(awayleaderlastname) + ' ' + str(
                         awayleaderpoints) + '-' + str(awayleaderrebounds) + '-' + str(awayleaderassists)
 
-                    for line in range(85, 97):  # statline background
+                    for line in range(84, 96):  # statline background
                         graphics.DrawLine(canvas, 0, line, 191,
                                           line, graphics.Color(255, 255, 255))
 
-                    len1 = graphics.DrawText(canvas, self.font4, posx, 96, graphics.Color(
+                    len1 = graphics.DrawText(canvas, self.font4, posx, 95, graphics.Color(
                         0, 0, 0), awaystatline.upper() + '  ' + homestatline.upper())
                     if len1 <= canvas.width:
                         break
