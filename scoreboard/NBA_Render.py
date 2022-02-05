@@ -163,30 +163,31 @@ class Render:
 
             period = game['period']
             timeremaining = game['gameStatusText']
-            if period <= 5 and timeremaining[3] == '0':
-                timeremaining = timeremaining[:3] + timeremaining[4:]
-                if timeremaining[3] == '0':
+            if timeremaining[0] == 'Q' or timeremaining[0] == 'O':
+                if period <= 5 and timeremaining[3] == '0':
                     timeremaining = timeremaining[:3] + timeremaining[4:]
-            if period > 5 and timeremaining[4] == '0':
-                timeremaining = timeremaining[:4] + timeremaining[5:]
-                if timeremaining[4] == '0':
+                    if timeremaining[3] == '0':
+                        timeremaining = timeremaining[:3] + timeremaining[4:]
+                if period > 5 and timeremaining[4] == '0':
                     timeremaining = timeremaining[:4] + timeremaining[5:]
-            if period == 1:
-                timeremaining = '1ST' + timeremaining[2:]
-            if period == 2:
-                timeremaining = '2ND' + timeremaining[2:]
-            if period == 3:
-                timeremaining = '3RD' + timeremaining[2:]
-            if period == 4:
-                timeremaining = '4TH' + timeremaining[2:]
-            if period == 5:
-                timeremaining = 'OT' + timeremaining[3:]
-            if period == 6:
-                timeremaining = 'OT2' + timeremaining[3:]
-            if period == 7:
-                timeremaining = 'OT3' + timeremaining[3:]
-            if period == 8:
-                timeremaining = 'OT4' + timeremaining[3:]
+                    if timeremaining[4] == '0':
+                        timeremaining = timeremaining[:4] + timeremaining[5:]
+                if period == 1:
+                    timeremaining = '1ST' + timeremaining[2:]
+                if period == 2:
+                    timeremaining = '2ND' + timeremaining[2:]
+                if period == 3:
+                    timeremaining = '3RD' + timeremaining[2:]
+                if period == 4:
+                    timeremaining = '4TH' + timeremaining[2:]
+                if period == 5:
+                    timeremaining = 'OT' + timeremaining[3:]
+                if period == 6:
+                    timeremaining = 'OT2' + timeremaining[3:]
+                if period == 7:
+                    timeremaining = 'OT3' + timeremaining[3:]
+                if period == 8:
+                    timeremaining = 'OT4' + timeremaining[3:]
             if timeremaining == 'Half':
                 timeremaining = 'HALFTIME'
 
