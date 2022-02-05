@@ -297,8 +297,9 @@ class Render:
                     graphics.DrawText(canvas, self.font2, 177 - len(str(spread))
                                       * 8, 51, graphics.Color(0, 0, 255), spread)
 
-                period = game['period']
-                timeremaining = game['gameStatusText']
+            period = game['period']
+            timeremaining = game['gameStatusText']
+            if timeremaining[0] == 'Q' or timeremaining[0] == 'O':
                 if period <= 5 and timeremaining[3] == '0':
                     timeremaining = timeremaining[:3] + timeremaining[4:]
                     if timeremaining[3] == '0':
@@ -323,8 +324,8 @@ class Render:
                     timeremaining = 'OT3' + timeremaining[3:]
                 if period == 8:
                     timeremaining = 'OT4' + timeremaining[3:]
-                if timeremaining == 'Half':
-                    timeremaining = 'HALFTIME'
+            if timeremaining == 'Half':
+                timeremaining = 'HALFTIME'
 
                 timeremaining = timeremaining.upper()
 
