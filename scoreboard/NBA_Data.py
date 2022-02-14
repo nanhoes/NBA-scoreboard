@@ -44,7 +44,7 @@ class NBA_Data:
             print(str(dt.datetime.strftime(dt.datetime.now(), '%m/%d/%Y %H:%M')) + string)
             #with open('/home/pi/Documents/NBAlog.txt', 'a') as file:
             #    file.write(string)
-            time.sleep(3600*2)
+            time.sleep(1800*2)
             print("")
             #sleep for 2 hours
         if live == True:
