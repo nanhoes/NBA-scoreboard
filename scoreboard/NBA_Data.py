@@ -46,7 +46,7 @@ class NBA_Data:
             #    file.write(string)
             time.sleep(1800*2)
             print("")
-            #sleep for 2 hours
+            #sleep for 1 hours
         if live == True:
             NBA_Spreads().Spreads_Update()
             print(str(dt.datetime.strftime(dt.datetime.now(), '%m/%d/%Y %H:%M')) + ' - Live game.')
