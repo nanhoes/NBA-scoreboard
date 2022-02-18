@@ -164,11 +164,11 @@ class Render:
             period = game['period']
             timeremaining = game['gameStatusText']
             if timeremaining[0] == 'Q' or timeremaining[0] == 'O':
-                if period <= 5 and timeremaining[3] == '0':
+                if period < 5 and timeremaining[3] == '0':
                     timeremaining = timeremaining[:3] + timeremaining[4:]
                     if timeremaining[3] == '0':
                         timeremaining = timeremaining[:3] + timeremaining[4:]
-                if period > 5 and timeremaining[4] == '0':
+                if period >= 5 and timeremaining[4] == '0':
                     timeremaining = timeremaining[:4] + timeremaining[5:]
                     if timeremaining[4] == '0':
                         timeremaining = timeremaining[:4] + timeremaining[5:]
