@@ -93,6 +93,9 @@ class Render:
             hometeam = game['homeTeam']['teamTricode']
             awayteam = game['awayTeam']['teamTricode']
 
+            awayrecord = str(game['awayTeam']['wins']) + '-' + str(game['awayTeam']['losses'])
+            homerecord = str(game['homeTeam']['wins']) + '-' + str(game['homeTeam']['losses'])
+
             home = (game['homeTeam']['teamCity'] + '-' + game['homeTeam']['teamName']).replace(' ', '-').lower()
             away = (game['awayTeam']['teamCity'] + '-' + game['awayTeam']['teamName']).replace(' ', '-').lower()
             if home == 'la-clippers':
@@ -123,11 +126,13 @@ class Render:
                     graphics.DrawLine(canvas, 0, line, 18, line, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]))
                 except:
                     graphics.DrawLine(canvas, 0, line, 18, line, graphics.Color(255, 0, 0))
+                    homerecord = '' 
             for line in range(0,9):
                 try:
                     graphics.DrawLine(canvas, 0, line, 18, line, graphics.Color(self.team_colors[awayteam][0][0], self.team_colors[awayteam][0][1], self.team_colors[awayteam][0][2]))
                 except:
                     graphics.DrawLine(canvas, 0, line, 18, line, graphics.Color(0, 0, 255))
+                    awayrecord = ''
             homescore = game['homeTeam']['score']
             awayscore = game['awayTeam']['score']
 
@@ -278,8 +283,6 @@ class Render:
 
 
             if game['gameStatus'] == 1: #upcoming game
-                awayrecord = str(game['awayTeam']['wins']) + '-' + str(game['awayTeam']['losses'])
-                homerecord = str(game['homeTeam']['wins']) + '-' + str(game['homeTeam']['losses'])
                 graphics.DrawText(canvas, self.font2, 21, 7, graphics.Color(200, 200, 200), awayrecord) #away team record
                 graphics.DrawText(canvas, self.font2, 21, 16, graphics.Color(200, 200, 200), homerecord) #home team record
                 if game['gameStatusText'] != 'PPD': #upcoming game
