@@ -126,13 +126,11 @@ class Render:
                     graphics.DrawLine(canvas, 0, line, 18, line, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]))
                 except:
                     graphics.DrawLine(canvas, 0, line, 18, line, graphics.Color(255, 0, 0))
-                    homerecord = '' 
             for line in range(0,9):
                 try:
                     graphics.DrawLine(canvas, 0, line, 18, line, graphics.Color(self.team_colors[awayteam][0][0], self.team_colors[awayteam][0][1], self.team_colors[awayteam][0][2]))
                 except:
                     graphics.DrawLine(canvas, 0, line, 18, line, graphics.Color(0, 0, 255))
-                    awayrecord = ''
             homescore = game['homeTeam']['score']
             awayscore = game['awayTeam']['score']
 
