@@ -190,17 +190,21 @@ class Render:
 
                 # TEAM COLOR SQUARE
                 for line in range(31, 61):
-                    graphics.DrawLine(canvas, 0, line, 64, line, graphics.Color(
-                        self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]))
+                    try:
+                        graphics.DrawLine(canvas, 0, line, 64, line, graphics.Color(self.team_colors[hometeam][0][0], self.team_colors[hometeam][0][1], self.team_colors[hometeam][0][2]))
+                    except:
+                        graphics.DrawLine(canvas, 0, line, 64, line, graphics.Color(255, 0, 0))
                 for line in range(0, 30):
-                    graphics.DrawLine(canvas, 0, line, 64, line, graphics.Color(
-                        self.team_colors[awayteam][0][0], self.team_colors[awayteam][0][1], self.team_colors[awayteam][0][2]))
+                    try:
+                        graphics.DrawLine(canvas, 0, line, 64, line, graphics.Color(0, 0, 255))
 
                 # TEAM NAMES
-                graphics.DrawText(canvas, self.font, 4, 57, graphics.Color(
-                    self.team_colors[hometeam][1][0], self.team_colors[hometeam][1][1], self.team_colors[hometeam][1][2]), hometeam)
-                graphics.DrawText(canvas, self.font, 4, 26, graphics.Color(
-                    self.team_colors[awayteam][1][0], self.team_colors[awayteam][1][1], self.team_colors[awayteam][1][2]), awayteam)
+                try:
+                    graphics.DrawText(canvas, self.font, 4, 57, graphics.Color(self.team_colors[hometeam][1][0], self.team_colors[hometeam][1][1], self.team_colors[hometeam][1][2]), hometeam)
+                    graphics.DrawText(canvas, self.font, 4, 26, graphics.Color(self.team_colors[awayteam][1][0], self.team_colors[awayteam][1][1], self.team_colors[awayteam][1][2]), awayteam)
+                except:
+                    graphics.DrawText(canvas, self.font, 4, 57, graphics.Color(255, 255, 255), hometeam)
+                    graphics.DrawText(canvas, self.font, 4, 26, graphics.Color(255, 255, 255), awayteam)
 
                 # BETTING ODDS
                 homescore = game['homeTeam']['score']
