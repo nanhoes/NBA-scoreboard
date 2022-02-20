@@ -196,6 +196,8 @@ class Render:
                         graphics.DrawLine(canvas, 0, line, 64, line, graphics.Color(255, 0, 0))
                 for line in range(0, 30):
                     try:
+                        graphics.DrawLine(canvas, 0, line, 64, line, graphics.Color(self.team_colors[awayteam][0][0], self.team_colors[awayteam][0][1], self.team_colors[awayteam][0][2]))
+                    except:
                         graphics.DrawLine(canvas, 0, line, 64, line, graphics.Color(0, 0, 255))
 
                 # TEAM NAMES
