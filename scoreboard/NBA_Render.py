@@ -127,7 +127,7 @@ class Render:
                 try:
                     graphics.DrawLine(canvas, 0, line, 18, line, graphics.Color(self.team_colors[awayteam][0][0], self.team_colors[awayteam][0][1], self.team_colors[awayteam][0][2]))
                 except:
-                    graphics.DrawLine(canvas, 0, line, 18, line, graphics.Color(0, 255, 0))
+                    graphics.DrawLine(canvas, 0, line, 18, line, graphics.Color(0, 0, 255))
             homescore = game['homeTeam']['score']
             awayscore = game['awayTeam']['score']
 
@@ -155,8 +155,8 @@ class Render:
                 graphics.DrawText(canvas, self.font, 1, 18, graphics.Color(self.team_colors[hometeam][1][0], self.team_colors[hometeam][1][1], self.team_colors[hometeam][1][2]), hometeam)
                 graphics.DrawText(canvas, self.font, 1, 8, graphics.Color(self.team_colors[awayteam][1][0], self.team_colors[awayteam][1][1], self.team_colors[awayteam][1][2]), awayteam)
             except:
-                graphics.DrawText(canvas, self.font, 1, 18, graphics.Color(255, 255, 255), hometeam)
-                graphics.DrawText(canvas, self.font, 1, 8, graphics.Color(255, 255, 255), awayteam)
+                graphics.DrawText(canvas, self.font, 1, 18, graphics.Color(200, 200, 200), hometeam)
+                graphics.DrawText(canvas, self.font, 1, 8, graphics.Color(200, 200, 200), awayteam)
 
             # NBA Logo
             for line in range(20,30):
