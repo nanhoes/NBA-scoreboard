@@ -155,8 +155,8 @@ class Render:
                 graphics.DrawText(canvas, self.font, 1, 18, graphics.Color(self.team_colors[hometeam][1][0], self.team_colors[hometeam][1][1], self.team_colors[hometeam][1][2]), hometeam)
                 graphics.DrawText(canvas, self.font, 1, 8, graphics.Color(self.team_colors[awayteam][1][0], self.team_colors[awayteam][1][1], self.team_colors[awayteam][1][2]), awayteam)
             except:
-                graphics.DrawText(canvas, self.font, 1, 18, graphics.Color(200, 200, 200), hometeam)
-                graphics.DrawText(canvas, self.font, 1, 8, graphics.Color(200, 200, 200), awayteam)
+                graphics.DrawText(canvas, self.font, 1, 18, graphics.Color(255, 255, 255), hometeam)
+                graphics.DrawText(canvas, self.font, 1, 8, graphics.Color(255, 255, 255), awayteam)
 
             # NBA Logo
             for line in range(20,30):
