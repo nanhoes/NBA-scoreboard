@@ -118,6 +118,13 @@ sudo rm -rf /usr/bin/conway_start.*
 sudo systemctl daemon-reload
 echo "...done"
 
+echo "Removing clock service if it exists:"
+sudo systemctl stop clock
+sudo rm -rf /etc/systemd/system/clock.*
+sudo rm -rf /usr/bin/clock_start.*
+sudo systemctl daemon-reload
+echo "...done"
+
 echo "Removing gif service if it exists:"
 sudo systemctl stop gif
 sudo rm -rf /etc/systemd/system/gif.*
@@ -145,7 +152,7 @@ sudo rm -rf /etc/systemd/system/wifi_connect.*
 sudo rm -rf /usr/bin/start-wifi_connect.*
 sudo systemctl daemon-reload
 echo "...done"
- 
+
 echo "Creating NBA service:"
 sudo cp ${install_path}/service_scripts/NBA_start.sh /usr/bin
 sudo cp ${install_path}/service_scripts/kill_wifi_render.sh /usr/bin
@@ -203,6 +210,22 @@ sudo systemctl daemon-reload
 sudo systemctl disable conway
 echo "...done"
 
+echo "Creating clock service:"
+sudo cp ${install_path}/service_scripts/clock_start.sh /usr/bin
+sudo cp ${install_path}/service_scripts/kill_wifi_render.sh /usr/bin
+sudo chmod +x /usr/bin/kill_wifi_render.sh
+sudo chmod +x /usr/bin/clock_start.sh
+sudo cp ./config/clock.service /etc/systemd/system/
+sudo sed -i -e "/\[Service\]/a ExecStartPre=/usr/bin/kill_wifi_render.sh < /dev/zero &> /dev/null &" /etc/systemd/system/clock.service
+sudo sed -i -e "/\[Service\]/a ExecStart=/usr/bin/clock_start.sh < /dev/zero &> /dev/null &" /etc/systemd/system/clock.service
+sudo mkdir /etc/systemd/system/clock.service.d
+clock_env_path=/etc/systemd/system/clock.service.d/clock_env.conf
+sudo touch $clock_env_path
+sudo echo "[Service]" >> $clock_env_path
+sudo systemctl daemon-reload
+sudo systemctl disable clock
+echo "...done"
+
 echo "Creating gif service:"
 sudo cp ${install_path}/service_scripts/gif_start.sh /usr/bin
 sudo cp ${install_path}/service_scripts/kill_wifi_render.sh /usr/bin
@@ -254,7 +277,7 @@ sudo mkdir /etc/systemd/system/wifi_connect.service.d
 sudo systemctl daemon-reload
 sudo systemctl enable wifi_connect
 echo "...done"
- 
+
 echo "Gathering spreads data for the day..."
 sudo python3 /home/pi/NBA-scoreboard/scoreboard/Spreads_New_Day.py
 echo "...done"
