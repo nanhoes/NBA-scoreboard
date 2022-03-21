@@ -48,7 +48,7 @@ class Render:
             for day in os.listdir(self.path):
                 if day=='.DS_Store':
                     continue
-                if day == 'DataToday.json':
+                if day == 'DataTodayTest.json':
                     with open(self.path + day) as file:
                         game_data = json.load(file)
 
@@ -193,7 +193,7 @@ class Render:
                 if period == 4:
                     timeremaining = '4TH' + timeremaining[2:]
                 if period == 5:
-                    timeremaining = 'OT' + timeremaining[3:]
+                    timeremaining = 'OT ' + timeremaining[3:]
                 if period == 6:
                     timeremaining = 'OT2' + timeremaining[3:]
                 if period == 7:
@@ -208,7 +208,7 @@ class Render:
             if game['gameStatus'] == 2: #game is live
                 graphics.DrawText(canvas, self.font, 35 - len(str(awayscore))*5, 8, graphics.Color(0, 0, 0), str(awayscore))
                 graphics.DrawText(canvas, self.font, 35 - len(str(homescore))*5, 18, graphics.Color(0, 0, 0), str(homescore))
-                if (game['gameStatusText'][0] == 'Q' and game['gameStatusText'][1] >= '4') and (game['gameStatusText'][3] == '0' and game['gameStatusText'][4] <= '4'): #Q4 or OT < 5min remaining
+                if ((period >= 4) and (game['gameStatusText'][3] == '0' and game['gameStatusText'][4] <= '4')) or period > 4: #Q4 or OT < 5min remaining
                     if homescore > awayscore:
                         if (homescore - awayscore) <= 10: #close game
                             start_time = time.time()

@@ -303,6 +303,7 @@ class Render:
                     graphics.DrawText(canvas, self.font2, 177 - len(str(spread))
                                       * 8, 51, graphics.Color(0, 0, 255), spread)
 
+                period = game['period']
                 timeremaining = game['gameStatusText']
                 if timeremaining[0] == 'Q' and timeremaining[3] == '0':
                     timeremaining = timeremaining[:3] + timeremaining[4:]
@@ -335,7 +336,7 @@ class Render:
                     graphics.DrawText(canvas, self.font, 126 - len(str(homescore))
                                       * 19, 57, graphics.Color(0, 0, 0), str(homescore))
                     # Q4 or OT < 5min remaining
-                    if (game['gameStatusText'][0] == 'Q' and game['gameStatusText'][1] >= '4') and (game['gameStatusText'][3] == '0' and game['gameStatusText'][4] <= '4'):
+                    if (period >= 4) and (game['gameStatusText'][3] == '0' and game['gameStatusText'][4] <= '4'):
                         if homescore > awayscore:
                             if (homescore - awayscore) <= 10:  # close game
                                 graphics.DrawText(canvas, self.font3, 4, 79, graphics.Color(
